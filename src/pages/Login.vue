@@ -20,28 +20,34 @@
 </script>
 
 <template>
-    <img class="logo" src="../assets/images/admin-logo.png" />
-    <h2 class="label">Please login using the given credentials.</h2> 
-
-    <!-- login form -->
-    <div class="login-cont">
-        <!-- username -->
-        <h2 class="label-light">Username</h2> 
-        <input type="text" class="primary" /> <!-- use the class "primary" for common input css -->
-
-        <!-- password (uses InputIcon component)-->
-        <h2 class="label-light">Password</h2>
-        <input-icon type="password" icon="/icons/hide.svg" isPassword="true" />
+    <div class="container">
+        <img class="logo" src="../assets/images/admin-logo.png" />
+        <h2 class="label">Please login using the given credentials.</h2> 
+    
+        <!-- login form -->
+        <div class="login-cont">
+            <!-- username -->
+            <h2 class="label-light">Username</h2> 
+            <input type="text" class="primary" /> <!-- use the class "primary" for common input css -->
+    
+            <!-- password (uses InputIcon component)-->
+            <h2 class="label-light">Password</h2>
+            <input-icon type="password" icon="/icons/hide.svg" isPassword="true" />
+        </div>
+    
+        <!-- login button -->
+        <button class="login-btn" type="button" @click="redirectToHome">Login</button>
+    
+        <!-- Kbytes Logo Footer -->
+        <Footer />
     </div>
-
-    <!-- login button -->
-    <button class="login-btn" type="button" @click="redirectToHome">Login</button>
-
-    <!-- Kbytes Logo Footer -->
-    <Footer />
 </template>
 
 <style scoped>
+    .container {
+        justify-content: center;
+    }
+
     .logo {
         width: clamp(256px, 5vw, 400px);           
     }
@@ -59,7 +65,6 @@
         padding: 1em; 
 
         border-radius: 5px;
-        width: 100%;
     }
 
     .label-light {
