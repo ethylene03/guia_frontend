@@ -9,7 +9,10 @@
   --color-error: #963A3A;
   
   --color-primary: #FFF0DA;
+  
   --color-secondary: #534137;
+  --color-secondary-darker: #372d28;
+
   --color-tertiary: #573A2A;
 
   --color-scrollbar: #8D7262;
@@ -29,10 +32,10 @@
   
   --section-gap: 160px;
 
-  --text-header: clamp(20px, 5vw, 25px);
-  --text-button: clamp(13px, 5vw, 18px);
-  --text-label: clamp(13px, 5vw, 18px);
-  --text-desc: clamp(15px, 5vw, 20px);
+  --text-header: clamp(17px, 5vw, 22px);
+  --text-button: clamp(10px, 5vw, 15px);
+  --text-label: clamp(10px, 5vw, 15px);
+  --text-desc: clamp(12px, 5vw, 17px);
 }
 
 *,
@@ -55,6 +58,35 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;  
+
+  display: flex;
+  place-items: center;
+}
+
+h2, button, text {
+  font-family: Inter, sans-serif;
+  font-weight: normal;
+}
+
+h1 {
+  font-size: var(--text-header);
+  font-family: Inter, sans-serif;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: var(--text-label);
+}
+
+button {
+  font-size: var(--text-button);
+  padding: 0.5em 3em;
+  border-radius: 10px;
+  border: none;
+}
+
+text {
+  font-size: var(--text-desc);
 }
 
 /* Style for the scrollbar track */

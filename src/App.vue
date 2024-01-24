@@ -1,16 +1,9 @@
-<script setup>
-</script>
-
 <template>
-  <h1>Guía</h1>
+  <router-view></router-view>
 </template>
 
 <style scoped>
-body{
-  background-color: #FFF0DA;
-}
-
-@media (min-width: 1024px) {
-
-}
+  body  {
+    background-color: var(--color-primary);
+  }
 </style>
