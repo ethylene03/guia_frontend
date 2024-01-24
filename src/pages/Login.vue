@@ -13,7 +13,7 @@
         // all methods ust be declared here
         methods: {
             redirectToHome() {
-                this.$router.push('/home'); // redirection
+                this.$router.push('/admin/home'); // redirection
             }
         }
     };
@@ -49,7 +49,7 @@
     }
 
     .logo {
-        width: clamp(256px, 5vw, 400px);           
+        width: clamp(256px, 300px, 400px);           
     }
 
     .label {

@@ -24,7 +24,7 @@
 
 <style scoped>
     .footer {
-        position: absolute;
-        top: 90vh;
+        position: relative;
+        top: 70px;
     }
 </style> 

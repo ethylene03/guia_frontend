@@ -13,8 +13,8 @@ import Login from './pages/Login.vue'
 const router = createRouter({
     history: createWebHistory(),
     routes: [
-        { path: '/', component: Login },
-        { path: '/home', component: Home },
+        { path: '/admin/login', component: Login },
+        { path: '/admin/home', component: Home },
     ]
 });
 
