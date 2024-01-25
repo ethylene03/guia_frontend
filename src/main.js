@@ -9,6 +9,7 @@ import App from './App.vue'
 import Home from './pages/admin/Home.vue'
 import Login from './pages/admin/Login.vue'
 import ChangePassword from './pages/admin/ChangePassword.vue'
+import AddArtwork from "./pages/admin/AddArtwork.vue"
 
 // add paths here
 const router = createRouter({
@@ -17,7 +18,8 @@ const router = createRouter({
         { path: '/', redirect: '/admin/login' }, // to change to correct redirection screen
         { path: '/admin/login', component: Login },
         { path: '/admin/home', component: Home },
-        { path: '/admin/change-password', component: ChangePassword}
+        { path: '/admin/change-password', component: ChangePassword},
+        { path: '/admin/add-artwork', component: AddArtwork},
     ]
 });
 

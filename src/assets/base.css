@@ -4,6 +4,8 @@
   --color-softwhite: #FEFEFE;
 
   --color-accent: #9C6C38;
+  --color-accent-darker: #7b552c;
+
   --color-surface: #9F735A;
   
   --color-error: #963A3A;
@@ -60,6 +62,7 @@ body {
   -moz-osx-font-smoothing: grayscale;  
 
   display: flex;
+  justify-content: center;
 }
 
 h2, button, text {
@@ -79,9 +82,13 @@ h2 {
 
 button {
   font-size: var(--text-button);
-  padding: 0.5em 3em;
+  padding: 10px 3em;
   border-radius: 10px;
   border: none;
+        
+  display: flex;
+  align-content: center;
+  justify-content: center;
 }
 
 text {

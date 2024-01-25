@@ -28,7 +28,7 @@
         <div class="login-cont">
             <!-- username -->
             <h2 class="label-light">Username</h2> 
-            <input type="text" class="primary" /> <!-- use the class "primary" for common input css -->
+            <input type="text" class="primary-form" /> <!-- use the class "primary" for common input css -->
     
             <!-- password (uses InputIcon component)-->
             <h2 class="label-light">Password</h2>

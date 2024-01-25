@@ -10,7 +10,7 @@
 }
 
 /* GLOBAL CSS */
-input.primary {
+.primary-form {
   width: 100%;
   background-color: var(--color-primary);
   border: 2px solid var(--color-secondary);
