@@ -55,7 +55,7 @@
 <template>
     <div class="container">
         <Header />
-        <h1>Add New Artwork</h1>
+        <h1>Edit Artwork</h1>
         
         <!-- input for upload file -->
         <input id="fileUpload" type="file" accept="image/*" @change="receiveFiles" multiple hidden /> 
