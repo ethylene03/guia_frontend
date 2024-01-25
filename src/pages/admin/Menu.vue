@@ -52,7 +52,7 @@
             </button>
 
             <!-- logout button -->
-            <button class="logout-btn" type="button" @click="goTo('/admin/home')">
+            <button class="logout-btn" type="button" @click="goTo('/admin/login')">
                 <img src="/icons/logout.svg" alt="logout" class="logout-icon" />
                 <h2>Logout</h2>
             </button>
