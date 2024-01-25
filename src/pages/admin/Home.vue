@@ -35,7 +35,6 @@
         },
 
         beforeDestroy() {
-            // Remove the resize event listener to prevent memory leaks
             window.removeEventListener('resize', this.updateScreenSize);
         },
     };
@@ -52,7 +51,7 @@
             <img src="/icons/menu.svg" class="menu" @click="redirect('./menu')" />
         </div>
     
-        <!-- header -->
+        <!-- museum name -->
         <h1>Jose T. Joya Gallery</h1>
     
         <div :class="{'dashboard-cont': isBigScreen, 'dashboard-cont-small': !isBigScreen}">
