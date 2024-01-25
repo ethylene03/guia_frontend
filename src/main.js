@@ -13,6 +13,7 @@ import Login from './pages/Login.vue'
 const router = createRouter({
     history: createWebHistory(),
     routes: [
+        { path: '/', redirect: '/admin/login' }, // to change to correct redirection screen
         { path: '/admin/login', component: Login },
         { path: '/admin/home', component: Home },
     ]
