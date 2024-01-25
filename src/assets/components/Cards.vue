@@ -8,6 +8,19 @@
             4. label - label of each card
         
     To Use:
+        in script tags:
+            import Cards from "../../assets/components/Cards.vue"
+
+            export default {
+                components: {
+                    ...,
+                    Cards,
+                },
+            };
+
+        in template tags:
+            <Cards :isNum="true" :number="103" label="Artworks in the Directory"/>
+            <Cards :isNum="false" label="Most Popular Artworks"/>
 
 -->
 <script>
