@@ -65,18 +65,18 @@
                 </button>
 
                 <!-- visitor portal if big screen -->
-                <button v-if="isBigScreen" type="button" class="dashboard-btn visitor-portal" @click="redirect('/')" :style="{marginTop: '40px'}">
+                <button v-if="isBigScreen" type="button" class="dashboard-btn visitor-portal" @click="redirect('/')" :style="{marginTop: '20px'}">
                     <img src="../../icons/launch.svg" alt="launch portal" />
                     <h2>Go to Visitor Portal</h2>
                 </button>
             </div>
 
             <!-- cards -->
-            <div class="cards">
+            <div class="cards" :style="{marginBottom: '50px'}">
                 <Cards :isNum="true" :number="103" label="Artworks in the Directory"/>
                 <Cards :isNum="false" label="Most Popular Artworks"/>
                 <Cards :isNum="true" :number="52" label="Museum Guide Users in the Last 24h"/>
-                <Cards :isNum="false" label="Most Crowded Sections"/>
+                <Cards :isNum="false" label="Most Crowded Sections" />
             </div>
         </div>
 
