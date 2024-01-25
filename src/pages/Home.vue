@@ -7,12 +7,37 @@
         components: {
             Cards,
         },
+
+        data() {
+            return {
+                screenWidth: window.innerWidth,
+            };
+        },
+
+        computed: {
+            isBigScreen() {
+                return this.screenWidth > 650;
+            },
+        },
+
+        mounted() {
+            window.addEventListener('resize', this.updateScreenSize);
+        },
         
         methods: {
             redirect(path) {
                 this.$router.push(path);
-            }
-        }
+            },
+
+            updateScreenSize() {
+                this.screenWidth = window.innerWidth;
+            },
+        },
+
+        beforeDestroy() {
+            // Remove the resize event listener to prevent memory leaks
+            window.removeEventListener('resize', this.updateScreenSize);
+        },
     };
 </script>
 
@@ -30,22 +55,33 @@
         <!-- header -->
         <h1>Jose T. Joya Gallery</h1>
     
-        <!-- add artwork -->
-        <button type="button" class="dashboard-btn add-artwork" @click="redirect('./add-artwork')" :style="{marginBottom: '10px'}">
-            <img src="../../icons/add.svg" alt="add artwork" />
-            <h2>Add Artwork</h2>
-        </button>
+        <div :class="{'dashboard-cont': isBigScreen, 'dashboard-cont-small': !isBigScreen}">
+            <!-- buttons -->
+            <div :class="{'btn-cont': isBigScreen, 'btn-cont-small': !isBigScreen}">
+                <!-- add artwork -->
+                <button type="button" class="dashboard-btn add-artwork" @click="redirect('./add-artwork')" :style="{marginBottom: '10px'}">
+                    <img src="../../icons/add.svg" alt="add artwork" />
+                    <h2>Add Artwork</h2>
+                </button>
 
-        <!-- cards -->
-        <div class="cards">
-            <Cards :isNum="true" number="103" label="Artworks in the Directory"/>
-            <Cards :isNum="false" label="Most Popular Artworks"/>
-            <Cards :isNum="true" number="52" label="Museum Guide Users in the Last 24h"/>
-            <Cards :isNum="false" label="Most Crowded Sections"/>
+                <!-- visitor portal if big screen -->
+                <button v-if="isBigScreen" type="button" class="dashboard-btn visitor-portal" @click="redirect('/')" :style="{marginTop: '40px'}">
+                    <img src="../../icons/launch.svg" alt="launch portal" />
+                    <h2>Go to Visitor Portal</h2>
+                </button>
+            </div>
+
+            <!-- cards -->
+            <div class="cards">
+                <Cards :isNum="true" :number="103" label="Artworks in the Directory"/>
+                <Cards :isNum="false" label="Most Popular Artworks"/>
+                <Cards :isNum="true" :number="52" label="Museum Guide Users in the Last 24h"/>
+                <Cards :isNum="false" label="Most Crowded Sections"/>
+            </div>
         </div>
 
-        <!-- visitor portal -->
-        <button type="button" class="dashboard-btn visitor-portal" @click="redirect('/')" :style="{marginTop: '40px'}">
+        <!-- visitor portal if small screen -->
+        <button v-if="!isBigScreen" type="button" class="dashboard-btn visitor-portal" @click="redirect('/')" :style="{marginTop: '40px'}">
             <img src="../../icons/launch.svg" alt="launch portal" />
             <h2>Go to Visitor Portal</h2>
         </button>
@@ -80,6 +116,21 @@
     h1 {
         color: var(--color-accent);
         padding-bottom: 10px;
+    }
+
+    .dashboard-cont {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .btn-cont {
+        margin-top: 10px;
+        width: 30%;
+    }
+
+    .dashboard-cont-small, .btn-cont-small {
+        width: 100%;
     }
 
     .dashboard-btn {
@@ -123,20 +174,12 @@
         }
 
         .cards {
-            margin-left: 30%;
             width: 70%;
             display: grid;
             justify-items: end;  
             grid-template-columns: repeat(2, 1fr);
             grid-template-rows: repeat(2, 1fr);
             gap: 30px;
-        }
-
-        .dashboard-btn {
-            width: 30%;
-            position: absolute;
-            top: 29vh;
-            left: 30px;
         }
     }
 </style>
