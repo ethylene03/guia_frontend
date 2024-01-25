@@ -23,6 +23,7 @@
 
 <template>
     <div class="container">
+        <!-- guia logo -->
         <img class="logo" src="../../assets/images/admin-logo.png" />
 
         <!-- change password form -->
