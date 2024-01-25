@@ -5,23 +5,28 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 import App from './App.vue'
 
-// import pages here
-import Home from './pages/admin/Home.vue'
+// import admin pages here
+import AdminHome from './pages/admin/Home.vue'
 import Login from './pages/admin/Login.vue'
 import ChangePassword from './pages/admin/ChangePassword.vue'
 import AddArtwork from "./pages/admin/AddArtwork.vue"
 import Menu from "./pages/admin/Menu.vue"
 
+// import visitor pages here
+import Home from "./pages/visitor/Home.vue"
+
 // add paths here
 const router = createRouter({
     history: createWebHistory(),
     routes: [
-        { path: '/', redirect: '/admin/login' }, // to change to correct redirection screen
+        { path: '/', redirect: '/home' }, // to change to correct redirection screen
         { path: '/admin/login', component: Login },
-        { path: '/admin/home', component: Home },
-        { path: '/admin/change-password', component: ChangePassword},
-        { path: '/admin/add-artwork', component: AddArtwork},
-        { path: '/admin/menu', component: Menu},
+        { path: '/admin/home', component: AdminHome },
+        { path: '/admin/change-password', component: ChangePassword },
+        { path: '/admin/add-artwork', component: AddArtwork },
+        { path: '/admin/menu', component: Menu },
+
+        { path: '/home', component: Home },
     ]
 });
 
