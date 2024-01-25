@@ -1,7 +1,7 @@
 <script>
     // uses the InputIcon component
-    import InputIcon from "../assets/components/InputIcon.vue"
-    import Footer from "../assets/components/Footer.vue"
+    import InputIcon from "../../assets/components/InputIcon.vue"
+    import Footer from "../../assets/components/Footer.vue"
 
     export default {
         // all components used must be declared here
@@ -21,7 +21,7 @@
 
 <template>
     <div class="container">
-        <img class="logo" src="../assets/images/admin-logo.png" />
+        <img class="logo" src="../../assets/images/admin-logo.png" />
         <h2 class="label">Please login using the given credentials.</h2> 
     
         <!-- login form -->

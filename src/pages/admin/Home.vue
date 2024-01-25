@@ -1,7 +1,7 @@
 <!-- DASHBOARD -->
 
 <script>
-    import Cards from "../assets/components/Cards.vue"
+    import Cards from "../../assets/components/Cards.vue"
 
     export default {
         components: {
@@ -45,11 +45,11 @@
     <div class="container">
         <!-- header -->
         <div class="header">
-            <img src="../../icons/museum-logo.svg" alt="museum_name" class="museum" />
-            <img src="../../icons/guia-long.svg" alt="Guía" class="guia" />
+            <img src="/icons/museum-logo.svg" alt="museum_name" class="museum" />
+            <img src="/icons/guia-long.svg" alt="Guía" class="guia" />
             
             <!-- menu -->
-            <img src="../../icons/menu.svg" class="menu" @click="redirect('./menu')" />
+            <img src="/icons/menu.svg" class="menu" @click="redirect('./menu')" />
         </div>
     
         <!-- header -->
@@ -60,13 +60,13 @@
             <div :class="{'btn-cont': isBigScreen, 'btn-cont-small': !isBigScreen}">
                 <!-- add artwork -->
                 <button type="button" class="dashboard-btn add-artwork" @click="redirect('./add-artwork')" :style="{marginBottom: '10px'}">
-                    <img src="../../icons/add.svg" alt="add artwork" />
+                    <img src="/icons/add.svg" alt="add artwork" />
                     <h2>Add Artwork</h2>
                 </button>
 
                 <!-- visitor portal if big screen -->
-                <button v-if="isBigScreen" type="button" class="dashboard-btn visitor-portal" @click="redirect('/')" :style="{marginTop: '20px'}">
-                    <img src="../../icons/launch.svg" alt="launch portal" />
+                <button v-if="isBigScreen" type="button" class="dashboard-btn visitor-portal" @click="redirect('/home')" :style="{marginTop: '20px'}">
+                    <img src="/icons/launch.svg" alt="launch portal" />
                     <h2>Go to Visitor Portal</h2>
                 </button>
             </div>
@@ -81,8 +81,8 @@
         </div>
 
         <!-- visitor portal if small screen -->
-        <button v-if="!isBigScreen" type="button" class="dashboard-btn visitor-portal" @click="redirect('/')" :style="{marginTop: '40px'}">
-            <img src="../../icons/launch.svg" alt="launch portal" />
+        <button v-if="!isBigScreen" type="button" class="dashboard-btn visitor-portal" @click="redirect('/home')">
+            <img src="../../../icons/launch.svg" alt="launch portal" />
             <h2>Go to Visitor Portal</h2>
         </button>
     </div>

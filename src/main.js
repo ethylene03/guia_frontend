@@ -6,8 +6,9 @@ import { createRouter, createWebHistory } from 'vue-router'
 import App from './App.vue'
 
 // import pages here
-import Home from './pages/Home.vue'
-import Login from './pages/Login.vue'
+import Home from './pages/admin/Home.vue'
+import Login from './pages/admin/Login.vue'
+import ChangePassword from './pages/admin/ChangePassword.vue'
 
 // add paths here
 const router = createRouter({
@@ -16,6 +17,7 @@ const router = createRouter({
         { path: '/', redirect: '/admin/login' }, // to change to correct redirection screen
         { path: '/admin/login', component: Login },
         { path: '/admin/home', component: Home },
+        { path: '/admin/change-password', component: ChangePassword}
     ]
 });
 
