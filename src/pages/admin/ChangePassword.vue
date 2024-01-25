@@ -3,6 +3,7 @@
     import InputIcon from "../../assets/components/InputIcon.vue";
     import Footer from "../../assets/components/Footer.vue";
 
+    // naa sulod sa export default ang pagdeclare sa components ug methods
     export default {
         //declaring the InputIcon component
         components: {
@@ -74,7 +75,6 @@
 
     /* style para sa labels (current pass, new pass, confirm new pass) */
     .label-dark {
-        font-weight: bold;
         color: var(--color-secondary)
     }
 
@@ -97,6 +97,18 @@
 
     .btn-save {
         background-color: var(--color-secondary);
+    }
+
+    @media screen and (min-width: 650px) {
+        .change-pass-cont {
+            margin-top: 25vh;
+            width: 30vw;
+            margin-bottom: 30px;
+        }
+
+        .button-cont {
+            width: 30vw;
+        }
     }
 
 </style>
