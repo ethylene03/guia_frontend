@@ -34,7 +34,7 @@
 
             icon: {
                 type: String,
-                default: '/icons/guia.svg',
+                default: '/icons/hide.svg',
             },
 
             isPassword: {
@@ -55,6 +55,7 @@
         methods: {
             changeType() {
                 this.inputType = this.inputType === "text" ? "password" : "text";
+                this.iconURL = this.inputType === "text" ? "/icons/show.svg" : "/icons/hide.svg";
             }
         }
     };

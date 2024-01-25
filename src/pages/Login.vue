@@ -32,7 +32,7 @@
     
             <!-- password (uses InputIcon component)-->
             <h2 class="label-light">Password</h2>
-            <input-icon type="password" icon="/icons/hide.svg" isPassword="true" />
+            <input-icon type="password" isPassword="true" />
         </div>
     
         <!-- login button -->
