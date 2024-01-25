@@ -89,14 +89,23 @@
         color: var(--color-primary);
         width: 48%;
         padding: 10px 0px;
+        cursor: pointer;
     }
 
     .btn-cancel {
         background-color: var(--color-accent);
     }
 
+    .btn-cancel:hover {
+        background-color: var(--color-accent-darker);
+    }
+
     .btn-save {
         background-color: var(--color-secondary);
+    }
+
+    .btn-save:hover {
+        background-color: var(--color-secondary-darker);
     }
 
     @media screen and (min-width: 650px) {
