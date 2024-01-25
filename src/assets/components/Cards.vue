@@ -104,11 +104,11 @@
     }
 
     .gallery-display {
-        width: 60%;
+        width: 100%;
         margin: auto;
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: space-evenly;
     }
 
     .gallery-display img {
