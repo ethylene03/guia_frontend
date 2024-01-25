@@ -35,11 +35,18 @@
                     const reader = new FileReader();
 
                     reader.onload = (e) => {
-                        this.images.push(e.target.result);
+                        this.images.push({
+                            src: e.target.result,
+                            name: files[i].name,
+                        });
                     };
 
                     reader.readAsDataURL(files[i]);
                 }
+            },
+
+            handleDeleteImage(index) {
+                this.images.splice(index, 1);
             },
         },
     };
@@ -50,19 +57,25 @@
         <Header />
         <h1>Add new artwork</h1>
         
-        <!-- upload file -->
+        <!-- input for upload file -->
         <input id="fileUpload" type="file" accept="image/*" @change="receiveFiles" multiple hidden /> 
+        
+        <!-- upload file container if no images yet -->
         <div v-if="images.length === 0" class="upload-cont" >
             <img src="/icons/image.svg" alt="upload image" :style="{marginBottom: '10px'}" />
             <text>Upload Image</text>
         </div>
 
+        <!-- upload file container if there is image/s -->
         <div v-else class="image-cont">
             <div v-for="(image, index) in images" :key="index" class="image-frame">
-                <img :src="image" alt="Preview">
+                <img :src="image.src" alt="image.name">
+                <text class="img-name">{{ image.name }}</text>
+                <text class="img-delete" @click="handleDeleteImage(index)">Delete</text>
             </div>
         </div>
 
+        <!-- binded upload button -->
         <button @click="chooseFiles()" class="upload-btn">
             <img src="/icons/upload.svg" alt="upload image" :style="{marginRight: '10px'}" />
             Upload Photos
@@ -167,6 +180,27 @@
         background-color: var(--color-secondary-darker);
     }
 
+    .img-name {
+        width: 7em;
+        max-height: 25px;
+        display: inline-block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .img-delete {
+        width: 7em;
+        text-decoration: underline;
+        text-align: center;
+
+        cursor: pointer;
+    }
+
+    .img-delete:hover {
+        font-weight: 600;
+    }
+
     .primary-form {
         margin-bottom: 10px;
     }
@@ -206,7 +240,7 @@
     }
 
     .image-cont {
-        min-height: 200px;
+        min-height: 250px;
         display: flex;
         justify-content: start;
         align-items: center;
@@ -216,6 +250,9 @@
     .image-frame {
         width: fit-content;
         height: fit-content;
+
+        display: flex;
+        flex-direction: column;
     }
 
     .image-frame img {
