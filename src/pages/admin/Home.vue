@@ -58,13 +58,13 @@
             <!-- buttons -->
             <div :class="{'btn-cont': isBigScreen, 'btn-cont-small': !isBigScreen}">
                 <!-- add artwork -->
-                <button type="button" class="dashboard-btn add-artwork" @click="redirect('./add-artwork')" :style="{marginBottom: '10px'}">
+                <button type="button" class="dashboard-btn add-artwork" @click="redirect('./add-artwork')">
                     <img src="/icons/add.svg" alt="add artwork" />
                     <h2>Add Artwork</h2>
                 </button>
 
                 <!-- visitor portal if big screen -->
-                <button v-if="isBigScreen" type="button" class="dashboard-btn visitor-portal" @click="redirect('/home')" :style="{marginTop: '20px'}">
+                <button v-if="isBigScreen" type="button" class="dashboard-btn visitor-portal" @click="redirect('/home')">
                     <img src="/icons/launch.svg" alt="launch portal" />
                     <h2>Go to Visitor Portal</h2>
                 </button>
@@ -120,12 +120,21 @@
     .dashboard-cont {
         width: 100%;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
     }
     
     .btn-cont {
-        margin-top: 10px;
-        width: 30%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .visitor-portal {
+        margin-top: 20px;
+    }
+
+    .add-artwork {
+        margin-bottom: 10px;
     }
 
     .dashboard-cont-small, .btn-cont-small {
@@ -160,6 +169,9 @@
     }
 
     @media screen and (min-width: 650px) {
+        .container {
+            width: 60vw;
+        }
         .header {
             padding: 0;
         }
@@ -169,16 +181,30 @@
         }
 
         .museum, .guia {
-            width: clamp(100px, 130px, 170px);
+            width: 100px;
         }
 
-        .cards {
-            width: 70%;
+        .cards, .btn-cont {
+            width: 100%;
             display: grid;
-            justify-items: end;  
+            justify-items: center;  
             grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: repeat(2, 1fr);
+            grid-template-rows: repeat(1, 1fr);
             gap: 30px;
+        }
+
+        .dashboard-btn {
+            width: 90%;
+        }
+
+        .visitor-portal {
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        
+        .add-artwork {
+            margin-bottom: 0;
+            margin-bottom: 20px;
         }
     }
 </style>

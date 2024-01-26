@@ -34,28 +34,30 @@
             <img src="/icons/exit.svg" alt="exit" class="exit-icon"/>
         </div>
 
-        <!-- guia logo -->
-        <img class="logo" src="../../assets/images/admin-logo.png"/>
+        <div class="form-cont">
+            <!-- guia logo -->
+            <img class="logo" src="../../assets/images/admin-logo.png"/>
 
-        <!-- container for user email -->
-        <div class="user-info-cont">
-            <h2 class="label-dark">User</h2>
-            <span>{{ userEmail }}</span>
-        </div>
+            <!-- container for user email -->
+            <div class="user-info-cont">
+                <h2 class="label-dark">User</h2>
+                <span>{{ userEmail }}</span>
+            </div>
 
-        <!-- container for change pass and logout buttons -->
-        <div class="button-cont">
-            <!-- change password button -->
-            <button class="change-pass-btn" type="button" @click="goTo('/admin/change-password')">
-                <img src="/icons/change-password.svg" alt="change_password" class="change-pass-icon"/>
-                <h2>Change Password</h2>
-            </button>
+            <!-- container for change pass and logout buttons -->
+            <div class="button-cont">
+                <!-- change password button -->
+                <button class="change-pass-btn" type="button" @click="goTo('/admin/change-password')">
+                    <img src="/icons/change-password.svg" alt="change_password" class="change-pass-icon"/>
+                    <h2>Change Password</h2>
+                </button>
 
-            <!-- logout button -->
-            <button class="logout-btn" type="button" @click="goTo('/admin/login')">
-                <img src="/icons/logout.svg" alt="logout" class="logout-icon" />
-                <h2>Logout</h2>
-            </button>
+                <!-- logout button -->
+                <button class="logout-btn" type="button" @click="goTo('/admin/login')">
+                    <img src="/icons/logout.svg" alt="logout" class="logout-icon" />
+                    <h2>Logout</h2>
+                </button>
+            </div>
         </div>
 
         <!-- KBytes Footer -->
@@ -95,6 +97,13 @@
     .exit-icon:hover {
         background-color: var(--color-secondary-darker);
         cursor: pointer;
+    }
+
+    .form-cont {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .user-info-cont {
@@ -157,8 +166,12 @@
 
     @media screen and (min-width: 650px) {
         .container {
-            width: 40vw;
+            width: 60vw;
         }
+
+        .form-cont {
+            width: 60%;
+        } 
     }
 
 </style>

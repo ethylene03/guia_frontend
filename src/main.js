@@ -20,15 +20,15 @@ import Home from "./pages/visitor/Home.vue"
 const router = createRouter({
     history: createWebHistory(),
     routes: [
-        { path: '/', redirect: '/home' }, // to change to correct redirection screen
-        { path: '/admin/login', component: Login },
-        { path: '/admin/home', component: AdminHome },
-        { path: '/admin/change-password', component: ChangePassword },
-        { path: '/admin/add-artwork', component: AddArtwork },
-        { path: '/admin/edit-artwork', component: EditArtwork },
-        { path: '/admin/menu', component: Menu },
+        { name: 'Home', path: '/', redirect: '/home' }, // to change to correct redirection screen
+        { name: 'Login', path: '/admin/login', component: Login },
+        { name: 'Dashboard', path: '/admin/home', component: AdminHome },
+        { name: 'ChangePassword', path: '/admin/change-password', component: ChangePassword },
+        { name: 'AddArtwork', path: '/admin/add-artwork', component: AddArtwork },
+        { name: 'EditArtwork', path: '/admin/edit-artwork', component: EditArtwork },
+        { name: 'Menu', path: '/admin/menu', component: Menu },
 
-        { path: '/home', component: Home },
+        { name: 'Home', path: '/home', component: Home },
     ]
 });
 

@@ -139,7 +139,7 @@
         }
 
         .gallery-display img {
-            height: 90px;
+            height: 60px;
             padding: 10px;
         }
     }
