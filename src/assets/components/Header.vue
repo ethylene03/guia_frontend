@@ -1,3 +1,23 @@
+<!-- 
+    Summary:
+        This is used for the [ back | logo | menu ] header for the admin side
+
+    To Use:
+        In script tags:
+            import Header from '@/assets/components/Header.vue';
+
+            export default {
+                components: {
+                    ...,
+                    Header,
+                },
+                ...,
+            }
+
+        In template tags:
+            <Header /> 
+ -->
+
 <script>
     export default {
         methods: {
