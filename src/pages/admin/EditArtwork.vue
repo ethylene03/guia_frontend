@@ -1,4 +1,5 @@
 <script>
+    // header component
     import Header from '@/assets/components/Header.vue';
 
     export default {
@@ -7,16 +8,19 @@
         },
 
         data() {
+            // array of images uploaded/fetched
             return {
                 images: [],
             };
         },
 
         methods: {
+            // to bind button to the input tags
             chooseFiles() {
                 document.getElementById('fileUpload').click();
             },
 
+            // redirects to another page or goes back
             redirect(path) {
                 if(path == 'back')
                     this.$router.back();
@@ -24,10 +28,13 @@
                     this.$router.path(path);
             },
 
+            // to open the modal
+            // must update if modal is available
             openModal() {
                 console.log("modal opened!");
             },
 
+            // receives the images uploaded/fetched
             receiveFiles(event) {
                 const files = event.target.files;
 
@@ -45,6 +52,7 @@
                 }
             },
 
+            // deletes the image from the array
             handleDeleteImage(index) {
                 this.images.splice(index, 1);
             },
@@ -96,6 +104,7 @@
                 <h2>Medium</h2>
                 <input type="text" class="primary-form" required />
                 
+                <!-- select form (must map options for integration) -->
                 <h2>Assigned Section</h2>
                 <select class="primary-form" required>
                     <option value="0" hidden>Select Section</option>
@@ -126,6 +135,7 @@
                     Cancel
                 </button>
                 
+                <!-- save button (must add API integration validation here) -->
                 <button class="save" @click="redirect('back')">
                     Save
                 </button>
@@ -267,6 +277,7 @@
         margin-right: 30px;
     }
 
+    /* CSS for big screens */
     @media screen and (min-width: 650px) {
         .container {
             width: 60vw;

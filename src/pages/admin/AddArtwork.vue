@@ -1,4 +1,5 @@
 <script>
+    // header component
     import Header from '@/assets/components/Header.vue';
 
     export default {
@@ -7,16 +8,19 @@
         },
 
         data() {
+            // array of images uploaded
             return {
                 images: [],
             };
         },
 
         methods: {
+            // bind button to forms
             chooseFiles() {
                 document.getElementById('fileUpload').click();
             },
 
+            // redirect to another page
             redirect(path) {
                 if(path == 'back')
                     this.$router.back();
@@ -24,10 +28,12 @@
                     this.$router.path(path);
             },
 
+            // opens modal
             openModal() {
                 console.log("modal opened!");
             },
 
+            // receives images uploaded
             receiveFiles(event) {
                 const files = event.target.files;
 
@@ -45,6 +51,7 @@
                 }
             },
 
+            // deletes images from the array
             handleDeleteImage(index) {
                 this.images.splice(index, 1);
             },
@@ -96,6 +103,7 @@
                 <h2>Medium</h2>
                 <input type="text" class="primary-form" required />
                 
+                <!-- select form (must map the options for integration) -->
                 <h2>Assigned Section</h2>
                 <select class="primary-form" required>
                     <option value="0" hidden>Select Section</option>
@@ -126,6 +134,7 @@
                     Cancel
                 </button>
                 
+                <!-- add API validation before redirection -->
                 <button class="save" @click="redirect('back')">
                     Save
                 </button>
@@ -267,6 +276,7 @@
         margin-right: 30px;
     }
 
+    /* CSS for big screens */
     @media screen and (min-width: 650px) {
         .container {
             width: 60vw;

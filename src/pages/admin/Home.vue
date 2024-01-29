@@ -1,6 +1,7 @@
 <!-- DASHBOARD -->
 
 <script>
+    // component used
     import Cards from "../../assets/components/Cards.vue"
 
     export default {
@@ -9,31 +10,37 @@
         },
 
         data() {
+            // screen width variable
             return {
                 screenWidth: window.innerWidth,
             };
         },
 
         computed: {
+            // determines if the screen is big or not
             isBigScreen() {
                 return this.screenWidth > 650;
             },
         },
 
+        // window listener to fetch window screen size
         mounted() {
             window.addEventListener('resize', this.updateScreenSize);
         },
         
         methods: {
+            // redirect to another page
             redirect(path) {
                 this.$router.push(path);
             },
 
+            // updates screen width variable
             updateScreenSize() {
                 this.screenWidth = window.innerWidth;
             },
         },
 
+        // delete window listener after use
         beforeDestroy() {
             window.removeEventListener('resize', this.updateScreenSize);
         },
@@ -168,6 +175,7 @@
         width: 100%;
     }
 
+    /* CSS for bigger screens */
     @media screen and (min-width: 650px) {
         .container {
             width: 60vw;

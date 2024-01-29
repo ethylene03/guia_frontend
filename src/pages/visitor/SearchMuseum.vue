@@ -7,6 +7,7 @@
         },
 
         methods: {
+            // to redirect to another screen
             redirect(path) {
                 this.$router.push(path);
             },
@@ -17,10 +18,14 @@
 <template>
     <div class="container">
         <div class="search-cont">
+            <!-- museum logo here (change the src for the integration) -->
             <img src="../../assets/images/museum-dark.png" class="museum-logo" />
     
+            <!-- select museum here -->
             <div class="form">
                 <h1 :style="{marginBottom: '15px'}">Search Museum</h1>
+
+                <!-- select form (map the options for the integration) -->
                 <select class="dropdown">
                     <option hidden>Input museum name here</option>
                     <option>Museum 1</option>
@@ -29,6 +34,7 @@
                 </select>
             </div>
     
+            <!-- confirm button (add API submit integration) -->
             <button @click="redirect('/scan')">Confirm</button>
         </div>
 

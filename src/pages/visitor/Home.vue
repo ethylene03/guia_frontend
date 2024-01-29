@@ -1,31 +1,37 @@
 <script>
     export default {
         data() {
+            // the screen width variable for responsiveness
             return {
                 screenWidth: window.innerWidth,
             };
         },
 
         computed: {
+            // determines whether the screen is big or small
             isBigScreen() {
                 return this.screenWidth > 650;
             },
         },
 
+        // window listener to fetch screen size
         mounted() {
             window.addEventListener('resize', this.updateScreenSize);
         },
         
         methods: {
+            // to redirect to another screen
             redirect(path) {
                 this.$router.push(path);
             },
 
+            // update screen size variable
             updateScreenSize() {
                 this.screenWidth = window.innerWidth;
             },
         },
 
+        // delete the variable after use
         beforeDestroy() {
             window.removeEventListener('resize', this.updateScreenSize);
         },
@@ -34,12 +40,15 @@
 
 <template>
     <div class="container">
+        <!-- top border curly thing -->
         <img class="border" src='../../assets/images/top-border.svg' alt="border" />
 
         <!-- logo container if the screen is big -->
         <div :class="{'logo-cont': isBigScreen, 'logo-cont-sm': !isBigScreen}">
             <img class="guia" src='../../assets/images/guia-gold.svg' alt="guia" />
             <img class="collab" v-if="isBigScreen" src="../../assets/images/collab.svg" alt="x" />
+
+            <!-- musuem logo (change for integration) -->
             <img class="museum" src='../../assets/images/museum.png' alt="museum" />
         </div>
 

@@ -109,6 +109,7 @@
         background-color: var(--color-secondary-darker);
     }
 
+    /* CSS for big screens */
     @media screen and (min-width: 650px) {
         .change-pass-cont {
             margin-top: 25vh;

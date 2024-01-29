@@ -164,6 +164,7 @@
         cursor: pointer;
     }
 
+    /* CSS for bigger screens */
     @media screen and (min-width: 650px) {
         .container {
             width: 60vw;
