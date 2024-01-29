@@ -72,7 +72,7 @@
 
             <!-- cards -->
             <div class="cards" :style="{marginBottom: '50px'}">
-                <Cards :isNum="true" :number="103" label="Artworks in the Directory"/>
+                <Cards :isNum="true" :number="103" label="Artworks in the Directory" @click="redirect('/admin/artworks')" :style="{cursor: 'pointer'}" />
                 <Cards :isNum="false" label="Most Popular Artworks"/>
                 <Cards :isNum="true" :number="52" label="Museum Guide Users in the Last 24h"/>
                 <Cards :isNum="false" label="Most Crowded Sections" />

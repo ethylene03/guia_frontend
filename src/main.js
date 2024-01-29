@@ -15,12 +15,14 @@ import Menu from "./pages/admin/Menu.vue"
 
 // import visitor pages here
 import Home from "./pages/visitor/Home.vue"
+import SearchMuseum from "./pages/visitor/SearchMuseum.vue"
 
 // add paths here
 const router = createRouter({
     history: createWebHistory(),
     routes: [
-        { name: 'Home', path: '/', redirect: '/home' }, // to change to correct redirection screen
+        { path: '/', redirect: '/home' }, // to change to correct redirection screen
+        { path: '/admin', redirect: '/admin/login' },
         { name: 'Login', path: '/admin/login', component: Login },
         { name: 'Dashboard', path: '/admin/home', component: AdminHome },
         { name: 'ChangePassword', path: '/admin/change-password', component: ChangePassword },
@@ -29,6 +31,7 @@ const router = createRouter({
         { name: 'Menu', path: '/admin/menu', component: Menu },
 
         { name: 'Home', path: '/home', component: Home },
+        { name: 'SearchMuseum', path: '/search-museum', component: SearchMuseum },
     ]
 });
 

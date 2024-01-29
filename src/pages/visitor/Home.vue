@@ -47,8 +47,8 @@
 
         <!-- button choices (Y/N) -->
         <div class="btn-cont">
-            <button>Yes</button>
-            <button>No</button>
+            <button @click="redirect('/scan')">Yes</button>
+            <button @click="redirect('/search-museum')">No</button>
         </div>
 
         <!-- footer -->
@@ -80,11 +80,11 @@
     }
 
     .logo-cont .guia {
-        height: 90px;
+        height: 60px;
     }
 
     .logo-cont .museum {
-        height: 220px;
+        height: 170px;
     }
 
     .guia {
