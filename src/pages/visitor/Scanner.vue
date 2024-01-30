@@ -1,6 +1,6 @@
 <template>
-    <div class="container">
-      <video ref="video" autoplay></video>
+    <div>
+      <video ref="video" autoplay :style="{ transform: videoTransform }"></video>
       <button @click="toggleCamera">Toggle Camera</button>
       <button @click="capture">Capture</button>
       <canvas ref="canvas" style="display: none;"></canvas>
@@ -15,7 +15,13 @@
         stream: null,
         facingMode: 'user', // Default to front camera
         capturedImage: null,
+        isMirrored: true, // Initially mirrored
       };
+    },
+    computed: {
+      videoTransform() {
+        return this.isMirrored ? 'scaleX(-1)' : 'none';
+      },
     },
     mounted() {
       this.setupCamera();
@@ -59,4 +65,11 @@
     }
   };
   </script>
+  
+  <style scoped>
+  /* Add scoped CSS to mirror the video */
+  video {
+    transform: scaleX(-1);
+  }
+  </style>
   
