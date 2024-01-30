@@ -124,7 +124,7 @@
                 <h2>Description</h2>
                 <textarea rows="4" class="primary-form" required> </textarea>
                 
-                <h2>Artwork Title</h2>
+                <h2>Remarks</h2>
                 <textarea rows="4" class="primary-form" required> </textarea>
             </div>
 
