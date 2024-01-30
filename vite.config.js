@@ -8,6 +8,12 @@ export default defineConfig({
   plugins: [
     vue(),
   ],
+  server: {
+    // Enable fallback routing
+    fs: {
+      strict: true, // Strict file serving
+    },
+  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
