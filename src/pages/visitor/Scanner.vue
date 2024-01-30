@@ -7,29 +7,34 @@
         },
 
         data() {
+            // for camera setup
             return {
                 stream: null,
                 facingMode: 'environment',
-                capturedImage: null,
+                capturedImage: null, // holds the image captured
             };
         },
 
         mounted() {
-            this.setupCamera();
+            this.setupCamera(); // setup the camera after screen loads
         },
 
         methods: {
             async setupCamera() {
                 try {
+                    // get the camera stream
                     const stream = await navigator.mediaDevices.getUserMedia({
                         video: { facingMode: this.facingMode },
                     });
 
+                    // assign the stream to the variable stream
                     this.stream = stream;
 
+                    // call the video feeds (background and foreground)
                     const videoBack = this.$refs.videoBack;
                     const videoFront = this.$refs.videoFront;
 
+                    // assign the stream to both feeds
                     videoBack.srcObject = stream;
                     videoFront.srcObject = stream;
                 } catch (error) {
@@ -37,13 +42,17 @@
                 }
             },
 
+            // flips the camera (front or back camera)
             async toggleCamera() {
+                // environment -> back camera | user -> front camera
                 this.facingMode = this.facingMode === 'user' ? 'environment' : 'user';
                 await this.stopCamera();
                 this.setupCamera();
             },
 
+            // stops the camera feed
             async stopCamera() {
+                // stop all tracks in stream then empty the stream
                 if (this.stream) {
                     const tracks = this.stream.getTracks();
                     tracks.forEach(track => track.stop());
@@ -51,6 +60,7 @@
                 }
             },
 
+            // captures the image (integration should be here)
             capture() {
                 console.log("image captured!");
                 const videoElement = this.$refs.videoFront;
@@ -64,11 +74,13 @@
                 this.capturedImage = canvasElement.toDataURL('image/png');
             },
 
+            // redirects to another page/screens
             redirect(path) {
                 this.$router.push(path);
             },
         },
 
+        // stops the camera before exiting the page
         beforeUnmount() {
             this.stopCamera();
         }
@@ -129,6 +141,7 @@
         z-index: -1;
     }
     
+    /* mirror the videos */
     video {
         transform: scaleX(-1);
     }
@@ -146,7 +159,6 @@
     .vid-cont {
         width: 100%;
         height: 30rem;
-        /* padding: 0 10px; */
         margin-top: 40px;
 
         border-radius: 20px;

@@ -9,6 +9,11 @@
             2. isMap - determines whether the map icon should be at the header or the camera icon
             3. isLight - determines whether the header is light mode or dark maode
 
+        Default Values:
+            1. type - admin
+            2. isMap - true
+            3. isLight - false
+
     To Use:
         In script tags:
             import Header from '@/assets/components/Header.vue';
