@@ -2,6 +2,23 @@
     // header component
     import Header from '@/assets/components/Header.vue';
 
+    // modal component
+    import { ModalsContainer, useModal } from 'vue-final-modal'
+    import ModalConfirmPlainCss from '../../assets/components/Modal.vue'
+
+    const { open, close } = useModal({
+        component: ModalConfirmPlainCss,
+        attrs: {
+            title: 'Hello World!',
+            onConfirm() {
+                close();
+            },
+        },
+        slots: {
+        default: '<p>The content of the modal</p>',
+        },
+    })
+
     export default {
         components: {
             Header,
@@ -31,7 +48,7 @@
             // to open the modal
             // must update if modal is available
             openModal() {
-                console.log("modal opened!");
+                open();
             },
 
             // receives the images uploaded/fetched
@@ -125,7 +142,7 @@
                 <h2>Description</h2>
                 <textarea rows="4" class="primary-form" required> </textarea>
                 
-                <h2>Artwork Title</h2>
+                <h2>Remarks</h2>
                 <textarea rows="4" class="primary-form" required> </textarea>
             </div>
 
@@ -140,6 +157,8 @@
                     Save
                 </button>
             </div>
+
+            <ModalsContainer />
         </div>
     </div>
 </template>

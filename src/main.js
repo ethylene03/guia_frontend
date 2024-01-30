@@ -1,7 +1,10 @@
 import './assets/main.css'
+import 'vue-final-modal/style.css'
 
 import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
+import { ModalsContainer } from 'vue-final-modal';
+import { createVfm } from 'vue-final-modal'
 
 import App from './App.vue'
 
@@ -36,9 +39,11 @@ const router = createRouter({
 });
 
 const app = createApp(App)
+const vfm = createVfm()
 
 // add component here
 app.use(router);
-app.component('home', Home);
+app.use(vfm);
+app.component('ModalsContainer', ModalsContainer);
 
 app.mount('#app')
