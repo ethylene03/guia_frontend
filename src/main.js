@@ -19,6 +19,7 @@ import Menu from "./pages/admin/Menu.vue"
 // import visitor pages here
 import Home from "./pages/visitor/Home.vue"
 import SearchMuseum from "./pages/visitor/SearchMuseum.vue"
+import Scanner from "./pages/visitor/Scanner.vue"
 
 // add paths here
 const router = createRouter({
@@ -35,6 +36,7 @@ const router = createRouter({
 
         { name: 'Home', path: '/home', component: Home },
         { name: 'SearchMuseum', path: '/search-museum', component: SearchMuseum },
+        { name: 'Scanner', path: '/scan', component: Scanner },
     ]
 });
 
@@ -44,6 +46,7 @@ const vfm = createVfm()
 // add component here
 app.use(router);
 app.use(vfm);
+
 app.component('ModalsContainer', ModalsContainer);
 
 app.mount('#app')
