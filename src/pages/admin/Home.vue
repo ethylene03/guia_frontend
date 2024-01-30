@@ -88,7 +88,7 @@
 
         <!-- visitor portal if small screen -->
         <button v-if="!isBigScreen" type="button" class="dashboard-btn visitor-portal" @click="redirect('/home')">
-            <img src="../../../icons/launch.svg" alt="launch portal" />
+            <img src="/icons/launch.svg" alt="launch portal" />
             <h2>Go to Visitor Portal</h2>
         </button>
     </div>
