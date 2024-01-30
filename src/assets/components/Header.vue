@@ -2,6 +2,13 @@
     Summary:
         This is used for the [ back | logo | menu ] header for the admin side
 
+        Props:
+            1. type - either "user" or "admin"
+                    - determines what type of header to display
+            
+            2. isMap - determines whether the map icon should be at the header or the camera icon
+            3. isLight - determines whether the header is light mode or dark maode
+
     To Use:
         In script tags:
             import Header from '@/assets/components/Header.vue';
@@ -15,11 +22,28 @@
             }
 
         In template tags:
-            <Header /> 
+            <Header type="user" :isMap="true" /> 
  -->
 
 <script>
     export default {
+        props: {
+            type: {
+                type: String,
+                default: 'admin',
+            },
+
+            isMap: {
+                type: Boolean,
+                default: true,
+            },
+
+            isLight: {
+                type: Boolean,
+                default: false,
+            },
+        },
+
         methods: {
             redirect(path) {
                 if(path == "back")
@@ -33,11 +57,20 @@
 
 <template>
     <div class="header">
-        <img src="/icons/back.svg" alt="back" class="menu" @click="redirect('back')" />
+        <!-- back button -->
+        <img v-if="!isLight" src="/icons/back.svg" alt="back" class="menu" @click="redirect('back')" />
+        <img v-else src="/icons/back-light.svg" alt="back" class="menu-light" @click="redirect('back')" />
+        
         <img src="/icons/guia-long.svg" alt="Guía" class="guia" />
         
-        <!-- menu -->
-        <img src="/icons/menu.svg" class="menu" @click="redirect('./menu')" />
+        <!-- admin menu -->
+        <img v-if="type === 'admin'" src="/icons/menu.svg" class="menu" @click="redirect('./menu')" />
+
+        <!-- user map/camera -->
+        <img v-if="type === 'user' && isMap && !isLight" src="/icons/map.svg" class="menu" @click="redirect('/map')" />
+        <img v-if="type === 'user' && !isMap && !isLight" src="/icons/camera.svg" class="menu" @click="redirect('/scan')" />
+        
+        <img v-if="type === 'user' && isMap && isLight" src="/icons/map-light.svg" class="menu-light" @click="redirect('/map')" />
     </div>
 </template>
 
@@ -56,16 +89,28 @@
         width: 80px;
     }
 
-    .menu {
-        background-color: var(--color-secondary);
+    .menu, .menu-light {
         padding: 10px;
         border-radius: 20px;
         height: 40px;
         width: 40px;
+
+        cursor: pointer;
+    }
+
+    .menu {
+        background-color: var(--color-secondary);
     }
 
     .menu:hover {
         background-color: var(--color-secondary-darker);
-        cursor: pointer;
+    }
+
+    .menu-light {
+        background-color: var(--color-primary);
+    }
+
+    .menu-light:hover {
+        background-color: var(--color-primary-darker);
     }
 </style>

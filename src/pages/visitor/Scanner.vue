@@ -1,75 +1,207 @@
+<script>
+    import Header from '@/assets/components/Header.vue';
+    
+    export default {
+        components: {
+            Header,
+        },
+
+        data() {
+            return {
+                stream: null,
+                facingMode: 'environment',
+                capturedImage: null,
+            };
+        },
+
+        mounted() {
+            this.setupCamera();
+        },
+
+        methods: {
+            async setupCamera() {
+                try {
+                    const stream = await navigator.mediaDevices.getUserMedia({
+                        video: { facingMode: this.facingMode },
+                    });
+
+                    this.stream = stream;
+
+                    const videoBack = this.$refs.videoBack;
+                    const videoFront = this.$refs.videoFront;
+
+                    videoBack.srcObject = stream;
+                    videoFront.srcObject = stream;
+                } catch (error) {
+                    console.error('Error accessing camera:', error);
+                }
+            },
+
+            async toggleCamera() {
+                this.facingMode = this.facingMode === 'user' ? 'environment' : 'user';
+                await this.stopCamera();
+                this.setupCamera();
+            },
+
+            async stopCamera() {
+                if (this.stream) {
+                    const tracks = this.stream.getTracks();
+                    tracks.forEach(track => track.stop());
+                    this.stream = null;
+                }
+            },
+
+            capture() {
+                console.log("image captured!");
+                const videoElement = this.$refs.videoFront;
+                const canvasElement = this.$refs.canvas;
+                const context = canvasElement.getContext('2d');
+        
+                canvasElement.width = videoElement.videoWidth;
+                canvasElement.height = videoElement.videoHeight;
+        
+                context.drawImage(videoElement, 0, 0, canvasElement.width, canvasElement.height);
+                this.capturedImage = canvasElement.toDataURL('image/png');
+            },
+
+            redirect(path) {
+                this.$router.push(path);
+            },
+        },
+
+        beforeUnmount() {
+            this.stopCamera();
+        }
+    };
+</script>
+
 <template>
-    <div>
-      <video ref="video" autoplay :style="{ transform: videoTransform }"></video>
-      <button @click="toggleCamera">Toggle Camera</button>
-      <button @click="capture">Capture</button>
-      <canvas ref="canvas" style="display: none;"></canvas>
-      <img :src="capturedImage" v-if="capturedImage" alt="Captured Image">
+    <div class="container">
+        <!-- background camera -->
+        <div class="background">
+            <video ref="videoBack" autoplay muted :style="{ transform: videoTransform, filter: 'blur(5px)' }" />
+        </div>
+
+        <!-- page elements -->
+        <div class="foreground">
+            <!-- user header -->
+            <Header type="user" :isMap="true" :isLight="true" />
+            
+            <!-- main camera preview -->
+            <div class="vid-cont">
+                <video ref="videoFront" autoplay muted :style="{ transform: videoTransform }" />
+            </div>
+            <h2>Please point the camera to the artwork</h2>
+    
+            <!-- buttons -->
+            <div class="btn-cont">
+                <button class="flip-camera" @click="toggleCamera">
+                    <img src="/icons/flip-camera.svg" alt="flip camera" />
+                </button>
+                
+                <button class="shutter" @click="capture">
+                    <img src="/icons/camera-light.svg" alt="capture image" />
+                </button>
+                
+                <button @click="redirect('/search-artwork')">
+                    <img src="/icons/search.svg" alt="search artwork" />
+                </button>
+            </div>
+
+            <canvas ref="canvas" style="display: none;" />
+            <!-- <img :src="capturedImage" v-if="capturedImage" alt="Captured Image"> -->
+        </div>
     </div>
-  </template>
+</template>
   
-  <script>
-  export default {
-    data() {
-      return {
-        stream: null,
-        facingMode: 'user', // Default to front camera
-        capturedImage: null,
-        isMirrored: true, // Initially mirrored
-      };
-    },
-    computed: {
-      videoTransform() {
-        return this.isMirrored ? 'scaleX(-1)' : 'none';
-      },
-    },
-    mounted() {
-      this.setupCamera();
-    },
-    methods: {
-      async setupCamera() {
-        try {
-          const stream = await navigator.mediaDevices.getUserMedia({
-            video: { facingMode: this.facingMode },
-          });
-          this.stream = stream;
-          const videoElement = this.$refs.video;
-          videoElement.srcObject = stream;
-        } catch (error) {
-          console.error('Error accessing camera:', error);
-        }
-      },
-      async toggleCamera() {
-        this.facingMode = this.facingMode === 'user' ? 'environment' : 'user';
-        await this.stopCamera();
-        this.setupCamera();
-      },
-      async stopCamera() {
-        if (this.stream) {
-          const tracks = this.stream.getTracks();
-          tracks.forEach(track => track.stop());
-          this.stream = null;
-        }
-      },
-      capture() {
-        const videoElement = this.$refs.video;
-        const canvasElement = this.$refs.canvas;
-        const context = canvasElement.getContext('2d');
-  
-        canvasElement.width = videoElement.videoWidth;
-        canvasElement.height = videoElement.videoHeight;
-  
-        context.drawImage(videoElement, 0, 0, canvasElement.width, canvasElement.height);
-        this.capturedImage = canvasElement.toDataURL('image/png');
-      }
+<style scoped>
+    .container {
+        overflow-x: hidden;
     }
-  };
-  </script>
-  
-  <style scoped>
-  /* Add scoped CSS to mirror the video */
-  video {
-    transform: scaleX(-1);
-  }
-  </style>
+
+    .background {
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
+    
+    video {
+        transform: scaleX(-1);
+    }
+
+    .background video {
+        height: 100%;
+    }
+
+    .foreground {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .vid-cont {
+        width: 100%;
+        height: 30rem;
+        /* padding: 0 10px; */
+        margin-top: 40px;
+
+        border-radius: 20px;
+        border: 4px solid var(--color-white);
+
+        display: flex;
+        justify-content: center;
+    }
+
+    .vid-cont video {
+        width: 100%;
+    }
+
+    h2 {
+        color: var(--color-white);
+    }
+
+    .btn-cont {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        width: 70%;
+        margin: 70px 0;
+    }
+
+    .btn-cont button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        padding: 15px;
+        border-radius: 100px;
+
+        height: fit-content;
+        cursor: pointer;
+
+        background-color: var(--color-primary);
+    }
+
+    .btn-cont button:hover {
+        background-color: var(--color-primary-darker);
+    }
+
+    @media screen and (min-width: 650px) {
+        .vid-cont {
+            width: 70%;
+            height: fit-content;
+            padding: 25px 0;
+            margin-top: 0;
+        }
+
+        .btn-cont {
+            margin: 30px 0 0 0;
+        }
+    }
+</style>
   
