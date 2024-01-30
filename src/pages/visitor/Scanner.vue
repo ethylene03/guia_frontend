@@ -91,7 +91,7 @@
     <div class="container">
         <!-- background camera -->
         <div class="background">
-            <video ref="videoBack" autoplay muted :style="{ transform: videoTransform, filter: 'blur(5px)' }" />
+            <video ref="videoBack" autoplay muted :style="{ transform: videoTransform, filter: 'blur(5px)', transform: facingMode === 'user' ? 'scaleX(-1)' : 'scaleX(1)' }" />
         </div>
 
         <!-- page elements -->
@@ -101,7 +101,7 @@
             
             <!-- main camera preview -->
             <div class="vid-cont">
-                <video ref="videoFront" autoplay muted :style="{ transform: videoTransform }" />
+                <video ref="videoFront" autoplay muted :style="{ transform: videoTransform, transform: facingMode === 'user' ? 'scaleX(-1)' : 'scaleX(1)' }" />
             </div>
             <h2>Please point the camera to the artwork</h2>
     
@@ -137,13 +137,8 @@
         top: 0;
         left: 0;
         width: 100%;
-        height: 100%;
+        height: 100vh;
         z-index: -1;
-    }
-    
-    /* mirror the videos */
-    video {
-        transform: scaleX(-1);
     }
 
     .background video {
