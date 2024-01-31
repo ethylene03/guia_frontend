@@ -154,7 +154,7 @@
     .vid-cont {
         width: 100%;
         height: 30rem;
-        margin-top: 40px;
+        margin-top: 20px;
 
         border-radius: 20px;
         border: 4px solid var(--color-white);
@@ -177,7 +177,7 @@
         align-items: center;
         
         width: 70%;
-        margin: 70px 0;
+        margin: 70px 0 0 0;
     }
 
     .btn-cont button {
