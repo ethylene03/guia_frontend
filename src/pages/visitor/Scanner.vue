@@ -10,10 +10,8 @@
             // for camera setup
             return {
                 stream: null,
-                facingMode: null,
+                facingMode: 'environment',
                 capturedImage: null, // holds the image captured
-                frontCamera: null,
-                rearCamera: null,
             };
         },
 
@@ -24,27 +22,9 @@
         methods: {
             async setupCamera() {
                 try {
-                    const devices = await navigator.mediaDevices.enumerateDevices();
-                    const videos = devices.filter(device => device.kind === 'videoinput');
-
-                    if(videos.length === 1) {
-                        this.frontCamera = this.rearCamera = videos[0];
-                    } else {
-                        this.frontCamera = await videos.find(device =>
-                            device.label.toLowerCase().includes('front') 
-                        );
-    
-                        this.rearCamera = await videos.find(device =>
-                            device.label.toLowerCase().includes('camera2 0, facing back')
-                        );
-                    }
-
-                    if(this.facingMode === null)
-                        this.facingMode = this.rearCamera;
-
                     // get the camera stream
                     const stream = await navigator.mediaDevices.getUserMedia({
-                        video: { deviceId: this.facingMode.deviceId },
+                        video: { facingMode: this.facingMode },
                     });
 
                     // assign the stream to the variable stream
@@ -65,7 +45,7 @@
             // flips the camera (front or back camera)
             async toggleCamera() {
                 // environment -> back camera | user -> front camera
-                this.facingMode = this.facingMode === rearCamera ? frontCamera : rearCamera;
+                this.facingMode = this.facingMode === 'user' ? 'environment' : 'user';
                 await this.stopCamera();
                 this.setupCamera();
             },
@@ -121,16 +101,9 @@
             
             <!-- main camera preview -->
             <div class="vid-cont">
-                <video ref="videoFront" autoplay muted :style="{ transform: videoTransform, transform: this.facingMode === frontCamera ? 'scaleX(-1)' : 'scaleX(1)' }" />
+                <video ref="videoFront" autoplay muted :style="{ transform: videoTransform, transform: facingMode === 'user' ? 'scaleX(-1)' : 'scaleX(1)' }" />
             </div>
             <h2>Please point the camera to the artwork</h2>
-
-            <!-- <div>
-                <h1>Cameras</h1>
-                <ul>
-                    <li v-for="(camera, idx) in cameras" :key="idx">{{ camera }}</li>
-                </ul>
-            </div> -->
     
             <!-- buttons -->
             <div class="btn-cont">
