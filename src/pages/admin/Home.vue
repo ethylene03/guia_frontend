@@ -87,7 +87,7 @@
         </div>
 
         <!-- visitor portal if small screen -->
-        <button v-if="!isBigScreen" type="button" class="dashboard-btn visitor-portal" @click="redirect('/home')" :style="{marginTop: '0px', marginBottom: '20px'}">
+        <button v-if="!isBigScreen" type="button" class="dashboard-btn visitor-portal" @click="redirect('/home')" :style="{marginTop: '0px', marginBottom: '10px'}">
             <img src="/icons/launch.svg" alt="launch portal" />
             <h2>Go to Visitor Portal</h2>
         </button>
@@ -95,6 +95,10 @@
 </template>
 
 <style scoped>
+    .container {
+        height: fit-content !important;
+    }
+
     .header {
         padding: 20px 0 10px 0;
         width: 100%;
