@@ -12,6 +12,7 @@
                 stream: null,
                 facingMode: 'environment',
                 capturedImage: null, // holds the image captured
+                cameras: [],
             };
         },
 
@@ -22,6 +23,9 @@
         methods: {
             async setupCamera() {
                 try {
+                    const devices = await navigator.mediaDevices.enumerateDevices();
+                    this.cameras = [...devices];
+
                     // get the camera stream
                     const stream = await navigator.mediaDevices.getUserMedia({
                         video: { facingMode: this.facingMode },
@@ -104,6 +108,13 @@
                 <video ref="videoFront" autoplay muted :style="{ transform: videoTransform, transform: facingMode === 'user' ? 'scaleX(-1)' : 'scaleX(1)' }" />
             </div>
             <h2>Please point the camera to the artwork</h2>
+
+            <div>
+                <h1>Cameras</h1>
+                <ul>
+                    <li v-for="(camera, idx) in cameras" :key="idx">{{ camera.kind }}</li>
+                </ul>
+            </div>
     
             <!-- buttons -->
             <div class="btn-cont">
