@@ -113,7 +113,7 @@
         font-size: 60px;
         font-weight: 700;
         color: var(--color-primary);
-        -webkit-text-stroke: 4px var(--color-secondary);
+        -webkit-text-stroke: 3px var(--color-secondary);
     }
 
     .gallery-display {
