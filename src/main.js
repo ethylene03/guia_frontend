@@ -26,6 +26,10 @@ const router = createRouter({
     history: createWebHistory(),
     routes: [
         { path: '/', redirect: '/home' }, // to change to correct redirection screen
+        { name: 'Home', path: '/home', component: Home },
+        { name: 'SearchMuseum', path: '/search-museum', component: SearchMuseum },
+        { name: 'Scanner', path: '/scan', component: Scanner },
+        
         { path: '/admin', redirect: '/admin/login' },
         { name: 'Login', path: '/admin/login', component: Login },
         { name: 'Dashboard', path: '/admin/home', component: AdminHome },
@@ -33,10 +37,6 @@ const router = createRouter({
         { name: 'AddArtwork', path: '/admin/add-artwork', component: AddArtwork },
         { name: 'EditArtwork', path: '/admin/edit-artwork', component: EditArtwork },
         { name: 'Menu', path: '/admin/menu', component: Menu },
-
-        { name: 'Home', path: '/home', component: Home },
-        { name: 'SearchMuseum', path: '/search-museum', component: SearchMuseum },
-        { name: 'Scanner', path: '/scan', component: Scanner },
     ]
 });
 
