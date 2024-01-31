@@ -78,7 +78,7 @@
             </div>
 
             <!-- cards -->
-            <div class="cards" :style="{marginBottom: '50px'}">
+            <div class="cards" :style="{marginBottom: '30px'}">
                 <Cards :isNum="true" :number="103" label="Artworks in the Directory" @click="redirect('/admin/artworks')" :style="{cursor: 'pointer'}" />
                 <Cards :isNum="false" label="Most Popular Artworks"/>
                 <Cards :isNum="true" :number="52" label="Museum Guide Users in the Last 24h"/>
@@ -87,7 +87,7 @@
         </div>
 
         <!-- visitor portal if small screen -->
-        <button v-if="!isBigScreen" type="button" class="dashboard-btn visitor-portal" @click="redirect('/home')" :style="{marginTop: ' 0px'}">
+        <button v-if="!isBigScreen" type="button" class="dashboard-btn visitor-portal" @click="redirect('/home')" :style="{marginTop: '0px'}">
             <img src="/icons/launch.svg" alt="launch portal" />
             <h2>Go to Visitor Portal</h2>
         </button>
