@@ -112,7 +112,7 @@
             <div>
                 <h1>Cameras</h1>
                 <ul>
-                    <li v-for="(camera, idx) in cameras" :key="idx">{{ camera.kind }}</li>
+                    <li v-for="(camera, idx) in cameras" :key="idx">{{ camera }}</li>
                 </ul>
             </div>
     
