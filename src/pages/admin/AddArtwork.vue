@@ -11,6 +11,7 @@
             // array of images uploaded
             return {
                 images: [],
+                hasExceeded: false,
             };
         },
 
@@ -37,7 +38,16 @@
             receiveFiles(event) {
                 const files = event.target.files;
 
-                for (let i = 0; i < files.length; i++) {
+                // limit files to 10 only
+                if(this.images.length >= 10) {
+                    this.hasExceeded = true;
+                    return; // break the function
+                }
+
+                // remaining files to accept
+                const upload = Array.from(files).slice(0, 10 - this.images.length);
+
+                for (let i = 0; i < upload.length; i++) {
                     const reader = new FileReader();
 
                     reader.onload = (e) => {
@@ -82,6 +92,8 @@
                     <text class="img-delete" @click="handleDeleteImage(index)">Delete</text>
                 </div>
             </div>
+            <text v-if="hasExceeded" :style="{color: 'var(--color-error)'}">Oh no! Can't upload more than 10 images.</text>
+            <text v-if="!hasExceeded && images.length > 0 && images.length < 10" :style="{color: 'var(--color-error)'}">Please upload {{ 10 - this.images.length }} images more.</text>
 
             <!-- binded upload button -->
             <button @click="chooseFiles()" class="upload-btn">
