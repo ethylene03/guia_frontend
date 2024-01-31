@@ -35,7 +35,7 @@ const router = createRouter({
         { name: 'Dashboard', path: '/admin/home', component: AdminHome },
         { name: 'ChangePassword', path: '/admin/change-password', component: ChangePassword },
         { name: 'AddArtwork', path: '/admin/add-artwork', component: AddArtwork },
-        { name: 'EditArtwork', path: '/admin/edit-artwork', component: EditArtwork },
+        { name: 'EditArtwork', path: '/admin/edit-artwork/:id', component: EditArtwork },
         { name: 'Menu', path: '/admin/menu', component: Menu },
     ]
 });

@@ -26,7 +26,7 @@
                 if(path == 'back')
                     this.$router.back();
                 else
-                    this.$router.path(path);
+                    this.$router.push(path);
             },
 
             // opens modal

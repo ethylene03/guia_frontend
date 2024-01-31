@@ -6,18 +6,39 @@
     import { ModalsContainer, useModal } from 'vue-final-modal'
     import ModalConfirmPlainCss from '../../assets/components/Modal.vue'
 
-    const { open, close } = useModal({
+    const { open: openCancelModal, close: closeCancelModal } = useModal({
         component: ModalConfirmPlainCss,
         attrs: {
-            title: 'Hello World!',
-            onConfirm() {
-                close();
+            logoURL: '/icons/warning.svg',
+            title: 'Cancel edit?',
+            action: 'discard',
+            artwork: 'artwork',
+            buttonLeft: 'No',
+            buttonRight: 'Yes',
+            rightPath: '../view-artwork/1',
+            isSave: false,
+            onLeftAction() {
+                closeCancelModal();
             },
         },
-        slots: {
-        default: '<p>The content of the modal</p>',
+    });
+
+    const { open: openSaveModal, close: closeSaveModal } = useModal({
+        component: ModalConfirmPlainCss,
+        attrs: {
+            logoURL: '/icons/save.svg',
+            title: 'Save edit?',
+            action: 'save',
+            artwork: 'artwork',
+            buttonLeft: 'Cancel',
+            buttonRight: 'Save',
+            rightPath: '../view-artwork/1',
+            isSave: true,
+            onLeftAction() {
+                closeSaveModal();
+            },
         },
-    })
+    });
 
     export default {
         components: {
@@ -42,13 +63,16 @@
                 if(path == 'back')
                     this.$router.back();
                 else
-                    this.$router.path(path);
+                    this.$router.push(path);
             },
 
             // to open the modal
             // must update if modal is available
-            openModal() {
-                open();
+            openModal(type) {
+                if(type === 'cancel')
+                    openCancelModal();
+                else
+                    openSaveModal();
             },
 
             // receives the images uploaded/fetched
@@ -148,12 +172,12 @@
 
             <!-- buttons -->
             <div class="btn-cont">
-                <button class="cancel" @click="openModal">
+                <button class="cancel" @click="openModal('cancel')">
                     Cancel
                 </button>
                 
                 <!-- save button (must add API integration validation here) -->
-                <button class="save" @click="redirect('back')">
+                <button class="save" @click="openModal('save')">
                     Save
                 </button>
             </div>
