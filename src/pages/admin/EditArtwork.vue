@@ -4,10 +4,10 @@
 
     // modal component
     import { ModalsContainer, useModal } from 'vue-final-modal'
-    import ModalConfirmPlainCss from '../../assets/components/Modal.vue'
+    import Modal from '../../assets/components/Modal.vue'
 
     const { open: openCancelModal, close: closeCancelModal } = useModal({
-        component: ModalConfirmPlainCss,
+        component: Modal,
         attrs: {
             logoURL: '/icons/warning.svg',
             title: 'Cancel edit?',
@@ -24,7 +24,7 @@
     });
 
     const { open: openSaveModal, close: closeSaveModal } = useModal({
-        component: ModalConfirmPlainCss,
+        component: Modal,
         attrs: {
             logoURL: '/icons/save.svg',
             title: 'Save edit?',
