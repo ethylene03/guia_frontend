@@ -22,16 +22,18 @@ import Home from "./pages/visitor/Home.vue"
 import SearchMuseum from "./pages/visitor/SearchMuseum.vue"
 import Scanner from "./pages/visitor/Scanner.vue"
 import SearchArtwork from "./pages/visitor/SearchArtwork.vue"
+import ViewArtwork from "./pages/visitor/ViewArtwork.vue"
 
 // add paths here
 const router = createRouter({
     history: createWebHistory(),
     routes: [
-        { path: '/', redirect: '/home' }, // to change to correct redirection screen
+        { path: '/', redirect: '/home' },
         { name: 'Home', path: '/home', component: Home },
         { name: 'SearchMuseum', path: '/search-museum', component: SearchMuseum },
         { name: 'Scanner', path: '/scan', component: Scanner },
         { name: 'SearchArtwork', path: '/search', component: SearchArtwork },
+        { name: 'ViewArtwork', path: '/view/:id', component: ViewArtwork },
         
         { path: '/admin', redirect: '/admin/login' },
         { name: 'Login', path: '/admin/login', component: Login },
