@@ -15,7 +15,7 @@
             artwork: 'artwork',
             buttonLeft: 'No',
             buttonRight: 'Yes',
-            rightPath: '../view-artwork/1',
+            rightPath: '../view/1',
             isSave: false,
             onLeftAction() {
                 closeCancelModal();
@@ -32,7 +32,7 @@
             artwork: 'artwork',
             buttonLeft: 'Cancel',
             buttonRight: 'Save',
-            rightPath: '../view-artwork/1',
+            rightPath: '../view/1',
             isSave: true,
             onLeftAction() {
                 closeSaveModal();
