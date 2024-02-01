@@ -1,5 +1,6 @@
 <script>
     import Header from '../../assets/components/Header.vue'
+    import Footer from '../../assets/components/Footer.vue'
 
     import art1 from '../../assets/images/art1.png'
     import art2 from '../../assets/images/art2.png'
@@ -8,6 +9,7 @@
     export default {
         components: {
             Header,
+            Footer,
         },
 
         data() {
@@ -74,6 +76,7 @@
                 </div>
             </div>
         </div>
+        <Footer class="footer" />
     </div>
 </template>
 
@@ -84,7 +87,6 @@
 
     .contents {
         width: 100%;
-        padding-bottom: 50px;
     }
 
     .title {
@@ -145,6 +147,10 @@
 
     .art-deets h2 {
         font-weight: bold;
+    }
+
+    .footer {
+        padding-bottom: 30px;
     }
 
     @media screen and (min-width: 650px) {
