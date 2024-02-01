@@ -12,6 +12,7 @@
 
         data() {
             return {
+                // pseudo data for artworks
                 artworks: [
                     {id: 1, img: art1, title: "Spolarium", artist: "Juan Luna", year: "1884"},
                     {id: 2, img: art2, title: "Fruit Seller", artist: "Fernando Amorsolo", year: "1954"},
@@ -31,6 +32,7 @@
         },
 
         methods: {
+            // redirect to different pages
             redirect(path) {
                 this.$router.push(path);
             }
@@ -40,6 +42,7 @@
 
 <template>
     <div class="container">
+        <!-- header -->
         <Header />
         <div class="contents">
             <!-- Title and Filters -->
@@ -60,8 +63,10 @@
             <!-- list of artworks -->
             <div class="artworks-cont">
                 <div class="art-card" v-for="art in artworks" :key="art.id" @click="redirect('./' + art.id)">
+                    <!-- art image -->
                     <img :src="art.img ? art.img : '/icons/image.svg'" :alt="art.title" />
     
+                    <!-- art details -->
                     <div class="art-deets">
                         <h2>{{ art.title }}</h2>
                         <text>{{ art.artist }}, {{ art.year }}</text>
