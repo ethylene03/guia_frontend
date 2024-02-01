@@ -115,7 +115,7 @@
                     <img src="/icons/camera-light.svg" alt="capture image" />
                 </button>
                 
-                <button @click="redirect('/search-artwork')">
+                <button @click="redirect('/search')">
                     <img src="/icons/search.svg" alt="search artwork" />
                 </button>
             </div>
