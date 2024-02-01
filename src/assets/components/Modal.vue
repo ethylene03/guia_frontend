@@ -58,7 +58,7 @@ const emit = defineEmits<{
   </VueFinalModal>
 </template>
 
-<style>
+<style scoped>
 .confirm-modal {
   display: flex;
   justify-content: center;
