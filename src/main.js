@@ -14,6 +14,7 @@ import Login from './pages/admin/Login.vue'
 import ChangePassword from './pages/admin/ChangePassword.vue'
 import AddArtwork from "./pages/admin/AddArtwork.vue"
 import EditArtwork from "./pages/admin/EditArtwork.vue"
+import ViewAllArtworks from "./pages/admin/ViewAllArtworks.vue"
 import Menu from "./pages/admin/Menu.vue"
 
 // import visitor pages here
@@ -34,8 +35,9 @@ const router = createRouter({
         { name: 'Login', path: '/admin/login', component: Login },
         { name: 'Dashboard', path: '/admin/home', component: AdminHome },
         { name: 'ChangePassword', path: '/admin/change-password', component: ChangePassword },
-        { name: 'AddArtwork', path: '/admin/add-artwork', component: AddArtwork },
-        { name: 'EditArtwork', path: '/admin/edit-artwork/:id', component: EditArtwork },
+        { name: 'AddArtwork', path: '/admin/add', component: AddArtwork },
+        { name: 'EditArtwork', path: '/admin/edit/:id', component: EditArtwork },
+        { name: 'ViewAll', path: '/admin/view/all', component: ViewAllArtworks },
         { name: 'Menu', path: '/admin/menu', component: Menu },
     ]
 });

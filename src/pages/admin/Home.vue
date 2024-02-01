@@ -65,7 +65,7 @@
             <!-- buttons -->
             <div :class="{'btn-cont': isBigScreen, 'btn-cont-small': !isBigScreen}">
                 <!-- add artwork -->
-                <button type="button" class="dashboard-btn add-artwork" @click="redirect('./add-artwork')">
+                <button type="button" class="dashboard-btn add-artwork" @click="redirect('./add')">
                     <img src="/icons/add.svg" alt="add artwork" />
                     <h2>Add Artwork</h2>
                 </button>
@@ -79,7 +79,7 @@
 
             <!-- cards -->
             <div class="cards" :style="{marginBottom: '30px'}">
-                <Cards :isNum="true" :number="103" label="Artworks in the Directory" @click="redirect('/admin/artworks')" :style="{cursor: 'pointer'}" />
+                <Cards :isNum="true" :number="103" label="Artworks in the Directory" @click="redirect('/admin/view/all')" :style="{cursor: 'pointer'}" />
                 <Cards :isNum="false" label="Most Popular Artworks"/>
                 <Cards :isNum="true" :number="52" label="Museum Guide Users in the Last 24h"/>
                 <Cards :isNum="false" label="Most Crowded Sections" />
