@@ -49,6 +49,7 @@
             // array of images uploaded/fetched
             return {
                 images: [],
+                hasExceeded: false,
             };
         },
 
@@ -79,7 +80,16 @@
             receiveFiles(event) {
                 const files = event.target.files;
 
-                for (let i = 0; i < files.length; i++) {
+                // limit files to 10 only
+                if(this.images.length >= 10) {
+                    this.hasExceeded = true;
+                    return; // break the function
+                }
+
+                // remaining files to accept
+                const upload = Array.from(files).slice(0, 10 - this.images.length);
+
+                for (let i = 0; i < upload.length; i++) {
                     const reader = new FileReader();
 
                     reader.onload = (e) => {
@@ -124,6 +134,8 @@
                     <text class="img-delete" @click="handleDeleteImage(index)">Delete</text>
                 </div>
             </div>
+            <text v-if="hasExceeded" :style="{color: 'var(--color-error)'}">Oh no! Can't upload more than 10 images.</text>
+            <text v-if="!hasExceeded && images.length > 0 && images.length < 10" :style="{color: 'var(--color-error)'}">Please upload {{ 10 - this.images.length }} more images.</text>
 
             <!-- binded upload button -->
             <button @click="chooseFiles()" class="upload-btn">
@@ -133,20 +145,20 @@
 
             <!-- form -->
             <div class="form-cont" :style="{width: '100%'}">
-                <h2>Artwork Title</h2>
+                <h2>Artwork Title<span :style="{color: 'var(--color-error)'}">*</span></h2>
                 <input type="text" class="primary-form" required />
                 
-                <h2>Artist Name</h2>
+                <h2>Artist Name<span :style="{color: 'var(--color-error)'}">*</span></h2>
                 <input type="text" class="primary-form" required />
                 
-                <h2>Date Published</h2>
+                <h2>Date Published<span :style="{color: 'var(--color-error)'}">*</span></h2>
                 <input type="date" class="primary-form" required />
                 
-                <h2>Medium</h2>
+                <h2>Medium<span :style="{color: 'var(--color-error)'}">*</span></h2>
                 <input type="text" class="primary-form" required />
                 
                 <!-- select form (must map options for integration) -->
-                <h2>Assigned Section</h2>
+                <h2>Assigned Section<span :style="{color: 'var(--color-error)'}">*</span></h2>
                 <select class="primary-form" required>
                     <option value="0" hidden>Select Section</option>
                     <option value="1">Section I</option>
@@ -154,20 +166,20 @@
                     <option value="3">Section III</option>
                 </select>
                 
-                <h2>Length (cm)</h2>
+                <h2>Length (cm)<span :style="{color: 'var(--color-error)'}">*</span></h2>
                 <input type="number" min="0" class="primary-form" required />
                 
-                <h2>Width (cm)</h2>
+                <h2>Width (cm)<span :style="{color: 'var(--color-error)'}">*</span></h2>
                 <input type="number" min="0" class="primary-form" required />
                 
                 <h2>Height (cm)</h2>
-                <input type="number" min="0" class="primary-form" required />
+                <input type="number" min="0" class="primary-form" />
                 
-                <h2>Description</h2>
+                <h2>Description<span :style="{color: 'var(--color-error)'}">*</span></h2>
                 <textarea rows="4" class="primary-form" required> </textarea>
                 
                 <h2>Remarks</h2>
-                <textarea rows="4" class="primary-form" required> </textarea>
+                <textarea rows="4" class="primary-form"> </textarea>
             </div>
 
             <!-- buttons -->
