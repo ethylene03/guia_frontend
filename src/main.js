@@ -15,6 +15,7 @@ import ChangePassword from './pages/admin/ChangePassword.vue'
 import AddArtwork from "./pages/admin/AddArtwork.vue"
 import EditArtwork from "./pages/admin/EditArtwork.vue"
 import ViewAllArtworks from "./pages/admin/ViewAllArtworks.vue"
+import AdminViewArtwork from "./pages/admin/ViewArtwork.vue"
 import Menu from "./pages/admin/Menu.vue"
 
 // import visitor pages here
@@ -23,6 +24,8 @@ import SearchMuseum from "./pages/visitor/SearchMuseum.vue"
 import Scanner from "./pages/visitor/Scanner.vue"
 import SearchArtwork from "./pages/visitor/SearchArtwork.vue"
 import ViewArtwork from "./pages/visitor/ViewArtwork.vue"
+import MuseumMap from "./pages/visitor/MuseumMap.vue"
+import Checklist from "./pages/visitor/Checklist.vue"
 
 // add paths here
 const router = createRouter({
@@ -34,6 +37,8 @@ const router = createRouter({
         { name: 'Scanner', path: '/scan', component: Scanner },
         { name: 'SearchArtwork', path: '/search', component: SearchArtwork },
         { name: 'ViewArtwork', path: '/view/:id', component: ViewArtwork },
+        { name: 'MuseumMap', path: '/map', component: MuseumMap },
+        { name: 'Checklist', path: '/checklist/:section_id', component: Checklist },
         
         { path: '/admin', redirect: '/admin/login' },
         { name: 'Login', path: '/admin/login', component: Login },
@@ -42,6 +47,7 @@ const router = createRouter({
         { name: 'AddArtwork', path: '/admin/add', component: AddArtwork },
         { name: 'EditArtwork', path: '/admin/edit/:id', component: EditArtwork },
         { name: 'ViewAll', path: '/admin/view/all', component: ViewAllArtworks },
+        { name: 'AdminViewArtwork', path: '/admin/view/:id', component: AdminViewArtwork },
         { name: 'Menu', path: '/admin/menu', component: Menu },
     ]
 });
