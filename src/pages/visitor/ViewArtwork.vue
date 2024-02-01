@@ -13,6 +13,7 @@
 
         data() {
             return {
+                // pseudo art details
                 artwork: {
                     imgURL: artImage,
                     title: "Fruit Seller",
