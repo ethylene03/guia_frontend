@@ -50,7 +50,7 @@ const emit = defineEmits<{
     </div>
 
     <!-- button container sa buttons  -->
-    <div class="button-cont">
+    <div class="modal-button-cont">
       <button class="left-btn" type="button" @click="emit('leftAction')">
         {{ buttonLeft }}
       </button>
@@ -142,14 +142,14 @@ const emit = defineEmits<{
   background-color: var(--color-secondary-darker);
 }
 
-.button-cont {
+.modal-button-cont {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   gap: 10px;
 }
 
-.button-cont button {
+.modal-button-cont button {
   padding: 10px;
   border-radius: 10px;
   border: none;
