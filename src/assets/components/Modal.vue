@@ -15,7 +15,10 @@ defineProps<{
 
 const router = useRouter();
 function redirect(path) {
-  router.push(path);
+  if(path === 'back')
+    router.back();
+  else
+    router.push(path);
 }
 
 const emit = defineEmits<{
@@ -32,7 +35,7 @@ const emit = defineEmits<{
   >
 
     <!-- warning icon and cancel edit header -->
-    <div class="header">
+    <div class="modal-header">
       <img :src="logoURL" />
       <text :style="{color: isSave ? 'var(--color-secondary)' : 'var(--color-error)'}">
         {{ title }}
@@ -58,7 +61,7 @@ const emit = defineEmits<{
   </VueFinalModal>
 </template>
 
-<style scoped>
+<style>
 .confirm-modal {
   display: flex;
   justify-content: center;
@@ -89,21 +92,21 @@ const emit = defineEmits<{
   background: #000;
 }
 
-.header {
+.modal-header {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 9vh;
+  height: fit-content;
   margin-bottom: 2vh;
 }
 
-.header img {
+.modal-header img {
   height: 70px;
   width: 70px;
 }
 
-.header text {
+.modal-header text {
   font-weight: bold;
   font-size: large;
 }

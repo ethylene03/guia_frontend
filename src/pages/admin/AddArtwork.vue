@@ -2,6 +2,27 @@
     // header component
     import Header from '@/assets/components/Header.vue';
 
+    // modal component
+    import { ModalsContainer, useModal } from 'vue-final-modal'
+    import Modal from '../../assets/components/Modal.vue'
+
+    const { open: openCancelModal, close: closeCancelModal } = useModal({
+        component: Modal,
+        attrs: {
+            logoURL: '/icons/warning.svg',
+            title: 'Cancel artwork?',
+            action: 'discard',
+            artwork: 'artwork',
+            buttonLeft: 'No',
+            buttonRight: 'Yes',
+            rightPath: 'back',
+            isSave: false,
+            onLeftAction() {
+                closeCancelModal();
+            },
+        },
+    });
+
     export default {
         components: {
             Header,
@@ -31,7 +52,7 @@
 
             // opens modal
             openModal() {
-                console.log("modal opened!");
+                openCancelModal();
             },
 
             // receives images uploaded
@@ -93,7 +114,7 @@
                 </div>
             </div>
             <text v-if="hasExceeded" :style="{color: 'var(--color-error)'}">Oh no! Can't upload more than 10 images.</text>
-            <text v-if="!hasExceeded && images.length > 0 && images.length < 10" :style="{color: 'var(--color-error)'}">Please upload {{ 10 - this.images.length }} images more.</text>
+            <text v-if="!hasExceeded && images.length > 0 && images.length < 10" :style="{color: 'var(--color-error)'}">Please upload {{ 10 - this.images.length }} more images.</text>
 
             <!-- binded upload button -->
             <button @click="chooseFiles()" class="upload-btn">
@@ -151,6 +172,7 @@
                     Save
                 </button>
             </div>
+            <ModalsContainer />
         </div>
     </div>
 </template>
