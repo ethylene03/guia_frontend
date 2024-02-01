@@ -121,6 +121,7 @@
             </div>
 
             <canvas ref="canvas" style="display: none;" />
+            <a :href="capturedImage" download="captured_image.png" v-if="capturedImage">Download Image</a>
             <!-- <img :src="capturedImage" v-if="capturedImage" alt="Captured Image"> -->
         </div>
     </div>
