@@ -21,6 +21,7 @@ import Menu from "./pages/admin/Menu.vue"
 import Home from "./pages/visitor/Home.vue"
 import SearchMuseum from "./pages/visitor/SearchMuseum.vue"
 import Scanner from "./pages/visitor/Scanner.vue"
+import SearchArtwork from "./pages/visitor/SearchArtwork.vue"
 
 // add paths here
 const router = createRouter({
@@ -30,6 +31,7 @@ const router = createRouter({
         { name: 'Home', path: '/home', component: Home },
         { name: 'SearchMuseum', path: '/search-museum', component: SearchMuseum },
         { name: 'Scanner', path: '/scan', component: Scanner },
+        { name: 'SearchArtwork', path: '/search', component: SearchArtwork },
         
         { path: '/admin', redirect: '/admin/login' },
         { name: 'Login', path: '/admin/login', component: Login },

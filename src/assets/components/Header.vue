@@ -6,8 +6,8 @@
             1. type - either "user" or "admin"
                     - determines what type of header to display
             
-            2. isMap - determines whether the map icon should be at the header or the camera icon
-            3. isLight - determines whether the header is light mode or dark maode
+            2. isMap - determines whether the map icon should be at the header or the camera icon (FOR USER ONLY)
+            3. isLight - determines whether the header is light mode or dark maode (FOR USER ONLY)
 
         Default Values:
             1. type - admin
