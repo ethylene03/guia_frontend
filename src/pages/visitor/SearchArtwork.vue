@@ -118,6 +118,7 @@
         border: none;
         outline: none;
         color: var(--color-primary);
+        font-family: Inter, sans-serif;
     }
 
     .search-bar input::placeholder {
