@@ -6,11 +6,24 @@
             Footer,
         },
 
+        data() {
+            return {
+                museum: "",
+                isDisabled: true,
+            }
+        },
+
         methods: {
             // to redirect to another screen
             redirect(path) {
                 this.$router.push(path);
             },
+
+            // receive museum
+            handleChange(e) {
+                this.museum = e.target.value;
+                this.isDisabled = false;
+            }
         },
     };
 </script>
@@ -26,7 +39,7 @@
                 <h1 :style="{marginBottom: '15px'}">Search Museum</h1>
 
                 <!-- select form (map the options for the integration) -->
-                <select class="dropdown">
+                <select class="dropdown" @change="handleChange">
                     <option hidden>Input museum name here</option>
                     <option>Museum 1</option>
                     <option>Museum 2</option>
@@ -35,7 +48,7 @@
             </div>
     
             <!-- confirm button (add API submit integration) -->
-            <button @click="redirect('/scan')">Confirm</button>
+            <button @click="redirect('/scan')" :disabled="isDisabled">Confirm</button>
         </div>
 
         <!-- Footer KBytes -->
@@ -88,5 +101,9 @@
     button:hover {
         background-color: var(--color-secondary-darker);
         cursor: pointer;
+    }
+
+    button:disabled {
+        background-color: #645d59;
     }
 </style>
