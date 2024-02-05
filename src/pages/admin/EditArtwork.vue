@@ -49,7 +49,28 @@
             // array of images uploaded/fetched
             return {
                 images: [],
+                artwork: {
+                    artwork_title: null,
+                    artist: null,
+                    date_published: null,
+                    medium: null,
+                    section: null,
+                    length: null,
+                    width: null,
+                    description: null,
+                },
+                artworkErr: {
+                    artwork_title: true,
+                    artist: true,
+                    date_published: true,
+                    medium: true,
+                    section: true,
+                    length: true,
+                    width: true,
+                    description: true,
+                },
                 hasExceeded: false,
+                isSaved: false,
             };
         },
 
@@ -107,6 +128,63 @@
             handleDeleteImage(index) {
                 this.images.splice(index, 1);
             },
+
+            saveArtwork() {
+                this.isSaved = true;
+                const art = this.artworkErr;
+
+                if(!art.artwork_title &&
+                    !art.artist &&
+                    !art.date_published &&
+                    !art.medium &&
+                    !art.section &&
+                    !art.length &&
+                    !art.width &&
+                    !art.description)
+                    openSaveModal();
+                else {
+                    console.log("error!");
+                }
+            },
+
+            handleChange(e) {
+                const input = e.target;
+                
+                if(input.id === 'date_published') {
+                    const year = /^((1[2-9]\d{2})|20[0-1][0-9]|202[0-4])$/;
+                    const month = /^(0[1-9]|1[0-2])-((1[2-9]\d{2})|20[0-1][0-9]|202[0-4])$/;
+                    const day = /^(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])-((1[2-9]\d{2})|20[0-1][0-9]|202[0-4])$/;
+
+                    if(year.test(input.value) || month.test(input.value) || day.test(input.value)) {
+                        this.artwork[input.id] = input.value;
+                        this.artworkErr[input.id] = false;
+                    } else
+                        this.artworkErr[input.id] = true;
+                } else {
+                    if(input.type === 'number') {
+                        const limit = /^[1-9]\d*(\.\d*[1-9])?$/;
+
+                        if(limit.test(input.value)) {
+                            this.artwork[input.id] = input.value;
+                            this.artworkErr[input.id] = false;
+                        } else {
+                            console.log(input.id, input.value)
+                            if(input.id === 'height') {
+                                if(input.value === "")
+                                    this.artworkErr[input.id] = false;
+                            } else
+                                this.artworkErr[input.id] = true;
+                        }
+                    } else {
+                        this.artwork[input.id] = input.value;
+
+                        if(input.value == "") 
+                            this.artworkErr[input.id] = true;
+                        else
+                            this.artworkErr[input.id] = false;
+                    }
+                }
+            }
         },
     };
 </script>
@@ -134,8 +212,9 @@
                     <text class="img-delete" @click="handleDeleteImage(index)">Delete</text>
                 </div>
             </div>
-            <text v-if="hasExceeded" :style="{color: 'var(--color-error)'}">Oh no! Can't upload more than 10 images.</text>
-            <text v-if="!hasExceeded && images.length > 0 && images.length < 10" :style="{color: 'var(--color-error)'}">Please upload {{ 10 - this.images.length }} more images.</text>
+            <text v-if="hasExceeded" :style="{color: 'red'}">Oh no! Can't upload more than 10 images.</text>
+            <text v-if="!hasExceeded && images.length > 0 && images.length < 10" :style="{color: 'red'}">Please upload {{ 10 - this.images.length }} more images.</text>
+            <text v-if="this.isSaved && images.length < 10" :style="{color: 'red'}">Please upload 10 images of the artwork.</text>
 
             <!-- binded upload button -->
             <button @click="chooseFiles()" class="upload-btn">
@@ -146,40 +225,49 @@
             <!-- form -->
             <div class="form-cont" :style="{width: '100%'}">
                 <h2>Artwork Title<span :style="{color: 'var(--color-error)'}">*</span></h2>
-                <input type="text" class="primary-form" required />
+                <input type="text" id="artwork_title" @input="handleChange" class="primary-form" required />
+                <span v-if="this.artworkErr.artwork_title && this.isSaved" :style="{color: 'red', fontSize: '13px'}">Please input the artwork's title.</span>
                 
                 <h2>Artist Name<span :style="{color: 'var(--color-error)'}">*</span></h2>
-                <input type="text" class="primary-form" required />
+                <input type="text" id="artist" @input="handleChange" class="primary-form" required />
+                <span v-if="this.artworkErr.artist && this.isSaved" :style="{color: 'red', fontSize: '13px'}">Please input the artwork's artist name.</span>
                 
                 <h2>Date Published<span :style="{color: 'var(--color-error)'}">*</span></h2>
-                <input type="date" class="primary-form" required />
+                <input type="text" id="date_published" @input="handleChange" class="primary-form" placeholder="YYYY or MM-YYYY or MM-DD-YYYY" required />
+                <span v-if="this.artworkErr.date_published && this.isSaved" :style="{color: 'red', fontSize: '13px'}">Please input the adtrwork's correct date published.</span>
                 
                 <h2>Medium<span :style="{color: 'var(--color-error)'}">*</span></h2>
-                <input type="text" class="primary-form" required />
+                <input type="text" id="medium" @input="handleChange" class="primary-form" required />
+                <span v-if="this.artworkErr.medium && this.isSaved" :style="{color: 'red', fontSize: '13px'}">Please input the artwork's correct medium.</span>
                 
-                <!-- select form (must map options for integration) -->
+                <!-- select form (must map the options for integration) -->
                 <h2>Assigned Section<span :style="{color: 'var(--color-error)'}">*</span></h2>
-                <select class="primary-form" required>
+                <select id="section" @input="handleChange" class="primary-form" required>
                     <option value="0" hidden>Select Section</option>
                     <option value="1">Section I</option>
                     <option value="2">Section II</option>
                     <option value="3">Section III</option>
                 </select>
+                <span v-if="this.artworkErr.section && this.isSaved" :style="{color: 'red', fontSize: '13px'}">Please input the artwork's section.</span>
                 
                 <h2>Length (cm)<span :style="{color: 'var(--color-error)'}">*</span></h2>
-                <input type="number" min="0" class="primary-form" required />
+                <input type="number" id="length" @input="handleChange" min="0" class="primary-form" required />
+                <span v-if="this.artworkErr.length && this.isSaved" :style="{color: 'red', fontSize: '13px'}">Please input the artwork's correct length.</span>
                 
                 <h2>Width (cm)<span :style="{color: 'var(--color-error)'}">*</span></h2>
-                <input type="number" min="0" class="primary-form" required />
+                <input type="number" id="width" @input="handleChange" min="0" class="primary-form" required />
+                <span v-if="this.artworkErr.width && this.isSaved" :style="{color: 'red', fontSize: '13px'}">Please input the artwork's correct width.</span>
                 
                 <h2>Height (cm)</h2>
-                <input type="number" min="0" class="primary-form" />
+                <input type="number" id="height" @input="handleChange" min="0" class="primary-form" />
+                <span v-if="this.artworkErr.height && this.isSaved" :style="{color: 'red', fontSize: '13px'}">Please input the artwork's correct height.</span>
                 
                 <h2>Description<span :style="{color: 'var(--color-error)'}">*</span></h2>
-                <textarea rows="4" class="primary-form" required> </textarea>
+                <textarea id="description" @input="handleChange" rows="4" class="primary-form" required></textarea>
+                <span v-if="this.artworkErr.description && this.isSaved" :style="{color: 'red', fontSize: '13px'}">Please input the artwork's description.</span>
                 
                 <h2>Remarks</h2>
-                <textarea rows="4" class="primary-form"> </textarea>
+                <textarea id="remarks" @input="handleChange" rows="4" class="primary-form"></textarea>
             </div>
 
             <!-- buttons -->
@@ -189,7 +277,7 @@
                 </button>
                 
                 <!-- save button (must add API integration validation here) -->
-                <button class="save" @click="openModal('save')">
+                <button class="save" @click="saveArtwork">
                     Save
                 </button>
             </div>

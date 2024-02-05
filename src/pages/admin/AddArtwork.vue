@@ -120,7 +120,7 @@
                     !art.length &&
                     !art.width &&
                     !art.description)
-                    console.log(this.artwork);
+                    console.log(art);
                 else {
                     console.log("error!");
                 }
@@ -147,10 +147,11 @@
                             this.artwork[input.id] = input.value;
                             this.artworkErr[input.id] = false;
                         } else {
-                            if(input.id === 'height')
+                            console.log(input.id, input.value)
+                            if(input.id === 'height') {
                                 if(input.value === "")
                                     this.artworkErr[input.id] = false;
-                            else
+                            } else
                                 this.artworkErr[input.id] = true;
                         }
                     } else {
@@ -190,8 +191,9 @@
                     <text class="img-delete" @click="handleDeleteImage(index)">Delete</text>
                 </div>
             </div>
-            <text v-if="hasExceeded" :style="{color: 'var(--color-error)'}">Oh no! Can't upload more than 10 images.</text>
+            <text v-if="hasExceeded" :style="{color: 'red'}">Oh no! Can't upload more than 10 images.</text>
             <text v-if="!hasExceeded && images.length > 0 && images.length < 10" :style="{color: 'red'}">Please upload {{ 10 - this.images.length }} more images.</text>
+            <text v-if="this.isSaved && images.length < 10" :style="{color: 'red'}">Please upload 10 images of the artwork.</text>
 
             <!-- binded upload button -->
             <button @click="chooseFiles()" class="upload-btn">
