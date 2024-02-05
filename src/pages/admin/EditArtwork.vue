@@ -212,9 +212,8 @@
                     <text class="img-delete" @click="handleDeleteImage(index)">Delete</text>
                 </div>
             </div>
-            <text v-if="hasExceeded" :style="{color: 'red'}">Oh no! Can't upload more than 10 images.</text>
-            <text v-if="!hasExceeded && images.length > 0 && images.length < 10" :style="{color: 'red'}">Please upload {{ 10 - this.images.length }} more images.</text>
-            <text v-if="this.isSaved && images.length < 10" :style="{color: 'red'}">Please upload 10 images of the artwork.</text>
+            <text v-if="hasExceeded" :style="{color: 'red', fontSize: '13px'}">Oh no! Can't upload more than 10 images.</text>
+            <text v-if="(!hasExceeded && images.length > 0 && images.length < 10) || (this.isSaved && images.length < 10)" :style="{color: 'red', fontSize: '13px'}">Please upload {{ 10 - this.images.length }} more images.</text>
 
             <!-- binded upload button -->
             <button @click="chooseFiles()" class="upload-btn">
@@ -234,7 +233,7 @@
                 
                 <h2>Date Published<span :style="{color: 'var(--color-error)'}">*</span></h2>
                 <input type="text" id="date_published" @input="handleChange" class="primary-form" placeholder="YYYY or MM-YYYY or MM-DD-YYYY" required />
-                <span v-if="this.artworkErr.date_published && this.isSaved" :style="{color: 'red', fontSize: '13px'}">Please input the adtrwork's correct date published.</span>
+                <span v-if="this.artworkErr.date_published && this.isSaved" :style="{color: 'red', fontSize: '13px'}">Please input the artwork's correct date published.</span>
                 
                 <h2>Medium<span :style="{color: 'var(--color-error)'}">*</span></h2>
                 <input type="text" id="medium" @input="handleChange" class="primary-form" required />

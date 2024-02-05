@@ -21,6 +21,11 @@
   padding: 5px;
   font-family: Inter, sans-serif;
   color: var(--color-secondary);
+  font-family: Inter, sans-serif;
+}
+
+select {
+  font-family: Inter, sans-serif;
 }
 
 div.container {
