@@ -1,7 +1,10 @@
 <script>
-    // uses the InputIcon component
+    // import components
     import InputIcon from "../../assets/components/InputIcon.vue"
     import Footer from "../../assets/components/Footer.vue"
+
+    // api
+    import { POST } from '../../assets/API calls/api.js'
 
     export default {
         // all components used must be declared here
@@ -10,12 +13,67 @@
             Footer,
         },
 
+        data() {
+            return {
+                isDisabled: true,
+                // variables to send to backend
+                credentials: {
+                    admin_username: "",
+                    admin_password: ""
+                },
+            }
+        },
+
         // all methods ust be declared here
         methods: {
             redirectToHome() {
                 this.$router.push('/admin/home'); // redirection
+            },
+
+            // username change handler
+            handleChange(e) {
+                const input = e.target;
+                this.credentials[input.id] = input.value;
+
+                if(this.credentials.admin_username &&
+                this.credentials.admin_password) {
+                    this.isDisabled = false;
+                } else
+                    this.isDisabled = true;
+            },
+
+            // password change handler
+            handlePass(value) {
+                this.credentials['admin_password'] = value;
+
+                if(this.credentials.admin_username &&
+                this.credentials.admin_password) {
+                    this.isDisabled = false;
+                } else
+                    this.isDisabled = true;
+            },
+
+            // submit login
+            async submitCredentials() {
+                const submit = await POST('/admin/login', this.credentials);
+                console.log(submit);
+
+                // check if success
+                if(submit.status === 200) {
+                    const post = submit.data;
+    
+                    // store locally
+                    localStorage.setItem('admin_id', post.admin_id);
+                    localStorage.setItem('museum_id', post.museum_id);
+                    localStorage.setItem('token', post.token);
+
+                    // redirect to home
+                    this.$router.push('./home');
+                } else {
+                    console.error(submit);
+                }
             }
-        }
+        },
     };
 </script>
 
@@ -28,15 +86,15 @@
         <div class="login-cont">
             <!-- username -->
             <h2 class="label-light">Username</h2> 
-            <input type="text" class="primary-form" /> <!-- use the class "primary" for common input css -->
+            <input id="admin_username" type="text" class="primary-form" @change="handleChange" /> <!-- use the class "primary" for common input css -->
     
             <!-- password (uses InputIcon component)-->
             <h2 class="label-light">Password</h2>
-            <input-icon type="password" isPassword="true" />
+            <input-icon id="admin_password" type="password" isPassword="true" @value="handlePass" />
         </div>
     
         <!-- login button -->
-        <button class="login-btn" type="button" @click="redirectToHome">Login</button>
+        <button :disabled="isDisabled" class="login-btn" type="button" @click="submitCredentials">Login</button>
     
         <!-- Kbytes Logo Footer -->
         <Footer />
@@ -82,5 +140,9 @@
 
     .login-btn:hover {
         background-color: var(--color-secondary-darker);
+    }
+
+    .login-btn:disabled {
+        background-color: #645d59;
     }
 </style>

@@ -7,6 +7,7 @@
             2. icon - this tells the component the URL of the icon used. 
                 NOTE: the icon must be placed in "root/public/icons" to work.
             3. isPassword - it is a boolean attribute that tells the component whether the component is used as a password input form or not.
+            4. @value - to receive the value passed from this component to the parent component
     
     To Use:
         in the `script` tags:
@@ -19,7 +20,7 @@
             };
 
         in `template` tags:
-            <input-icon type="type" icon = "icon/path" isPassword="false" />
+            <input-icon type="type" icon = "icon/path" isPassword="false" @value="password" />
  -->
 
 
@@ -56,6 +57,11 @@
             changeType() {
                 this.inputType = this.inputType === "text" ? "password" : "text";
                 this.iconURL = this.inputType === "text" ? "/icons/show.svg" : "/icons/hide.svg";
+            },
+
+            handleChange(e) {
+                // console.log(e.target.value)
+                this.$emit('value', e.target.value);
             }
         }
     };
@@ -63,7 +69,7 @@
   
 <template>
     <div class="input-cont">
-        <input :type="inputType" />
+        <input :type="inputType" @change="handleChange" />
 
         <!-- The icon is clickable if "isPassword" is true -->
         <img v-if="isPassword" class="clickable-img" :src="iconURL" alt="icon" @click="changeType" />
