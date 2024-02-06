@@ -102,7 +102,7 @@
             </div>
         
             <!-- Error Message -->
-            <span v-if="errorMessage" :style="{color: 'red', fontSize: '13px', marginTop: '30px', marginBottom: '-30px'}">{{ this.errorMessage }}</span>
+            <span v-if="errorMessage" :style="{color: 'red', fontSize: '13px', marginTop: '10px', marginBottom: '-30px'}">{{ this.errorMessage }}</span>
             
             <!-- login button -->
             <span v-if="isSubmit" class="loader"></span>
