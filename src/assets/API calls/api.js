@@ -56,7 +56,7 @@ export const PUT = async (endpoint, data) => {
         const response = await api.put(endpoint, data);
         return response;
     } catch (error) {
-        throw new Error(error.response.data.message);
+        return error;
     }
 };
   
@@ -66,7 +66,7 @@ export const DELETE = async (endpoint) => {
         const response = await api.delete(endpoint);
         return response;
     } catch (error) {
-        throw new Error(error.response.data.message);
+        return error;
     }
 };
   
@@ -76,6 +76,6 @@ export const UPDATE = async (endpoint, data) => {
         const response = await api.patch(endpoint, data);
         return response;
     } catch (error) {
-        throw new Error(error.response.data.message);
+        return error;
     }
 };
