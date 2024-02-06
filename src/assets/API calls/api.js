@@ -19,8 +19,8 @@
 import axios from 'axios';
 
 /**change the URL to guia-backend for deployment **/ 
-const baseURL = 'https://crucial-properly-shiner.ngrok-free.app/api'; 
-// const baseURL = 'https://guia-backend-kbytes.vercel.app/api'; 
+// const baseURL = 'https://crucial-properly-shiner.ngrok-free.app/api'; 
+const baseURL = 'https://guia-backend-kbytes.vercel.app/api'; 
 
 
 const api = axios.create({

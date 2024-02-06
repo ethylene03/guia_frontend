@@ -58,17 +58,25 @@ const router = createRouter({
 
 // Navigation guard
 router.beforeEach((to, from, next) => {
-    if (to.meta.requiresAuth) {
-        const token = localStorage.getItem(to.meta.role + '_token');
-
-        if (!token && to.meta.role === 'admin') // redirect to login if no token (admin)
-            next('/admin/login');
-        else if(!token && to.meta.role === 'visitor') // redirect to home if no token (visitor)
-            next('/search-museum');
-        else // proceed to page
+    if(to.path === '/admin/login') {
+        if(localStorage.getItem('admin_token'))
+            next(false);
+        else
             next();
-    } else
-        next(); // proceed to page
+    } else {
+        if (to.meta.requiresAuth) {
+            const token = localStorage.getItem(to.meta.role + '_token');
+    
+            if (!token && to.meta.role === 'admin') // redirect to login if no token (admin)
+                next('/admin/login');
+            else if(!token && to.meta.role === 'visitor') // redirect to home if no token (visitor)
+                next('/search-museum');
+            else // proceed to page
+                next();
+        } else
+            next(); // proceed to page
+    }
+
 });
 
 const app = createApp(App)

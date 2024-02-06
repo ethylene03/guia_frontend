@@ -1,4 +1,5 @@
 <script>
+    import { refreshPage } from "@/assets/components/common";
     import Footer from "../../assets/components/Footer.vue"
 
     // naa sulod sa export default ang pagdeclare sa components ug methods
@@ -23,6 +24,14 @@
                 else
                     this.$router.push(path);
             },
+
+            logout() {
+                localStorage.removeItem('admin_token');
+                localStorage.removeItem('admin_id');
+                localStorage.removeItem('museum_id');
+
+                refreshPage();
+            }
         }
     };
 </script>
@@ -53,7 +62,7 @@
                 </button>
 
                 <!-- logout button -->
-                <button class="logout-btn" type="button" @click="goTo('/admin/login')">
+                <button class="logout-btn" type="button" @click="logout">
                     <img src="/icons/logout.svg" alt="logout" class="logout-icon" />
                     <h2>Logout</h2>
                 </button>
