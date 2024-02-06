@@ -21,6 +21,8 @@
                     admin_username: "",
                     admin_password: ""
                 },
+                isSubmit: false,
+                errorMessage: "",
             }
         },
 
@@ -55,8 +57,11 @@
 
             // submit login
             async submitCredentials() {
+                this.isSubmit = true;
+                this.errorMessage = "";
+                
                 const submit = await POST('/admin/login', this.credentials);
-                console.log(submit);
+                // console.log(submit);
 
                 // check if success
                 if(submit.status === 200) {
@@ -65,12 +70,14 @@
                     // store locally
                     localStorage.setItem('admin_id', post.admin_id);
                     localStorage.setItem('museum_id', post.museum_id);
-                    localStorage.setItem('token', post.token);
+                    localStorage.setItem('admin_token', post.token);
 
                     // redirect to home
                     this.$router.push('./home');
                 } else {
-                    console.error(submit);
+                    this.isSubmit = false;
+                    this.errorMessage = submit?.response.data.error;
+                    // console.error(submit.response.data.error);
                 }
             }
         },
@@ -83,18 +90,24 @@
         <h2 class="label">Please login using the given credentials.</h2> 
     
         <!-- login form -->
-        <div class="login-cont">
-            <!-- username -->
-            <h2 class="label-light">Username</h2> 
-            <input id="admin_username" type="text" class="primary-form" @change="handleChange" /> <!-- use the class "primary" for common input css -->
-    
-            <!-- password (uses InputIcon component)-->
-            <h2 class="label-light">Password</h2>
-            <input-icon id="admin_password" type="password" isPassword="true" @value="handlePass" />
-        </div>
-    
-        <!-- login button -->
-        <button :disabled="isDisabled" class="login-btn" type="button" @click="submitCredentials">Login</button>
+        <form @submit.prevent="submitCredentials">
+            <div class="login-cont">
+                <!-- username -->
+                <h2 class="label-light">Username</h2> 
+                <input id="admin_username" type="text" class="primary-form" @change="handleChange" /> <!-- use the class "primary" for common input css -->
+        
+                <!-- password (uses InputIcon component)-->
+                <h2 class="label-light">Password</h2>
+                <input-icon id="admin_password" type="password" isPassword="true" @value="handlePass" />
+            </div>
+        
+            <!-- Error Message -->
+            <span v-if="errorMessage" :style="{color: 'red', fontSize: '13px', marginTop: '30px', marginBottom: '-30px'}">{{ this.errorMessage }}</span>
+            
+            <!-- login button -->
+            <span v-if="isSubmit" class="loader"></span>
+            <button v-else :disabled="isDisabled" class="login-btn" type="submit">Login</button>
+        </form>
     
         <!-- Kbytes Logo Footer -->
         <Footer />
@@ -114,6 +127,12 @@
         color: var(--text-secondary);
         font-weight: normal;
         margin: 7vh 7px 7px 7px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     /* login form */
@@ -136,13 +155,31 @@
         background-color: var(--color-secondary);
         color: var(--color-text-on-dark);
         cursor: pointer;
+        width: fit-content;
     }
+
+    .loader {
+        margin-top: 20px;
+        width: 48px;
+        height: 48px;
+        border: 5px solid var(--color-secondary);
+        border-bottom-color: transparent;
+        border-radius: 50%;
+        display: inline-block;
+        box-sizing: border-box;
+        animation: rotation 1s linear infinite;
+    }
+
+    @keyframes rotation {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    } 
 
     .login-btn:hover {
         background-color: var(--color-secondary-darker);
-    }
-
-    .login-btn:disabled {
-        background-color: #645d59;
     }
 </style>

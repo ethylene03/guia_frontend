@@ -31,6 +31,8 @@ import Checklist from "./pages/visitor/Checklist.vue"
 const router = createRouter({
     history: createWebHistory(),
     routes: [
+        // visitor pages
+        // add meta: { requiresAuth: true, role: 'visitor' } after visitor integration!!
         { path: '/', redirect: '/home' },
         { name: 'Home', path: '/home', component: Home },
         { name: 'SearchMuseum', path: '/search-museum', component: SearchMuseum },
@@ -40,16 +42,33 @@ const router = createRouter({
         { name: 'MuseumMap', path: '/map', component: MuseumMap },
         { name: 'Checklist', path: '/checklist/:section_id', component: Checklist },
         
+        // admin pages
         { path: '/admin', redirect: '/admin/login' },
         { name: 'Login', path: '/admin/login', component: Login },
-        { name: 'Dashboard', path: '/admin/home', component: AdminHome },
-        { name: 'ChangePassword', path: '/admin/change-password', component: ChangePassword },
-        { name: 'AddArtwork', path: '/admin/add', component: AddArtwork },
-        { name: 'EditArtwork', path: '/admin/edit/:id', component: EditArtwork },
-        { name: 'ViewAll', path: '/admin/view/all', component: ViewAllArtworks },
-        { name: 'AdminViewArtwork', path: '/admin/view/:id', component: AdminViewArtwork },
-        { name: 'Menu', path: '/admin/menu', component: Menu },
+        { name: 'Dashboard', path: '/admin/home', component: AdminHome, meta: { requiresAuth: true, role: 'admin' } },
+        { name: 'ChangePassword', path: '/admin/change-password', component: ChangePassword, meta: { requiresAuth: true, role: 'admin' } },
+        { name: 'AddArtwork', path: '/admin/add', component: AddArtwork, meta: { requiresAuth: true, role: 'admin' } },
+        { name: 'EditArtwork', path: '/admin/edit/:id', component: EditArtwork, meta: { requiresAuth: true, role: 'admin' } },
+        { name: 'ViewAll', path: '/admin/view/all', component: ViewAllArtworks, meta: { requiresAuth: true, role: 'admin' } },
+        { name: 'AdminViewArtwork', path: '/admin/view/:id', component: AdminViewArtwork, meta: { requiresAuth: true, role: 'admin' } },
+        { name: 'Menu', path: '/admin/menu', component: Menu, meta: { requiresAuth: true, role: 'admin' } },
     ]
+});
+
+
+// Navigation guard
+router.beforeEach((to, from, next) => {
+    if (to.meta.requiresAuth) {
+        const token = localStorage.getItem(to.meta.role + '_token');
+
+        if (!token && to.meta.role === 'admin') // redirect to login if no token (admin)
+            next('/admin/login');
+        else if(!token && to.meta.role === 'visitor') // redirect to home if no token (visitor)
+            next('/search-museum');
+        else // proceed to page
+            next();
+    } else
+        next(); // proceed to page
 });
 
 const app = createApp(App)
