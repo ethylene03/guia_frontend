@@ -18,14 +18,15 @@
 
 import axios from 'axios';
 
-/**change the URL to guia-backend for deployment **/ 
-// const baseURL = 'https://crucial-properly-shiner.ngrok-free.app/api'; 
-const baseURL = 'https://guia-backend-kbytes.vercel.app/api'; 
+/** Fetch URL and API Key **/ 
+const baseURL = import.meta.env.VITE_API_URL;
+const APIKey = import.meta.env.VITE_API_KEY; 
 
 
 const api = axios.create({
   baseURL,
   headers: {
+    'Authorization': APIKey,
     'Content-Type': 'application/json',
   },
 });
