@@ -297,7 +297,7 @@
 
     h2 {
         font-weight: bold;
-        margin-bottom: 5px;
+        margin: 10px 0 5px 0;
     }
 
     .input-form {
@@ -317,7 +317,6 @@
         background-color: var(--color-primary);
 
         width: 100%;
-        margin-bottom: 10px;
         padding: 20px;
     }
 
@@ -331,7 +330,7 @@
         width: 100%;
         cursor: pointer;
 
-        margin-bottom: 20px;
+        margin: 15px 0 20px 0;
     }
 
     .upload-btn:hover {
@@ -359,12 +358,12 @@
         font-weight: 600;
     }
 
-    .primary-form {
-        margin-bottom: 10px;
-    }
-
     textarea {
         width: 100% !important;
+    }
+
+    .primary-form {
+        margin-bottom: 0;
     }
 
     .btn-cont {
