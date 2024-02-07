@@ -94,6 +94,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        margin-bottom: 3.2rem;
     }
 
     .search-bar {
@@ -106,6 +107,7 @@
         justify-content: center;
         align-items: center;
         padding-right: 10px;
+        margin: 10px 0 10px 0;
     }
 
     .search-bar input {

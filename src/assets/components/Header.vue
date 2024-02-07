@@ -8,6 +8,7 @@
             
             2. isMap - determines whether the map icon should be at the header or the camera icon (FOR USER ONLY)
             3. isLight - determines whether the header is light mode or dark maode (FOR USER ONLY)
+            4. showMenu - pass false if you do not want the menu icon to show (FOR USER ONLY)
 
         Default Values:
             1. type - admin
@@ -47,6 +48,11 @@
                 type: Boolean,
                 default: false,
             },
+
+            showMenu: {
+                type: Boolean,
+                default: true,
+            }
         },
 
         methods: {
@@ -69,13 +75,13 @@
         <img src="/icons/guia-long.svg" alt="Guía" class="guia" />
         
         <!-- admin menu -->
-        <img v-if="type === 'admin'" src="/icons/menu.svg" class="menu" @click="redirect('./menu')" />
+        <img v-if="type === 'admin'" src="/icons/menu.svg" class="menu" @click="redirect('/admin/menu')" />
 
         <!-- user map/camera -->
-        <img v-if="type === 'user' && isMap && !isLight" src="/icons/map.svg" class="menu" @click="redirect('/map')" />
-        <img v-if="type === 'user' && !isMap && !isLight" src="/icons/camera.svg" class="menu" @click="redirect('/scan')" />
-        
-        <img v-if="type === 'user' && isMap && isLight" src="/icons/map-light.svg" class="menu-light" @click="redirect('/map')" />
+        <img v-if="type === 'user' && isMap && !isLight && showMenu" src="/icons/map.svg" class="menu" @click="redirect('/map')" />
+        <img v-if="type === 'user' && !isMap && !isLight && showMenu" src="/icons/camera.svg" class="menu" @click="redirect('/scan')" />
+        <img v-if="type === 'user' && isMap && isLight && showMenu" src="/icons/map-light.svg" class="menu-light" @click="redirect('/map')" />
+        <img v-if="type === 'user' && !showMenu" src="/icons/map-light.svg" disabled :style="{opacity: '0'}" @click="redirect('/map')" />
     </div>
 </template>
 

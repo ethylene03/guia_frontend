@@ -56,6 +56,11 @@
             <div class="description">
                 <p>{{ this.artwork.description }}</p>
             </div>
+
+            <button class="scan-again" type="button" @click="redirect('/scan')">
+                <img src="/icons/scan.svg" alt="scan again" />
+                Scan Again
+            </button>
         </div>
 
         <Footer />
@@ -92,6 +97,24 @@
 
         height: 12em;
         overflow-y: auto;
+    }
+
+    .scan-again {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        background-color: var(--color-accent);
+        color: var(--color-primary);
+
+        margin: 20px 0 -30px 0;
+    }
+
+    .scan-again img {
+        height: 20px;
+        width: auto;
+        margin: 0 10px 0 0;
     }
 
     @media screen and (min-width: 650px) {

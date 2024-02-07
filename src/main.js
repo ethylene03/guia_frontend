@@ -43,7 +43,7 @@ const router = createRouter({
         { name: 'Checklist', path: '/checklist/:section_id', component: Checklist },
         
         // admin pages
-        { path: '/admin', redirect: '/admin/login' },
+        { path: '/admin', meta: { requiresAuth: true, role: 'admin' } },
         { name: 'Login', path: '/admin/login', component: Login },
         { name: 'Dashboard', path: '/admin/home', component: AdminHome, meta: { requiresAuth: true, role: 'admin' } },
         { name: 'ChangePassword', path: '/admin/change-password', component: ChangePassword, meta: { requiresAuth: true, role: 'admin' } },
@@ -58,7 +58,12 @@ const router = createRouter({
 
 // Navigation guard
 router.beforeEach((to, from, next) => {
-    if(to.path === '/admin/login') {
+    if(to.path === '/admin') {
+        if(localStorage.getItem('admin_token'))
+            next('/admin/home');
+        else
+            next('/admin/login');
+    } else if(to.path === '/admin/login') {
         if(localStorage.getItem('admin_token'))
             next(false);
         else

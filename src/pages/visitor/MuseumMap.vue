@@ -57,6 +57,7 @@
     .content {
         width: 100%;
         text-align: center;
+        margin-bottom: 3.2rem; /* add space for footer */
     }
 
     .content .italic {

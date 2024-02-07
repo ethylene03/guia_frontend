@@ -1,9 +1,11 @@
 <script>
     import Footer from "../../assets/components/Footer.vue";
+    import Header from "@/assets/components/Header.vue";
 
     export default {
         components: {
             Footer,
+            Header,
         },
 
         data() {
@@ -30,6 +32,7 @@
 
 <template>
     <div class="container">
+        <Header type="user" :showMenu="false" />
         <div class="search-cont">
             <!-- museum logo here (change the src for the integration) -->
             <img src="../../assets/images/museum-dark.png" class="museum-logo" />
@@ -57,9 +60,6 @@
 </template>
 
 <style scoped>
-    .container {
-        justify-content: center;
-    }
 
     .search-cont {
         display: flex;
@@ -105,5 +105,11 @@
 
     button:disabled {
         background-color: #645d59;
+    }
+
+    @media screen and (min-width: 650px) {
+        .container {
+            width: 60vw;
+        }
     }
 </style>

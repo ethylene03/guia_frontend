@@ -19,12 +19,20 @@
 -->
 
 <template>
-    <img src="../images/kbytes-logo.svg" alt="Kbytes" class="footer" />
+    <div class="footer">
+        <img src="../images/kbytes-logo.svg" alt="Kbytes" />
+    </div>
 </template>
 
 <style scoped>
     .footer {
-        position: relative;
-        top: 40px;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 3.2rem;
+
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
     }
 </style> 

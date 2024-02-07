@@ -107,7 +107,7 @@
             <div class="vid-cont">
                 <video ref="videoFront" autoplay muted :style="{ transform: videoTransform, transform: facingMode === 'user' ? 'scaleX(-1)' : 'scaleX(1)' }" />
             </div>
-            <h2>Please point the camera to the artwork</h2>
+            <h2 :style="{marginTop: '10px'}">Please point the camera to the artwork</h2>
     
             <!-- buttons -->
             <div class="btn-cont">
