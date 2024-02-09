@@ -2,6 +2,7 @@
     // import components
     import InputIcon from "../../assets/components/InputIcon.vue"
     import Footer from "../../assets/components/Footer.vue"
+    import moment from "moment";
 
     // api
     import { POST } from '../../assets/API calls/api.js'
@@ -32,21 +33,12 @@
                 this.$router.push('/admin/home'); // redirection
             },
 
-            // username change handler
+            // form change handler
             handleChange(e) {
                 const input = e.target;
+                // console.log(input.id);
+                
                 this.credentials[input.id] = input.value;
-
-                if(this.credentials.admin_username &&
-                this.credentials.admin_password) {
-                    this.isDisabled = false;
-                } else
-                    this.isDisabled = true;
-            },
-
-            // password change handler
-            handlePass(value) {
-                this.credentials['admin_password'] = value;
 
                 if(this.credentials.admin_username &&
                 this.credentials.admin_password) {
@@ -71,6 +63,8 @@
                     localStorage.setItem('admin_id', post.admin_id);
                     localStorage.setItem('museum_id', post.museum_id);
                     localStorage.setItem('admin_token', post.token);
+                    localStorage.setItem('token_expiry', moment.utc(post.token_expires).local().format('YYYY-MM-DD hh:mm:ss A'));
+                    localStorage.setItem('username', this.credentials.admin_username);
 
                     // redirect to home
                     this.$router.push('./home');
@@ -98,14 +92,14 @@
         
                 <!-- password (uses InputIcon component)-->
                 <h2 class="label-light">Password</h2>
-                <input-icon id="admin_password" type="password" isPassword="true" @value="handlePass" />
+                <input-icon id="admin_password" type="password" isPassword="true" @value="handleChange" />
             </div>
         
             <!-- Error Message -->
             <span v-if="errorMessage" :style="{color: 'red', fontSize: '13px', marginTop: '10px', marginBottom: '-30px'}">{{ this.errorMessage }}</span>
             
             <!-- login button -->
-            <span v-if="isSubmit" class="loader"></span>
+            <span v-if="isSubmit" class="loader" ></span>
             <button v-else :disabled="isDisabled" class="login-btn" type="submit">Login</button>
         </form>
     

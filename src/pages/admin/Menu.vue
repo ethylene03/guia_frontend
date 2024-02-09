@@ -1,5 +1,5 @@
 <script>
-    import { refreshPage } from "@/assets/components/common";
+    import { getUsername, refreshPage } from "@/assets/components/common";
     import Footer from "../../assets/components/Footer.vue"
 
     // naa sulod sa export default ang pagdeclare sa components ug methods
@@ -12,7 +12,7 @@
         // temporary user email rani, replace this one puhon with the data in our database
         data() {
             return {
-                userEmail: 'admin-user@gmail.com',
+                userEmail: getUsername(),
             };
         },
 

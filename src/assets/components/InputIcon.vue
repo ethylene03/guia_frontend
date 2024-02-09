@@ -8,7 +8,8 @@
                 NOTE: the icon must be placed in "root/public/icons" to work.
             3. isPassword - it is a boolean attribute that tells the component whether the component is used as a password input form or not.
             4. @value - to receive the value passed from this component to the parent component
-    
+            5. id - id of the input form
+
     To Use:
         in the `script` tags:
             import InputIcon from "../assets/components/InputIcon.vue"
@@ -41,6 +42,11 @@
             isPassword: {
                 type: Boolean,
                 default: false,
+            },
+
+            id: {
+                type: String,
+                default: "",
             }
         },
 
@@ -60,8 +66,8 @@
             },
 
             handleChange(e) {
-                // console.log(e.target.value)
-                this.$emit('value', e.target.value);
+                // console.log("yow: " + e)
+                this.$emit('value', e);
             }
         }
     };
@@ -69,7 +75,7 @@
   
 <template>
     <div class="input-cont">
-        <input :type="inputType" @change="handleChange" />
+        <input :id="this.id" :type="inputType" @change="handleChange" />
 
         <!-- The icon is clickable if "isPassword" is true -->
         <img v-if="isPassword" class="clickable-img" :src="iconURL" alt="icon" @click="changeType" />

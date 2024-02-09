@@ -1,3 +1,5 @@
+import moment from "moment";
+
 // refresh the page
 export const refreshPage = () => {
     return window.location.reload();
@@ -20,3 +22,18 @@ export const getMuseumId = () => {
 export const getAdminId = () => {
     return localStorage.getItem("admin_id");
 };
+
+// get the username stored locally
+export const getUsername = () => {
+    return localStorage.getItem("username");
+};
+
+// get the username stored locally
+export const getTokenExpiry = () => {
+    return localStorage.getItem("token_expiry");
+};
+
+/* TIME STUFF */
+export const getCurrentTime = () => {
+    return moment().format('YYYY-MM-DD hh:mm:ss A');
+}
