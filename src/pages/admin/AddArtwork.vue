@@ -147,7 +147,7 @@
                             this.artwork[input.id] = input.value;
                             this.artworkErr[input.id] = false;
                         } else {
-                            console.log(input.id, input.value)
+                            // console.log(input.id, input.value)
                             if(input.id === 'height') {
                                 if(input.value === "")
                                     this.artworkErr[input.id] = false;

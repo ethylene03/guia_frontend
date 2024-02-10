@@ -44,7 +44,7 @@ const router = createRouter({
         
         // admin pages
         { path: '/admin', meta: { requiresAuth: true, role: 'admin' } },
-        { name: 'Login', path: '/admin/login', component: Login },
+        { name: 'Login', path: '/admin/login', component: Login, meta: { requiresAuth: true, role: 'admin' } },
         { name: 'Dashboard', path: '/admin/home', component: AdminHome, meta: { requiresAuth: true, role: 'admin' } },
         { name: 'ChangePassword', path: '/admin/change-password', component: ChangePassword, meta: { requiresAuth: true, role: 'admin' } },
         { name: 'AddArtwork', path: '/admin/add', component: AddArtwork, meta: { requiresAuth: true, role: 'admin' } },
@@ -64,9 +64,12 @@ router.beforeEach((to, from, next) => {
         else
             next('/admin/login');
     } else if(to.path === '/admin/login') {
-        if(localStorage.getItem('admin_token'))
-            next(false);
-        else
+        if(localStorage.getItem('admin_token')) {
+            if(from.path != '/')
+                next(false);
+            else
+                next('/admin/home');
+        } else
             next();
     } else {
         if (to.meta.requiresAuth) {

@@ -2,19 +2,86 @@
     //uses the InputIcon component for password input
     import InputIcon from "../../assets/components/InputIcon.vue";
     import Footer from "../../assets/components/Footer.vue";
+    import { getAdminId, isExpired, logout } from "@/assets/components/common";
+    import { adminPOST } from "@/assets/API calls/api";
+    import Loader from "@/assets/components/Loader.vue";
 
     // naa sulod sa export default ang pagdeclare sa components ug methods
     export default {
         //declaring the InputIcon component
         components: {
             InputIcon,
-            Footer
+            Footer,
+            Loader
+        },
+
+        data() {
+            return {
+                deets: {
+                    admin_id: getAdminId(),
+                    old_password: "",
+                    new_password: "",
+                },
+                confirm_password: "",
+                isSame: {
+                    type: Boolean,
+                    default: true,
+                },
+                error: "",
+                isSaved: false,
+                isSubmit: false,
+            }
         },
 
         //when clicking the save password button, it will go back to the previous page the admin was in
         methods: {
             goBack() {
                 this.$router.back();
+            },
+
+            // form change handler
+            handleChange(e) {
+                const res = e.target;
+
+                if(res.id === 'confirm_password')
+                    this.confirm_password = res.value;
+                else
+                    this.deets[res.id] = res.value;
+
+                if(this.confirm_password != this.deets.new_password)
+                    this.isSame = false;
+                else
+                    this.isSame = true;
+            },
+
+            // send to API
+            async submitDetails() {
+                this.isSaved = true;
+                this.isSubmit = true;
+
+                if(this.isSame) {
+                    if(this.deets.old_password === this.deets.new_password) {
+                        this.isSubmit = false;
+                        this.error = "Old Password and New Password should not match.";
+                    } else {
+                        this.error = "";
+                        this.isSaved = false;
+                        // console.log(this.deets);
+                        
+                        // post change password
+                        const changePass = await adminPOST('/change-password', this.deets);
+                        // console.log(changePass);
+                        this.isSubmit = false;
+
+                        if(changePass.status === 200) {
+                            console.log("change password successful!");
+                            setTimeout(() => logout(), 1000);
+                        } else {
+                            console.error(changePass);
+                        }
+
+                    }
+                }
             }
         }
     }
@@ -26,26 +93,33 @@
         <!-- guia logo -->
         <img class="logo" src="../../assets/images/admin-logo.png" />
 
-        <!-- change password form -->
-        <div class="change-pass-cont">
-            <!-- current password (uses the InputIcon) -->
-            <h2 class="label-dark">Current Password</h2>
-            <input-icon type="password" isPassword="true"/>
+        <form @submit.prevent="submitDetails" :style="{textAlign: 'center'}">
+            <!-- change password form -->
+            <div class="change-pass-cont">
+                <!-- current password (uses the InputIcon) -->
+                <h2 class="label-dark">Current Password</h2>
+                <input-icon id="old_password" type="password" isPassword="true" @value="handleChange" />
+    
+                <!-- new password (uses the InputIcon) -->
+                <h2 class="label-dark">New Password</h2>
+                <input-icon id="new_password" type="password" isPassword="true" @value="handleChange" />
+    
+                <!-- confirm new password (uses the InputIcon) -->
+                <h2 class="label-dark">Confirm New Password</h2>
+                <input-icon id="confirm_password" type="password" isPassword="true" @value="handleChange" />
+                <span v-if="!this.isSame" :style="{color: 'red', fontSize: '13px'}">Password does not match.</span>
+            </div>
+            
+            <!-- Error -->
+            <span v-if="error" :style="{color: 'red', fontSize: '13px'}">{{ this.error }}</span>
 
-            <!-- new password (uses the InputIcon) -->
-            <h2 class="label-dark">New Password</h2>
-            <input-icon type="password" isPassword="true"/>
-
-            <!-- confirm new password (uses the InputIcon) -->
-            <h2 class="label-dark">Confirm New Password</h2>
-            <input-icon type="password" isPassword="true"/>
-        </div>
-
-        <!-- container for cancel and save buttons -->
-        <div class="button-cont">
-            <button @click="goBack" class="btn-cancel">Cancel</button>
-            <button @click="goBack" class="btn-save">Save Password</button>
-        </div>
+            <!-- container for cancel and save buttons -->
+            <Loader v-if="isSubmit" />
+            <div v-else class="button-cont">
+                <button type="button" @click="goBack" class="btn-cancel">Cancel</button>
+                <button type="submit" class="btn-save">Save Password</button>
+            </div>
+        </form>
 
         <!-- Kbytes Footer -->
         <Footer/>
@@ -72,6 +146,7 @@
         width: 100%;
         margin-top: 100px;
         margin-bottom: 50px;
+        text-align: left;
     }
 
     /* style para sa labels (current pass, new pass, confirm new pass) */

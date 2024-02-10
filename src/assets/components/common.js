@@ -33,7 +33,26 @@ export const getTokenExpiry = () => {
     return localStorage.getItem("token_expiry");
 };
 
-/* TIME STUFF */
-export const getCurrentTime = () => {
-    return moment().format('YYYY-MM-DD hh:mm:ss A');
+// logout
+export const logout = () => {
+    localStorage.removeItem('admin_token');
+    localStorage.removeItem('admin_id');
+    localStorage.removeItem('museum_id');
+
+    refreshPage();
+}
+
+// check if token is expired
+export const isExpired = () => {
+    const now = moment().local();
+    const token = getTokenExpiry();
+    
+    if(moment(token).isBefore(moment(now))) {
+        console.log("token expired, logging you out...");
+        setTimeout(() => {
+           logout() 
+        }, 2000);
+        return true;
+    } else
+        return false;
 }

@@ -17,7 +17,7 @@
  * 
  * Name Convention:
  *      1. Visitor - use prefix 'visitor' (example: await visitorPOST('/scan', data);)
- *      2. Admin - use prefix 'admin' (example: await adminPOST('/admin/change-password', data);)
+ *      2. Admin - use prefix 'admin' (example: await adminPOST('/change-password', data);)
  *      3. Login - do not use any prefix (example: await POST('/admin/login', data);)
  * 
  * Functions Available:
@@ -29,7 +29,7 @@
  */
 
 import axios from 'axios';
-import { getToken } from '../components/common';
+import { getToken, isExpired, logout } from '../components/common';
 
 /** Fetch URL and API Key **/ 
 const baseURL = import.meta.env.VITE_API_URL;
@@ -69,16 +69,29 @@ const apiAdmin = axios.create({
     baseURL,
     headers: {
         'X-API-KEY': APIKey,
-        'Authorization': getToken('admin'),
         'Content-Type': 'application/json',
     },
 });
 
+apiAdmin.interceptors.request.use(
+    (config) => {
+        const token = getToken('admin');
+        
+        if(token)
+            config.headers.Authorization = token;
+
+        return config
+    },
+)
+
 // get admin
 export const adminGET = async (endpoint) => {
     try {
-        const response = await apiAdmin.get(endpoint);
-        return response;
+        if(!isExpired()) {
+            const response = await apiAdmin.get('/admin' + endpoint);
+            return response;
+        } else 
+            logout();
     } catch (error) {
         throw new Error(error.response.data.message);
     }
@@ -87,8 +100,11 @@ export const adminGET = async (endpoint) => {
 // post admin
 export const adminPOST = async (endpoint, data) => {
     try {
-        const response = await apiAdmin.post(endpoint, data);
-        return response;
+        if(!isExpired()) {
+            const response = await apiAdmin.post('/admin' + endpoint, data);
+            return response;
+        } else
+            logout();
     } catch (error) {
         return error;
     }
@@ -97,8 +113,11 @@ export const adminPOST = async (endpoint, data) => {
 // put admin
 export const adminPUT = async (endpoint, data) => {
     try {
-        const response = await apiAdmin.put(endpoint, data);
-        return response;
+        if(!isExpired()) {
+            const response = await apiAdmin.put('/admin' + endpoint, data);
+            return response;
+        } else
+            logout();
     } catch (error) {
         return error;
     }
@@ -107,8 +126,11 @@ export const adminPUT = async (endpoint, data) => {
 // delete admin
 export const adminDELETE = async (endpoint) => {
     try {
-        const response = await apiAdmin.delete(endpoint);
-        return response;
+        if(!isExpired()) {
+            const response = await apiAdmin.delete('/admin' + endpoint);
+            return response;
+        } else
+            logout();
     } catch (error) {
         return error;
     }
@@ -117,8 +139,11 @@ export const adminDELETE = async (endpoint) => {
 // update admin
 export const adminUPDATE = async (endpoint, data) => {
     try {
-        const response = await apiAdmin.patch(endpoint, data);
-        return response;
+        if(!isExpired()) {
+            const response = await apiAdmin.patch('/admin' + endpoint, data);
+            return response;
+        } else
+            logout();
     } catch (error) {
         return error;
     }
@@ -142,8 +167,11 @@ const apiVisitor = axios.create({
 // get visitor
 export const visitorGET = async (endpoint) => {
     try {
-        const response = await apiVisitor.get(endpoint);
-        return response;
+        if(!isExpired()) {
+            const response = await apiVisitor.get(endpoint);
+            return response;
+        } else
+            logout();
     } catch (error) {
         throw new Error(error.response.data.message);
     }
@@ -152,8 +180,11 @@ export const visitorGET = async (endpoint) => {
 // post visitor
 export const visitorPOST = async (endpoint, data) => {
     try {
-        const response = await apiVisitor.post(endpoint, data);
-        return response;
+        if(!isExpired()) {
+            const response = await apiVisitor.post(endpoint, data);
+            return response;
+        } else
+            logout();
     } catch (error) {
         return error;
     }
@@ -162,8 +193,11 @@ export const visitorPOST = async (endpoint, data) => {
 // put visitor
 export const visitorPUT = async (endpoint, data) => {
     try {
-        const response = await apiVisitor.put(endpoint, data);
-        return response;
+        if(!isExpired()) {
+            const response = await apiVisitor.put(endpoint, data);
+            return response;
+        } else
+            logout();
     } catch (error) {
         return error;
     }
@@ -172,8 +206,11 @@ export const visitorPUT = async (endpoint, data) => {
 // delete visitor
 export const visitorDELETE = async (endpoint) => {
     try {
-        const response = await apiVisitor.delete(endpoint);
-        return response;
+        if(!isExpired()) {
+            const response = await apiVisitor.delete(endpoint);
+            return response;
+        } else
+            logout();
     } catch (error) {
         return error;
     }
@@ -182,8 +219,11 @@ export const visitorDELETE = async (endpoint) => {
 // update visitor
 export const visitorUPDATE = async (endpoint, data) => {
     try {
-        const response = await apiVisitor.patch(endpoint, data);
-        return response;
+        if(!isExpired()) {
+            const response = await apiVisitor.patch(endpoint, data);
+            return response;
+        } else
+            logout();
     } catch (error) {
         return error;
     }

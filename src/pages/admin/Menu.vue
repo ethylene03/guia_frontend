@@ -1,5 +1,5 @@
 <script>
-    import { getUsername, refreshPage } from "@/assets/components/common";
+    import { getUsername, logout } from "@/assets/components/common";
     import Footer from "../../assets/components/Footer.vue"
 
     // naa sulod sa export default ang pagdeclare sa components ug methods
@@ -25,13 +25,7 @@
                     this.$router.push(path);
             },
 
-            logout() {
-                localStorage.removeItem('admin_token');
-                localStorage.removeItem('admin_id');
-                localStorage.removeItem('museum_id');
-
-                refreshPage();
-            }
+            logout,
         }
     };
 </script>

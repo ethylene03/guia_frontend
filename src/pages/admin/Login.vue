@@ -2,6 +2,7 @@
     // import components
     import InputIcon from "../../assets/components/InputIcon.vue"
     import Footer from "../../assets/components/Footer.vue"
+    import Loader from "@/assets/components/Loader.vue";
     import moment from "moment";
 
     // api
@@ -12,6 +13,7 @@
         components: { 
             InputIcon,
             Footer,
+            Loader,
         },
 
         data() {
@@ -62,8 +64,8 @@
                     // store locally
                     localStorage.setItem('admin_id', post.admin_id);
                     localStorage.setItem('museum_id', post.museum_id);
-                    localStorage.setItem('admin_token', post.token);
-                    localStorage.setItem('token_expiry', moment.utc(post.token_expires).local().format('YYYY-MM-DD hh:mm:ss A'));
+                    localStorage.setItem('admin_token', 'Token ' + post.token);
+                    localStorage.setItem('token_expiry', moment.utc(post.token_expires).local());
                     localStorage.setItem('username', this.credentials.admin_username);
 
                     // redirect to home
@@ -99,7 +101,7 @@
             <span v-if="errorMessage" :style="{color: 'red', fontSize: '13px', marginTop: '10px', marginBottom: '-30px'}">{{ this.errorMessage }}</span>
             
             <!-- login button -->
-            <span v-if="isSubmit" class="loader" ></span>
+            <Loader v-if="isSubmit" /> 
             <button v-else :disabled="isDisabled" class="login-btn" type="submit">Login</button>
         </form>
     
@@ -151,27 +153,6 @@
         cursor: pointer;
         width: fit-content;
     }
-
-    .loader {
-        margin-top: 20px;
-        width: 48px;
-        height: 48px;
-        border: 5px solid var(--color-secondary);
-        border-bottom-color: transparent;
-        border-radius: 50%;
-        display: inline-block;
-        box-sizing: border-box;
-        animation: rotation 1s linear infinite;
-    }
-
-    @keyframes rotation {
-        0% {
-            transform: rotate(0deg);
-        }
-        100% {
-            transform: rotate(360deg);
-        }
-    } 
 
     .login-btn:hover {
         background-color: var(--color-secondary-darker);
