@@ -39,6 +39,35 @@
                 this.$router.back();
             },
 
+            // check password validity
+            checkValidity(password) {
+                const oneUpperCase = /^.*[A-Z].*$/;
+                const length = /^.{8,}$/;
+                const underscore = /^(?!_)(?:[^_]*_?[^_]+)?$/;
+                const number = /.*[0-9].*/;
+                const specialCharacter = /.*[!@#$%&].*/;
+
+                if(!oneUpperCase.test(password))
+                    this.error = "The new password must contain at least one uppercase letter.";
+                
+                else if(!length.test(password))
+                    this.error = "The new password must have at least 8 characters.";
+                
+                else if(!underscore.test(password))
+                    this.error = "The new password must contain at most one underscore, embedded.";
+                
+                else if(!number.test(password))
+                    this.error = "The new password must have at least 1 number.";
+                
+                else if(!specialCharacter.test(password))
+                    this.error = "The new password must have at least 1 special character.";
+
+                else
+                    return true;
+
+                return false;
+            },
+
             // form change handler
             handleChange(e) {
                 const res = e.target;
@@ -63,6 +92,8 @@
                     if(this.deets.old_password === this.deets.new_password) {
                         this.isSubmit = false;
                         this.error = "Old Password and New Password should not match.";
+                    } else if(!this.checkValidity(this.deets.new_password)) {
+                        this.isSubmit = false;
                     } else {
                         this.error = "";
                         this.isSaved = false;
@@ -81,7 +112,8 @@
                         }
 
                     }
-                }
+                } else
+                    this.isSubmit = false;
             }
         }
     }
@@ -107,7 +139,7 @@
                 <!-- confirm new password (uses the InputIcon) -->
                 <h2 class="label-dark">Confirm New Password</h2>
                 <input-icon id="confirm_password" type="password" isPassword="true" @value="handleChange" />
-                <span v-if="!this.isSame" :style="{color: 'red', fontSize: '13px'}">Password does not match.</span>
+                <span v-if="!this.isSame && this.isSaved" :style="{color: 'red', fontSize: '13px'}">Password does not match.</span>
             </div>
             
             <!-- Error -->
@@ -135,6 +167,13 @@
         width: clamp(150px, 200px, 300px);
         position: absolute;
         top: 10%;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     /* mao ning change password form enclosed with a border */
