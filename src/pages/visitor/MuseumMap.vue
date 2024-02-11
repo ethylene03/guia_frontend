@@ -44,7 +44,7 @@
                 </div>
                 <div class="code">
                     <div class="code-white"></div>
-                    <text>Less than 5 visitors</text>
+                    <text>Less than 6 visitors</text>
                 </div>
             </div>
         </div>

@@ -4,10 +4,13 @@
 
 <script>
     import Header from '@/assets/components/Header.vue';
-    
+    import { ModalsContainer, VueFinalModal } from 'vue-final-modal';
+
     export default {
         components: {
             Header,
+            VueFinalModal,
+            ModalsContainer
         },
 
         data() {
@@ -16,6 +19,7 @@
                 stream: null,
                 facingMode: 'environment',
                 capturedImage: null, // holds the image captured
+                show: false, // cecks if the user allow camera permission
             };
         },
 
@@ -42,7 +46,7 @@
                     videoBack.srcObject = stream;
                     videoFront.srcObject = stream;
                 } catch (error) {
-                    console.error('Error accessing camera:', error);
+                    this.show = true;
                 }
             },
 
@@ -127,8 +131,86 @@
             <canvas ref="canvas" style="display: none;" />
         </div>
     </div>
+
+    <!-- modal for no camera permission -->
+    <VueFinalModal
+        v-model="show"
+        class="permission"
+        content-class="permission-cont"
+        overlay-transition="vfm-fade"
+        content-transition="vfm-fade"
+    >
+
+        <!-- header -->
+        <div class="perm-header">
+            <img src="/icons/no-camera.svg" />
+            <text :style="{color: 'var(--color-secondary)'}">
+                No Camera Access
+            </text>
+        </div>
+
+        <!-- message sa modal -->
+        <div class="perm-message">
+            <p>Please allow the page to <br/>access the camera to continue.</p>
+        </div>
+
+        <!-- button container sa buttons  -->
+        <button class="perm-button" type="button" disabled>
+            Allow Camera Access
+        </button>
+    </VueFinalModal>
 </template>
-  
+
+<!-- style for camera modal -->
+<style>
+    .permission-cont {
+        display: flex;
+        flex-direction: column;
+        background: var(--color-primary);
+        border-radius: 0.5rem;
+        padding: 30px 50px;
+
+        height: 270px;
+        justify-content: space-between;
+    }
+
+    .permission {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .perm-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .perm-header img {
+        width: 40px;
+    }
+
+    .perm-header text {
+        color: var(--color-error) !important;
+        font-weight: bold;
+        font-size: large;
+    }
+
+    .perm-message p {
+        text-align: center;
+    }
+
+    .perm-button {
+        background-color: var(--color-accent);
+        color: var(--color-primary);
+    }
+
+    .perm-button:hover {
+        background-color: var(--color-accent-darker);
+        cursor: pointer;
+    }
+</style>
+
 <style scoped>
     .container {
         overflow-x: hidden;
