@@ -1,19 +1,41 @@
 <script>
-    //uses the InputIcon component for password input
-    import InputIcon from "../../assets/components/InputIcon.vue";
-    import Footer from "../../assets/components/Footer.vue";
+    //imports
     import { getAdminId, isExpired, logout } from "@/assets/components/common";
     import { adminPOST } from "@/assets/API calls/api";
+    import { ModalsContainer, useModal } from "vue-final-modal";
+    
+    import Footer from "../../assets/components/Footer.vue";
+    import InputIcon from "../../assets/components/InputIcon.vue";
     import Loader from "@/assets/components/Loader.vue";
+    import Toast from "@/assets/components/Toast.vue";
+
+    // success toaster
+    const { open: openS, close: closeS} = useModal({
+        component: Toast,
+        attrs: {
+            type: 'success',
+            message: 'Password changed successfully!',
+        }
+    }) 
+
+    // error toaster
+    const { open: openE, close: closeE} = useModal({
+        component: Toast,
+        attrs: {
+            type: 'error',
+            message: 'Error Changing Password!',
+        }
+    }) 
 
     // naa sulod sa export default ang pagdeclare sa components ug methods
     export default {
         //declaring the InputIcon component
         components: {
-            InputIcon,
-            Footer,
-            Loader
-        },
+        InputIcon,
+        Footer,
+        Loader,
+        ModalsContainer
+    },
 
         data() {
             return {
@@ -105,10 +127,13 @@
                         this.isSubmit = false;
 
                         if(changePass.status === 200) {
-                            console.log("change password successful!");
-                            setTimeout(() => logout(), 1000);
+                            openS();
+                            setTimeout(() => logout(), 100);
                         } else {
-                            this.error = changePass.response.data.detail;
+                            if(changePass.response.data.detail)
+                                this.error = changePass.response.data.detail;
+                            else
+                            openE();
                         }
 
                     }
@@ -161,6 +186,7 @@
 
         <!-- Kbytes Footer -->
         <Footer/>
+        <ModalsContainer />
     </div>
 </template>
 
