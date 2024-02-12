@@ -87,8 +87,14 @@ api.interceptors.request.use(
                 config.headers.Authorization = token;
 
             return config
+        } else {
+            // halt fetching
+            return Promise.reject();
         }
     },
+    (error) => {
+        return Promise.reject(error);
+    }
 )
 
 // get
