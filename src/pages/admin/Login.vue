@@ -72,7 +72,7 @@
                     this.$router.push('./home');
                 } else {
                     this.isSubmit = false;
-                    this.errorMessage = submit?.response.data.error;
+                    this.errorMessage = submit?.response.data.detail;
                     // console.error(submit.response.data.error);
                 }
             }

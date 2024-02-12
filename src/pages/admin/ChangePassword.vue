@@ -108,7 +108,7 @@
                             console.log("change password successful!");
                             setTimeout(() => logout(), 1000);
                         } else {
-                            console.error(changePass);
+                            this.error = changePass.response.data.detail;
                         }
 
                     }
@@ -139,11 +139,17 @@
                 <!-- confirm new password (uses the InputIcon) -->
                 <h2 class="label-dark">Confirm New Password</h2>
                 <input-icon id="confirm_password" type="password" isPassword="true" @value="handleChange" />
+
+                <!-- error handling -->
                 <span v-if="!this.isSame && this.isSaved" :style="{color: 'red', fontSize: '13px'}">Password does not match.</span>
+                <span v-else :style="{opacity: '0', fontSize: '13px'}">holder</span>
             </div>
             
-            <!-- Error -->
-            <span v-if="error" :style="{color: 'red', fontSize: '13px'}">{{ this.error }}</span>
+            <!-- Error Handling -->
+            <div class="error-cont">
+                <span v-if="error" :style="{color: 'red', fontSize: '13px'}">{{ this.error }}</span>
+                <span v-else :style="{opacity: '0', fontSize: '13px'}">holder</span>
+            </div>
 
             <!-- container for cancel and save buttons -->
             <Loader v-if="isSubmit" />
@@ -174,6 +180,12 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+
+        width: 100%;
+    }
+
+    .error-cont {
+        height: 30px;
     }
 
     /* mao ning change password form enclosed with a border */
@@ -184,7 +196,7 @@
         padding: 20px;
         width: 100%;
         margin-top: 100px;
-        margin-bottom: 50px;
+        margin-bottom: 10px;
         text-align: left;
     }
 
@@ -197,6 +209,7 @@
         display: flex;
         justify-content: space-between;
         width: 100%;
+        margin-top: 30px;
     }
 
     /* css for all button tags under button-cont class */
@@ -228,7 +241,7 @@
         .change-pass-cont {
             margin-top: 25vh;
             width: 30vw;
-            margin-bottom: 30px;
+            margin-bottom: 10px;
         }
 
         .button-cont {
