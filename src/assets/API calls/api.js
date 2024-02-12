@@ -17,8 +17,8 @@
  * 
  * Name Convention:
  *      1. Visitor - no prefix (example: await visitorPOST('/scan', data);)
- *      2. Admin - no prefix (example: await POST('/admin/change-password', data);)
- *      3. Login - use prefix 'login' (example: await loginPOST('/admin/login', data);)
+ *      2. Admin - no prefix (example: await POST('/on-cloud-nine/change-password', data);)
+ *      3. Login - use prefix 'login' (example: await loginPOST('/on-cloud-nine/login', data);)
  * 
  * Functions Available:
  *      1. GET - (endpoint)
@@ -53,6 +53,16 @@ const login = axios.create({
 export const loginPOST = async (endpoint, data) => {
     try {
         const response = await login.post(endpoint, data);
+        return response;
+    } catch (error) {
+        return error;
+    }
+};
+
+// get
+export const loginGET = async (endpoint) => {
+    try {
+        const response = await login.get(endpoint);
         return response;
     } catch (error) {
         return error;

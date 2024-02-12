@@ -75,7 +75,7 @@
         <img src="/icons/guia-long.svg" alt="Guía" class="guia" />
         
         <!-- admin menu -->
-        <img v-if="type === 'admin'" src="/icons/menu.svg" class="menu" @click="redirect('/admin/menu')" />
+        <img v-if="type === 'admin'" src="/icons/menu.svg" class="menu" @click="redirect('/on-cloud-nine/menu')" />
 
         <!-- user map/camera -->
         <img v-if="type === 'user' && isMap && !isLight && showMenu" src="/icons/map.svg" class="menu" @click="redirect('/map')" />

@@ -122,7 +122,7 @@
                         // console.log(this.deets);
                         
                         // post change password
-                        const changePass = await POST('/admin/change-password', this.deets);
+                        const changePass = await POST('/on-cloud-nine/change-password', this.deets);
                         // console.log(changePass);
                         this.isSubmit = false;
 

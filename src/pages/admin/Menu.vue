@@ -78,7 +78,7 @@
             <!-- container for change pass and logout buttons -->
             <div class="button-cont">
                 <!-- change password button -->
-                <button class="change-pass-btn" type="button" @click="goTo('/admin/change-password')">
+                <button class="change-pass-btn" type="button" @click="goTo('/on-cloud-nine/change-password')">
                     <img src="/icons/change-password.svg" alt="change_password" class="change-pass-icon"/>
                     <h2>Change Password</h2>
                 </button>

@@ -55,7 +55,7 @@
             <img src="/icons/guia-long.svg" alt="Guía" class="guia" />
             
             <!-- menu -->
-            <img src="/icons/menu.svg" class="menu" @click="redirect('./menu')" />
+            <img src="/icons/menu.svg" class="menu" @click="redirect('/on-cloud-nine/menu')" />
         </div>
     
         <!-- museum name -->
@@ -79,7 +79,7 @@
 
             <!-- cards -->
             <div class="cards" :style="{marginBottom: '30px'}">
-                <Cards :isNum="true" :number="103" label="Artworks in the Directory >" @click="redirect('/admin/view/all')" :style="{cursor: 'pointer'}" />
+                <Cards :isNum="true" :number="103" label="Artworks in the Directory >" @click="redirect('/on-cloud-nine/view/all')" :style="{cursor: 'pointer'}" />
                 <Cards :isNum="false" label="Most Popular Artworks"/>
                 <Cards :isNum="true" :number="52" label="Museum Guide Users in the Last 24h"/>
                 <Cards :isNum="false" label="Most Crowded Sections" />

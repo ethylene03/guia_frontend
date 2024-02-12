@@ -43,32 +43,32 @@ const router = createRouter({
         { name: 'Checklist', path: '/checklist/:section_id', component: Checklist },
         
         // admin pages
-        { path: '/admin', meta: { requiresAuth: true, role: 'admin' } },
-        { name: 'Login', path: '/admin/login', component: Login, meta: { requiresAuth: true, role: 'admin' } },
-        { name: 'Dashboard', path: '/admin/home', component: AdminHome, meta: { requiresAuth: true, role: 'admin' } },
-        { name: 'ChangePassword', path: '/admin/change-password', component: ChangePassword, meta: { requiresAuth: true, role: 'admin' } },
-        { name: 'AddArtwork', path: '/admin/add', component: AddArtwork, meta: { requiresAuth: true, role: 'admin' } },
-        { name: 'EditArtwork', path: '/admin/edit/:id', component: EditArtwork, meta: { requiresAuth: true, role: 'admin' } },
-        { name: 'ViewAll', path: '/admin/view/all', component: ViewAllArtworks, meta: { requiresAuth: true, role: 'admin' } },
-        { name: 'AdminViewArtwork', path: '/admin/view/:id', component: AdminViewArtwork, meta: { requiresAuth: true, role: 'admin' } },
-        { name: 'Menu', path: '/admin/menu', component: Menu, meta: { requiresAuth: true, role: 'admin' } },
+        { path: '/on-cloud-nine', meta: { requiresAuth: true, role: 'admin' } },
+        { name: 'Login', path: '/on-cloud-nine/login', component: Login, meta: { requiresAuth: true, role: 'admin' } },
+        { name: 'Dashboard', path: '/on-cloud-nine/home', component: AdminHome, meta: { requiresAuth: true, role: 'admin' } },
+        { name: 'ChangePassword', path: '/on-cloud-nine/change-password', component: ChangePassword, meta: { requiresAuth: true, role: 'admin' } },
+        { name: 'AddArtwork', path: '/on-cloud-nine/add', component: AddArtwork, meta: { requiresAuth: true, role: 'admin' } },
+        { name: 'EditArtwork', path: '/on-cloud-nine/edit/:id', component: EditArtwork, meta: { requiresAuth: true, role: 'admin' } },
+        { name: 'ViewAll', path: '/on-cloud-nine/view/all', component: ViewAllArtworks, meta: { requiresAuth: true, role: 'admin' } },
+        { name: 'AdminViewArtwork', path: '/on-cloud-nine/view/:id', component: AdminViewArtwork, meta: { requiresAuth: true, role: 'admin' } },
+        { name: 'Menu', path: '/on-cloud-nine/menu', component: Menu, meta: { requiresAuth: true, role: 'admin' } },
     ]
 });
 
 
 // Navigation guard
 router.beforeEach((to, from, next) => {
-    if(to.path === '/admin') {
+    if(to.path === '/on-cloud-nine') {
         if(localStorage.getItem('admin_token'))
-            next('/admin/home');
+            next('/on-cloud-nine/home');
         else
-            next('/admin/login');
-    } else if(to.path === '/admin/login') {
+            next('/on-cloud-nine/login');
+    } else if(to.path === '/on-cloud-nine/login') {
         if(localStorage.getItem('admin_token')) {
             if(from.path != '/')
                 next(false);
             else
-                next('/admin/home');
+                next('/on-cloud-nine/home');
         } else
             next();
     } else {
@@ -76,7 +76,7 @@ router.beforeEach((to, from, next) => {
             const token = localStorage.getItem(to.meta.role + '_token');
     
             if (!token && to.meta.role === 'admin') // redirect to login if no token (admin)
-                next('/admin/login');
+                next('/on-cloud-nine/login');
             else if(!token && to.meta.role === 'visitor') // redirect to home if no token (visitor)
                 next('/search-museum');
             else // proceed to page

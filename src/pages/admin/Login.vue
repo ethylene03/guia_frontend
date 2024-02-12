@@ -32,7 +32,7 @@
         // all methods ust be declared here
         methods: {
             redirectToHome() {
-                this.$router.push('/admin/home'); // redirection
+                this.$router.push('/on-cloud-nine/home'); // redirection
             },
 
             // form change handler
@@ -54,7 +54,7 @@
                 this.isSubmit = true;
                 this.errorMessage = "";
                 
-                const submit = await POST('/admin/login', this.credentials);
+                const submit = await POST('/on-cloud-nine/login', this.credentials);
                 // console.log(submit);
 
                 // check if success
