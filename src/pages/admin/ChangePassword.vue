@@ -15,6 +15,7 @@
         attrs: {
             type: 'success',
             message: 'Password changed successfully!',
+            subtext: 'Logging you out...'
         }
     }) 
 

@@ -4,9 +4,9 @@
     import Footer from "../../assets/components/Footer.vue"
     import Loader from "@/assets/components/Loader.vue";
     import moment from "moment";
-
-    // api
+    
     import { POST } from '../../assets/API calls/api.js'
+    import { refreshPage } from "@/assets/components/common";
 
     export default {
         // all components used must be declared here
@@ -69,7 +69,7 @@
                     localStorage.setItem('username', this.credentials.admin_username);
 
                     // redirect to home
-                    this.$router.push('./home');
+                    refreshPage();
                 } else {
                     this.isSubmit = false;
                     this.errorMessage = submit?.response.data.detail;

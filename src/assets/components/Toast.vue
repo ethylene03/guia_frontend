@@ -29,6 +29,7 @@
     defineProps<{
         type?: string,
         message?: string, 
+        subtext?: string, 
     }>()
 </script>
 
@@ -40,7 +41,7 @@
                             'success': type === 'success', 
                             'error': type === 'error', 
                             'warning': type === 'warning', 
-                            'info': type === 'infor', 
+                            'info': type === 'info', 
                         }]"
     overlay-transition="vfm-fade"
     content-transition="vfm-fade"
@@ -60,6 +61,7 @@
     <div class="toast-message">
       <p>{{ message }}</p>
       <text v-if="type === 'error'">Please try again later.</text>
+      <text v-else>{{ subtext }}</text>
     </div>
   </VueFinalModal>
 </template>

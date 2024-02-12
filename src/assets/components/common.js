@@ -1,4 +1,5 @@
 import moment from "moment";
+import { adminPOST } from "../API calls/api";
 
 // refresh the page
 export const refreshPage = () => {
@@ -34,12 +35,20 @@ export const getTokenExpiry = () => {
 };
 
 // logout
-export const logout = () => {
-    localStorage.removeItem('admin_token');
-    localStorage.removeItem('admin_id');
-    localStorage.removeItem('museum_id');
+export const logout = async () => {
+    const logOut = await adminPOST('/logout', {admin_id: getAdminId()});
+    
+    if(logOut.status === 200) {
+        localStorage.removeItem('admin_token');
+        localStorage.removeItem('admin_id');
+        localStorage.removeItem('museum_id');
 
-    refreshPage();
+        refreshPage();
+        return true;
+    } else {
+        console.log(logOut.error);
+        return false;
+    }
 }
 
 // check if token is expired
