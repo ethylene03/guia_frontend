@@ -1,17 +1,45 @@
 <script>
+    import { loginGET, loginPOST } from "@/assets/API calls/api";
+    import { useModal } from "vue-final-modal";
     import Footer from "../../assets/components/Footer.vue";
     import Header from "@/assets/components/Header.vue";
+    import Toast from "@/assets/components/Toast.vue";
+    import Loader from "@/assets/components/Loader.vue";
+import { refreshPage } from "@/assets/components/common";
 
     export default {
         components: {
-            Footer,
-            Header,
-        },
+        Footer,
+        Header,
+        Loader
+    },
 
         data() {
             return {
-                museum: "",
+                museum_id: "",
                 isDisabled: true,
+                museums: [],
+                isReady: false,
+            }
+        },
+
+        async mounted() {
+            const AllMuseums = await loginGET('/museum/get');
+            // console.log(AllMuseums);
+
+            if(!AllMuseums.error) {
+                this.museums = AllMuseums.data.museum;
+                this.isReady = true;
+            } else {
+                const {open, close} = useModal({
+                    component: Toast,
+                    attrs: {
+                        type: 'error',
+                        message: 'Error fetching available museums!',
+                    }
+                })
+
+                open();
             }
         },
 
@@ -23,15 +51,53 @@
 
             // receive museum
             handleChange(e) {
-                this.museum = e.target.value;
+                this.museum_id = e.target.value;
                 this.isDisabled = false;
+            },
+
+            async confirmMuseum() {
+                if(this.museum_id != "") {
+                    // generate visitor token
+                    const generateToken = await loginPOST('/visitor/generate-token', {museum_id: this.museum_id});
+                    console.log(generateToken); 
+
+                    if(!generateToken.error) {
+                        localStorage.setItem('visitor_token', generateToken.data.visitor_token);
+
+                        this.redirect('/scan');
+                    } else {
+                        const {open, close} = useModal({
+                            component: Toast,
+                            attrs: {
+                                type: 'error',
+                                message: 'Error fetching data!',
+                            }
+                        })
+
+                        open();
+                    }
+
+                } else {
+                    const {open, close} = useModal({
+                        component: Toast,
+                        attrs: {
+                            type: 'error',
+                            message: 'Please select a museum',
+                            subtext: 'Refreshing the page...',
+                        }
+                    })
+
+                    open();
+                    setTimeout(() => refreshPage(), 500);
+                }
             }
         },
     };
 </script>
 
 <template>
-    <div class="container">
+    <Loader v-if="!isReady" />
+    <div class="container" v-else>
         <Header type="user" :showMenu="false" />
         <div class="search-cont">
             <!-- museum logo here (change the src for the integration) -->
@@ -43,15 +109,13 @@
 
                 <!-- select form (map the options for the integration) -->
                 <select class="dropdown" @change="handleChange">
-                    <option hidden>Input museum name here</option>
-                    <option>Museum 1</option>
-                    <option>Museum 2</option>
-                    <option>Museum 3</option>
+                    <option value="" hidden>Input museum name here</option>
+                    <option v-for="(mus) in museums" :value="mus.museum_id">{{ mus.museum_name }}</option>
                 </select>
             </div>
     
             <!-- confirm button (add API submit integration) -->
-            <button @click="redirect('/scan')" :disabled="isDisabled">Confirm</button>
+            <button @click="confirmMuseum" :disabled="isDisabled">Confirm</button>
         </div>
 
         <!-- Footer KBytes -->
