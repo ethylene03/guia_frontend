@@ -1,13 +1,13 @@
 <script>
     //imports
-    import { getAdminId, isExpired, logout } from "@/assets/components/common";
     import { POST } from "@/assets/API calls/api";
-    import { ModalsContainer, useModal } from "vue-final-modal";
-    
+    import { getAdminId, logout } from "@/assets/components/common";
+    import { useModal } from "vue-final-modal";
+        
+        import Loader from "@/assets/components/Loader.vue";
+    import Toast from "@/assets/components/Toast.vue";
     import Footer from "../../assets/components/Footer.vue";
     import InputIcon from "../../assets/components/InputIcon.vue";
-    import Loader from "@/assets/components/Loader.vue";
-    import Toast from "@/assets/components/Toast.vue";
 
     // success toaster
     const { open: openS, close: closeS} = useModal({
@@ -35,7 +35,6 @@
         InputIcon,
         Footer,
         Loader,
-        ModalsContainer
     },
 
         data() {
@@ -187,7 +186,6 @@
 
         <!-- Kbytes Footer -->
         <Footer/>
-        <ModalsContainer />
     </div>
 </template>
 

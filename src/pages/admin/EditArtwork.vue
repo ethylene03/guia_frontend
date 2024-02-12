@@ -3,8 +3,8 @@
     import Header from '@/assets/components/Header.vue';
 
     // modal component
-    import { ModalsContainer, useModal } from 'vue-final-modal'
-    import Modal from '../../assets/components/Modal.vue'
+    import { useModal } from 'vue-final-modal';
+    import Modal from '../../assets/components/Modal.vue';
 
     const { open: openCancelModal, close: closeCancelModal } = useModal({
         component: Modal,
@@ -280,8 +280,6 @@
                     Save
                 </button>
             </div>
-
-            <ModalsContainer />
         </div>
     </div>
 </template>

@@ -18,9 +18,6 @@
                     message: 'Password changed successfully!',
                 }
             }) 
-
-        in template:
-            <ModalsContainer />
  -->
 
 <script setup lang="ts">

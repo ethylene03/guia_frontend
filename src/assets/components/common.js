@@ -1,5 +1,7 @@
 import moment from "moment";
 import { POST } from "../API calls/api";
+import { useModal } from "vue-final-modal";
+import ToastVue from "./Toast.vue";
 
 // refresh the page
 export const refreshPage = () => {
@@ -38,12 +40,13 @@ export const getTokenExpiry = () => {
 export const logout = async () => {
     const logOut = await POST('/admin/logout', {admin_id: getAdminId()});
     
-    if(logOut.status === 200) {
-        localStorage.removeItem('admin_token');
-        localStorage.removeItem('admin_id');
-        localStorage.removeItem('museum_id');
+    localStorage.removeItem('admin_token');
+    localStorage.removeItem('admin_id');
+    localStorage.removeItem('museum_id');
 
-        refreshPage();
+    refreshPage();
+    
+    if(logOut.status === 200) {
         return true;
     } else {
         console.log(logOut.error);
@@ -57,10 +60,18 @@ export const isExpired = () => {
     const token = getTokenExpiry();
     
     if(moment(token).isBefore(moment(now))) {
-        console.log("token expired, logging you out...");
-        setTimeout(() => {
-           logout() 
-        }, 2000);
+        // toast error
+        const {open, close} = useModal({
+            component: ToastVue,
+            attrs: {
+                type: 'warning',
+                message: "Token expired!",
+                subtext: 'Please login again to continue.'
+            }
+        })
+
+        open();
+        logout();
         return true;
     } else
         return false;

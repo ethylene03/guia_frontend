@@ -1,7 +1,7 @@
 <script>
     import { getUsername, logout } from "@/assets/components/common";
     import Footer from "../../assets/components/Footer.vue"
-    import { ModalsContainer, useModal } from "vue-final-modal";
+    import { useModal } from "vue-final-modal";
     import Toast from "@/assets/components/Toast.vue";
 
     // toaster
@@ -27,7 +27,6 @@
         //ideclare ang footer component
         components: {
         Footer,
-        ModalsContainer
     },
 
         // temporary user email rani, replace this one puhon with the data in our database
@@ -94,7 +93,6 @@
 
         <!-- KBytes Footer -->
         <Footer/>
-        <ModalsContainer />
     </div>
 </template>
 

@@ -87,9 +87,6 @@ api.interceptors.request.use(
                 config.headers.Authorization = token;
 
             return config
-        } else {
-            // toast error
-            logout();
         }
     },
 )

@@ -4,13 +4,12 @@
 
 <script>
     import Header from '@/assets/components/Header.vue';
-    import { ModalsContainer, VueFinalModal } from 'vue-final-modal';
+    import { VueFinalModal } from 'vue-final-modal';
 
     export default {
         components: {
             Header,
             VueFinalModal,
-            ModalsContainer
         },
 
         data() {
