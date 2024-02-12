@@ -139,6 +139,8 @@
         content-class="permission-cont"
         overlay-transition="vfm-fade"
         content-transition="vfm-fade"
+        :click-to-close="false"
+        :esc-to-close="false"
     >
 
         <!-- header -->
