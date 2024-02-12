@@ -10,15 +10,15 @@
  * 
  * To use:
  *      In <script> tags:
- *          import { functionName } from '@/assets/API calls/apiAdmin.js
+ *          import { functionName } from '@/assets/API calls/api.js
  * 
  *      In request function:
  *          const post = await functionName(endpoint, data);
  * 
  * Name Convention:
- *      1. Visitor - use prefix 'visitor' (example: await visitorPOST('/scan', data);)
- *      2. Admin - use prefix 'admin' (example: await adminPOST('/change-password', data);)
- *      3. Login - do not use any prefix (example: await POST('/admin/login', data);)
+ *      1. Visitor - no prefix (example: await visitorPOST('/scan', data);)
+ *      2. Admin - no prefix (example: await POST('/admin/change-password', data);)
+ *      3. Login - use prefix 'login' (example: await loginPOST('/admin/login', data);)
  * 
  * Functions Available:
  *      1. GET - (endpoint)
@@ -50,7 +50,7 @@ const login = axios.create({
 });
   
 // post LOGIN
-export const POST = async (endpoint, data) => {
+export const loginPOST = async (endpoint, data) => {
     try {
         const response = await login.post(endpoint, data);
         return response;
@@ -61,11 +61,11 @@ export const POST = async (endpoint, data) => {
 
 
 /**
- * ADMIN API CALLS
+ * OTHER API CALLS
  */
 
-// axios for any API in admin aside login (w/ authorization)
-const apiAdmin = axios.create({
+// axios for any API aside login (w/ authorization)
+const api = axios.create({
     baseURL,
     headers: {
         'X-API-KEY': APIKey,
@@ -73,157 +73,72 @@ const apiAdmin = axios.create({
     },
 });
 
-apiAdmin.interceptors.request.use(
+api.interceptors.request.use(
     (config) => {
-        const token = getToken('admin');
-        
-        if(token)
-            config.headers.Authorization = token;
+        if(!isExpired()) {
+            var token = "";
 
-        return config
+            if(getToken('admin'))
+                token = getToken('admin');
+            else
+                token = getToken('visitor');
+        
+            if(token)
+                config.headers.Authorization = token;
+
+            return config
+        } else {
+            // toast error
+            logout();
+        }
     },
 )
 
-// get admin
-export const adminGET = async (endpoint) => {
+// get
+export const GET = async (endpoint) => {
     try {
-        if(!isExpired()) {
-            const response = await apiAdmin.get('/admin' + endpoint);
-            return response;
-        } else 
-            logout();
-    } catch (error) {
-        throw new Error(error.response.data.message);
-    }
-};
-  
-// post admin
-export const adminPOST = async (endpoint, data) => {
-    try {
-        if(!isExpired()) {
-            const response = await apiAdmin.post('/admin' + endpoint, data);
-            return response;
-        } else
-            logout();
+        const response = await api.get(endpoint);
+        return response;
     } catch (error) {
         return error;
     }
 };
   
-// put admin
-export const adminPUT = async (endpoint, data) => {
+// post
+export const POST = async (endpoint, data) => {
     try {
-        if(!isExpired()) {
-            const response = await apiAdmin.put('/admin' + endpoint, data);
-            return response;
-        } else
-            logout();
+        const response = await api.post(endpoint, data);
+        return response;
     } catch (error) {
         return error;
     }
 };
   
-// delete admin
-export const adminDELETE = async (endpoint) => {
+// put
+export const PUT = async (endpoint, data) => {
     try {
-        if(!isExpired()) {
-            const response = await apiAdmin.delete('/admin' + endpoint);
-            return response;
-        } else
-            logout();
+        const response = await api.put(endpoint, data);
+        return response;
     } catch (error) {
         return error;
     }
 };
   
-// update admin
-export const adminUPDATE = async (endpoint, data) => {
+// delete
+export const DELETE = async (endpoint) => {
     try {
-        if(!isExpired()) {
-            const response = await apiAdmin.patch('/admin' + endpoint, data);
-            return response;
-        } else
-            logout();
-    } catch (error) {
-        return error;
-    }
-};
-
-
-/**
- * VISITOR API CALLS
- */
-
-// axios for any API in visitor (w/ authorization)
-const apiVisitor = axios.create({
-    baseURL,
-    headers: {
-        'X-API-KEY': APIKey,
-        'Authorization': getToken('visitor'),
-        'Content-Type': 'application/json',
-    },
-});
-
-// get visitor
-export const visitorGET = async (endpoint) => {
-    try {
-        if(!isExpired()) {
-            const response = await apiVisitor.get(endpoint);
-            return response;
-        } else
-            logout();
-    } catch (error) {
-        throw new Error(error.response.data.message);
-    }
-};
-  
-// post visitor
-export const visitorPOST = async (endpoint, data) => {
-    try {
-        if(!isExpired()) {
-            const response = await apiVisitor.post(endpoint, data);
-            return response;
-        } else
-            logout();
+        const response = await api.delete(endpoint);
+        return response;
     } catch (error) {
         return error;
     }
 };
   
-// put visitor
-export const visitorPUT = async (endpoint, data) => {
+// update 
+export const UPDATE = async (endpoint, data) => {
     try {
-        if(!isExpired()) {
-            const response = await apiVisitor.put(endpoint, data);
-            return response;
-        } else
-            logout();
-    } catch (error) {
-        return error;
-    }
-};
-  
-// delete visitor
-export const visitorDELETE = async (endpoint) => {
-    try {
-        if(!isExpired()) {
-            const response = await apiVisitor.delete(endpoint);
-            return response;
-        } else
-            logout();
-    } catch (error) {
-        return error;
-    }
-};
-  
-// update visitor
-export const visitorUPDATE = async (endpoint, data) => {
-    try {
-        if(!isExpired()) {
-            const response = await apiVisitor.patch(endpoint, data);
-            return response;
-        } else
-            logout();
+        const response = await api.patch(endpoint, data);
+        return response;
     } catch (error) {
         return error;
     }

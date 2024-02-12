@@ -1,7 +1,7 @@
 <script>
     //imports
     import { getAdminId, isExpired, logout } from "@/assets/components/common";
-    import { adminPOST } from "@/assets/API calls/api";
+    import { POST } from "@/assets/API calls/api";
     import { ModalsContainer, useModal } from "vue-final-modal";
     
     import Footer from "../../assets/components/Footer.vue";
@@ -123,7 +123,7 @@
                         // console.log(this.deets);
                         
                         // post change password
-                        const changePass = await adminPOST('/change-password', this.deets);
+                        const changePass = await POST('/admin/change-password', this.deets);
                         // console.log(changePass);
                         this.isSubmit = false;
 
