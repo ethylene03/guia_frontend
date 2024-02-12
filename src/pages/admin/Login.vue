@@ -98,10 +98,13 @@
             </div>
         
             <!-- Error Message -->
-            <span v-if="errorMessage" :style="{color: 'red', fontSize: '13px', marginTop: '10px', marginBottom: '-30px'}">{{ this.errorMessage }}</span>
+            <div class="error-cont">
+                <span v-if="errorMessage" :style="{color: 'red', fontSize: '13px'}">{{ this.errorMessage }}</span>
+                <span v-else :style="{opacity: '0', fontSize: '13px'}">holder</span>
+            </div>
             
             <!-- login button -->
-            <Loader v-if="isSubmit" /> 
+            <Loader v-if="isSubmit" :style="{marginTop: '5vh'}" /> 
             <button v-else :disabled="isDisabled" class="login-btn" type="submit">Login</button>
         </form>
     
@@ -129,6 +132,10 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
+
+    .error-cont {
+        height: 15px;
     }
 
     /* login form */
