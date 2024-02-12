@@ -1,3 +1,42 @@
+<!-- 
+    Summary: this is a confirm modal that displays a confirm dialog box.
+
+    Props:
+        1. logoURL - a string value that represents the url of the logo
+        2. title - a string value that represents the title of the dialog box
+        3. action - a string value that represents the purpose of the dialog box (i.e. delete)
+        4. artwork - a string value that represents the name of the artwork
+        5. buttonLeft - a string value that represents the label for left button
+        6. buttonRight - a string value that represents the label for the right button
+        7. rightPath - a string value that represents the path the right button redirects
+        8. isSave - a boolean value that represents whether the right button is a save button or not.
+
+    To Use:
+        in script: 
+            import { ModalsContainer, useModal } from 'vue-final-modal'
+            import Modal from '../../assets/components/Modal.vue'
+
+            const { open: openCancelModal, close: closeCancelModal } = useModal({
+                component: Modal,
+                attrs: {
+                    logoURL: '/icons/warning.svg',
+                    title: 'Cancel edit?',
+                    action: 'discard',
+                    artwork: 'artwork',
+                    buttonLeft: 'No',
+                    buttonRight: 'Yes',
+                    rightPath: '../view/1',
+                    isSave: false,
+                    onLeftAction() {
+                        closeCancelModal();
+                    },
+                },
+            });
+
+        in template:
+            <ModalsContainer />
+ -->
+
 <script setup lang="ts">
 import { VueFinalModal } from 'vue-final-modal'
 import { useRouter } from 'vue-router'

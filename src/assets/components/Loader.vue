@@ -1,3 +1,23 @@
+<!-- 
+    Summary: this is a custom loader.
+
+    Props: none
+
+    To Use:
+        in script: 
+            import Loader from '@/assets/components/Loader.vue'
+            
+            export default {
+                components: {
+                    ...,
+                    Loader,
+                }
+            }
+
+        in template:
+            <Loader />
+ -->
+
 <template>
     <span class="loader" />
 </template>

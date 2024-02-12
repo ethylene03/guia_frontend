@@ -1,10 +1,35 @@
-<script setup lang="ts">
-import { VueFinalModal } from 'vue-final-modal'
+<!-- 
+    Summary: this is a custom toast that displays message at the center.
 
-defineProps<{
-  type?: string,
-  message?: string, 
-}>()
+    Props:
+        1. type: either 'success', 'error', 'warning', 'info'
+        2. message: string value to display in toaster
+
+    To Use:
+        in script: 
+            import Toast from "@/assets/components/Toast.vue";
+            import { ModalsContainer, useModal } from "vue-final-modal";
+
+            // success toaster
+            const { open: openS, close: closeS} = useModal({
+                component: Toast,
+                attrs: {
+                    type: 'success',
+                    message: 'Password changed successfully!',
+                }
+            }) 
+
+        in template:
+            <ModalsContainer />
+ -->
+
+<script setup lang="ts">
+    import { VueFinalModal } from 'vue-final-modal'
+
+    defineProps<{
+        type?: string,
+        message?: string, 
+    }>()
 </script>
 
 <template>
