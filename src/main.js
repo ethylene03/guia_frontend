@@ -72,10 +72,15 @@ router.beforeEach((to, from, next) => {
                 next('/on-cloud-nine/home');
         } else
             next();
-    }
+
+    // special guards for visitor pages
+    } else if(to.path === '/search-museum') {
+        // clear token (to change for expired token)
+        localStorage.removeItem('visitor_token');
+        next();
     
     // normal guards for all pages
-    else {
+    } else {
         if (to.meta.requiresAuth) {
             const token = localStorage.getItem(to.meta.role + '_token');
     

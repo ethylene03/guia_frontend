@@ -74,7 +74,8 @@
 <template>
     <div class="header">
         <!-- back button -->
-        <img v-if="!isLight" src="/icons/back.svg" alt="back" class="menu" @click="redirect(isBack)" />
+        <img v-if="!isLight && showMenu" src="/icons/back.svg" alt="back" class="menu" @click="redirect(isBack)" />
+        <img v-if="!isLight && !showMenu" src="/icons/back.svg" alt="back" class="menu" disabled :style="{opacity: '0'}" />
         <img v-else src="/icons/back-light.svg" alt="back" class="menu-light" @click="redirect(isBack)" />
         
         <img src="/icons/guia-long.svg" alt="Guía" class="guia" />
@@ -86,7 +87,7 @@
         <img v-if="type === 'user' && isMap && !isLight && showMenu" src="/icons/map.svg" class="menu" @click="redirect('/map')" />
         <img v-if="type === 'user' && !isMap && !isLight && showMenu" src="/icons/camera.svg" class="menu" @click="redirect('/scan')" />
         <img v-if="type === 'user' && isMap && isLight && showMenu" src="/icons/map-light.svg" class="menu-light" @click="redirect('/map')" />
-        <img v-if="type === 'user' && !showMenu" src="/icons/map-light.svg" disabled :style="{opacity: '0'}" @click="redirect('/map')" />
+        <img v-if="type === 'user' && !showMenu" src="/icons/map-light.svg" disabled :style="{opacity: '0'}"  />
     </div>
 </template>
 

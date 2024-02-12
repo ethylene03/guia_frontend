@@ -5,7 +5,7 @@
     import Header from "@/assets/components/Header.vue";
     import Toast from "@/assets/components/Toast.vue";
     import Loader from "@/assets/components/Loader.vue";
-import { refreshPage } from "@/assets/components/common";
+    import { refreshPage } from "@/assets/components/common";
 
     export default {
         components: {
