@@ -33,14 +33,14 @@ const router = createRouter({
     routes: [
         // visitor pages
         // add meta: { requiresAuth: true, role: 'visitor' } after visitor integration!!
-        { path: '/', redirect: '/home' },
-        { name: 'Home', path: '/home', component: Home },
+        { path: '/', redirect: '/search-museum' },
+        { name: 'Home', path: '/hands-down/:id', component: Home },
         { name: 'SearchMuseum', path: '/search-museum', component: SearchMuseum },
-        { name: 'Scanner', path: '/scan', component: Scanner },
-        { name: 'SearchArtwork', path: '/search', component: SearchArtwork },
-        { name: 'ViewArtwork', path: '/view/:id', component: ViewArtwork },
-        { name: 'MuseumMap', path: '/map', component: MuseumMap },
-        { name: 'Checklist', path: '/checklist/:section_id', component: Checklist },
+        { name: 'Scanner', path: '/scan', component: Scanner, meta: { requiresAuth: true, role: 'visitor' } },
+        { name: 'SearchArtwork', path: '/search', component: SearchArtwork, meta: { requiresAuth: true, role: 'visitor' } },
+        { name: 'ViewArtwork', path: '/view/:id', component: ViewArtwork, meta: { requiresAuth: true, role: 'visitor' } },
+        { name: 'MuseumMap', path: '/map', component: MuseumMap, meta: { requiresAuth: true, role: 'visitor' } },
+        { name: 'Checklist', path: '/checklist/:section_id', component: Checklist, meta: { requiresAuth: true, role: 'visitor' } },
         
         // admin pages
         { path: '/on-cloud-nine', meta: { requiresAuth: true, role: 'admin' } },
@@ -58,6 +58,7 @@ const router = createRouter({
 
 // Navigation guard
 router.beforeEach((to, from, next) => {
+    // special guards for admin pages
     if(to.path === '/on-cloud-nine') {
         if(localStorage.getItem('admin_token'))
             next('/on-cloud-nine/home');
@@ -71,7 +72,10 @@ router.beforeEach((to, from, next) => {
                 next('/on-cloud-nine/home');
         } else
             next();
-    } else {
+    }
+    
+    // normal guards for all pages
+    else {
         if (to.meta.requiresAuth) {
             const token = localStorage.getItem(to.meta.role + '_token');
     

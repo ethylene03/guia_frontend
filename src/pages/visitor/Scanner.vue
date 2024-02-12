@@ -104,7 +104,7 @@
         <!-- page elements -->
         <div class="foreground">
             <!-- user header -->
-            <Header type="user" :isMap="true" :isLight="true" />
+            <Header type="user" :isMap="true" :isLight="true" isBack="/search-museum" />
             
             <!-- main camera preview -->
             <div class="vid-cont">

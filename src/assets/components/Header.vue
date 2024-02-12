@@ -52,6 +52,11 @@
             showMenu: {
                 type: Boolean,
                 default: true,
+            },
+
+            isBack: {
+                type: String,
+                default: 'back'
             }
         },
 
@@ -69,8 +74,8 @@
 <template>
     <div class="header">
         <!-- back button -->
-        <img v-if="!isLight" src="/icons/back.svg" alt="back" class="menu" @click="redirect('back')" />
-        <img v-else src="/icons/back-light.svg" alt="back" class="menu-light" @click="redirect('back')" />
+        <img v-if="!isLight" src="/icons/back.svg" alt="back" class="menu" @click="redirect(isBack)" />
+        <img v-else src="/icons/back-light.svg" alt="back" class="menu-light" @click="redirect(isBack)" />
         
         <img src="/icons/guia-long.svg" alt="Guía" class="guia" />
         

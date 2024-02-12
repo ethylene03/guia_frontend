@@ -43,6 +43,9 @@ div.container {
 
 body {
   overflow-x: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 a,

@@ -57,7 +57,7 @@
     <!-- message sa toaster -->
     <div class="toast-message">
       <p>{{ message }}</p>
-      <text v-if="type === 'error'">Please try again later.</text>
+      <text v-if="type === 'error' && subtext === ''">Please try again later.</text>
       <text v-else>{{ subtext }}</text>
     </div>
   </VueFinalModal>
