@@ -17,8 +17,8 @@
  * 
  * Name Convention:
  *      1. Visitor - no prefix (example: await visitorPOST('/scan', data);)
- *      2. Admin - no prefix (example: await POST('/on-cloud-nine/change-password', data);)
- *      3. Login - use prefix 'login' (example: await loginPOST('/on-cloud-nine/login', data);)
+ *      2. Admin - no prefix (example: await POST('/admin/change-password', data);)
+ *      3. Login - use prefix 'login' (example: await loginPOST('/admin/login', data);)
  * 
  * Functions Available:
  *      1. GET - (endpoint)
@@ -30,6 +30,8 @@
 
 import axios from 'axios';
 import { getToken, isExpired, logout } from '../components/common';
+import { useModal } from 'vue-final-modal';
+import ToastVue from '../components/Toast.vue';
 
 /** Fetch URL and API Key **/ 
 const baseURL = import.meta.env.VITE_API_URL;
@@ -48,6 +50,23 @@ const login = axios.create({
         'Content-Type': 'application/json',
     },
 });
+
+login.interceptors.response.use(
+    response => response,
+    error => {
+        if(error.code === "ERR_NETWORK") {
+            const  {open, close} = useModal({
+                component: ToastVue,
+                attrs: {
+                    type: 'error',
+                    message: 'Server Error'
+                }
+            })
+
+            open();
+        }
+    }
+)
   
 // post LOGIN
 export const loginPOST = async (endpoint, data) => {
@@ -104,6 +123,23 @@ api.interceptors.request.use(
     },
     (error) => {
         return Promise.reject(error);
+    }
+)
+
+api.interceptors.response.use(
+    response => response,
+    error => {
+        if(error.code === "ERR_NETWORK") {
+            const  {open, close} = useModal({
+                component: ToastVue,
+                attrs: {
+                    type: 'error',
+                    message: 'Server Error'
+                }
+            })
+
+            open();
+        }
     }
 )
 

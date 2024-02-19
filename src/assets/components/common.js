@@ -38,7 +38,7 @@ export const getTokenExpiry = () => {
 
 // logout
 export const logout = async () => {
-    const logOut = await POST('/on-cloud-nine/logout', {admin_id: getAdminId()});
+    const logOut = await POST('/admin/logout', {admin_id: getAdminId()});
     
     localStorage.removeItem('admin_token');
     localStorage.removeItem('admin_id');

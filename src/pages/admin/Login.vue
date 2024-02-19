@@ -54,7 +54,7 @@
                 this.isSubmit = true;
                 this.errorMessage = "";
                 
-                const submit = await POST('/on-cloud-nine/login', this.credentials);
+                const submit = await POST('/admin/login', this.credentials);
                 // console.log(submit);
 
                 // check if success

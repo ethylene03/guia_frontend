@@ -20,6 +20,7 @@
                 isDisabled: true,
                 museums: [],
                 isReady: false,
+                isSubmitted: false,
             }
         },
 
@@ -57,6 +58,8 @@
 
             async confirmMuseum() {
                 if(this.museum_id != "") {
+                    this.isSubmitted = true;
+
                     // generate visitor token
                     const generateToken = await loginPOST('/visitor/generate-token', {museum_id: this.museum_id});
                     console.log(generateToken); 
@@ -66,6 +69,7 @@
 
                         this.redirect('/scan');
                     } else {
+                        this.isSubmitted = false;
                         const {open, close} = useModal({
                             component: Toast,
                             attrs: {
@@ -115,7 +119,8 @@
             </div>
     
             <!-- confirm button (add API submit integration) -->
-            <button @click="confirmMuseum" :disabled="isDisabled">Confirm</button>
+            <Loader v-if="isSubmitted" />
+            <button v-else @click="confirmMuseum" :disabled="isDisabled">Confirm</button>
         </div>
 
         <!-- Footer KBytes -->
