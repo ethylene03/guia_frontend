@@ -76,7 +76,7 @@
         <!-- back button -->
         <img v-if="!isLight && showMenu" src="/icons/back.svg" alt="back" class="menu" @click="redirect(isBack)" />
         <img v-if="!isLight && !showMenu" src="/icons/back.svg" alt="back" class="menu" disabled :style="{opacity: '0'}" />
-        <img v-else src="/icons/back-light.svg" alt="back" class="menu-light" @click="redirect(isBack)" />
+        <img v-if="isLight && showMenu" src="/icons/back-light.svg" alt="back" class="menu-light" @click="redirect(isBack)" />
         
         <img src="/icons/guia-long.svg" alt="Guía" class="guia" />
         
