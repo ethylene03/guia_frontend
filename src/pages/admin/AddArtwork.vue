@@ -5,6 +5,9 @@
     // modal component
     import { useModal } from 'vue-final-modal';
     import Modal from '../../assets/components/Modal.vue';
+import { POST } from '@/assets/API calls/api';
+import { getAdminId } from '@/assets/components/common';
+import axios from 'axios';
 
     const { open: openCancelModal, close: closeCancelModal } = useModal({
         component: Modal,
@@ -33,6 +36,7 @@
             return {
                 images: [],
                 artwork: {
+                    thumbnail: null,
                     artwork_title: null,
                     artist: null,
                     date_published: null,
@@ -43,6 +47,7 @@
                     description: null,
                 },
                 artworkErr: {
+                    thumbnail: null,
                     artwork_title: true,
                     artist: true,
                     date_published: true,
@@ -96,6 +101,7 @@
                         this.images.push({
                             src: e.target.result,
                             name: files[i].name,
+                            file: files[i],
                         });
                     };
 
@@ -104,8 +110,10 @@
             },
 
             // deletes images from the array
-            handleDeleteImage(index) {
+            handleDeleteImage(image, index) {
                 this.images.splice(index, 1);
+                if(this.artwork.thumbnail === image.name)
+                    this.artwork.thumbnail = null;
             },
 
             saveArtwork() {
@@ -119,9 +127,11 @@
                     !art.section &&
                     !art.length &&
                     !art.width &&
-                    !art.description)
-                        this.$router.push('./view/1');
-                else {
+                    !art.description &&
+                    !art.thumbnail) {
+                        
+                        // this.$router.push('./view/1');
+                    } else {
                     console.log("error!");
                 }
             },
@@ -154,6 +164,11 @@
                             } else
                                 this.artworkErr[input.id] = true;
                         }
+                    } else if(input.id === "thumbnail") {
+                        if(input.checked === false)
+                            this.artwork.thumbnail = null;
+                        else
+                            this.artwork.thumbnail = input.value;
                     } else {
                         this.artwork[input.id] = input.value;
 
@@ -188,9 +203,14 @@
                 <div v-for="(image, index) in images" :key="index" class="image-frame">
                     <img :src="image.src" alt="image.name">
                     <text class="img-name">{{ image.name }}</text>
-                    <text class="img-delete" @click="handleDeleteImage(index)">Delete</text>
+                    <text class="img-delete" @click="handleDeleteImage(image, index)">Delete</text>
+                    <input id="thumbnail" :value="image.name" type="checkbox" @input="handleChange"
+                        :disabled="artwork.thumbnail != null && artwork.thumbnail != image.name"
+                        :style="{marginTop: '10px'}"
+                        :checked="artwork.thumbnail === image.name"  />
                 </div>
             </div>
+            <text>Please tick the image that you want to be displayed.<br/></text>
             <text v-if="hasExceeded" :style="{color: 'red', fontSize: '13px'}">Oh no! Can't upload more than 10 images.</text>
             <text v-if="isSaved || !hasExceeded && images.length > 0 && images.length < 10" :style="{color: 'red', fontSize: '13px'}">Please upload {{ 10 - this.images.length }} more images.</text>
 
@@ -384,15 +404,17 @@
     .image-frame {
         width: fit-content;
         height: fit-content;
+        margin-right: 30px;
 
         display: flex;
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     .image-frame img {
         width: 7em;
         height: 7em;
-        margin-right: 30px;
     }
 
     /* CSS for big screens */

@@ -94,7 +94,7 @@
         
                 <!-- password (uses InputIcon component)-->
                 <h2 class="label-light">Password</h2>
-                <input-icon id="admin_password" type="password" isPassword="true" @value="handleChange" />
+                <input-icon id="admin_password" type="password" :isPassword="true" @value="handleChange" />
             </div>
         
             <!-- Error Message -->

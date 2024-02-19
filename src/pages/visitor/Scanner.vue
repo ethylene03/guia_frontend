@@ -152,13 +152,8 @@
 
         <!-- message sa modal -->
         <div class="perm-message">
-            <p>Please allow the page to <br/>access the camera to continue.</p>
+            <p>Please allow the page to <br/>access the camera to continue<br/>by <b :style="{fontWeight: 'bold'}">visiting your browser's settings</b>.</p>
         </div>
-
-        <!-- button container sa buttons  -->
-        <button class="perm-button" type="button" disabled>
-            Allow Camera Access
-        </button>
     </VueFinalModal>
 </template>
 
@@ -172,7 +167,7 @@
         padding: 30px 50px;
 
         height: 270px;
-        justify-content: space-between;
+        justify-content: center;
     }
 
     .permission {
@@ -185,6 +180,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        margin-bottom: 20px;
     }
 
     .perm-header img {
@@ -218,6 +214,9 @@
     }
 
     .background {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         overflow: hidden;
         position: absolute;
         top: 0;
@@ -228,7 +227,7 @@
     }
 
     .background video {
-        height: 100%;
+        min-height: 100%;
     }
 
     .foreground {
@@ -294,6 +293,10 @@
 
         .btn-cont {
             margin: 30px 0 0 0;
+        }
+
+        .background video {
+            min-width: 100%;
         }
     }
 </style>

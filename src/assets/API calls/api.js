@@ -129,12 +129,13 @@ api.interceptors.request.use(
 api.interceptors.response.use(
     response => response,
     error => {
-        if(error.code === "ERR_NETWORK") {
+        // console.log(error);
+        if(error.code === "ERR_NETWORK" || error.response.status === 500) {
             const  {open, close} = useModal({
                 component: ToastVue,
                 attrs: {
                     type: 'error',
-                    message: 'Server Error'
+                    message: 'Server Error',
                 }
             })
 

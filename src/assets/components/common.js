@@ -40,18 +40,13 @@ export const getTokenExpiry = () => {
 export const logout = async () => {
     const logOut = await POST('/admin/logout', {admin_id: getAdminId()});
     
-    localStorage.removeItem('admin_token');
-    localStorage.removeItem('admin_id');
-    localStorage.removeItem('museum_id');
-
+    localStorage.clear();
     refreshPage();
     
-    if(logOut.status === 200) {
+    if(logOut.status === 200)
         return true;
-    } else {
-        console.log(logOut.error);
+    else
         return false;
-    }
 }
 
 // check if token is expired

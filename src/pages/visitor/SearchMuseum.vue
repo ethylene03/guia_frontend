@@ -62,7 +62,7 @@
 
                     // generate visitor token
                     const generateToken = await loginPOST('/visitor/generate-token', {museum_id: this.museum_id});
-                    console.log(generateToken); 
+                    // console.log(generateToken); 
 
                     if(!generateToken.error) {
                         localStorage.setItem('visitor_token', generateToken.data.visitor_token);
