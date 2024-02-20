@@ -78,6 +78,7 @@
         <img v-if="!isLight && !showMenu" src="/icons/back.svg" alt="back" class="menu" disabled :style="{opacity: '0'}" />
         <img v-if="isLight && showMenu" src="/icons/back-light.svg" alt="back" class="menu-light" @click="redirect(isBack)" />
         
+        <!-- guia logo -->
         <img src="/icons/guia-long.svg" alt="Guía" class="guia" />
         
         <!-- admin menu -->
@@ -93,6 +94,7 @@
 
 <style scoped>
     .header {
+        position: relative;
         padding: 20px 0 10px 0;
         width: 100%;
         
@@ -101,9 +103,13 @@
         justify-content: space-between;
         align-items: center;
         margin-bottom: 30px;
+        height: 70px;
     }
 
     .guia {
+        position: absolute;
+        left: 50%;
+        margin-left: -40px;
         width: 80px;
     }
 

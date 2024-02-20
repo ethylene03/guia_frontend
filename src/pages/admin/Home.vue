@@ -100,16 +100,25 @@
     }
 
     .header {
+        position: relative;
         padding: 20px 0 10px 0;
         width: 100%;
         
         display: flex;
         justify-content: space-between;
         align-items: center;
+        height: 70px;
+        margin-bottom: 20px;
     }
 
     .museum, .guia {
         width: 80px;
+    }
+
+    .guia {
+        position: absolute;
+        left: 50%;
+        margin-left: -40px;
     }
 
     .menu {
