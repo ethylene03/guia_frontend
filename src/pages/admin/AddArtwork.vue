@@ -5,6 +5,7 @@
     // modal component
     import { useModal } from 'vue-final-modal';
     import Modal from '../../assets/components/Modal.vue';
+    import { GET } from '@/assets/API calls/api';
 
     const { open: openCancelModal, close: closeCancelModal } = useModal({
         component: Modal,
@@ -54,9 +55,18 @@
                     width: true,
                     description: true,
                 },
+                sections: [],
                 hasExceeded: false,
                 isSaved: false,
             };
+        },
+
+        async mounted() {
+            // get sections
+            const getSections = await GET('/section/get');
+            console.log(getSections);
+
+            // get amazon upload credentials
         },
 
         methods: {
@@ -70,7 +80,7 @@
                 if(path == 'back')
                     this.$router.back();
                 else
-                    this.$router.push(path);
+                    window.location.href = path;
             },
 
             // opens modal
@@ -131,7 +141,7 @@
                     !art.description &&
                     !art.thumbnail) {
                         
-                        // this.$router.push('./view/1');
+                        // window.location.href = './view/1';
                     } else {
                     console.log("error!");
                 }

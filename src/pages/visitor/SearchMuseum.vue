@@ -54,7 +54,7 @@
         methods: {
             // to redirect to another screen
             redirect(path) {
-                this.$router.push(path);
+                window.location.href = path;
             },
 
             // receive museum

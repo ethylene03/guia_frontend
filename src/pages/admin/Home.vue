@@ -31,7 +31,7 @@
         methods: {
             // redirect to another page
             redirect(path) {
-                this.$router.push(path);
+                window.location.href = path;
             },
 
             // updates screen width variable

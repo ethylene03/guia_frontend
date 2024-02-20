@@ -32,7 +32,7 @@
         // all methods ust be declared here
         methods: {
             redirectToHome() {
-                this.$router.push('/on-cloud-nine/home'); // redirection
+                window.location.href = '/on-cloud-nine/home'; // redirection
             },
 
             // form change handler

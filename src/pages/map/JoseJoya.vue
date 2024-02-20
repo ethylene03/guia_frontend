@@ -8,7 +8,7 @@
 
         methods: {
             viewCheckList(section_id) {
-                this.$router.push('/checklist/' + section_id);
+                window.location.href = '/checklist/' + section_id;
             }
         }
     }

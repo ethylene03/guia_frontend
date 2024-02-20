@@ -83,7 +83,7 @@
 
             // redirects to another page/screens
             redirect(path) {
-                this.$router.push(path);
+                window.location.href = path;
             },
         },
 

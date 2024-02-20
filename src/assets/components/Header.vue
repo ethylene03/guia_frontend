@@ -65,7 +65,7 @@
                 if(path == "back")
                     this.$router.back();
                 else
-                    this.$router.push(path);
+                    window.location.href = path;
             },
         }
     }

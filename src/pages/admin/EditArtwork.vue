@@ -70,7 +70,7 @@
                 if(path == 'back')
                     this.$router.back();
                 else
-                    this.$router.push(path);
+                    window.location.href = path;
             },
 
             // opens modal
@@ -131,7 +131,7 @@
                     !art.description &&
                     !art.thumbnail) {
                         
-                        // this.$router.push('./view/1');
+                        // window.location.href = './view/1';
                     } else {
                     console.log("error!");
                 }

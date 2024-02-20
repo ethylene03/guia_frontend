@@ -36,7 +36,7 @@
         methods: {
             // redirect to different pages
             redirect(path) {
-                this.$router.push(path);
+                window.location.href = path;
             }
         },
     };
