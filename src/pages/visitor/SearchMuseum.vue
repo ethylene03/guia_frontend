@@ -27,10 +27,10 @@
         async mounted() {
             // clear local storage
             if(getToken('visitor')) 
-                localStorage.removeItem(visitor_token);
+                localStorage.removeItem('visitor_token');
 
             if(getMuseumId())
-                localStorage.removeItem(museum_id);
+                localStorage.removeItem('museum_id');
 
             const AllMuseums = await loginGET('/museum/get');
             // console.log(AllMuseums);
