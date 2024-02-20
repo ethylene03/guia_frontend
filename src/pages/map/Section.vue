@@ -64,6 +64,7 @@
 
         width: fit-content;
         height: fit-content;
+        margin-right: -2px;
     }
 
     .red {
