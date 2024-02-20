@@ -417,6 +417,10 @@ import axios from 'axios';
         height: 7em;
     }
 
+    .image-frame input:checked {
+        accent-color: var(--color-secondary);
+    }
+
     /* CSS for big screens */
     @media screen and (min-width: 650px) {
         .container {
