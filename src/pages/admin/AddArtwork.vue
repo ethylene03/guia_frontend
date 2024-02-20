@@ -5,9 +5,6 @@
     // modal component
     import { useModal } from 'vue-final-modal';
     import Modal from '../../assets/components/Modal.vue';
-import { POST } from '@/assets/API calls/api';
-import { getAdminId } from '@/assets/components/common';
-import axios from 'axios';
 
     const { open: openCancelModal, close: closeCancelModal } = useModal({
         component: Modal,
@@ -84,6 +81,7 @@ import axios from 'axios';
             // receives images uploaded
             receiveFiles(event) {
                 const files = event.target.files;
+                this.hasExceeded = false;
 
                 // limit files to 10 only
                 if(this.images.length >= 10) {
@@ -114,6 +112,9 @@ import axios from 'axios';
                 this.images.splice(index, 1);
                 if(this.artwork.thumbnail === image.name)
                     this.artwork.thumbnail = null;
+
+                if(this.images.length < 10) 
+                    this.hasExceeded = false;
             },
 
             saveArtwork() {
