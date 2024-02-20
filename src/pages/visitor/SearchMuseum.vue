@@ -143,6 +143,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        margin-bottom: 3.2rem;
     }
 
     .museum-logo {

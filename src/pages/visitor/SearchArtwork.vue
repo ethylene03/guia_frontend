@@ -1,6 +1,7 @@
 <script>
     import Header from '@/assets/components/Header.vue';
     import Footer from '@/assets/components/Footer.vue';
+    import NoContent from '@/assets/components/NoContent.vue';
 
     import art1 from '../../assets/images/art1.png';
     import art2 from '../../assets/images/art2.png';
@@ -10,6 +11,7 @@
         components: {
             Header,
             Footer,
+            NoContent,
         },
 
         data() {
@@ -78,7 +80,8 @@
 
             <!-- filtered content -->
             <ul class="content">
-                <li class="art" v-for="art in filteredArts" :key="art.id" @click="redirect('/view/' + art.id)">
+                <no-content v-if="filteredArts.length === 0" class="error-message" />
+                <li v-else class="art" v-for="art in filteredArts" :key="art.id" @click="redirect('/view/' + art.id)">
                     {{ art.title }} ({{ art.year }}) by {{ art.artist }}
                 </li>
             </ul>
@@ -115,7 +118,7 @@
         height: 100%;
         border-radius: 10px;
 
-        padding: 5px;
+        padding: 5px 10px;
         background-color: transparent;
         border: none;
         outline: none;
@@ -137,6 +140,12 @@
         padding: 0px;
 
         overflow-y: auto;
+    }
+
+    .content:has(.error-message) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .art {

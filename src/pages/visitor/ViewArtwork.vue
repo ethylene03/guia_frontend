@@ -118,6 +118,7 @@
         color: var(--color-primary);
 
         margin: 20px 0 -30px 0;
+        margin-bottom: 3.2rem;
     }
 
     .scan-again:hover {
