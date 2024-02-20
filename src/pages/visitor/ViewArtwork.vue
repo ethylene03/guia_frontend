@@ -26,6 +26,15 @@
                 },
             };
         },
+
+        methods: {
+            redirect(path) {
+                if(path === 'back')
+                    this.$router.back();
+                else
+                    this.$router.push(path);
+            }
+        }
     };
 </script>
 
@@ -109,6 +118,11 @@
         color: var(--color-primary);
 
         margin: 20px 0 -30px 0;
+    }
+
+    .scan-again:hover {
+        background-color: var(--color-accent-darker);
+        cursor: pointer;
     }
 
     .scan-again img {

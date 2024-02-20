@@ -62,6 +62,7 @@ function redirect(path) {
 
 const emit = defineEmits<{
   (e: 'leftAction'): void,
+  (e: 'rightAction'): void,
 }>()
 </script>
 
@@ -93,7 +94,7 @@ const emit = defineEmits<{
       <button class="left-btn" type="button" @click="emit('leftAction')">
         {{ buttonLeft }}
       </button>
-      <button :class="{'save-btn': isSave, 'right-btn': !isSave}" type="button" @click="redirect(rightPath)">
+      <button :class="{'save-btn': isSave, 'right-btn': !isSave}" type="button" @click="rightPath ? redirect(rightPath) : emit('rightAction')">
         {{ buttonRight }}
       </button>
     </div>
