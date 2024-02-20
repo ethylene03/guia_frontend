@@ -5,7 +5,9 @@
     // modal component
     import { useModal } from 'vue-final-modal';
     import Modal from '../../assets/components/Modal.vue';
-    import { GET } from '@/assets/API calls/api';
+    import { GET, POST } from '@/assets/API calls/api';
+    import { getAdminId, getMuseumId } from '@/assets/components/common';
+    import axios from 'axios';
 
     const { open: openCancelModal, close: closeCancelModal } = useModal({
         component: Modal,
@@ -63,10 +65,9 @@
 
         async mounted() {
             // get sections
-            const getSections = await GET('/section/get');
-            console.log(getSections);
-
-            // get amazon upload credentials
+            const getSections = await GET('/section/get?museum_id=' + getMuseumId());
+            // console.log(getSections);
+            this.sections = getSections.data.section;
         },
 
         methods: {
@@ -127,7 +128,11 @@
                     this.hasExceeded = false;
             },
 
-            saveArtwork() {
+            async uploadFile(url, fields, image) {
+                // wait
+            },
+
+            async saveArtwork() {
                 this.isSaved = true;
                 const art = this.artworkErr;
 
@@ -140,8 +145,65 @@
                     !art.width &&
                     !art.description &&
                     !art.thumbnail) {
-                        
-                        // window.location.href = './view/1';
+                        let errorImages = [];
+                        const amazonUrl = "https://guia-buckets.s3.amazonaws.com/";
+
+                        // process images
+                        this.images.forEach(async image => {
+                            // get amazon credentials
+                            const credentials = await POST('/amazon/get-credentials', {image_name: image.name});
+                            // console.log(credentials);
+
+                            const url = credentials.data.url;
+                            const fields = credentials.data.fields;
+
+                            // upload images
+                            // uploadFile(url, fields, image);
+                            const formData = new FormData();
+                            formData.append('Content-Type', 'image/jpeg');
+                            formData.append('key', fields.key);
+                            formData.append('AWSAccessKeyId', fields.AWSAccessKeyId);
+                            formData.append('policy', fields.policy);
+                            formData.append('signature', fields.signature);
+                            formData.append('file', image.file);
+
+                            const response = await axios.post(url, formData, {
+                                headers: {
+                                    'Content-Type': 'multipart/form-data',
+                                }
+                            });
+
+                            // console.log(response);
+                            if(!response.error)
+                                console.error(response);
+                            else
+                                errorImages.push(image);
+                        })
+                        console.log()
+                        const art = this.artwork;
+                        // create artwork
+                        const create = await POST('/artwork/create', {
+                            section_id: art.section,
+                            title:  art.artwork_title,
+                            artist_name:  art.artist,
+                            medium: art.medium,
+                            date_published: art.date_published,
+                            dimen_width_cm: art.width,
+                            dimen_length_cm: art.length,
+                            dimen_height_cm: art.height ? art.height : null,
+                            description:  art.description,
+                            additional_info: art.remarks ? art.remarks : null,
+                            added_by: getAdminId(),
+                            images: this.images.map(image => {
+                                return amazonUrl + "artworks/" + image.name;
+                            }),
+                            thumbnail: amazonUrl + "artworks/" + art.thumbnail,
+                        })
+
+                        // console.log(create);
+                        if(create.status === 201)
+                            window.location.href = './view/' + create.data.artwork_id;
+
                     } else {
                     console.log("error!");
                 }
@@ -199,9 +261,9 @@
         <Header />
         <div class="input-form">
             <h1>Add New Artwork</h1>
-            
+
             <!-- input for upload file -->
-            <input id="fileUpload" type="file" accept="image/*" @change="receiveFiles" multiple hidden /> 
+            <input id="fileUpload" type="file" accept="image/jpeg" @change="receiveFiles" multiple hidden /> 
             
             <!-- upload file container if no images yet -->
             <div v-if="images.length === 0" class="upload-cont" >
@@ -253,9 +315,7 @@
                 <h2>Assigned Section<span :style="{color: 'var(--color-error)'}">*</span></h2>
                 <select id="section" @input="handleChange" class="primary-form" required>
                     <option value="0" hidden>Select Section</option>
-                    <option value="1">Section I</option>
-                    <option value="2">Section II</option>
-                    <option value="3">Section III</option>
+                    <option v-for="sect in sections" :value='sect.section_id'>{{ sect.section_name }}</option>
                 </select>
                 <span v-if="this.artworkErr.section && this.isSaved" :style="{color: 'red', fontSize: '13px'}">Please input the artwork's section.</span>
                 

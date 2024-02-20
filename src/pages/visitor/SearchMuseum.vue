@@ -171,6 +171,10 @@
         font-weight: normal !important;
     }
 
+    .dropdown::selection {
+        accent-color: var(--color-secondary);
+    }
+
     button {
         background-color: var(--color-secondary);
         color: var(--color-primary);
