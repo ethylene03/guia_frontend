@@ -5,7 +5,7 @@
     import Header from "@/assets/components/Header.vue";
     import Toast from "@/assets/components/Toast.vue";
     import Loader from "@/assets/components/Loader.vue";
-    import { refreshPage } from "@/assets/components/common";
+    import { getMuseumId, getToken, refreshPage } from "@/assets/components/common";
 
     export default {
         components: {
@@ -25,6 +25,13 @@
         },
 
         async mounted() {
+            // clear local storage
+            if(getToken('visitor')) 
+                localStorage.removeItem(visitor_token);
+
+            if(getMuseumId())
+                localStorage.removeItem(museum_id);
+
             const AllMuseums = await loginGET('/museum/get');
             // console.log(AllMuseums);
 
@@ -66,6 +73,7 @@
 
                     if(!generateToken.error) {
                         localStorage.setItem('visitor_token', generateToken.data.visitor_token);
+                        localStorage.setItem('museum_id', this.museum_id);
 
                         this.redirect('/scan');
                     } else {
