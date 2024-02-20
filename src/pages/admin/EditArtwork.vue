@@ -10,32 +10,15 @@
         component: Modal,
         attrs: {
             logoURL: '/icons/warning.svg',
-            title: 'Cancel edit?',
+            title: 'Cancel artwork?',
             action: 'discard',
             artwork: 'artwork',
             buttonLeft: 'No',
             buttonRight: 'Yes',
-            rightPath: '../view/1',
+            rightPath: 'back',
             isSave: false,
             onLeftAction() {
                 closeCancelModal();
-            },
-        },
-    });
-
-    const { open: openSaveModal, close: closeSaveModal } = useModal({
-        component: Modal,
-        attrs: {
-            logoURL: '/icons/save.svg',
-            title: 'Save edit?',
-            action: 'save',
-            artwork: 'artwork',
-            buttonLeft: 'Cancel',
-            buttonRight: 'Save',
-            rightPath: '../view/1',
-            isSave: true,
-            onLeftAction() {
-                closeSaveModal();
             },
         },
     });
@@ -46,10 +29,11 @@
         },
 
         data() {
-            // array of images uploaded/fetched
+            // array of images uploaded
             return {
                 images: [],
                 artwork: {
+                    thumbnail: null,
                     artwork_title: null,
                     artist: null,
                     date_published: null,
@@ -60,6 +44,7 @@
                     description: null,
                 },
                 artworkErr: {
+                    thumbnail: null,
                     artwork_title: true,
                     artist: true,
                     date_published: true,
@@ -75,12 +60,12 @@
         },
 
         methods: {
-            // to bind button to the input tags
+            // bind button to forms
             chooseFiles() {
                 document.getElementById('fileUpload').click();
             },
 
-            // redirects to another page or goes back
+            // redirect to another page
             redirect(path) {
                 if(path == 'back')
                     this.$router.back();
@@ -88,18 +73,15 @@
                     this.$router.push(path);
             },
 
-            // to open the modal
-            // must update if modal is available
-            openModal(type) {
-                if(type === 'cancel')
-                    openCancelModal();
-                else
-                    openSaveModal();
+            // opens modal
+            openModal() {
+                openCancelModal();
             },
 
-            // receives the images uploaded/fetched
+            // receives images uploaded
             receiveFiles(event) {
                 const files = event.target.files;
+                this.hasExceeded = false;
 
                 // limit files to 10 only
                 if(this.images.length >= 10) {
@@ -117,6 +99,7 @@
                         this.images.push({
                             src: e.target.result,
                             name: files[i].name,
+                            file: files[i],
                         });
                     };
 
@@ -124,9 +107,14 @@
                 }
             },
 
-            // deletes the image from the array
-            handleDeleteImage(index) {
+            // deletes images from the array
+            handleDeleteImage(image, index) {
                 this.images.splice(index, 1);
+                if(this.artwork.thumbnail === image.name)
+                    this.artwork.thumbnail = null;
+
+                if(this.images.length < 10) 
+                    this.hasExceeded = false;
             },
 
             saveArtwork() {
@@ -140,9 +128,11 @@
                     !art.section &&
                     !art.length &&
                     !art.width &&
-                    !art.description)
-                    openSaveModal();
-                else {
+                    !art.description &&
+                    !art.thumbnail) {
+                        
+                        // this.$router.push('./view/1');
+                    } else {
                     console.log("error!");
                 }
             },
@@ -175,6 +165,11 @@
                             } else
                                 this.artworkErr[input.id] = true;
                         }
+                    } else if(input.id === "thumbnail") {
+                        if(input.checked === false)
+                            this.artwork.thumbnail = null;
+                        else
+                            this.artwork.thumbnail = input.value;
                     } else {
                         this.artwork[input.id] = input.value;
 
@@ -209,11 +204,16 @@
                 <div v-for="(image, index) in images" :key="index" class="image-frame">
                     <img :src="image.src" alt="image.name">
                     <text class="img-name">{{ image.name }}</text>
-                    <text class="img-delete" @click="handleDeleteImage(index)">Delete</text>
+                    <text class="img-delete" @click="handleDeleteImage(image, index)">Delete</text>
+                    <input id="thumbnail" :value="image.name" type="checkbox" @input="handleChange"
+                        :disabled="artwork.thumbnail != null && artwork.thumbnail != image.name"
+                        :style="{marginTop: '10px'}"
+                        :checked="artwork.thumbnail === image.name"  />
                 </div>
             </div>
+            <text>Please tick the image that you want to be displayed.<br/></text>
             <text v-if="hasExceeded" :style="{color: 'red', fontSize: '13px'}">Oh no! Can't upload more than 10 images.</text>
-            <text v-if="(!hasExceeded && images.length > 0 && images.length < 10) || (this.isSaved && images.length < 10)" :style="{color: 'red', fontSize: '13px'}">Please upload {{ 10 - this.images.length }} more images.</text>
+            <text v-if="isSaved || !hasExceeded && images.length > 0 && images.length < 10" :style="{color: 'red', fontSize: '13px'}">Please upload {{ 10 - this.images.length }} more images.</text>
 
             <!-- binded upload button -->
             <button @click="chooseFiles()" class="upload-btn">
@@ -271,11 +271,11 @@
 
             <!-- buttons -->
             <div class="btn-cont">
-                <button class="cancel" @click="openModal('cancel')">
+                <button class="cancel" @click="openModal">
                     Cancel
                 </button>
                 
-                <!-- save button (must add API integration validation here) -->
+                <!-- add API validation before redirection -->
                 <button class="save" @click="saveArtwork">
                     Save
                 </button>
@@ -405,15 +405,21 @@
     .image-frame {
         width: fit-content;
         height: fit-content;
+        margin-right: 30px;
 
         display: flex;
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     .image-frame img {
         width: 7em;
         height: 7em;
-        margin-right: 30px;
+    }
+
+    .image-frame input:checked {
+        accent-color: var(--color-secondary);
     }
 
     /* CSS for big screens */
