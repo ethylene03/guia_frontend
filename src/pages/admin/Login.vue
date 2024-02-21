@@ -63,7 +63,7 @@
     
                     // store locally
                     localStorage.setItem('admin_id', post.admin_id);
-                    localStorage.setItem('museum_id', post.museum_id);
+                    localStorage.setItem('admin_museum_id', post.museum_id);
                     localStorage.setItem('admin_token', 'Token ' + post.token);
                     localStorage.setItem('token_expiry', moment.utc(post.token_expires).local().format('MM-DD-YYYY h:mm:ss A'));
                     localStorage.setItem('username', this.credentials.admin_username);

@@ -136,6 +136,7 @@ api.interceptors.response.use(
                 attrs: {
                     type: 'error',
                     message: 'Server Error',
+                    subtext: 'Please try again later.'
                 }
             })
 
@@ -145,9 +146,9 @@ api.interceptors.response.use(
 )
 
 // get
-export const GET = async (endpoint) => {
+export const GET = async (endpoint, data) => {
     try {
-        const response = await api.get(endpoint);
+        const response = await api.get(endpoint, {params: data});
         return response;
     } catch (error) {
         return error;

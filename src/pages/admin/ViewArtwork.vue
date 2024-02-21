@@ -1,11 +1,12 @@
 <script>
     import Header from '@/assets/components/Header.vue';
     import Modal from '@/assets/components/Modal.vue';
+    import Loader from '@/assets/components/Loader.vue';
+    import moment from 'moment';
     import { useModal } from 'vue-final-modal';
-    import { useRouter } from 'vue-router';
-
-    // pseudo image
-    import artImage from '@/assets/images/artwork.png'
+    import { GET } from '@/assets/API calls/api.js';
+    import { getMuseumId } from '@/assets/components/common';
+import Toast from '@/assets/components/Toast.vue';
 
     const { open, close } = useModal({
         component: Modal,
@@ -30,23 +31,53 @@
     export default {
         components: {
             Header,
+            Loader
         },
 
         data() {
             return {
                 // pseudo art details
-                artwork: {
-                    imgURL: artImage,
-                    title: "Fruit Seller",
-                    year: "1954",
-                    artist: "Fernando Amorsolo",
-                    medium: "Oil on Canvas",
-                    section: "Section II",
-                    width: 97,
-                    height: 71.5,
-                    description: "Fruit Seller is one of Amorsolo’s paintings that portrays a woman selling fruits in a basket, with a bamboo tree in the background. It reflects his style of using natural light and vibrant colors to create a realistic and idealized image of Filipino life. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex"
-                },
+                artwork: {},
+                pageLoad: false,
+                art_id: "",
             };
+        },
+
+        async mounted() {
+            this.pageLoad = true;
+
+            // get art id from route
+            const id = this.art_id = this.$route.params.id;
+
+            // fetch artwork details
+            const art = await GET('/artwork/get', {art_id: id});
+
+            if(!art?.data) {
+                const {open: errorOpen, close: errorClose} = useModal({
+                    component: Toast,
+                    attrs: {
+                        type: 'error',
+                        message: 'Artwork does not exist!',
+                        subtext: 'Returning you back...'
+                    }
+                })
+
+                errorOpen();
+                setTimeout(() => window.history.back(), 1000);
+            }
+
+            // store thumbnail and other details
+            const deets = this.artwork = art.data.artwork;
+            this.artwork['thumbnail'] = deets.images.find(data => data.is_thumbnail === true);
+            
+            // fetch section name
+            const section = await GET('/section/get', {
+                museum_id: getMuseumId('admin'),
+                section_id: deets.section_id, 
+            });
+            this.artwork['section'] = section.data.section[0].section_name;
+
+            this.pageLoad = false;
         },
 
         methods: {
@@ -59,57 +90,62 @@
 
             openModal() {
                 open();
+            },
+
+            format(date, format) {
+                return moment(date).format(format);
             }
         }
     }
 </script>
 
 <template>
-    <div class="container">
+    <Loader v-if="pageLoad" />
+    <div v-else class="container">
         <Header />
 
         <div class="content">
             <!-- art title -->
             <div class="subtitle">
-                <h3 style="font-weight: bolder;">{{ this.artwork.title }} ({{ this.artwork.year }})</h3>
+                <h3 style="font-weight: bolder;">{{ artwork.title }} ({{ format(artwork.date_published, 'YYYY') }})</h3>
             </div>
             
             <!-- image -->
-            <img :src="this.artwork.imgURL" :alt="this.artwork.title" />
+            <img :src="artwork.thumbnail?.image_link" :alt="artwork.title" />
 
             
             <!-- art details -->
             <div class="details">
                 <text>Artist Name</text>
-                <text class="data">{{ this.artwork.artist }}</text>
+                <text class="data">{{ artwork.artist_name }}</text>
                 
                 <text>Date Published</text>
-                <text class="data">{{ this.artwork.year }}</text>
+                <text class="data">{{ format(artwork.date_published, 'MMMM D, YYYY') }}</text>
 
                 <text>Medium</text>
-                <text class="data">{{ this.artwork.medium }}</text>
+                <text class="data">{{ artwork.medium }}</text>
 
                 <text>Assigned Section</text>
-                <text class="data">{{ this.artwork.section }}</text>
+                <text class="data">{{ artwork.section }}</text>
 
                 <text>Length (cm)</text>
-                <text class="data">{{ this.artwork.length ? this.artwork.length : 'N/A' }}</text>
+                <text class="data">{{ artwork.dimen_length_cm }}</text>
 
                 <text>Width (cm)</text>
-                <text class="data">{{ this.artwork.width }}</text>
+                <text class="data">{{ artwork.dimen_width_cm }}</text>
 
                 <text>Height (cm)</text>
-                <text class="data">{{ this.artwork.height }}</text>
+                <text class="data">{{ artwork.dimen_height_cm ? artwork.dimen_height_cm : 'N/A' }}</text>
 
                 <text>Description</text>
-                <text class="data">"{{ this.artwork.description }}"</text>
+                <text class="data">"{{ artwork.description }}"</text>
 
                 <text>Remarks</text>
-                <text class="data">{{ this.artwork.remarks ? '"' + this.artwork.remarks + '"' : 'N/A' }}</text>
+                <text class="data">{{ artwork.additional_info ? '"' + artwork.additional_info + '"' : 'N/A' }}</text>
             </div>
 
             <div class="buttons">
-                <button class="edit" type="button" @click="redirect('../edit/1')">
+                <button class="edit" type="button" @click="redirect('../edit/' + art_id)">
                     <img src="/icons/edit.svg" alt="edit" />
                     Edit
                 </button>
@@ -150,6 +186,10 @@
     .details .data {
         font-weight: bold;
         margin-bottom: 15px;
+    }
+
+    .details .data::first-letter {
+        text-transform: capitalize;
     }
 
     .description {

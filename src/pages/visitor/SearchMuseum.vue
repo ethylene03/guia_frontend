@@ -29,8 +29,8 @@
             if(getToken('visitor')) 
                 localStorage.removeItem('visitor_token');
 
-            if(getMuseumId())
-                localStorage.removeItem('museum_id');
+            if(getMuseumId('visitor'))
+                localStorage.removeItem('visitor_museum_id');
 
             const AllMuseums = await loginGET('/museum/get');
             // console.log(AllMuseums);
@@ -73,7 +73,7 @@
 
                     if(!generateToken.error) {
                         localStorage.setItem('visitor_token', generateToken.data.visitor_token);
-                        localStorage.setItem('museum_id', this.museum_id);
+                        localStorage.setItem('visitor_museum_id', this.museum_id);
 
                         this.redirect('/scan');
                     } else {

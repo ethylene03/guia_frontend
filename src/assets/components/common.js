@@ -17,8 +17,8 @@ export const getToken = (type) => {
 };
 
 // get the museum_id stored locally
-export const getMuseumId = () => {
-    return localStorage.getItem("museum_id");
+export const getMuseumId = (type) => {
+    return localStorage.getItem(type + "_museum_id");
 };
 
 // get the admin_id stored locally
