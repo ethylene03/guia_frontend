@@ -4,7 +4,7 @@
     import { getAdminId, logout } from "@/assets/components/common";
     import { useModal } from "vue-final-modal";
         
-        import Loader from "@/assets/components/Loader.vue";
+    import Loader from "@/assets/components/Loader.vue";
     import Toast from "@/assets/components/Toast.vue";
     import Footer from "../../assets/components/Footer.vue";
     import InputIcon from "../../assets/components/InputIcon.vue";
@@ -150,7 +150,7 @@
         <!-- guia logo -->
         <img class="logo" src="../../assets/images/admin-logo.png" />
 
-        <form @submit.prevent="submitDetails" :style="{textAlign: 'center'}">
+        <form @submit.prevent="submitDetails" :style="{alignItems: 'flex-start', width: 'max-content'}">
             <!-- change password form -->
             <div class="change-pass-cont">
                 <!-- current password (uses the InputIcon) -->
@@ -168,6 +168,16 @@
                 <!-- error handling -->
                 <span v-if="!this.isSame && this.isSaved" :style="{color: 'red', fontSize: '13px'}">Password does not match.</span>
                 <span v-else :style="{opacity: '0', fontSize: '13px'}">holder</span>
+            </div>
+
+            <!-- Password Validation -->
+            <div class="validate">
+                <text>Reminders:</text>
+                <li>Password must have at least 8 characters.</li>
+                <li>Password must have at least 1 capital letter.</li>
+                <li>Password must have at least 1 number.</li>
+                <li>Password must have at least 1 special character.</li>
+                <li>Password must have at most 1 underscore, embedded.</li>
             </div>
             
             <!-- Error Handling -->
@@ -190,6 +200,15 @@
 </template>
 
 <style scoped>
+    .validate {
+        text-align: left;
+        font-size: 11px;  
+    }
+
+    .validate li {
+        margin-left: 20px;
+    }
+
     .container {
         justify-content: center;
     }
@@ -197,7 +216,7 @@
     .logo {
         width: clamp(150px, 200px, 300px);
         position: absolute;
-        top: 10%;
+        top: 6%;
     }
 
     form {
@@ -207,6 +226,7 @@
         align-items: center;
 
         width: 100%;
+        margin-bottom: 3.2rem;
     }
 
     .error-cont {
