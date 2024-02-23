@@ -1,13 +1,33 @@
 <script>
-    import Header from '@/assets/components/Header.vue';
-    import Modal from '@/assets/components/Modal.vue';
-    import Loader from '@/assets/components/Loader.vue';
-    import moment from 'moment';
-    import { useModal } from 'vue-final-modal';
     import { GET } from '@/assets/API calls/api.js';
+    import { deleteArtwork } from '@/assets/API calls/artworkAPI';
+    import Header from '@/assets/components/Header.vue';
+    import Loader from '@/assets/components/Loader.vue';
+    import Modal from '@/assets/components/Modal.vue';
+    import Toast from '@/assets/components/Toast.vue';
+    import Welcome from '@/assets/components/Welcome.vue';
     import { getMuseumId } from '@/assets/components/common';
-import Toast from '@/assets/components/Toast.vue';
-import Welcome from '@/assets/components/Welcome.vue';
+    import moment from 'moment';
+    import { getCurrentInstance } from 'vue';
+    import { useModal } from 'vue-final-modal';
+
+    
+    async function deleteArt() {
+        const {open, close} = useModal({
+            component: Toast,
+            attrs: {
+                type: 'warning',
+                message: 'Deleting artwork...'
+            }
+        })
+
+        open();
+        
+        const currentURL = window.location.pathname;
+        const id = currentURL.split('/').slice(-1)[0];
+        
+        await deleteArtwork(id);
+    }
 
     const { open, close } = useModal({
         component: Modal,
@@ -22,19 +42,20 @@ import Welcome from '@/assets/components/Welcome.vue';
             onLeftAction() {
                 close();
             },
-            onRightAction() {
+            async onRightAction() {
                 // delete here
-                window.location.href = './all';
+                await deleteArt();
+                // window.location.href = './all';
             }
         },
     });
 
     export default {
         components: {
-    Header,
-    Loader,
-    Welcome
-},
+            Header,
+            Loader,
+            Welcome
+        },
 
         data() {
             return {
