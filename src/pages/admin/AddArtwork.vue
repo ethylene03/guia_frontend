@@ -6,8 +6,8 @@
     import { useModal } from 'vue-final-modal';
     import Modal from '../../assets/components/Modal.vue';
     import { GET, POST } from '@/assets/API calls/api';
+    import { uploadFile } from '@/assets/API calls/amazonAPI';
     import { getAdminId, getMuseumId } from '@/assets/components/common';
-    import axios from 'axios';
     import Loader from '@/assets/components/Loader.vue';
 
     const { open: openCancelModal, close: closeCancelModal } = useModal({
@@ -73,36 +73,6 @@
                 openCancelModal();
             },
 
-            async uploadFile(image) {
-                // get amazon credentials
-                const credentials = await POST('/amazon/get-credentials', {image_name: image.name});
-
-                // receive response
-                const url = credentials.data.url;
-                const fields = credentials.data.fields;
-
-                // upload images
-                const formData = new FormData();
-                formData.append('Content-Type', 'image/jpeg');
-                formData.append('key', fields.key);
-                formData.append('AWSAccessKeyId', fields.AWSAccessKeyId);
-                formData.append('policy', fields.policy);
-                formData.append('signature', fields.signature);
-                formData.append('file', image);
-
-                const response = await axios.post(url, formData, {
-                    headers: {
-                        'Content-Type': 'multipart/form-data',
-                    }
-                });
-
-                // receive response
-                if(response.error) 
-                    return false;
-                else
-                    return true;
-            },
-
             // receives images uploaded
             async receiveFiles(event) {
                 const files = event.target.files;
@@ -125,7 +95,7 @@
                     const reader = new FileReader();
 
                     reader.onload = async (e) => {
-                        if(await this.uploadFile(files[i])) {
+                        if(await uploadFile(files[i])) {
                             img.push({
                                 image_link: import.meta.env.VITE_BUCKET_URL + 'artworks/' + files[i].name,
                                 name: files[i].name,
