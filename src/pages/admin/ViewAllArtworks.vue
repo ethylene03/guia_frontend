@@ -76,7 +76,7 @@
                 </div>
             </div>
         </div>
-        <Footer class="footer" />
+        <Footer />
     </div>
 </template>
 
@@ -121,6 +121,7 @@
 
     .artworks-cont {
         width: 100%;
+        margin-bottom: 3.2rem;
     }
 
     .art-card {
@@ -147,10 +148,6 @@
 
     .art-deets h2 {
         font-weight: bold;
-    }
-
-    .footer {
-        padding-bottom: 30px;
     }
 
     @media screen and (min-width: 650px) {
