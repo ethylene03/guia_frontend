@@ -22,7 +22,6 @@
                 isDisabled: true,
                 museums: [],
                 isReady: false,
-                start: true,
                 isSubmitted: false,
             }
         },
@@ -40,8 +39,7 @@
 
             if(!AllMuseums.error) {
                 this.museums = AllMuseums.data.museum;
-                this.start = false;
-                setTimeout(() => this.isReady = true, 1000);
+                this.isReady = true;
             } else {
                 const {open, close} = useModal({
                     component: Toast,
@@ -112,7 +110,7 @@
 </script>
 
 <template>
-    <Welcome v-if="!isReady" :start="start" />
+    <Welcome v-if="!isReady" :start="!isReady" />
     <div class="container" v-else>
         <Header type="user" :showMenu="false" />
         <div class="search-cont">

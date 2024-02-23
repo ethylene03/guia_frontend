@@ -7,6 +7,7 @@
     import { GET } from '@/assets/API calls/api.js';
     import { getMuseumId } from '@/assets/components/common';
 import Toast from '@/assets/components/Toast.vue';
+import Welcome from '@/assets/components/Welcome.vue';
 
     const { open, close } = useModal({
         component: Modal,
@@ -30,9 +31,10 @@ import Toast from '@/assets/components/Toast.vue';
 
     export default {
         components: {
-            Header,
-            Loader
-        },
+    Header,
+    Loader,
+    Welcome
+},
 
         data() {
             return {
@@ -100,7 +102,7 @@ import Toast from '@/assets/components/Toast.vue';
 </script>
 
 <template>
-    <Loader v-if="pageLoad" />
+    <Welcome v-if="pageLoad" :start="pageLoad" />
     <div v-else class="container">
         <Header />
 

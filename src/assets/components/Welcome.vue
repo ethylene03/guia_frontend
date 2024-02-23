@@ -39,6 +39,7 @@
     <div :class="{'welcome-in': start, 'welcome-out': !start}" class="welcome">
         <img src="../images/welcome.png" alt="Guia: Guiding you through history" />
         <Loader />
+        <text>Loading... Please wait</text>
     </div>
 </template>
 
@@ -53,6 +54,10 @@
     .welcome img {
         width: 50%;
         margin-bottom: 50px;
+    }
+
+    .welcome text {
+        margin-top: 20px;
     }
 
     .welcome-in {
