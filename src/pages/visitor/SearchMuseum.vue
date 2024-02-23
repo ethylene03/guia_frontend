@@ -5,13 +5,15 @@
     import Header from "@/assets/components/Header.vue";
     import Toast from "@/assets/components/Toast.vue";
     import Loader from "@/assets/components/Loader.vue";
+    import Welcome from "@/assets/components/Welcome.vue";
     import { getMuseumId, getToken, refreshPage } from "@/assets/components/common";
 
     export default {
         components: {
         Footer,
         Header,
-        Loader
+        Loader,
+        Welcome,
     },
 
         data() {
@@ -20,6 +22,7 @@
                 isDisabled: true,
                 museums: [],
                 isReady: false,
+                start: true,
                 isSubmitted: false,
             }
         },
@@ -37,7 +40,8 @@
 
             if(!AllMuseums.error) {
                 this.museums = AllMuseums.data.museum;
-                this.isReady = true;
+                this.start = false;
+                setTimeout(() => this.isReady = true, 1000);
             } else {
                 const {open, close} = useModal({
                     component: Toast,
@@ -108,7 +112,7 @@
 </script>
 
 <template>
-    <Loader v-if="!isReady" />
+    <Welcome v-if="!isReady" :start="start" />
     <div class="container" v-else>
         <Header type="user" :showMenu="false" />
         <div class="search-cont">
@@ -137,6 +141,9 @@
 </template>
 
 <style scoped>
+    .container {
+        animation: fadeIn 1s;
+    }
 
     .search-cont {
         display: flex;
