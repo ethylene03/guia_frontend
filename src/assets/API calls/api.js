@@ -64,7 +64,8 @@ login.interceptors.response.use(
             })
 
             open();
-        }
+        } else
+            return error;
     }
 )
   
@@ -141,7 +142,8 @@ api.interceptors.response.use(
             })
 
             open();
-        }
+        } else
+            return error;
     }
 )
 

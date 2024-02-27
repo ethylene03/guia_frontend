@@ -5,7 +5,7 @@
     import Loader from "@/assets/components/Loader.vue";
     import moment from "moment";
     
-    import { POST } from '../../assets/API calls/api.js'
+    import { POST, loginPOST } from '../../assets/API calls/api.js'
     import { refreshPage } from "@/assets/components/common";
 
     export default {
@@ -54,11 +54,11 @@
                 this.isSubmit = true;
                 this.errorMessage = "";
                 
-                const submit = await POST('/admin/login', this.credentials);
-                // console.log(submit);
+                const submit = await loginPOST('/admin/login', this.credentials);
+                // console.log(submit?.error);
 
                 // check if success
-                if(submit.status === 200) {
+                if(submit?.status === 200) {
                     const post = submit.data;
     
                     // store locally
@@ -72,8 +72,8 @@
                     refreshPage();
                 } else {
                     this.isSubmit = false;
-                    // this.errorMessage = submit?.response.data.detail;
-                    console.error(submit);
+                    this.errorMessage = submit?.response.data.detail;
+                    // console.error(submit);
                 }
             }
         },
