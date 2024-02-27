@@ -31,13 +31,14 @@
 
         props: {
             start: true,
+            welcome: false,
         }
     }
 </script>
 
 <template>
     <div :class="{'welcome-in': start, 'welcome-out': !start}" class="welcome">
-        <img src="../images/welcome.png" alt="Guia: Guiding you through history" />
+        <img v-if="welcome" src="../images/welcome.png" alt="Guia: Guiding you through history" />
         <Loader />
         <text>Loading... Please wait</text>
     </div>

@@ -110,7 +110,7 @@
 </script>
 
 <template>
-    <Welcome v-if="!isReady" :start="!isReady" />
+    <Welcome v-if="!isReady" :start="!isReady" :welcome="true" />
     <div class="container" v-else>
         <Header type="user" :showMenu="false" />
         <div class="search-cont">
