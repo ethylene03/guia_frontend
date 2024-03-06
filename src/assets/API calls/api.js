@@ -59,7 +59,8 @@ login.interceptors.response.use(
                 component: ToastVue,
                 attrs: {
                     type: 'error',
-                    message: 'Server Error'
+                    message: 'Server Error',
+                    subtext: 'Please try again later.'
                 }
             })
 

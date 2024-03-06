@@ -10,6 +10,8 @@
     import moment from 'moment';
     import { getCurrentInstance } from 'vue';
     import { useModal } from 'vue-final-modal';
+    import EditIcon from 'icons/PencilOutline.vue';
+    import DeleteIcon from 'icons/DeleteOutline.vue';
 
     
     async function deleteArt() {
@@ -54,7 +56,9 @@
         components: {
             Header,
             Loader,
-            Welcome
+            Welcome,
+            EditIcon,
+            DeleteIcon
         },
 
         data() {
@@ -169,12 +173,14 @@
 
             <div class="buttons">
                 <button class="edit" type="button" @click="redirect('../edit/' + art_id)">
-                    <img src="/icons/edit.svg" alt="edit" />
+                    <edit-icon fillColor="var(--color-primary)" :size="20" style="display: flex; margin-right: 10px;" />
+                    <!-- <img src="/icons/edit.svg" alt="edit" /> -->
                     Edit
                 </button>
     
                 <button class="delete" type="button" @click="openModal">
-                    <img src="/icons/delete.svg" alt="delete" />
+                    <delete-icon fillColor="var(--color-primary)" :size="20" style="display: flex; margin-right: 10px;" />
+                    <!-- <img src="/icons/delete.svg" alt="delete" /> -->
                     Delete
                 </button>
             </div>

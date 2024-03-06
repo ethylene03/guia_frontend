@@ -3,10 +3,16 @@
 <script>
     // component used
     import Cards from "../../assets/components/Cards.vue"
+    import LaunchIcon from 'icons/OpenInNew.vue';
+    import PlusIcon from 'icons/Plus.vue';
+    import MenuIcon from 'icons/Menu.vue';
 
     export default {
         components: {
             Cards,
+            LaunchIcon,
+            PlusIcon,
+            MenuIcon,
         },
 
         data() {
@@ -55,7 +61,7 @@
             <img src="/icons/guia-long.svg" alt="Guía" class="guia" />
             
             <!-- menu -->
-            <img src="/icons/menu.svg" class="menu" @click="redirect('/on-cloud-nine/menu')" />
+            <menu-icon class="menu" @click="redirect('/on-cloud-nine/menu')" fillColor="var(--color-primary)" :size="20" style="display: flex; justify-content: center; align-items: center;" />
         </div>
     
         <!-- museum name -->
@@ -66,13 +72,13 @@
             <div :class="{'btn-cont': isBigScreen, 'btn-cont-small': !isBigScreen}">
                 <!-- add artwork -->
                 <button type="button" class="dashboard-btn add-artwork" @click="redirect('./add')">
-                    <img src="/icons/add.svg" alt="add artwork" />
+                    <plus-icon fillColor="var(--color-primary)" :size="20" style="display: flex; margin-right: 10px;" />
                     <h2>Add Artwork</h2>
                 </button>
 
                 <!-- visitor portal if big screen -->
-                <button v-if="isBigScreen" type="button" class="dashboard-btn visitor-portal" @click="redirect('/home')">
-                    <img src="/icons/launch.svg" alt="launch portal" />
+                <button v-if="isBigScreen" type="button" class="dashboard-btn visitor-portal" @click="redirect('/search-museum')">
+                    <launch-icon fillColor="var(--color-primary)" :size="20" style="display: flex; margin-right: 10px;" />
                     <h2>Go to Visitor Portal</h2>
                 </button>
             </div>
@@ -88,7 +94,7 @@
 
         <!-- visitor portal if small screen -->
         <button v-if="!isBigScreen" type="button" class="dashboard-btn visitor-portal" @click="redirect('/home')" :style="{marginTop: '0px', marginBottom: '10px'}">
-            <img src="/icons/launch.svg" alt="launch portal" />
+            <launch-icon fillColor="var(--color-primary)" :size="20" style="display: flex; margin-right: 10px;" />
             <h2>Go to Visitor Portal</h2>
         </button>
     </div>

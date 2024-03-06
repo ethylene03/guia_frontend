@@ -1,6 +1,7 @@
 <script>
     import Header from '@/assets/components/Header.vue';
     import Footer from '@/assets/components/Footer.vue';
+    import CameraIcon from 'icons/Camera.vue';
 
     // pseudo image
     import artImage from '@/assets/images/artwork.png'
@@ -9,6 +10,7 @@
         components: {
             Header, 
             Footer,
+            CameraIcon
         },
 
         data() {
@@ -67,7 +69,8 @@
             </div>
 
             <button class="scan-again" type="button" @click="redirect('/scan')">
-                <img src="/icons/scan.svg" alt="scan again" />
+                <camera-icon title="scan again" fillColor="var(--color-primary)" :size="20" style="display: flex; margin-right: 10px;" />
+                <!-- <img src="/icons/scan.svg" alt="scan again" /> -->
                 Scan Again
             </button>
         </div>

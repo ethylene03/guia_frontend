@@ -5,11 +5,17 @@
 <script>
     import Header from '@/assets/components/Header.vue';
     import { VueFinalModal } from 'vue-final-modal';
+    import OrbitVariantIcon from 'icons/OrbitVariant.vue'
+    import CameraOutlineIcon from 'icons/CameraOutline.vue'
+    import MagnifyIcon from 'icons/Magnify.vue'
 
     export default {
         components: {
             Header,
             VueFinalModal,
+            OrbitVariantIcon,
+            CameraOutlineIcon,
+            MagnifyIcon,
         },
 
         data() {
@@ -115,15 +121,18 @@
             <!-- buttons -->
             <div class="btn-cont">
                 <button class="flip-camera" @click="toggleCamera">
-                    <img src="/icons/flip-camera.svg" alt="flip camera" />
+                    <orbit-variant-icon title="flip camera" fillColor="var(--color-secondary)" />
+                    <!-- <img src="/icons/flip-camera.svg" alt="flip camera" /> -->
                 </button>
                 
                 <button class="shutter" @click="capture">
-                    <img src="/icons/camera-light.svg" alt="capture image" />
+                    <camera-outline-icon title="capture image" fillColor="var(--color-secondary)" :size="38" />
+                    <!-- <img src="/icons/camera-light.svg" alt="capture image" /> -->
                 </button>
                 
                 <button @click="redirect('/search')">
-                    <img src="/icons/search.svg" alt="search artwork" />
+                    <magnify-icon title="search artwork" fillColor="var(--color-secondary)" />
+                    <!-- <img src="/icons/search.svg" alt="search artwork" /> -->
                 </button>
             </div>
 

@@ -5,6 +5,7 @@ import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import { ModalsContainer } from 'vue-final-modal';
 import { createVfm } from 'vue-final-modal'
+import { isExpired, logout } from './assets/components/common';
 
 import App from './App.vue'
 
@@ -58,6 +59,12 @@ const router = createRouter({
 
 // Navigation guard
 router.beforeEach((to, from, next) => {
+
+    if(to.meta.role === 'admin' && to.path !== '/on-cloud-nine') {
+        if(isExpired())
+            logout();    
+    }
+
     // special guards for admin pages
     if(to.path === '/on-cloud-nine') {
         if(localStorage.getItem('admin_token'))
@@ -94,6 +101,7 @@ router.beforeEach((to, from, next) => {
             next(); // proceed to page
     }
 
+    // next();
 });
 
 const app = createApp(App)

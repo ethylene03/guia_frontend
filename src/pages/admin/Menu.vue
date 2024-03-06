@@ -3,6 +3,9 @@
     import Footer from "../../assets/components/Footer.vue"
     import { useModal } from "vue-final-modal";
     import Toast from "@/assets/components/Toast.vue";
+    import CloseIcon from 'icons/Close.vue';
+    import PassIcon from 'icons/AccountKeyOutline.vue';
+    import LogoutIcon from 'icons/Logout.vue';
 
     // toaster
     const {open: openI, close: closeI} = useModal({
@@ -27,6 +30,9 @@
         //ideclare ang footer component
         components: {
         Footer,
+        CloseIcon,
+        PassIcon,
+        LogoutIcon
     },
 
         // temporary user email rani, replace this one puhon with the data in our database
@@ -62,7 +68,8 @@
     <div class="container">
         <!-- container for exit icon -->
         <div class="header" @click="goTo('back')">
-            <img src="/icons/exit.svg" alt="exit" class="exit-icon"/>
+            <close-icon title="close menu" class="exit-icon" fillColor="var(--color-primary)" style="display: flex; align-items: center; justify-content: center;" />
+            <!-- <img src="/icons/exit.svg" alt="exit" class="exit-icon"/> -->
         </div>
 
         <div class="form-cont">
@@ -79,13 +86,15 @@
             <div class="button-cont">
                 <!-- change password button -->
                 <button class="change-pass-btn" type="button" @click="goTo('/on-cloud-nine/change-password')">
-                    <img src="/icons/change-password.svg" alt="change_password" class="change-pass-icon"/>
+                    <pass-icon fillColor="var(--color-primary)" :size="20" />
+                    <!-- <img src="/icons/change-password.svg" alt="change_password" class="change-pass-icon"/> -->
                     <h2>Change Password</h2>
                 </button>
 
                 <!-- logout button -->
                 <button class="logout-btn" type="button" @click="logout">
-                    <img src="/icons/logout.svg" alt="logout" class="logout-icon" />
+                    <logout-icon fillColor="var(--color-primary)" :size="20" />
+                    <!-- <img src="/icons/logout.svg" alt="logout" class="logout-icon" /> -->
                     <h2>Logout</h2>
                 </button>
             </div>

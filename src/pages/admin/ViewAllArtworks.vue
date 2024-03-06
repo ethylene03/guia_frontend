@@ -1,6 +1,9 @@
 <script>
     import Header from '../../assets/components/Header.vue'
     import Footer from '../../assets/components/Footer.vue'
+    import SortIcon from 'icons/SortVariant.vue';
+    import FilterIcon from 'icons/FilterOutline.vue';
+    import PlusIcon from 'icons/Plus.vue';
 
     import art1 from '../../assets/images/art1.png'
     import art2 from '../../assets/images/art2.png'
@@ -10,6 +13,9 @@
         components: {
             Header,
             Footer,
+            SortIcon,
+            FilterIcon,
+            PlusIcon
         },
 
         data() {
@@ -51,14 +57,17 @@
             <div class="title">
                 <h1>Artwork Directory</h1>
                 <div class="filters">
-                    <img src="/icons/filter.svg" alt="filter artworks" />
-                    <img src="/icons/sort.svg" alt="sort artworks" />
+                    <sort-icon title="sort artworks" fillColor="var(--color-secondary)" :size="30" />
+                    <!-- <img src="/icons/sort.svg" alt="sort artworks" title="Sort artworks" /> -->
+                    <filter-icon title="filter artworks" fillColor="var(--color-secondary)" :size="30" />
+                    <!-- <img src="/icons/filter.svg" alt="filter artworks" title="Filter artworks" /> -->
                 </div>
             </div>
     
             <!-- add artwork button -->
-            <button class="add-artwork" @click="redirect('../add')">
-                <img src="/icons/add.svg" alt="add artwork" />
+            <button class="add-artwork" @click="redirect('../add')" title="Add new artwork" >
+                <plus-icon fillColor="var(--color-primary)" :size="20" style="display: flex; margin-right: 10px;" />
+                <!-- <img src="/icons/add.svg" alt="add artwork" /> -->
                 Add Artwork
             </button>
     

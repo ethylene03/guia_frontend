@@ -9,6 +9,7 @@
     import { uploadFile } from '@/assets/API calls/amazonAPI';
     import { getAdminId, getMuseumId } from '@/assets/components/common';
     import Loader from '@/assets/components/Loader.vue';
+    import UploadOutlineIcon from 'icons/UploadOutline.vue';
 
     const { open: openCancelModal, close: closeCancelModal } = useModal({
         component: Modal,
@@ -30,7 +31,8 @@
     export default {
         components: {
             Header,
-            Loader
+            Loader,
+            UploadOutlineIcon
         },
 
         data() {
@@ -235,7 +237,8 @@
 
             <!-- binded upload button -->
             <button @click="chooseFiles()" class="upload-btn">
-                <img src="/icons/upload.svg" alt="upload image" :style="{marginRight: '10px'}" />
+                <upload-outline-icon title="upload image" fillColor="var(--color-primary)" :size="20" style="display: flex; margin-right: 10px;" />
+                <!-- <img src="/icons/upload.svg" alt="upload image" :style="{marginRight: '10px'}" /> -->
                 Upload Photos
             </button> 
 

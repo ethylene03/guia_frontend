@@ -2,6 +2,7 @@
     import Header from '@/assets/components/Header.vue';
     import Footer from '@/assets/components/Footer.vue';
     import NoContent from '@/assets/components/NoContent.vue';
+    import MagnifyIcon from 'icons/Magnify.vue';
 
     import art1 from '../../assets/images/art1.png';
     import art2 from '../../assets/images/art2.png';
@@ -12,6 +13,7 @@
             Header,
             Footer,
             NoContent,
+            MagnifyIcon
         },
 
         data() {
@@ -75,7 +77,8 @@
             <!-- searchbar -->
             <div class="search-bar">
                 <input type="text" v-model="searchedText" placeholder="Search an Artwork" />
-                <img src="/icons/search-light.svg" alt="search artwork" />
+                <magnify-icon fillColor="var(--color-primary)" title="search artwork" :size="20" style="display: flex;" />
+                <!-- <img src="/icons/search-light.svg" alt="search artwork" /> -->
             </div>
 
             <!-- filtered content -->
