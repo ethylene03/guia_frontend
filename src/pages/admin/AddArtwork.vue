@@ -99,7 +99,7 @@
                     reader.onload = async (e) => {
                         if(await uploadFile(files[i])) {
                             img.push({
-                                image_link: import.meta.env.VITE_BUCKET_URL + 'artworks/' + files[i].name,
+                                image_link: 'artworks/' + files[i].name,
                                 name: files[i].name,
                             });
                             

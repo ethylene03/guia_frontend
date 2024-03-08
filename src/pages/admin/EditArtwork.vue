@@ -188,7 +188,7 @@ import { uploadFile } from '@/assets/API calls/amazonAPI';
             },
 
             async saveArtwork() {
-                const amazonUrl = import.meta.env.VITE_BUCKET_URL + "artworks/";
+                const amazonUrl = "artworks/";
                 this.isSaved = true;
                 this.isSubmit = true;
 
