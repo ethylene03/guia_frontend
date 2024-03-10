@@ -4,10 +4,12 @@
     import SortIcon from 'icons/SortVariant.vue';
     import FilterIcon from 'icons/FilterOutline.vue';
     import PlusIcon from 'icons/Plus.vue';
+    import Toast from '@/assets/components/Toast.vue';
+    import Welcome from '@/assets/components/Welcome.vue';
+    import NoContent from '@/assets/components/NoContent.vue';
 
-    import art1 from '../../assets/images/art1.png'
-    import art2 from '../../assets/images/art2.png'
-    import art3 from '../../assets/images/art3.png'
+    import { GET } from '@/assets/API calls/api';
+    import { useModal } from 'vue-final-modal';
 
     export default {
         components: {
@@ -15,28 +17,57 @@
             Footer,
             SortIcon,
             FilterIcon,
-            PlusIcon
+            PlusIcon,
+            Welcome,
+            NoContent
         },
 
         data() {
             return {
-                // pseudo data for artworks
-                artworks: [
-                    {id: 1, img: art1, title: "Spolarium", artist: "Juan Luna", year: "1884"},
-                    {id: 2, img: art2, title: "Fruit Seller", artist: "Fernando Amorsolo", year: "1954"},
-                    {id: 3, img: art3, title: "Bayanihan sa Bukid", artist: "Carlos Francisco", year: "1964"},
-                    {id: 4, img: art2, title: "Lorem Ipsum", artist: "Name", year: "Year"},
-                    {id: 5, img: art1, title: "Lorem Ipsum", artist: "Name", year: "Year"},
-                    {id: 6, img: art3, title: "Lorem Ipsum", artist: "Name", year: "Year"},
-                    {id: 7, title: "Lorem Ipsum", artist: "Name", year: "Year"},
-                    {id: 8, title: "Lorem Ipsum", artist: "Name", year: "Year"},
-                    {id: 9, title: "Lorem Ipsum", artist: "Name", year: "Year"},
-                    {id: 10, title: "Lorem Ipsum", artist: "Name", year: "Year"},
-                    {id: 11, title: "Lorem Ipsum", artist: "Name", year: "Year"},
-                    {id: 12, title: "Lorem Ipsum", artist: "Name", year: "Year"},
-                    {id: 13, title: "Lorem Ipsum", artist: "Name", year: "Year"},
-                ],
+                // data for artworks
+                artworks: [],
+
+                // page loader
+                pageLoad: false,
             }
+        },
+
+        async mounted() {
+            this.pageLoad = true;
+
+            const AllArtworks = await GET('artwork/get/all');
+            // console.log(AllArtworks);
+
+            if(AllArtworks.status === 200) {
+                const arts = AllArtworks.data.artworks;
+                this.artworks = arts.map(art => {
+                    let artwork = {};
+
+                    artwork.id = art.art_id;
+                    artwork.img = art.images.find(img => img.is_thumbnail === true);
+                    artwork.title = art.title;
+                    artwork.artist = art.artist_name;
+                    artwork.year = art.date_published;
+
+                    return artwork;
+                })
+
+                // console.log(this.artworks)
+            } else {
+                const {open, close} = useModal({
+                    component: Toast,
+                    attrs: {
+                        type: 'error',
+                        message: 'Error loading the artworks',
+                        subtext: 'Please try again later.'
+                    }
+                })
+
+                open();
+                setTimeout(() => this.$router.back(), 1000);
+            }
+
+            this.pageLoad = false;
         },
 
         methods: {
@@ -49,7 +80,8 @@
 </script>
 
 <template>
-    <div class="container">
+    <Welcome v-if="pageLoad" :start="pageLoad" />
+    <div v-else class="container">
         <!-- header -->
         <Header />
         <div class="contents">
@@ -73,9 +105,10 @@
     
             <!-- list of artworks -->
             <div class="artworks-cont">
-                <div class="art-card" v-for="art in artworks" :key="art.id" @click="redirect('./' + art.id)">
+                <no-content v-if="artworks.length === 0" class="error-message" />
+                <div v-else class="art-card" v-for="art in artworks" :key="art.id" @click="redirect('./' + art.id)">
                     <!-- art image -->
-                    <img :src="art.img ? art.img : '/icons/image.svg'" :alt="art.title" />
+                    <img :src="art.img?.image_link ? art.img.image_link : '/icons/image.svg'" :alt="art.title" />
     
                     <!-- art details -->
                     <div class="art-deets">
