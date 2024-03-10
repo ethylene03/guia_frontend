@@ -92,7 +92,7 @@
 
             this.images = imgs;
 
-            this.artwork['thumbnail'] = imgs.find(image => image.is_thumbnail === true).name;
+            this.artwork['thumbnail'] = imgs.find(image => image.is_thumbnail === true) ? imgs.find(image => image.is_thumbnail === true).name : null;
 
             // get sections
             const getSections = await GET('/section/get', {museum_id: getMuseumId('admin')});
