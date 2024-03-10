@@ -72,6 +72,15 @@
 
         async mounted() {
             this.pageLoad = true;
+            
+            const {open: errorOpen, close: errorClose} = useModal({
+                component: Toast,
+                attrs: {
+                    type: 'error',
+                    message: 'Artwork does not exist!',
+                    subtext: 'Returning you back...'
+                }
+            })
 
             // get art id from route
             const id = this.art_id = this.$route.params.id;
@@ -80,15 +89,6 @@
             const art = await GET('/artwork/get', {art_id: id});
 
             if(!art?.data) {
-                const {open: errorOpen, close: errorClose} = useModal({
-                    component: Toast,
-                    attrs: {
-                        type: 'error',
-                        message: 'Artwork does not exist!',
-                        subtext: 'Returning you back...'
-                    }
-                })
-
                 errorOpen();
                 setTimeout(() => window.history.back(), 1000);
             }
@@ -102,6 +102,12 @@
                 museum_id: getMuseumId('admin'),
                 section_id: deets.section_id, 
             });
+
+            if(section.status != 200) {
+                errorOpen();
+                setTimeout(() => window.history.back(), 1000);
+            }
+            
             this.artwork['section'] = section.data.section[0].section_name;
 
             this.pageLoad = false;
