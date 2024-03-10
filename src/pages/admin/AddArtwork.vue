@@ -91,7 +91,6 @@
 
                 // get remaining files to accept
                 const upload = Array.from(files).slice(0, 10 - img.length);
-                const initImg = img.length;
 
                 for (let i = 0; i < upload.length; i++) {
                     const reader = new FileReader();
@@ -101,8 +100,8 @@
                             img.push({
                                 image_link: 'artworks/' + files[i].name,
                                 name: files[i].name,
-                            });
-                            
+                                file: reader.result
+                            });    
                         }
                     };
                     
@@ -144,14 +143,14 @@
                 }
 
                 if(!input.title || !input.artist_name || !input.date_published || !input.medium || 
-                    !input.section_id || !input.dimen_length_cm || !input.dimen_width_cm || !input.description)
+                    !input.section_id || !input.dimen_length_cm || !input.dimen_width_cm || !input.description || !input.thumbnail)
                         return false;
 
                 return true;
             },
 
             async saveArtwork() {
-                const amazonUrl = import.meta.env.VITE_BUCKET_URL + "artworks/";
+                const amazonUrl = "artworks/";
                 this.isSaved = true;
                 this.isSubmit = true;
 
@@ -165,12 +164,15 @@
                         art.thumbnail = thumb;
                         art.added_by = getAdminId();
 
+                        // console.log(art);
+
                         // create artwork
                         const create = await POST('/artwork/create', art);
+                        // console.log(create);
 
                         if(create.status === 201)
                             window.location.href = './view/' + create.data.artwork_id;
-                            // console.success("success");
+                            // console.log("success");
                         else
                             this.isSubmit = false;
                     } else {
@@ -209,7 +211,7 @@
             <!-- upload file container if there is image/s -->
             <div v-else class="image-cont">
                 <div v-for="(image, index) in artwork.images" :key="index" class="image-frame">
-                    <img :src="image.image_link" alt="image.name">
+                    <img :src="image.file" alt="image.name">
                     <text class="img-name">{{ image.name }}</text>
 
                     <!-- delete and checkbox -->

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { POST } from './api.js'
 
 export const uploadFile = async (image) => {
     // get amazon credentials
