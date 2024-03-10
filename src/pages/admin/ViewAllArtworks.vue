@@ -10,6 +10,7 @@
 
     import { GET } from '@/assets/API calls/api';
     import { useModal } from 'vue-final-modal';
+import { getAdminId } from '@/assets/components/common';
 
     export default {
         components: {
@@ -36,14 +37,14 @@
 
                 // filter
                 filter: false,
-                filterOpt: ["1900s", "1950-2000s", "2000-2010", "2010-2020", "2020-Present"],
+                filterOpt: ["All", "Before 1900s", "1900-1950", "1950-2000", "2000-2010", "2010-2020", "2020-Present"],
             }
         },
 
         async mounted() {
             this.pageLoad = true;
 
-            const AllArtworks = await GET('artwork/get/all');
+            const AllArtworks = await GET('artwork/get/all', {admin_id: getAdminId()});
             // console.log(AllArtworks);
 
             if(AllArtworks.status === 200) {
@@ -52,7 +53,7 @@
                     let artwork = {};
 
                     artwork.id = art.art_id;
-                    artwork.img = art.images.find(img => img.is_thumbnail === true);
+                    artwork.img = art.image_thumbnail;
                     artwork.title = art.title;
                     artwork.artist = art.artist_name;
                     artwork.year = art.date_published;
@@ -187,7 +188,7 @@
                 <no-content v-if="artworks.length === 0" class="error-message" />
                 <div v-else class="art-card" v-for="art in artworks" :key="art.id" @click="redirect('./' + art.id)">
                     <!-- art image -->
-                    <img :src="art.img?.image_link ? art.img.image_link : '/icons/image.svg'" :alt="art.title" />
+                    <img :src="art.img ? art.img : '/icons/image.svg'" :alt="art.title" />
     
                     <!-- art details -->
                     <div class="art-deets">
@@ -272,6 +273,7 @@
     .artworks-cont {
         width: 100%;
         margin-bottom: 3.2rem;
+        text-transform: capitalize;
     }
 
     .art-card {
