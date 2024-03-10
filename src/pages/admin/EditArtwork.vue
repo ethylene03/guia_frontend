@@ -11,7 +11,7 @@
     import axios from 'axios';
     import Loader from '@/assets/components/Loader.vue';
     import Welcome from '@/assets/components/Welcome.vue';
-import { uploadFile } from '@/assets/API calls/amazonAPI';
+    import { uploadFile } from '@/assets/API calls/amazonAPI';
 
     const { open: openCancelModal, close: closeCancelModal } = useModal({
         component: Modal,
@@ -85,8 +85,9 @@ import { uploadFile } from '@/assets/API calls/amazonAPI';
             this.artwork = getArtwork.data.artwork;
             let imgs = getArtwork.data.artwork.images;
             imgs.map(image => {
-                const name = image.image_link.substring(image.image_link.indexOf('artworks/') + 'artworks/'.length);
+                const name = image.image_link.substring(image.image_link.indexOf('artworks/') + 9, image.image_link.indexOf('jpg') + 3);
                 image['name'] = name;
+                image['file'] = image.image_link;
             })
 
             this.images = imgs;
@@ -128,7 +129,6 @@ import { uploadFile } from '@/assets/API calls/amazonAPI';
 
                 // get remaining files to accept
                 const upload = Array.from(files).slice(0, 10 - img.length);
-                const initImg = img.length;
 
                 for (let i = 0; i < upload.length; i++) {
                     const reader = new FileReader();
@@ -136,8 +136,9 @@ import { uploadFile } from '@/assets/API calls/amazonAPI';
                     reader.onload = async (e) => {
                         if(await uploadFile(files[i])) {
                             img.push({
-                                image_link: import.meta.env.VITE_BUCKET_URL + 'artworks/' + files[i].name,
+                                image_link: 'artworks/' + files[i].name,
                                 name: files[i].name,
+                                file: reader.result
                             });
                             
                         }
@@ -200,13 +201,14 @@ import { uploadFile } from '@/assets/API calls/amazonAPI';
 
                         art.images = images;
                         art.thumbnail = thumb;
-                        art.added_by = getAdminId();
+                        art.updated_by = getAdminId();
 
                         // create artwork
-                        const create = await POST('/artwork/create', art);
+                        const create = await POST('/artwork/edit', art);
+                        // console.log(create);
 
                         if(create.status === 201)
-                            window.location.href = './view/' + create.data.artwork_id;
+                            window.location.href = '../view/' + this.$route.params.id;
                             // console.success("success");
                         else
                             this.isSubmit = false;
@@ -247,7 +249,7 @@ import { uploadFile } from '@/assets/API calls/amazonAPI';
             <!-- upload file container if there is image/s -->
             <div v-else class="image-cont">
                 <div v-for="(image, index) in artwork.images" :key="index" class="image-frame">
-                    <img :src="image.image_link" alt="image.name">
+                    <img :src="image.file" alt="image.name">
                     <text class="img-name">{{ image.name }}</text>
 
                     <!-- delete and checkbox -->
