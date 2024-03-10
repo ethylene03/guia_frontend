@@ -6,6 +6,8 @@
     import CloseIcon from 'icons/Close.vue';
     import PassIcon from 'icons/AccountKeyOutline.vue';
     import LogoutIcon from 'icons/Logout.vue';
+    import HomeIcon from 'icons/HomeCircleOutline.vue';
+    import ArtIcon from 'icons/ListBoxOutline.vue';
 
     // toaster
     const {open: openI, close: closeI} = useModal({
@@ -32,7 +34,9 @@
         Footer,
         CloseIcon,
         PassIcon,
-        LogoutIcon
+        LogoutIcon,
+        HomeIcon,
+        ArtIcon,
     },
 
         // temporary user email rani, replace this one puhon with the data in our database
@@ -76,6 +80,17 @@
             <!-- guia logo -->
             <img class="logo" src="../../assets/images/admin-logo.png"/>
 
+            <div class="button-icons">
+                <div style="margin-right: 30px;" @click="goTo('/on-cloud-nine/home')">
+                    <home-icon :size="40" />
+                    <text>Home</text>
+                </div>
+                <div @click="goTo('/on-cloud-nine/view/all')">
+                    <art-icon :size="40" />
+                    <text>Artwork List</text>
+                </div>
+            </div>
+
             <!-- container for user email -->
             <div class="user-info-cont">
                 <h2 class="label-dark">User</h2>
@@ -113,7 +128,7 @@
 
     .logo {
         width: clamp(150px, 200px, 300px);
-        margin-bottom: 10vh;
+        margin-bottom: 5vh;
     }
 
     .header {
@@ -139,16 +154,41 @@
         cursor: pointer;
     }
 
+    .button-icons {
+        display: flex;
+        margin-bottom: 5vh;
+    }
+
+    .button-icons div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        cursor: pointer;
+        width: 100px;
+        padding: 10px 0;
+        border-radius: 10px;
+    }
+
+    .button-icons div:hover {
+        background-color: var(--color-primary-darker);
+    }
+
     .form-cont {
         width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
+
+        margin-bottom: 3.2rem;
     }
 
     .user-info-cont {
         padding: 20px 0 50px 0;
         width: 100%;
+
+        margin-bottom: 5vh;
     }
 
     .label-dark {
@@ -198,6 +238,7 @@
 
     .logout-btn {
         background-color: var(--color-accent);
+        margin-bottom: 5vh;
     }
     .logout-btn:hover {
         background-color: var(--color-accent-darker);
