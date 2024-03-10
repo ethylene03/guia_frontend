@@ -19,7 +19,7 @@
             FilterIcon,
             PlusIcon,
             Welcome,
-            NoContent
+            NoContent,
         },
 
         data() {
@@ -29,6 +29,14 @@
 
                 // page loader
                 pageLoad: false,
+
+                // sort
+                sort: false,
+                sortOpt: ["title", "artist", "year"],
+
+                // filter
+                filter: false,
+                filterOpt: ["1900s", "1950-2000s", "2000-2010", "2010-2020", "2020-Present"],
             }
         },
 
@@ -74,6 +82,62 @@
             // redirect to different pages
             redirect(path) {
                 window.location.href = path;
+            },
+
+            openDropdown(type) {
+                if(type === 'sort') {
+                    this.sort = !this.sort;
+                    if(this.sort)
+                        this.filter = false;
+                } else {
+                    this.filter = !this.filter;
+                    if(this.filter)
+                        this.sort = false;
+                }
+            },
+
+            closeDropdown() {
+                this.sort = false;
+                this.filter = false;
+            },
+
+            isAscending(arr, type) {
+                for(let i = 1; i < arr.length;i++) {
+                    if(arr[i][type].toLowerCase() < arr[i - 1][type].toLowerCase())
+                        return false
+                }
+
+                return true;
+            },
+
+            sortArt(type) {
+                if(this.isAscending(this.artworks, type)) {
+                    this.artworks.sort((a, b) => {
+                        const typeA = a[type].toLowerCase();
+                        const typeB = b[type].toLowerCase();
+
+                        if(typeA < typeB)
+                            return 1;
+
+                        if(typeA > typeB)
+                            return -1;
+                        
+                        return 0;
+                    })
+                } else {
+                    this.artworks.sort((a, b) => {
+                        const typeA = a[type].toLowerCase();
+                        const typeB = b[type].toLowerCase();
+
+                        if(typeA < typeB)
+                            return -1;
+
+                        if(typeA > typeB)
+                            return 1;
+                        
+                        return 0;
+                    })
+                }
             }
         },
     };
@@ -89,10 +153,25 @@
             <div class="title">
                 <h1>Artwork Directory</h1>
                 <div class="filters">
-                    <sort-icon title="sort artworks" fillColor="var(--color-secondary)" :size="30" />
-                    <!-- <img src="/icons/sort.svg" alt="sort artworks" title="Sort artworks" /> -->
-                    <filter-icon title="filter artworks" fillColor="var(--color-secondary)" :size="30" />
-                    <!-- <img src="/icons/filter.svg" alt="filter artworks" title="Filter artworks" /> -->
+                    <sort-icon class="sort-filter" title="sort artworks" fillColor="var(--color-secondary)" :size="30" @click="openDropdown('sort')" />
+
+                    <!-- dropdown for sort -->
+                    <div v-if="sort" class="dropdown" v-on:mouseleave="closeDropdown">
+                        <text style="padding-left: 10px;">Sort by:</text>
+                        <li v-for="options in sortOpt" @click="sortArt(options)">
+                            {{ options }}
+                        </li>
+                    </div>
+
+                    <filter-icon class="sort-filter" title="filter artworks" fillColor="var(--color-secondary)" :size="30" @click="openDropdown('filter')" />
+                    
+                    <!-- dropdown for filter -->
+                    <div v-if="filter" class="dropdown" v-on:mouseleave="closeDropdown">
+                        <text style="padding-left: 10px;">Filter by:</text>
+                        <li v-for="options in filterOpt">
+                            {{ options }}
+                        </li>
+                    </div>
                 </div>
             </div>
     
@@ -129,6 +208,35 @@
 
     .contents {
         width: 100%;
+    }
+
+    .sort-filter {
+        cursor: pointer;
+    }
+
+    .dropdown {
+        z-index: 100;
+        position: absolute;
+        margin-right: 10px;
+        right: 0;
+
+        background-color: var(--color-primary);
+        padding: 10px 0;
+        border: 2px solid var(--color-secondary);
+        border-radius: 5px;
+    }
+
+    .dropdown li {
+        list-style-type: none;
+        padding-left: 20px;
+        width: 200px;
+
+        text-transform: capitalize;
+    }
+
+    .dropdown li:hover {
+        background-color: var(--color-primary-darker);
+        cursor: pointer;
     }
 
     .title {
