@@ -11,6 +11,7 @@
     import { GET } from '@/assets/API calls/api';
     import { useModal } from 'vue-final-modal';
 import { getAdminId } from '@/assets/components/common';
+import moment from 'moment';
 
     export default {
         components: {
@@ -38,6 +39,7 @@ import { getAdminId } from '@/assets/components/common';
                 // filter
                 filter: false,
                 filterOpt: ["All", "Before 1900s", "1900-1950", "1950-2000", "2000-2010", "2010-2020", "2020-Present"],
+                filterType: "All",
             }
         },
 
@@ -56,7 +58,7 @@ import { getAdminId } from '@/assets/components/common';
                     artwork.img = art.image_thumbnail;
                     artwork.title = art.title;
                     artwork.artist = art.artist_name;
-                    artwork.year = art.date_published;
+                    artwork.year = moment(art.date_published).format('YYYY');
 
                     return artwork;
                 })
@@ -73,7 +75,7 @@ import { getAdminId } from '@/assets/components/common';
                 })
 
                 open();
-                setTimeout(() => this.$router.back(), 1000);
+                // setTimeout(() => this.$router.back(), 1000);
             }
 
             this.pageLoad = false;
@@ -139,8 +141,32 @@ import { getAdminId } from '@/assets/components/common';
                         return 0;
                     })
                 }
+            },
+
+            filterArtworks(type) {
+                this.filterType = type;
             }
         },
+
+        computed: {
+            filteredArt() {
+                if(this.filterType === "All") {
+                    return this.artworks;
+                } else if(this.filterType === "Before 1900s") {
+                    return this.artworks.filter(art => art.year < 1900);
+                } else if(this.filterType === "1900-1950") {
+                    return this.artworks.filter(art => art.year <= 1950 && art.year >= 1900);
+                } else if(this.filterType === "1950-2000") {
+                    return this.artworks.filter(art => art.year <= 2000 && art.year >= 1950);
+                } else if(this.filterType === "2000-2010") {
+                    return this.artworks.filter(art => art.year <= 2010 && art.year >= 2000);
+                } else if(this.filterType === "2010-2020") {
+                    return this.artworks.filter(art => art.year <= 2020 && art.year >= 2010);
+                } else if(this.filterType === "2020-Present") {
+                    return this.artworks.filter(art => art.year >= 2020);
+                }
+            }
+}
     };
 </script>
 
@@ -169,7 +195,7 @@ import { getAdminId } from '@/assets/components/common';
                     <!-- dropdown for filter -->
                     <div v-if="filter" class="dropdown" v-on:mouseleave="closeDropdown">
                         <text style="padding-left: 10px;">Filter by:</text>
-                        <li v-for="options in filterOpt">
+                        <li v-for="options in filterOpt" @click="filterArtworks(options)">
                             {{ options }}
                         </li>
                     </div>
@@ -185,8 +211,8 @@ import { getAdminId } from '@/assets/components/common';
     
             <!-- list of artworks -->
             <div class="artworks-cont">
-                <no-content v-if="artworks.length === 0" class="error-message" />
-                <div v-else class="art-card" v-for="art in artworks" :key="art.id" @click="redirect('./' + art.id)">
+                <no-content v-if="filteredArt.length === 0" class="error-message" />
+                <div v-else class="art-card" v-for="art in filteredArt" :key="art.id" @click="redirect('./' + art.id)">
                     <!-- art image -->
                     <img :src="art.img ? art.img : '/icons/image.svg'" :alt="art.title" />
     
