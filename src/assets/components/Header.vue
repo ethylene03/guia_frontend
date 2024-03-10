@@ -91,7 +91,8 @@
         <back-icon v-if="isLight && showMenu" class="menu-light" @click="redirect(isBack)" title="Back" fillColor="var(--color-secondary)" :size="38" style="display: flex; justify-content: center; align-items: center;" />
         
         <!-- guia logo -->
-        <img src="/icons/guia-long.svg" alt="Guía" class="guia" title="Guia" />
+        <img v-if="type === 'admin'" src="/icons/guia-long.svg" alt="Guía" class="guia" title="Guia" @click="redirect('/on-cloud-nine')" style="cursor: pointer;" />
+        <img v-else src="/icons/guia-long.svg" alt="Guía" class="guia" title="Guia" />
         
         <!-- admin menu -->
         <menu-icon v-if="type === 'admin'" class="menu" @click="redirect('/on-cloud-nine/menu')" title="Menu" fillColor="var(--color-primary)" :size="38" style="display: flex; justify-content: center; align-items: center;" />
