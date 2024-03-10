@@ -6,6 +6,11 @@
     import LaunchIcon from 'icons/OpenInNew.vue';
     import PlusIcon from 'icons/Plus.vue';
     import MenuIcon from 'icons/Menu.vue';
+    import { getAdminId } from "@/assets/components/common";
+    import { GET } from "@/assets/API calls/api";
+    import { useModal } from "vue-final-modal";
+    import Toast from "@/assets/components/Toast.vue";
+    import Welcome from "@/assets/components/Welcome.vue";
 
     export default {
         components: {
@@ -13,12 +18,15 @@
             LaunchIcon,
             PlusIcon,
             MenuIcon,
+            Welcome
         },
 
         data() {
             // screen width variable
             return {
                 screenWidth: window.innerWidth,
+                museum_data: [],
+                pageLoad: false,
             };
         },
 
@@ -30,8 +38,30 @@
         },
 
         // window listener to fetch window screen size
-        mounted() {
+        async mounted() {
             window.addEventListener('resize', this.updateScreenSize);
+            this.pageLoad = true;
+
+            const data = await GET('/dashboard/get', {admin_id: getAdminId()});
+            // console.log(data);
+
+            if(data.status === 200) {
+                this.museum_data = data.data;
+            } else {
+                const {open, close} = useModal({
+                    component: Toast,
+                    attrs: {
+                        type: 'error',
+                        message: 'Error loading data',
+                        subtext: 'Please try again later',
+                    }
+                })
+
+                open();
+                setTimeout(() => window.history.back(), 1000);
+            }
+
+            this.pageLoad = false;
         },
         
         methods: {
@@ -54,7 +84,8 @@
 </script>
 
 <template>
-    <div class="container">
+    <Welcome v-if="pageLoad" :start="pageLoad" />
+    <div v-else class="container">
         <!-- header -->
         <div class="header">
             <img src="/icons/museum-logo.svg" alt="museum_name" class="museum" />
@@ -85,15 +116,15 @@
 
             <!-- cards -->
             <div class="cards" :style="{marginBottom: '30px'}">
-                <Cards :isNum="true" :number="103" label="Artworks in the Directory >" @click="redirect('/on-cloud-nine/view/all')" :style="{cursor: 'pointer'}" />
+                <Cards :isNum="true" :number="museum_data.artworks_count" label="Artworks in the Directory >" @click="redirect('/on-cloud-nine/view/all')" :style="{cursor: 'pointer'}" />
                 <Cards :isNum="false" label="Most Popular Artworks"/>
-                <Cards :isNum="true" :number="52" label="Museum Guide Users in the Last 24h"/>
+                <Cards :isNum="true" :number="museum_data.visitors_count" label="Museum Guide Users in the Last 24h"/>
                 <Cards :isNum="false" label="Most Crowded Sections" />
             </div>
         </div>
 
         <!-- visitor portal if small screen -->
-        <button v-if="!isBigScreen" type="button" class="dashboard-btn visitor-portal" @click="redirect('/home')" :style="{marginTop: '0px', marginBottom: '10px'}">
+        <button v-if="!isBigScreen" type="button" class="dashboard-btn visitor-portal" @click="redirect('/search-museum')" :style="{marginTop: '0px', marginBottom: '10px'}">
             <launch-icon fillColor="var(--color-primary)" :size="20" style="display: flex; margin-right: 10px;" />
             <h2>Go to Visitor Portal</h2>
         </button>
