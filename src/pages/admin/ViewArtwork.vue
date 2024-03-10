@@ -29,6 +29,7 @@
         const id = currentURL.split('/').slice(-1)[0];
         
         await deleteArtwork(id);
+        close();
     }
 
     const { open, close } = useModal({
@@ -46,6 +47,7 @@
             },
             async onRightAction() {
                 // delete here
+                close();
                 await deleteArt();
                 // window.location.href = './all';
             }
@@ -107,7 +109,7 @@
                 errorOpen();
                 setTimeout(() => window.history.back(), 1000);
             }
-            
+
             this.artwork['section'] = section.data.section[0].section_name;
 
             this.pageLoad = false;
