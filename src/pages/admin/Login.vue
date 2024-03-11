@@ -53,6 +53,16 @@
             async submitCredentials() {
                 this.isSubmit = true;
                 this.errorMessage = "";
+
+                if(!this.credentials.admin_username) {
+                    this.errorMessage = "Username is required.";
+                    this.isSubmit = false;
+                    return;
+                } else if(!this.credentials.admin_password) {
+                    this.errorMessage = "Password is required.";
+                    this.isSubmit = false;
+                    return;
+                } 
                 
                 const submit = await loginPOST('/admin/login', this.credentials);
                 // console.log(submit?.error);
@@ -86,7 +96,7 @@
         <h2 class="label">Please login using the given credentials.</h2> 
     
         <!-- login form -->
-        <form @submit.prevent="submitCredentials">
+        <form>
             <div class="login-cont">
                 <!-- username -->
                 <h2 class="label-light">Username</h2> 
@@ -105,7 +115,7 @@
             
             <!-- login button -->
             <Loader v-if="isSubmit" :style="{marginTop: '5vh'}" /> 
-            <button v-else :disabled="isDisabled" class="login-btn" type="submit">Login</button>
+            <button v-else class="login-btn" type="button" @click="submitCredentials">Login</button>
         </form>
     
         <!-- Kbytes Logo Footer -->
