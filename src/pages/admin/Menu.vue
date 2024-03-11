@@ -83,11 +83,11 @@
             <div class="button-icons">
                 <div style="margin-right: 30px;" @click="goTo('/on-cloud-nine/home')">
                     <home-icon :size="40" />
-                    <text>Home</text>
+                    <text>Dashboard</text>
                 </div>
                 <div @click="goTo('/on-cloud-nine/view/all')">
                     <art-icon :size="40" />
-                    <text>Artwork List</text>
+                    <text>Artwork Directory</text>
                 </div>
             </div>
 
@@ -166,7 +166,7 @@
         align-items: center;
 
         cursor: pointer;
-        width: 100px;
+        width: 150px;
         padding: 10px 0;
         border-radius: 10px;
     }
