@@ -184,7 +184,7 @@ import moment from 'moment';
 
                     <!-- dropdown for sort -->
                     <div v-if="sort" class="dropdown" v-on:mouseleave="closeDropdown">
-                        <text style="padding-left: 10px;">Sort by:</text>
+                        <text style="padding-left: 10px;">Sort by</text>
                         <li v-for="options in sortOpt" @click="sortArt(options)">
                             {{ options }}
                         </li>
@@ -194,7 +194,7 @@ import moment from 'moment';
                     
                     <!-- dropdown for filter -->
                     <div v-if="filter" class="dropdown" v-on:mouseleave="closeDropdown">
-                        <text style="padding-left: 10px;">Filter by:</text>
+                        <text style="padding-left: 10px;">Filter by</text>
                         <li v-for="options in filterOpt" @click="filterArtworks(options)">
                             {{ options }}
                         </li>

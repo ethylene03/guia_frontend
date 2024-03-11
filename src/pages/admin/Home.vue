@@ -6,7 +6,7 @@
     import LaunchIcon from 'icons/OpenInNew.vue';
     import PlusIcon from 'icons/Plus.vue';
     import MenuIcon from 'icons/Menu.vue';
-    import { getAdminId } from "@/assets/components/common";
+    import { getAdminId, logout } from "@/assets/components/common";
     import { GET } from "@/assets/API calls/api";
     import { useModal } from "vue-final-modal";
     import Toast from "@/assets/components/Toast.vue";
@@ -58,7 +58,7 @@
                 })
 
                 open();
-                setTimeout(() => window.history.back(), 1000);
+                setTimeout(() => logout(), 1000);
             }
 
             this.pageLoad = false;

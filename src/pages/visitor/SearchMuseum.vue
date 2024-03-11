@@ -7,6 +7,7 @@
     import Loader from "@/assets/components/Loader.vue";
     import Welcome from "@/assets/components/Welcome.vue";
     import { getMuseumId, getToken, refreshPage } from "@/assets/components/common";
+import { Error } from "@/assets/components/Error";
 
     export default {
         components: {
@@ -41,15 +42,8 @@
                 this.museums = AllMuseums.data.museum;
                 this.isReady = true;
             } else {
-                const {open, close} = useModal({
-                    component: Toast,
-                    attrs: {
-                        type: 'error',
-                        message: 'Error fetching available museums!',
-                    }
-                })
-
-                open();
+                Error(AllMuseums.response.data.detail);
+                return;
             }
         },
 
@@ -80,15 +74,8 @@
                         this.redirect('/scan');
                     } else {
                         this.isSubmitted = false;
-                        const {open, close} = useModal({
-                            component: Toast,
-                            attrs: {
-                                type: 'error',
-                                message: 'Error fetching data!',
-                            }
-                        })
-
-                        open();
+                        Error(generateToken.response.data.detail);
+                        return;
                     }
 
                 } else {

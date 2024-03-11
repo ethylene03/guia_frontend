@@ -6,12 +6,13 @@
     import Modal from '@/assets/components/Modal.vue';
     import Toast from '@/assets/components/Toast.vue';
     import Welcome from '@/assets/components/Welcome.vue';
-    import { getMuseumId } from '@/assets/components/common';
+    import { getAdminId, getMuseumId } from '@/assets/components/common';
     import moment from 'moment';
     import { getCurrentInstance } from 'vue';
     import { useModal } from 'vue-final-modal';
     import EditIcon from 'icons/PencilOutline.vue';
     import DeleteIcon from 'icons/DeleteOutline.vue';
+import { Error } from '@/assets/components/Error';
 
     
     async function deleteArt() {
@@ -74,15 +75,6 @@
 
         async mounted() {
             this.pageLoad = true;
-            
-            const {open: errorOpen, close: errorClose} = useModal({
-                component: Toast,
-                attrs: {
-                    type: 'error',
-                    message: 'Artwork does not exist!',
-                    subtext: 'Returning you back...'
-                }
-            })
 
             // get art id from route
             const id = this.art_id = this.$route.params.id;
@@ -90,9 +82,10 @@
             // fetch artwork details
             const art = await GET('/artwork/get', {art_id: id});
 
-            if(!art?.data) {
-                errorOpen();
-                setTimeout(() => window.history.back(), 1000);
+            if(art.response?.status === 400) {
+                const message = art.response.data.detail;
+                Error(message);
+                return;
             }
 
             // store thumbnail and other details
@@ -106,8 +99,9 @@
             });
 
             if(section.status != 200) {
-                errorOpen();
-                setTimeout(() => window.history.back(), 1000);
+                const message = section.response.data.detail;
+                Error(message);
+                return;
             }
 
             this.artwork['section'] = section.data.section[0].section_name;

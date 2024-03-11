@@ -12,6 +12,7 @@
     import Loader from '@/assets/components/Loader.vue';
     import Welcome from '@/assets/components/Welcome.vue';
     import { uploadFile } from '@/assets/API calls/amazonAPI';
+import { Error } from '@/assets/components/Error';
 
     const { open: openCancelModal, close: closeCancelModal } = useModal({
         component: Modal,
@@ -69,17 +70,8 @@
             const getArtwork = await GET('/artwork/get', {art_id: this.$route.params.id});
             // console.log(getArtwork);
             if(!getArtwork.data) {
-                const {open: fetchOpen, close: fetchClose} = useModal({
-                    component: ToastVue,
-                    attrs: {
-                        type: 'error',
-                        messege: 'Error Fetching Data',
-                        subtext: 'Returning you back...'
-                    }
-                })
-
-                fetchOpen();
-                setTimeout(() => window.history.back(), 1000);
+                Error(getArtwork.response.data.detail);
+                return;
             }
 
             this.artwork = getArtwork.data.artwork;
