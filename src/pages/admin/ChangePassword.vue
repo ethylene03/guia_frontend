@@ -32,10 +32,10 @@
     export default {
         //declaring the InputIcon component
         components: {
-        InputIcon,
-        Footer,
-        Loader,
-    },
+            InputIcon,
+            Footer,
+            Loader,
+        },
 
         data() {
             return {
@@ -70,19 +70,19 @@
                 const specialCharacter = /.*[!@#$%&].*/;
 
                 if(!oneUpperCase.test(password))
-                    this.error = "The new password must contain at least one uppercase letter.";
+                    this.error = "New password must contain at least 1 uppercase letter.";
                 
                 else if(!length.test(password))
-                    this.error = "The new password must have at least 8 characters.";
+                    this.error = "New password must have at least 8 characters.";
                 
                 else if(!underscore.test(password))
-                    this.error = "The new password must contain at most one underscore, embedded.";
+                    this.error = "New password must contain at most 1 underscore, embedded.";
                 
                 else if(!number.test(password))
-                    this.error = "The new password must have at least 1 number.";
+                    this.error = "New password must have at least 1 number.";
                 
                 else if(!specialCharacter.test(password))
-                    this.error = "The new password must have at least 1 special character.";
+                    this.error = "New password must have at least 1 special character.";
 
                 else
                     return true;
@@ -113,7 +113,7 @@
                 if(this.isSame) {
                     if(this.deets.old_password === this.deets.new_password) {
                         this.isSubmit = false;
-                        this.error = "Old Password and New Password should not match.";
+                        this.error = "New Password should not match Current Password.";
                     } else if(!this.checkValidity(this.deets.new_password)) {
                         this.isSubmit = false;
                     } else {
@@ -172,7 +172,7 @@
 
             <!-- Password Validation -->
             <div class="validate">
-                <text>Reminders:</text>
+                <text style="font-weight: bold;">Reminders</text>
                 <li>Password must have at least 8 characters.</li>
                 <li>Password must have at least 1 capital letter.</li>
                 <li>Password must have at least 1 number.</li>
@@ -187,7 +187,9 @@
             </div>
 
             <!-- container for cancel and save buttons -->
-            <Loader v-if="isSubmit" />
+            <div v-if="isSubmit" style="width: 100%; display: flex; justify-content: center;">
+                <Loader />
+            </div>
             <div v-else class="button-cont">
                 <button type="button" @click="goBack" class="btn-cancel">Cancel</button>
                 <button type="submit" class="btn-save">Save Password</button>
