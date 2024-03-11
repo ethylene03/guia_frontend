@@ -80,9 +80,12 @@ import { Error } from '@/assets/components/Error';
             const id = this.art_id = this.$route.params.id;
 
             // fetch artwork details
-            const art = await GET('/artwork/get', {art_id: id});
+            const art = await GET('/artwork/get', {
+                art_id: id,
+                admin_id: getAdminId(),
+            });
 
-            if(art.response?.status === 400) {
+            if(art.response?.status >= 400) {
                 const message = art.response.data.detail;
                 Error(message);
                 return;
