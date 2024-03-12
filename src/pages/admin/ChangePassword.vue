@@ -70,7 +70,7 @@
                 const specialCharacter = /.*[!@#$%&].*/;
 
                 if(!oneUpperCase.test(password))
-                    this.error = "New password must contain at least 1 uppercase letter.";
+                    this.error = "New password must have at least 1 uppercase letter.";
                 
                 else if(!length.test(password))
                     this.error = "New password must have at least 8 characters.";
@@ -82,7 +82,7 @@
                     this.error = "New password must have at least 1 special character.";
                 
                 else if(!underscore.test(password))
-                    this.error = "New password must contain at most 1 underscore, embedded.";
+                    this.error = "New password must have at most 1 underscore, embedded.";
 
                 else
                     return true;
