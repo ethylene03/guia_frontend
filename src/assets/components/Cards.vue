@@ -26,9 +26,9 @@
 <script>
     export default {
         props: {
-            isNum: {
-                type: Boolean,
-                default: false,
+            type: {
+                type: String,
+                default: "images", // number, images, sections
             },
 
             number: {
@@ -55,21 +55,42 @@
                 type: String,
                 default: '/icons/guia.svg',
             },
+
+            sections: {
+              type: Array,
+              default: [
+                { section_id: -1, section_name: "No Data Available", museum_id: 0 },
+              ],
+            },
+
+            
         },
     };
 </script>
 
 <template>
     <div class="card-container">
-        <div v-if="isNum" class="num-display">
+        <div v-if="type=='number'" class="num-display">
             <p class="number-displayed">{{ number }}</p>
         </div>
 
-        <div v-else class="gallery-display">
+        <div v-else-if="type=='images'" class="gallery-display">
             <img :src="image1" @click="handleClickImage(image1)" alt="artwork" /> 
             <img :src="image2" @click="handleClickImage(image2)" alt="artwork" /> 
             <img :src="image3" @click="handleClickImage(image3)" alt="artwork" /> 
         </div>
+
+        <div v-else-if="type == 'sections'" class="section-display">
+          <p v-if="sections.length < 1" class="card-no-data">No visitors yet.</p>
+          <div
+            v-for="section in sections"
+            :key="section.section_id"
+            class="section-display-label"
+          >
+        {{ section.section_name }}
+      </div>
+    </div>
+
 
         <div class="card-label">
             <h2>{{ label }}</h2>
@@ -130,6 +151,29 @@
         border: 1.5px solid var(--color-primary);
         border-radius: 5px;
     }
+
+    .section-display {
+      width: 100%;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+    }
+
+    .section-display-label {
+      height: 70px;
+      min-width: 70px;
+      background-color: var(--color-tertiary-darker);
+      border: 1.5px solid var(--color-primary);
+      color: var(--color-white);
+      border-radius: 5px;
+      font-size: 15px;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
 
     @media screen and (min-width: 650px) {
         .card-container {
