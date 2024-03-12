@@ -54,7 +54,11 @@
                 this.isSubmit = true;
                 this.errorMessage = "";
 
-                if(!this.credentials.admin_username) {
+                if(!this.credentials.admin_username && !this.credentials.admin_username) {
+                    this.errorMessage = "Username and Password are required.";
+                    this.isSubmit = false;
+                    return; 
+                } else if(!this.credentials.admin_username) {
                     this.errorMessage = "Username is required.";
                     this.isSubmit = false;
                     return;
