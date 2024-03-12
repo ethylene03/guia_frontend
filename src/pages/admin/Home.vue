@@ -67,7 +67,10 @@
         methods: {
             // redirect to another page
             redirect(path) {
-                window.location.href = path;
+                if(path === "/search-museum")
+                    window.open( this.$route.path.replace('/on-cloud-nine/home', '') + path, '_blank');
+                else
+                    window.location.href = path;
             },
 
             // updates screen width variable
