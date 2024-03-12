@@ -153,6 +153,22 @@
                     return false;
                 }
 
+                // number
+                if(input.dimen_length_cm < 0) {
+                    this.numCheck[0] = false;
+                    this.scrollToError();
+                    return false;
+                } else if(input.dimen_width_cm < 0) {
+                    this.numCheck[1] = false;
+                    this.scrollToError();
+                    return false;
+                } else if(input.dimen_height_cm && input.dimen_height_cm < 0) {
+                    this.numCheck[2] = false;
+                    this.scrollToError();
+                    return false;
+                }
+
+                // others 
                 if(!input.title || !input.artist_name || !input.date_published || !input.medium || 
                     !input.section_id || !input.dimen_length_cm || !input.dimen_width_cm || !input.description || 
                     !input.thumbnail || input.images.length != 10) {
@@ -293,15 +309,18 @@
                 <h2>Length (cm)<span class="asterisk">*</span></h2>
                 <input type="number" v-model="artwork.dimen_length_cm" min="0" class="primary-form" required />
                 <span ref="errorMessage" v-if="!artwork.dimen_length_cm && this.isSaved" class="val-error">Please input the artwork's correct length.</span>
+                <span ref="errorMessage" v-if="!numCheck[0] && this.isSaved" class="val-error">Please input positive number.</span>
                 
                 <!-- width -->
                 <h2>Width (cm)<span class="asterisk">*</span></h2>
                 <input type="number" v-model="artwork.dimen_width_cm" min="0" class="primary-form" required />
                 <span ref="errorMessage" v-if="!artwork.dimen_width_cm && this.isSaved" class="val-error">Please input the artwork's correct width.</span>
+                <span ref="errorMessage" v-if="!numCheck[1] && this.isSaved" class="val-error">Please input positive number.</span>
                 
                 <!-- height -->
                 <h2>Height (cm)</h2>
                 <input type="number" v-model="artwork.dimen_height_cm" min="0" class="primary-form" />
+                <span ref="errorMessage" v-if="!numCheck[2] && this.isSaved" class="val-error">Please input positive number.</span>
                 
                 <!-- description -->
                 <h2>Description<span class="asterisk">*</span></h2>
