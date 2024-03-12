@@ -175,7 +175,8 @@ import { Error } from '@/assets/components/Error';
                 }
 
                 if(!input.title || !input.artist_name || !input.date_published || !input.medium || 
-                    !input.section_id || !input.dimen_length_cm || !input.dimen_width_cm || !input.description)
+                    !input.section_id || !input.dimen_length_cm || !input.dimen_width_cm || !input.description || 
+                    !input.thumbnail || input.images.length != 10)
                         return false;
 
                 return true;

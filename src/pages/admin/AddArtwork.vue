@@ -55,6 +55,7 @@
                 isSaved: false,
                 isSubmit: false,
                 isUploading: false,
+                dateCheck: true,
             };
         },
 
@@ -143,7 +144,8 @@
                 }
 
                 if(!input.title || !input.artist_name || !input.date_published || !input.medium || 
-                    !input.section_id || !input.dimen_length_cm || !input.dimen_width_cm || !input.description || !input.thumbnail)
+                    !input.section_id || !input.dimen_length_cm || !input.dimen_width_cm || !input.description || 
+                    !input.thumbnail || input.images.length != 10)
                         return false;
 
                 return true;
@@ -260,6 +262,7 @@
                 <h2>Date Published<span class="asterisk">*</span></h2>
                 <input type="text" v-model="artwork.date_published" class="primary-form" placeholder="YYYY or MM-YYYY or MM-DD-YYYY" required />
                 <span v-if="!artwork.date_published && this.isSaved" class="val-error">Please input the artwork's correct date published.</span>
+                <span v-if="!dateCheck" class="val-error">Please input the artwork's correct date published format.</span>
                 
                 <!-- medium -->
                 <h2>Medium<span class="asterisk">*</span></h2>
