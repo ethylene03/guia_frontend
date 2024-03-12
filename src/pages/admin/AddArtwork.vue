@@ -133,7 +133,7 @@
                 const errorMessageElement = this.$refs.errorMessage;
                 if (errorMessageElement) {
                     // Scroll to the error message element
-                    errorMessageElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    errorMessageElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 }
             },
 
