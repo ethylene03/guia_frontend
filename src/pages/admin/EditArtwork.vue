@@ -159,6 +159,15 @@ import { Error } from '@/assets/components/Error';
                     this.hasExceeded = false;
             },
 
+            scrollToError() {
+                // Get the error message element
+                const errorMessageElement = this.$refs.errorMessage;
+                if (errorMessageElement) {
+                    // Scroll to the error message element
+                    errorMessageElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            },
+
             validate() {
                 const input = this.artwork;
                 
@@ -171,13 +180,16 @@ import { Error } from '@/assets/components/Error';
                     this.dateCheck = true;
                 else {
                     this.dateCheck = false;
+                    this.scrollToError();
                     return false;
                 }
 
                 if(!input.title || !input.artist_name || !input.date_published || !input.medium || 
                     !input.section_id || !input.dimen_length_cm || !input.dimen_width_cm || !input.description || 
-                    !input.thumbnail || input.images.length != 10)
+                    !input.thumbnail || input.images.length != 10) {
+                        this.scrollToError();
                         return false;
+                }
 
                 return true;
             },
@@ -188,28 +200,28 @@ import { Error } from '@/assets/components/Error';
                 this.isSubmit = true;
 
                 if(this.validate()) {
-                        const art = this.artwork;
+                    const art = this.artwork;
 
-                        const images = art.images.map(img => amazonUrl + img.name);
-                        const thumb = amazonUrl + art.thumbnail;
+                    const images = art.images.map(img => amazonUrl + img.name);
+                    const thumb = amazonUrl + art.thumbnail;
 
-                        art.images = images;
-                        art.thumbnail = thumb;
-                        art.updated_by = getAdminId();
+                    art.images = images;
+                    art.thumbnail = thumb;
+                    art.updated_by = getAdminId();
 
-                        // create artwork
-                        const create = await POST('/artwork/edit', art);
-                        // console.log(create);
+                    // create artwork
+                    const create = await POST('/artwork/edit', art);
+                    // console.log(create);
 
-                        if(create.status === 201)
-                            window.location.href = '../view/' + this.$route.params.id;
-                            // console.success("success");
-                        else
-                            this.isSubmit = false;
-                    } else {
+                    if(create.status === 201)
+                        window.location.href = '../view/' + this.$route.params.id;
+                        // console.success("success");
+                    else
                         this.isSubmit = false;
-                        console.log("error!");
-                    }
+                } else {
+                    this.isSubmit = false;
+                    console.log("error!");
+                }
             },
 
             handleChange(e) {  
@@ -219,7 +231,7 @@ import { Error } from '@/assets/components/Error';
                     this.artwork.thumbnail = null;
                 else
                     this.artwork.thumbnail = input.value;
-            }
+            },
         },
     };
 </script>
@@ -265,9 +277,9 @@ import { Error } from '@/assets/components/Error';
             <!-- photo validation -->
             <text style="font-size: 13px;">Please tick the image that you want to be displayed.<br/></text>
             <text style="font-weight: bold;">Image Uploaded: {{ artwork.images.length }} / 10<br/></text>
-            <text v-if="hasExceeded" class="val-error">Oh no! Can't upload more than 10 images.</text>
-            <text v-if="isSaved && !hasExceeded && 0 <= artwork.images.length && artwork.images.length < 10" class="val-error">Please upload {{ 10 - artwork.images.length }} more images.</text>
-            <text v-if="isSaved && !artwork.thumbnail" class="val-error">Please choose a thumbnail.</text>
+            <text ref="errorMessage" v-if="hasExceeded" class="val-error">Oh no! Can't upload more than 10 images.</text>
+            <text ref="errorMessage" v-if="isSaved && !hasExceeded && 0 <= artwork.images.length && artwork.images.length < 10" class="val-error">Please upload {{ 10 - artwork.images.length }} more images.</text>
+            <text ref="errorMessage" v-if="isSaved && !artwork.thumbnail" class="val-error">Please choose a thumbnail.</text>
 
             <!-- binded upload button -->
             <button @click="chooseFiles()" class="upload-btn">
@@ -281,23 +293,23 @@ import { Error } from '@/assets/components/Error';
                 <!-- title -->
                 <h2>Artwork Title<span class="asterisk">*</span></h2>
                 <input type="text" v-model="artwork.title" class="primary-form" required />
-                <span v-if="!artwork.title && this.isSaved" class="val-error">Please input the artwork's title.</span>
+                <span ref="errorMessage" v-if="!artwork.title && this.isSaved" class="val-error">Please input the artwork's title.</span>
                 
                 <!-- artist name -->
                 <h2>Artist Name<span class="asterisk">*</span></h2>
                 <input type="text" v-model="artwork.artist_name" class="primary-form" required />
-                <span v-if="!artwork.artist_name && this.isSaved" class="val-error">Please input the artwork's artist name.</span>
+                <span ref="errorMessage" v-if="!artwork.artist_name && this.isSaved" class="val-error">Please input the artwork's artist name.</span>
                 
                 <!-- date published -->
                 <h2>Date Published<span class="asterisk">*</span></h2>
                 <input type="text" v-model="artwork.date_published" class="primary-form" placeholder="YYYY or MM-YYYY or MM-DD-YYYY" required />
-                <span v-if="!artwork.date_published && this.isSaved" class="val-error">Please input the artwork's correct date published.</span>
-                <span v-if="!dateCheck" class="val-error">Please input the artwork's correct date published format.</span>
+                <span ref="errorMessage" v-if="!artwork.date_published && this.isSaved" class="val-error">Please input the artwork's correct date published.</span>
+                <span ref="errorMessage" v-if="!dateCheck" class="val-error">Please input the artwork's correct date published format.</span>
                 
                 <!-- medium -->
                 <h2>Medium<span class="asterisk">*</span></h2>
                 <input type="text" v-model="artwork.medium" class="primary-form" required />
-                <span v-if="!artwork.medium && this.isSaved" class="val-error">Please input the artwork's correct medium.</span>
+                <span ref="errorMessage" v-if="!artwork.medium && this.isSaved" class="val-error">Please input the artwork's correct medium.</span>
                 
                 <!-- section id -->
                 <h2>Assigned Section<span class="asterisk">*</span></h2>
@@ -305,17 +317,17 @@ import { Error } from '@/assets/components/Error';
                     <option value="0" hidden>Select Section</option>
                     <option v-for="sect in sections" :value='sect.section_id'>{{ sect.section_name }}</option>
                 </select>
-                <span v-if="!artwork.section_id && this.isSaved" class="val-error">Please input the artwork's section.</span>
+                <span ref="errorMessage" v-if="!artwork.section_id && this.isSaved" class="val-error">Please input the artwork's section.</span>
                 
                 <!-- length -->
                 <h2>Length (cm)<span class="asterisk">*</span></h2>
                 <input type="number" v-model="artwork.dimen_length_cm" min="0" class="primary-form" required />
-                <span v-if="!artwork.dimen_length_cm && this.isSaved" class="val-error">Please input the artwork's correct length.</span>
+                <span ref="errorMessage" v-if="!artwork.dimen_length_cm && this.isSaved" class="val-error">Please input the artwork's correct length.</span>
                 
                 <!-- width -->
                 <h2>Width (cm)<span class="asterisk">*</span></h2>
                 <input type="number" v-model="artwork.dimen_width_cm" min="0" class="primary-form" required />
-                <span v-if="!artwork.dimen_width_cm && this.isSaved" class="val-error">Please input the artwork's correct width.</span>
+                <span ref="errorMessage" v-if="!artwork.dimen_width_cm && this.isSaved" class="val-error">Please input the artwork's correct width.</span>
                 
                 <!-- height -->
                 <h2>Height (cm)</h2>
@@ -324,7 +336,7 @@ import { Error } from '@/assets/components/Error';
                 <!-- description -->
                 <h2>Description<span class="asterisk">*</span></h2>
                 <textarea v-model="artwork.description" rows="4" class="primary-form" required></textarea>
-                <span v-if="!artwork.description && this.isSaved" class="val-error">Please input the artwork's description.</span>
+                <span ref="errorMessage" v-if="!artwork.description && this.isSaved" class="val-error">Please input the artwork's description.</span>
                 
                 <!-- additional info -->
                 <h2>Remarks</h2>
