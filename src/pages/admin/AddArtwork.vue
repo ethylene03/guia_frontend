@@ -56,6 +56,7 @@
                 isSubmit: false,
                 isUploading: false,
                 dateCheck: true,
+                numCheck: [true, true, true],
             };
         },
 
@@ -87,6 +88,7 @@
                 // limit files to 10 only
                 if(img.length >= 10) {
                     this.hasExceeded = true;
+                    this.isUploading = false;
                     return; // break the function
                 }
 

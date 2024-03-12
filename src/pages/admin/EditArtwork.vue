@@ -118,6 +118,7 @@ import { Error } from '@/assets/components/Error';
                 // limit files to 10 only
                 if(img.length >= 10) {
                     this.hasExceeded = true;
+                    this.isUploading = false;
                     return; // break the function
                 }
 
