@@ -13,6 +13,7 @@
     import Welcome from '@/assets/components/Welcome.vue';
     import { uploadFile } from '@/assets/API calls/amazonAPI';
 import { Error } from '@/assets/components/Error';
+import Toast from '@/assets/components/Toast.vue';
 
     const { open: openCancelModal, close: closeCancelModal } = useModal({
         component: Modal,
@@ -62,6 +63,7 @@ import { Error } from '@/assets/components/Error';
                 pageLoad: true,
                 dateCheck: true,
                 numCheck: [true, true, true],
+                errorAPI: '',
             };
         },
 
@@ -234,8 +236,10 @@ import { Error } from '@/assets/components/Error';
                     if(create.status === 201)
                         window.location.href = '../view/' + this.$route.params.id;
                         // console.success("success");
-                    else
+                    else {
+                        this.errorAPI = create.response.data.detail;
                         this.isSubmit = false;
+                    }
                 } else {
                     this.isSubmit = false;
                     console.log("error!");
@@ -364,6 +368,8 @@ import { Error } from '@/assets/components/Error';
                 <textarea v-model="artwork.additional_info" rows="4" class="primary-form"></textarea>
             </div>
 
+            <span ref="errorMessage" class="val-error">{{ errorAPI }}</span>
+            
             <!-- buttons -->
             <div v-if="isSubmit" class="btn-cont load">
                 <Loader />
