@@ -266,7 +266,7 @@ import { Error } from '@/assets/components/Error';
             <text style="font-size: 13px;">Please tick the image that you want to be displayed.<br/></text>
             <text style="font-weight: bold;">Image Uploaded: {{ artwork.images.length }} / 10<br/></text>
             <text v-if="hasExceeded" class="val-error">Oh no! Can't upload more than 10 images.</text>
-            <text v-if="isSaved && !hasExceeded && 0 < artwork.images.length && artwork.images.length < 10" class="val-error">Please upload {{ 10 - artwork.images.length }} more images.</text>
+            <text v-if="isSaved && !hasExceeded && 0 <= artwork.images.length && artwork.images.length < 10" class="val-error">Please upload {{ 10 - artwork.images.length }} more images.</text>
             <text v-if="isSaved && !artwork.thumbnail" class="val-error">Please choose a thumbnail.</text>
 
             <!-- binded upload button -->
