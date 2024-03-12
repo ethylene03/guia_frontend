@@ -24,7 +24,13 @@
 
 -->
 <script>
+    import OpenIcon from 'icons/OpenInNew.vue'
+
     export default {
+        components: {
+            OpenIcon,
+        },
+
         props: {
             type: {
                 type: String,
@@ -89,8 +95,10 @@
 
         <div v-else-if="type=='images'" class="gallery-display">
             <p v-if="artworks.length < 1" class="card-no-data">No visitors yet.</p>
-            <img  v-for="art in artworks"
-            :key="art.art_id" :src="art.image_thumbnail" @click="handleClickImage(art.art_id)" alt="art.title" /> 
+            <div class="artworks" v-for="art in artworks" :key="art.art_id">
+                <img :src="art.image_thumbnail" @click="handleClickImage(art.art_id)" alt="image" />
+                <open-icon :size="20" class="icon" />
+            </div> 
         </div>
 
         <div v-else-if="type == 'sections'" class="section-display">
@@ -158,11 +166,26 @@
         justify-content: space-evenly;
     }
 
-    .gallery-display img {
-        height: 70px;
-        background-color: var(--color-primary);
+    .artworks {
+        position: relative;
         border: 1.5px solid var(--color-primary);
+        background-color: var(--color-primary);
         border-radius: 5px;
+        overflow: hidden;
+        line-height: 0;
+    }
+
+    .artworks img {
+        height: 80px;
+    }
+
+    .artworks .icon {
+        position: absolute;
+        bottom: 5px;
+        left: 5px;
+        z-index: 99;
+
+        color: var(--color-primary);
     }
 
     .section-display {
@@ -200,9 +223,13 @@
             text-align: center;
         }
 
-        .gallery-display img {
-            height: 60px;
-            padding: 10px;
+        .artworks img {
+            cursor: pointer;
+            opacity: 90%;
+        }
+
+        .artworks img:hover {
+            opacity: 100%;
         }
     }
 </style>
