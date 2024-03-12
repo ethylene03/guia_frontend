@@ -295,7 +295,7 @@
                 <h2>Date Published<span class="asterisk">*</span></h2>
                 <input type="text" v-model="artwork.date_published" class="primary-form" placeholder="YYYY or MM-YYYY or MM-DD-YYYY" required />
                 <span ref="errorMessage" v-if="!artwork.date_published && this.isSaved" class="val-error">Please input the artwork's correct date published.</span>
-                <span ref="errorMessage" v-if="!dateCheck" class="val-error">Please input the artwork's correct date published format.</span>
+                <span ref="errorMessage" v-if="!dateCheck && artwork.date_published" class="val-error">Please input the artwork's correct date published format.</span>
                 
                 <!-- medium -->
                 <h2>Medium<span class="asterisk">*</span></h2>
