@@ -300,8 +300,8 @@ import Toast from '@/assets/components/Toast.vue';
             <text style="font-size: 13px;">Please tick the image that you want to be displayed.<br/></text>
             <text style="font-weight: bold;">Image Uploaded: {{ artwork.images.length }} / 10<br/></text>
             <text ref="errorMessage" v-if="hasExceeded" class="val-error">Oh no! Can't upload more than 10 images.</text>
-            <text ref="errorMessage" v-if="isSaved && !hasExceeded && 0 <= artwork.images.length && artwork.images.length < 10" class="val-error">Please upload {{ 10 - artwork.images.length }} more images.</text>
-            <text ref="errorMessage" v-if="isSaved && !artwork.thumbnail" class="val-error">Please choose a thumbnail.</text>
+            <span ref="errorMessage" v-if="isSaved && !hasExceeded && 0 <= artwork.images.length && artwork.images.length < 10" class="val-error">Please upload {{ 10 - artwork.images.length }} more images.</span>
+            <span ref="errorMessage" v-if="isSaved && !artwork.thumbnail" class="val-error">Please choose a thumbnail.</span>
 
             <!-- binded upload button -->
             <button @click="chooseFiles()" class="upload-btn">
