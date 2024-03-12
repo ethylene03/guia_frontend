@@ -70,19 +70,19 @@
                 const specialCharacter = /.*[!@#$%&].*/;
 
                 if(!oneUpperCase.test(password))
-                    this.error = "New password must contain at least 1 uppercase letter.";
+                    this.error = "New password must have at least 1 uppercase letter.";
                 
                 else if(!length.test(password))
                     this.error = "New password must have at least 8 characters.";
-                
-                else if(!underscore.test(password))
-                    this.error = "New password must contain at most 1 underscore, embedded.";
                 
                 else if(!number.test(password))
                     this.error = "New password must have at least 1 number.";
                 
                 else if(!specialCharacter.test(password))
                     this.error = "New password must have at least 1 special character.";
+                
+                else if(!underscore.test(password))
+                    this.error = "New password must have at most 1 underscore, embedded.";
 
                 else
                     return true;
@@ -173,8 +173,8 @@
             <!-- Password Validation -->
             <div class="validate">
                 <text style="font-weight: bold;">Reminders</text>
+                <li>Password must have at least 1 uppercase letter.</li>
                 <li>Password must have at least 8 characters.</li>
-                <li>Password must have at least 1 capital letter.</li>
                 <li>Password must have at least 1 number.</li>
                 <li>Password must have at least 1 special character.</li>
                 <li>Password must have at most 1 underscore, embedded.</li>
