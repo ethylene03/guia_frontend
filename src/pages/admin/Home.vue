@@ -25,7 +25,10 @@
             // screen width variable
             return {
                 screenWidth: window.innerWidth,
-                museum_data: [],
+              museum_data: {
+                popular_artworks: [{ image_thumbnail: '' }],
+                popular_sections: [{section_id:0, section_name:''}]
+                },
                 pageLoad: false,
             };
         },
@@ -119,10 +122,19 @@
 
             <!-- cards -->
             <div class="cards" :style="{marginBottom: '30px'}">
-                <Cards :isNum="true" :number="museum_data.artworks_count" label="Artworks in the Directory >" @click="redirect('/on-cloud-nine/view/all')" :style="{cursor: 'pointer'}" />
-                <Cards :isNum="false" label="Most Popular Artworks"/>
-                <Cards :isNum="true" :number="museum_data.visitors_count" label="Museum Guide Users in the Last 24h"/>
-                <Cards :isNum="false" label="Most Crowded Sections" />
+                <Cards :type="'number'" :number="museum_data.artworks_count" label="Artworks in the Directory >" @click="redirect('/on-cloud-nine/view/all')" :style="{cursor: 'pointer'}" />
+                <Cards :type="'images'" 
+                :image1="museum_data.popular_artworks[0] ? museum_data.popular_artworks[0].image_thumbnail : '/icons/guia.svg'"
+                :image2="museum_data.popular_artworks[1] ? museum_data.popular_artworks[1].image_thumbnail : '/icons/guia.svg'"
+                :image3="museum_data.popular_artworks[2] ? museum_data.popular_artworks[2].image_thumbnail : '/icons/guia.svg'"
+                
+                label="Most Popular Artworks"/>
+                <Cards :type="'number'" :number="museum_data.visitors_count" label="Museum Guide Users in the Last 24h"/>
+                <Cards 
+                  :type="'sections'" 
+                  :sections="museum_data.popular_sections.length > 0
+                  ? museum_data.popular_sections : []"
+                  label="Most Crowded Sections" />
             </div>
         </div>
 
