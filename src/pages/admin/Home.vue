@@ -26,7 +26,7 @@
             return {
                 screenWidth: window.innerWidth,
               museum_data: {
-                popular_artworks: [{ image_thumbnail: '' }],
+                popular_artworks: [{ art_id:0, image_thumbnail: '' }],
                 popular_sections: [{section_id:0, section_name:''}]
                 },
                 pageLoad: false,
@@ -124,10 +124,8 @@
             <div class="cards" :style="{marginBottom: '30px'}">
                 <Cards :type="'number'" :number="museum_data.artworks_count" label="Artworks in the Directory >" @click="redirect('/on-cloud-nine/view/all')" :style="{cursor: 'pointer'}" />
                 <Cards :type="'images'" 
-                :image1="museum_data.popular_artworks[0] ? museum_data.popular_artworks[0].image_thumbnail : '/icons/guia.svg'"
-                :image2="museum_data.popular_artworks[1] ? museum_data.popular_artworks[1].image_thumbnail : '/icons/guia.svg'"
-                :image3="museum_data.popular_artworks[2] ? museum_data.popular_artworks[2].image_thumbnail : '/icons/guia.svg'"
-                
+                :artworks = "museum_data.popular_artworks.length > 0
+                  ? museum_data.popular_artworks : []"
                 label="Most Popular Artworks"/>
                 <Cards :type="'number'" :number="museum_data.visitors_count" label="Museum Guide Users in the Last 24h"/>
                 <Cards 

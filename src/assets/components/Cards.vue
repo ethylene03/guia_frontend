@@ -56,15 +56,28 @@
                 default: '/icons/guia.svg',
             },
 
+            artworks: {
+              type: Array,
+              default: [
+                { art_id: -1, image_thumbnail: '', title:'' },
+              ],
+            },
+
             sections: {
               type: Array,
               default: [
                 { section_id: -1, section_name: "No Data Available", museum_id: 0 },
               ],
             },
+         },
 
-            
-        },
+        methods: {
+          // redirect to artwork view page
+          handleClickImage(art_id) {
+            window.location.href = "/on-cloud-nine/view/"+art_id;
+          },
+        }
+
     };
 </script>
 
@@ -75,9 +88,9 @@
         </div>
 
         <div v-else-if="type=='images'" class="gallery-display">
-            <img :src="image1" @click="handleClickImage(image1)" alt="artwork" /> 
-            <img :src="image2" @click="handleClickImage(image2)" alt="artwork" /> 
-            <img :src="image3" @click="handleClickImage(image3)" alt="artwork" /> 
+            <p v-if="artworks.length < 1" class="card-no-data">No visitors yet.</p>
+            <img  v-for="art in artworks"
+            :key="art.art_id" :src="art.image_thumbnail" @click="handleClickImage(art.art_id)" alt="art.title" /> 
         </div>
 
         <div v-else-if="type == 'sections'" class="section-display">
@@ -165,7 +178,7 @@
       min-width: 70px;
       background-color: var(--color-tertiary-darker);
       border: 1.5px solid var(--color-primary);
-      color: var(--color-white);
+      color: var(--color-primary);
       border-radius: 5px;
       font-size: 15px;
       padding: 10px;
@@ -173,6 +186,11 @@
       align-items: center;
       justify-content: center;
     }
+
+    .card-no-data {
+      color: var(--color-primary);
+    }
+
 
 
     @media screen and (min-width: 650px) {
