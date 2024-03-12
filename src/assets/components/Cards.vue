@@ -154,7 +154,7 @@
         font-family: Inter, sans-serif;
         font-size: 60px;
         font-weight: 700;
-        color: var(--color-primary);
+        -webkit-text-fill-color: var(--color-primary);
         -webkit-text-stroke: 3px var(--color-secondary);
     }
 
