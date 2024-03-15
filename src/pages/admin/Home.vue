@@ -2,23 +2,22 @@
 
 <script>
     // component used
-    import Cards from "../../assets/components/Cards.vue"
+    import { fetchDashboard } from "@/assets/API calls/dashboardAPI";
+    import Welcome from "@/assets/components/common/Welcome.vue";
+    import { redirect, redirectNewTab } from "@/assets/components/common/common";
+    import MenuIcon from 'icons/Menu.vue';
     import LaunchIcon from 'icons/OpenInNew.vue';
     import PlusIcon from 'icons/Plus.vue';
-    import MenuIcon from 'icons/Menu.vue';
-    import { getAdminId, logout } from "@/assets/components/common/common";
-    import { GET } from "@/assets/API calls/api";
-    import { useModal } from "vue-final-modal";
-    import Toast from "@/assets/components/common/Toast.vue";
-    import Welcome from "@/assets/components/common/Welcome.vue";
+    import Cards from "@/assets/components/dashboard/Cards.vue";
+    import Header from '@/assets/components/dashboard/Header.vue';
 
     export default {
         components: {
             Cards,
             LaunchIcon,
             PlusIcon,
-            MenuIcon,
-            Welcome
+            Welcome,
+            Header
         },
 
         data() {
@@ -45,41 +44,18 @@
             window.addEventListener('resize', this.updateScreenSize);
             this.pageLoad = true;
 
-            const data = await GET('/dashboard/get', {admin_id: getAdminId()});
-            // console.log(data);
-
-            if(data.status === 200) {
-                this.museum_data = data.data;
-            } else {
-                const {open, close} = useModal({
-                    component: Toast,
-                    attrs: {
-                        type: 'error',
-                        message: 'Error loading data',
-                        subtext: 'Please try again later',
-                    }
-                })
-
-                open();
-                setTimeout(() => logout(), 1000);
-            }
+            this.museum_data = await fetchDashboard();
 
             this.pageLoad = false;
         },
         
         methods: {
-            // redirect to another page
-            redirect(path) {
-                if(path === "/search-museum")
-                    window.open( this.$route.path.replace('/on-cloud-nine/home', '') + path, '_blank');
-                else
-                    window.location.href = path;
-            },
-
             // updates screen width variable
             updateScreenSize() {
                 this.screenWidth = window.innerWidth;
             },
+            redirect,
+            redirectNewTab
         },
 
         // delete window listener after use
@@ -93,13 +69,7 @@
     <Welcome v-if="pageLoad" :start="pageLoad" />
     <div v-else class="container">
         <!-- header -->
-        <div class="header">
-            <img src="/icons/museum-logo.svg" alt="museum_name" class="museum" />
-            <img src="/icons/guia-long.svg" alt="Guía" class="guia" />
-            
-            <!-- menu -->
-            <menu-icon class="menu" @click="redirect('/on-cloud-nine/menu')" fillColor="var(--color-primary)" :size="20" style="display: flex; justify-content: center; align-items: center;" />
-        </div>
+        <Header />
     
         <!-- museum name -->
         <h1>Jose T. Joya Gallery</h1>
@@ -114,7 +84,7 @@
                 </button>
 
                 <!-- visitor portal if big screen -->
-                <button v-if="isBigScreen" type="button" class="dashboard-btn visitor-portal" @click="redirect('/search-museum')">
+                <button v-if="isBigScreen" type="button" class="dashboard-btn visitor-portal" @click="redirectNewTab('/search-museum')">
                     <launch-icon fillColor="var(--color-primary)" :size="20" style="display: flex; margin-right: 10px;" />
                     <h2>Go to Visitor Portal</h2>
                 </button>
@@ -137,7 +107,7 @@
         </div>
 
         <!-- visitor portal if small screen -->
-        <button v-if="!isBigScreen" type="button" class="dashboard-btn visitor-portal" @click="redirect('/search-museum')" :style="{marginTop: '0px', marginBottom: '10px'}">
+        <button v-if="!isBigScreen" type="button" class="dashboard-btn visitor-portal" @click="redirectNewTab('/search-museum')" :style="{marginTop: '0px', marginBottom: '10px'}">
             <launch-icon fillColor="var(--color-primary)" :size="20" style="display: flex; margin-right: 10px;" />
             <h2>Go to Visitor Portal</h2>
         </button>
@@ -147,39 +117,6 @@
 <style scoped>
     .container {
         height: fit-content !important;
-    }
-
-    .header {
-        position: relative;
-        padding: 20px 0 10px 0;
-        width: 100%;
-        
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        height: 70px;
-        margin-bottom: 20px;
-    }
-
-    .museum, .guia {
-        width: 80px;
-    }
-
-    .guia {
-        position: absolute;
-        left: 50%;
-        margin-left: -40px;
-    }
-
-    .menu {
-        background-color: var(--color-secondary);
-        padding: 10px;
-        border-radius: 20px;
-    }
-
-    .menu:hover {
-        background-color: var(--color-secondary-darker);
-        cursor: pointer;
     }
 
     h1 {
@@ -243,16 +180,9 @@
         .container {
             width: 60vw;
         }
-        .header {
-            padding: 0;
-        }
 
         h1 {
             font-size: 25px;
-        }
-
-        .museum, .guia {
-            width: 100px;
         }
 
         .cards, .btn-cont {
@@ -278,4 +208,4 @@
             margin-bottom: 20px;
         }
     }
-</style>@/assets/components/common/common/common
+</style>@/assets/components/common/common/common../../assets/components/dashboard/Cards.vue

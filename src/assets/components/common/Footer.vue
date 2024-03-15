@@ -20,7 +20,7 @@
 
 <template>
     <div class="footer">
-        <img src="../images/kbytes-logo.svg" alt="Kbytes" />
+        <img src="../../images/kbytes-logo.svg" alt="Kbytes" />
     </div>
 </template>
 
