@@ -143,6 +143,18 @@ api.interceptors.response.use(
             })
 
             open();
+        } else if(error.response.data.detail === "Invalid Token") {
+            const {open, close} = useModal({
+                component: ToastVue,
+                attrs: {
+                    type: 'warning',
+                    message: 'Token expired!',
+                    subtext: 'Please login again to continue.'
+                }
+            })
+
+            open();
+            logout();
         } else
             return error;
     }
