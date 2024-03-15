@@ -1,19 +1,19 @@
 <script>
     // header component
-    import Header from '@/assets/components/Header.vue';
+    import Header from '@/assets/components/common/Header.vue';
     import UploadOutlineIcon from 'icons/UploadOutline.vue';
 
     // modal component
     import { useModal } from 'vue-final-modal';
-    import Modal from '../../assets/components/Modal.vue';
+    import Modal from '../../assets/components/common/Modal.vue';
     import { GET, POST } from '@/assets/API calls/api';
-    import { getAdminId, getMuseumId } from '@/assets/components/common';
+    import { getAdminId, getMuseumId } from '@/assets/components/common/common';
     import axios from 'axios';
-    import Loader from '@/assets/components/Loader.vue';
-    import Welcome from '@/assets/components/Welcome.vue';
+    import Loader from '@/assets/components/common/Loader.vue';
+    import Welcome from '@/assets/components/common/Welcome.vue';
     import { uploadFile } from '@/assets/API calls/amazonAPI';
-import { Error } from '@/assets/components/Error';
-import Toast from '@/assets/components/Toast.vue';
+import { Error } from '@/assets/components/common/Error';
+import Toast from '@/assets/components/common/Toast.vue';
 
     const { open: openCancelModal, close: closeCancelModal } = useModal({
         component: Modal,
@@ -551,4 +551,4 @@ import Toast from '@/assets/components/Toast.vue';
             margin: auto;
         }
     }
-</style>
+</style>@/assets/components/common/common/common../../assets/components/common/Modal.vue@/assets/components/common/Error

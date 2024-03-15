@@ -1,18 +1,18 @@
 <script>
     import { GET } from '@/assets/API calls/api.js';
     import { deleteArtwork } from '@/assets/API calls/artworkAPI';
-    import Header from '@/assets/components/Header.vue';
-    import Loader from '@/assets/components/Loader.vue';
-    import Modal from '@/assets/components/Modal.vue';
-    import Toast from '@/assets/components/Toast.vue';
-    import Welcome from '@/assets/components/Welcome.vue';
-    import { getAdminId, getMuseumId } from '@/assets/components/common';
+    import Header from '@/assets/components/common/Header.vue';
+    import Loader from '@/assets/components/common/Loader.vue';
+    import Modal from '@/assets/components/common/Modal.vue';
+    import Toast from '@/assets/components/common/Toast.vue';
+    import Welcome from '@/assets/components/common/Welcome.vue';
+    import { getAdminId, getMuseumId } from '@/assets/components/common/common';
     import moment from 'moment';
     import { getCurrentInstance } from 'vue';
     import { useModal } from 'vue-final-modal';
     import EditIcon from 'icons/PencilOutline.vue';
     import DeleteIcon from 'icons/DeleteOutline.vue';
-import { Error } from '@/assets/components/Error';
+import { Error } from '@/assets/components/common/Error';
 
     
     async function deleteArt() {
@@ -284,4 +284,4 @@ import { Error } from '@/assets/components/Error';
             width: 70%;
         }
     }
-</style>
+</style>@/assets/components/common/common/common@/assets/components/common/Error

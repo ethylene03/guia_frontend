@@ -1,14 +1,14 @@
 <script>
     // header component
-    import Header from '@/assets/components/Header.vue';
+    import Header from '@/assets/components/common/Header.vue';
 
     // modal component
     import { useModal } from 'vue-final-modal';
-    import Modal from '../../assets/components/Modal.vue';
+    import Modal from '../../assets/components/common/Modal.vue';
     import { GET, POST } from '@/assets/API calls/api';
     import { uploadFile } from '@/assets/API calls/amazonAPI';
-    import { getAdminId, getMuseumId } from '@/assets/components/common';
-    import Loader from '@/assets/components/Loader.vue';
+    import { getAdminId, getMuseumId } from '@/assets/components/common/common';
+    import Loader from '@/assets/components/common/Loader.vue';
     import UploadOutlineIcon from 'icons/UploadOutline.vue';
 
     const { open: openCancelModal, close: closeCancelModal } = useModal({
@@ -520,4 +520,4 @@
             margin: auto;
         }
     }
-</style>
+</style>@/assets/components/common/common/common../../assets/components/common/Modal.vue

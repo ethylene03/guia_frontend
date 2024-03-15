@@ -3,7 +3,7 @@
 -->
 
 <script>
-    import Header from '@/assets/components/Header.vue';
+    import Header from '@/assets/components/common/Header.vue';
     import { VueFinalModal } from 'vue-final-modal';
     import OrbitVariantIcon from 'icons/OrbitVariant.vue'
     import CameraOutlineIcon from 'icons/CameraOutline.vue'

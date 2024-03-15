@@ -1,7 +1,7 @@
 import axios from "axios";
 import { POST } from "./api";
 import { useModal } from "vue-final-modal";
-import ToastVue from "../components/Toast.vue";
+import ToastVue from "../components/common/Toast.vue";
 
 export const deleteArtwork = async (id) => {
     const deletedArt = await POST('/artwork/delete', {art_id: id});

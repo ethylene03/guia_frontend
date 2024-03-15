@@ -5,7 +5,7 @@ import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import { ModalsContainer } from 'vue-final-modal';
 import { createVfm } from 'vue-final-modal'
-import { isExpired, logout } from './assets/components/common';
+import { isExpired, logout } from './assets/components/common/common';
 
 import App from './App.vue'
 

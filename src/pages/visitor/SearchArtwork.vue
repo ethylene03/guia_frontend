@@ -1,7 +1,7 @@
 <script>
-    import Header from '@/assets/components/Header.vue';
-    import Footer from '@/assets/components/Footer.vue';
-    import NoContent from '@/assets/components/NoContent.vue';
+    import Header from '@/assets/components/common/Header.vue';
+    import Footer from '@/assets/components/common/Footer.vue';
+    import NoContent from '@/assets/components/common/NoContent.vue';
     import MagnifyIcon from 'icons/Magnify.vue';
 
     import art1 from '../../assets/images/art1.png';

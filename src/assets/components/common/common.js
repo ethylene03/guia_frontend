@@ -1,5 +1,5 @@
 import moment from "moment";
-import { POST } from "../API calls/api";
+import { POST } from "../../API calls/api";
 import { useModal } from "vue-final-modal";
 import ToastVue from "./Toast.vue";
 
@@ -7,6 +7,16 @@ import ToastVue from "./Toast.vue";
 export const refreshPage = () => {
     return window.location.reload();
 };
+
+// redirect to path
+export const redirect = (path) => {
+    return window.location.href = path;
+}
+
+// redirect to new tab
+export const redirectNewTab = (path) => {
+    return window.open(path, '_blank');
+}
 
 // get the token stored locally
 export const getToken = (type) => {

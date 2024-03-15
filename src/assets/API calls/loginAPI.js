@@ -1,5 +1,5 @@
 import { loginPOST } from "./api";
-import { refreshPage } from '@/assets/components/common.js';
+import { refreshPage } from '@/assets/components/common/common.js';
 import moment from 'moment';
 
 export const submitLogin = async (credentials) => {

@@ -1,13 +1,13 @@
 <script>
     import { loginGET, loginPOST } from "@/assets/API calls/api";
     import { useModal } from "vue-final-modal";
-    import Footer from "../../assets/components/Footer.vue";
-    import Header from "@/assets/components/Header.vue";
-    import Toast from "@/assets/components/Toast.vue";
-    import Loader from "@/assets/components/Loader.vue";
-    import Welcome from "@/assets/components/Welcome.vue";
-    import { getMuseumId, getToken, refreshPage } from "@/assets/components/common";
-import { Error } from "@/assets/components/Error";
+    import Footer from "../../assets/components/common/Footer.vue";
+    import Header from "@/assets/components/common/Header.vue";
+    import Toast from "@/assets/components/common/Toast.vue";
+    import Loader from "@/assets/components/common/Loader.vue";
+    import Welcome from "@/assets/components/common/Welcome.vue";
+    import { getMuseumId, getToken, refreshPage } from "@/assets/components/common/common";
+    import { Error } from "@/assets/components/common/Error";
 
     export default {
         components: {
@@ -186,4 +186,4 @@ import { Error } from "@/assets/components/Error";
             width: 60vw;
         }
     }
-</style>
+</style>@/assets/components/common/common/common../../assets/components/common/Footer.vue@/assets/components/common/Error

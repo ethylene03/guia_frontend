@@ -1,16 +1,16 @@
 <script>
-    import Header from '../../assets/components/Header.vue'
-    import Footer from '../../assets/components/Footer.vue'
+    import Header from '../../assets/components/common/Header.vue'
+    import Footer from '../../assets/components/common/Footer.vue'
     import SortIcon from 'icons/SortVariant.vue';
     import FilterIcon from 'icons/FilterOutline.vue';
     import PlusIcon from 'icons/Plus.vue';
-    import Toast from '@/assets/components/Toast.vue';
-    import Welcome from '@/assets/components/Welcome.vue';
-    import NoContent from '@/assets/components/NoContent.vue';
+    import Toast from '@/assets/components/common/Toast.vue';
+    import Welcome from '@/assets/components/common/Welcome.vue';
+    import NoContent from '@/assets/components/common/NoContent.vue';
 
     import { GET } from '@/assets/API calls/api';
     import { useModal } from 'vue-final-modal';
-import { getAdminId } from '@/assets/components/common';
+import { getAdminId } from '@/assets/components/common/common';
 import moment from 'moment';
 
     export default {
@@ -337,4 +337,4 @@ import moment from 'moment';
             width: 70%;
         }
     }
-</style>
+</style>@/assets/components/common/common/common../../assets/components/common/Footer.vue../../assets/components/common/Header.vue

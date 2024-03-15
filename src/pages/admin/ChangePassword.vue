@@ -1,12 +1,12 @@
 <script>
     //imports
     import { POST } from "@/assets/API calls/api";
-    import { getAdminId, logout } from "@/assets/components/common";
+    import { getAdminId, logout } from "@/assets/components/common/common";
     import { useModal } from "vue-final-modal";
         
-    import Loader from "@/assets/components/Loader.vue";
-    import Toast from "@/assets/components/Toast.vue";
-    import Footer from "../../assets/components/Footer.vue";
+    import Loader from "@/assets/components/common/Loader.vue";
+    import Toast from "@/assets/components/common/Toast.vue";
+    import Footer from "../../assets/components/common/Footer.vue";
     import InputIcon from "../../assets/components/InputIcon.vue";
 
     // success toaster
@@ -296,4 +296,4 @@
         }
     }
 
-</style>
+</style>@/assets/components/common/common/common../../assets/components/common/Footer.vue

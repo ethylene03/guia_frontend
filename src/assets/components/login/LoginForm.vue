@@ -1,6 +1,6 @@
 <script>
     import { submitLogin } from '@/assets/API calls/loginAPI.js';
-    import Loader from '@/assets/components/Loader.vue';
+    import Loader from '@/assets/components/common/Loader.vue';
     import ShowIcon from 'icons/EyeOutline.vue';
     import HideIcon from 'icons/EyeOffOutline.vue';
 

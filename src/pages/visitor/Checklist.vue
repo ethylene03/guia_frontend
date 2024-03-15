@@ -1,6 +1,6 @@
 <script>
-    import Header from '@/assets/components/Header.vue';
-    import Footer from '@/assets/components/Footer.vue';
+    import Header from '@/assets/components/common/Header.vue';
+    import Footer from '@/assets/components/common/Footer.vue';
 
     // pseudo image
     import artImage from '@/assets/images/artwork.png'

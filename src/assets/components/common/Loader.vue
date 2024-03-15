@@ -5,7 +5,7 @@
 
     To Use:
         in script: 
-            import Loader from '@/assets/components/Loader.vue'
+            import Loader from '@/assets/components/common/Loader.vue'
             
             export default {
                 components: {

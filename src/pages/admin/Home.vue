@@ -6,11 +6,11 @@
     import LaunchIcon from 'icons/OpenInNew.vue';
     import PlusIcon from 'icons/Plus.vue';
     import MenuIcon from 'icons/Menu.vue';
-    import { getAdminId, logout } from "@/assets/components/common";
+    import { getAdminId, logout } from "@/assets/components/common/common";
     import { GET } from "@/assets/API calls/api";
     import { useModal } from "vue-final-modal";
-    import Toast from "@/assets/components/Toast.vue";
-    import Welcome from "@/assets/components/Welcome.vue";
+    import Toast from "@/assets/components/common/Toast.vue";
+    import Welcome from "@/assets/components/common/Welcome.vue";
 
     export default {
         components: {
@@ -278,4 +278,4 @@
             margin-bottom: 20px;
         }
     }
-</style>
+</style>@/assets/components/common/common/common

@@ -7,7 +7,7 @@
 
     To Use:
         in script: 
-            import Toast from "@/assets/components/Toast.vue";
+            import Toast from "@/assets/components/common/Toast.vue";
             import { ModalsContainer, useModal } from "vue-final-modal";
 
             // success toaster

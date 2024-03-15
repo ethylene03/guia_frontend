@@ -1,12 +1,12 @@
 <script>
     // import components
     import InputIcon from "../../assets/components/InputIcon.vue"
-    import Footer from "../../assets/components/Footer.vue"
-    import Loader from "@/assets/components/Loader.vue";
+    import Footer from "../../assets/components/common/Footer.vue"
+    import Loader from "@/assets/components/common/Loader.vue";
     import moment from "moment";
     
     import { POST, loginPOST } from '../../assets/API calls/api.js'
-    import { refreshPage } from "@/assets/components/common";
+    import { refreshPage } from "@/assets/components/common/common";
     import LoginForm from "@/assets/components/login/LoginForm.vue";
 
     export default {
@@ -56,4 +56,4 @@
         align-items: flex-start;
         
     }
-</style>
+</style>@/assets/components/common/common/common../../assets/components/common/Footer.vue

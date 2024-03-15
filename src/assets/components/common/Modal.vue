@@ -14,7 +14,7 @@
     To Use:
         in script: 
             import { ModalsContainer, useModal } from 'vue-final-modal'
-            import Modal from '../../assets/components/Modal.vue'
+            import Modal from '../../assets/components/common/Modal.vue'
 
             const { open: openCancelModal, close: closeCancelModal } = useModal({
                 component: Modal,

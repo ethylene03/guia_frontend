@@ -17,7 +17,7 @@
 
     To Use:
         In script tags:
-            import Header from '@/assets/components/Header.vue';
+            import Header from '@/assets/components/common/Header.vue';
 
             export default {
                 components: {

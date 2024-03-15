@@ -1,8 +1,8 @@
 <script>
-    import { getUsername, logout } from "@/assets/components/common";
-    import Footer from "../../assets/components/Footer.vue"
+    import { getUsername, logout } from "@/assets/components/common/common";
+    import Footer from "../../assets/components/common/Footer.vue"
     import { useModal } from "vue-final-modal";
-    import Toast from "@/assets/components/Toast.vue";
+    import Toast from "@/assets/components/common/Toast.vue";
     import CloseIcon from 'icons/Close.vue';
     import PassIcon from 'icons/AccountKeyOutline.vue';
     import LogoutIcon from 'icons/Logout.vue';
@@ -256,4 +256,4 @@
         } 
     }
 
-</style>
+</style>@/assets/components/common/common/common../../assets/components/common/Footer.vue

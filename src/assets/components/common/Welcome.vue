@@ -6,7 +6,7 @@
     
     To Use:
         <script>
-            import Welcome from "@/assets/components/Welcome.vue";
+            import Welcome from "@/assets/components/common/Welcome.vue";
 
             export default {
                 components: {
@@ -22,7 +22,7 @@
  -->
 
 <script>
-    import Loader from '@/assets/components/Loader.vue';
+    import Loader from '@/assets/components/common/Loader.vue';
 
     export default {
         components: {

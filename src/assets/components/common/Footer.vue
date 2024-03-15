@@ -5,7 +5,7 @@
 
     To Use:
         in `script` tags:
-            import Footer from "../assets/components/Footer.vue"
+            import Footer from "../assets/components/common/Footer.vue"
 
             export default {
                 methods: {
