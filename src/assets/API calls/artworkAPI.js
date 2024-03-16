@@ -1,7 +1,44 @@
-import axios from "axios";
-import { POST } from "./api";
+import moment from "moment";
 import { useModal } from "vue-final-modal";
 import ToastVue from "../components/common/Toast.vue";
+import { getAdminId } from "../components/common/common";
+import { GET, POST } from "./api";
+
+// get all
+export const getAllArtworks = async () => {
+    const AllArtworks = await GET('artwork/get/all', {admin_id: getAdminId()});
+    // console.log(AllArtworks);
+
+    if(AllArtworks.status === 200) {
+        const arts = AllArtworks.data.artworks;
+        return arts.map(art => {
+            let artwork = {};
+
+            artwork.id = art.art_id;
+            artwork.img = art.image_thumbnail;
+            artwork.title = art.title;
+            artwork.artist = art.artist_name;
+            artwork.year = moment(art.date_published).format('YYYY');
+
+            return artwork;
+        })
+
+        // console.log(this.artworks)
+    } else {
+        const {open, close} = useModal({
+            component: Toast,
+            attrs: {
+                type: 'error',
+                message: 'Error loading the artworks',
+                subtext: 'Please try again later.'
+            }
+        })
+
+        open();
+        setTimeout(() => this.$router.back(), 1000);
+    }
+}
+
 
 export const deleteArtwork = async (id) => {
     const deletedArt = await POST('/artwork/delete', {art_id: id});
