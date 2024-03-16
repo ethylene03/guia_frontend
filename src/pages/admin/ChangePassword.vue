@@ -1,40 +1,19 @@
 <script>
     //imports
-    import { POST } from "@/assets/API calls/api";
-    import { getAdminId, logout } from "@/assets/components/common/common";
-    import { useModal } from "vue-final-modal";
+    import { getAdminId, redirect } from "@/assets/components/common/common";
+    import { changePassword } from "@/assets/API calls/passwordAPI";
+    import { checkValidity } from "@/assets/components/password/Functions";
         
     import Loader from "@/assets/components/common/Loader.vue";
-    import Toast from "@/assets/components/common/Toast.vue";
     import Footer from "../../assets/components/common/Footer.vue";
-    import InputIcon from "../../assets/components/InputIcon.vue";
-
-    // success toaster
-    const { open: openS, close: closeS} = useModal({
-        component: Toast,
-        attrs: {
-            type: 'success',
-            message: 'Password changed successfully!',
-            subtext: 'Logging you out...'
-        }
-    }) 
-
-    // error toaster
-    const { open: openE, close: closeE} = useModal({
-        component: Toast,
-        attrs: {
-            type: 'error',
-            message: 'Error Changing Password!',
-        }
-    }) 
-
-    // naa sulod sa export default ang pagdeclare sa components ug methods
-    export default {
-        //declaring the InputIcon component
+    import Password from "../../assets/components/password/Password.vue";
+    import Form from "../../assets/components/password/Form.vue";
+    
+    export default {    
         components: {
-            InputIcon,
             Footer,
             Loader,
+            Form
         },
 
         data() {
@@ -45,101 +24,43 @@
                     new_password: "",
                 },
                 confirm_password: "",
-                isSame: {
-                    type: Boolean,
-                    default: true,
-                },
                 error: "",
-                isSaved: false,
                 isSubmit: false,
             }
         },
 
-        //when clicking the save password button, it will go back to the previous page the admin was in
         methods: {
-            goBack() {
-                this.$router.back();
+            handleChange(key, value) {
+                if(key === "confirm_password")
+                    this.confirm_password = value;
+                else 
+                    this.deets[key] = value;
             },
 
-            // check password validity
-            checkValidity(password) {
-                const oneUpperCase = /^.*[A-Z].*$/;
-                const length = /^.{8,}$/;
-                const underscore = /^(?!_)(?:[^_]*_?[^_]+)?$/;
-                const number = /.*[0-9].*/;
-                const specialCharacter = /.*[!@#$%&].*/;
-
-                if(!oneUpperCase.test(password))
-                    this.error = "New password must have at least 1 uppercase letter.";
-                
-                else if(!length.test(password))
-                    this.error = "New password must have at least 8 characters.";
-                
-                else if(!number.test(password))
-                    this.error = "New password must have at least 1 number.";
-                
-                else if(!specialCharacter.test(password))
-                    this.error = "New password must have at least 1 special character.";
-                
-                else if(!underscore.test(password))
-                    this.error = "New password must have at most 1 underscore, embedded.";
-
-                else
-                    return true;
-
-                return false;
-            },
-
-            // form change handler
-            handleChange(e) {
-                const res = e.target;
-
-                if(res.id === 'confirm_password')
-                    this.confirm_password = res.value;
-                else
-                    this.deets[res.id] = res.value;
-
-                if(this.confirm_password != this.deets.new_password)
-                    this.isSame = false;
-                else
-                    this.isSame = true;
-            },
-
-            // send to API
             async submitDetails() {
-                this.isSaved = true;
+                this.error = "";
                 this.isSubmit = true;
 
+                const valid = checkValidity(this.deets.new_password);
+
                 if(this.isSame) {
-                    if(this.deets.old_password === this.deets.new_password) {
-                        this.isSubmit = false;
+                    if(this.deets.old_password === this.deets.new_password)
                         this.error = "New Password should not match Current Password.";
-                    } else if(!this.checkValidity(this.deets.new_password)) {
-                        this.isSubmit = false;
-                    } else {
-                        this.error = "";
-                        this.isSaved = false;
-                        // console.log(this.deets);
-                        
-                        // post change password
-                        const changePass = await POST('/admin/change-password', this.deets);
-                        // console.log(changePass);
-                        this.isSubmit = false;
 
-                        if(changePass.status === 200) {
-                            openS();
-                            setTimeout(() => logout(), 100);
-                        } else {
-                            if(changePass.response.data.detail)
-                                this.error = changePass.response.data.detail;
-                            else
-                            openE();
-                        }
+                    else if(valid !== "success")
+                        this.error = valid;
+                    
+                    else {
+                        const res = await changePassword(this.deets);
 
+                        if(res)
+                            this.error = res;
                     }
-                } else
-                    this.isSubmit = false;
-            }
+                }
+
+                this.isSubmit = false;
+            },
+            redirect
         }
     }
 
@@ -152,23 +73,7 @@
 
         <form @submit.prevent="submitDetails" :style="{alignItems: 'flex-start', width: 'max-content'}">
             <!-- change password form -->
-            <div class="change-pass-cont">
-                <!-- current password (uses the InputIcon) -->
-                <h2 class="label-dark">Current Password</h2>
-                <input-icon id="old_password" type="password" isPassword="true" @value="handleChange" />
-    
-                <!-- new password (uses the InputIcon) -->
-                <h2 class="label-dark">New Password</h2>
-                <input-icon id="new_password" type="password" isPassword="true" @value="handleChange" />
-    
-                <!-- confirm new password (uses the InputIcon) -->
-                <h2 class="label-dark">Confirm New Password</h2>
-                <input-icon id="confirm_password" type="password" isPassword="true" @value="handleChange" />
-
-                <!-- error handling -->
-                <span v-if="!this.isSame && this.isSaved" :style="{color: 'red', fontSize: '13px'}">Password does not match.</span>
-                <span v-else :style="{opacity: '0', fontSize: '13px'}">holder</span>
-            </div>
+            <Form @value="handleChange" :confirm_password="confirm_password" :new_password="deets.new_password" />
 
             <!-- Password Validation -->
             <div class="validate">
@@ -191,7 +96,7 @@
                 <Loader />
             </div>
             <div v-else class="button-cont">
-                <button type="button" @click="goBack" class="btn-cancel">Cancel</button>
+                <button type="button" @click="redirect('back')" class="btn-cancel">Cancel</button>
                 <button type="submit" class="btn-save">Save Password</button>
             </div>
         </form>
@@ -235,23 +140,6 @@
         height: 30px;
     }
 
-    /* mao ning change password form enclosed with a border */
-    .change-pass-cont {
-        background-color: var(--color-primary);
-        border: 2px solid var(--color-secondary);
-        border-radius: 5px;
-        padding: 20px;
-        width: 100%;
-        margin-top: 100px;
-        margin-bottom: 10px;
-        text-align: left;
-    }
-
-    /* style para sa labels (current pass, new pass, confirm new pass) */
-    .label-dark {
-        color: var(--color-secondary)
-    }
-
     .button-cont {
         display: flex;
         justify-content: space-between;
@@ -285,15 +173,9 @@
 
     /* CSS for big screens */
     @media screen and (min-width: 650px) {
-        .change-pass-cont {
-            margin-top: 25vh;
-            width: 30vw;
-            margin-bottom: 10px;
-        }
-
         .button-cont {
             width: 30vw;
         }
     }
 
-</style>@/assets/components/common/common/common../../assets/components/common/Footer.vue
+</style>@/assets/components/common/common/common../../assets/components/common/Footer.vue../../assets/components/password/InputIcon.vue../../assets/components/password/InputIcon.vue../../assets/components/password/Password.vue

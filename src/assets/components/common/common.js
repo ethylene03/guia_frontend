@@ -10,7 +10,10 @@ export const refreshPage = () => {
 
 // redirect to path
 export const redirect = (path) => {
-    return window.location.href = path;
+    if(path === 'back')
+        return window.history.back();
+    else
+        return window.location.href = path;
 }
 
 // redirect to new tab

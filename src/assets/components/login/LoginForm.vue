@@ -3,6 +3,7 @@
     import Loader from '@/assets/components/common/Loader.vue';
     import ShowIcon from 'icons/EyeOutline.vue';
     import HideIcon from 'icons/EyeOffOutline.vue';
+    import Password from '../password/Password.vue';
 
     export default {
         data() {
@@ -17,7 +18,8 @@
         components: {
             Loader,
             ShowIcon,
-            HideIcon
+            HideIcon,
+            Password,
         },
 
         methods: {
@@ -42,15 +44,11 @@
         <div class="login-cont">
             <!-- username -->
             <h2 class="label-light">Username</h2> 
-            <input id="admin_username" type="text" class="primary-form" @change="handleChange" /> <!-- use the class "primary" for common input css -->
+            <input type="text" class="primary-form" v-model="credentials.admin_username" /> <!-- use the class "primary" for common input css -->
     
             <!-- password -->
             <h2 class="label-light">Password</h2>
-            <div class="primary-form password-cont">
-                <input id="admin_password" :type="isShow ? 'text' : 'password'" class="password-input" @change="handleChange" /> 
-                <show-icon v-if="isShow" @click="isShow = !isShow" />
-                <hide-icon v-else @click="isShow = !isShow" />
-            </div>
+            <Password @value="credentials.admin_password = $event" />
         </div>
     
         <!-- Error Message -->
@@ -89,24 +87,6 @@
 
     input {
         width: 100%;
-    }
-
-    .password-cont {
-        padding: 0;
-        display: flex;
-        justify-content: flex-start;
-    }
-
-    .password-cont span {
-        display: flex;
-        padding: 0 2px;
-        cursor: pointer;
-    }
-
-    .password-cont input {
-        background-color: transparent;
-        outline: none;
-        border: none;
     }
 
     .label-light {
