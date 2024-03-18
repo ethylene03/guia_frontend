@@ -1,59 +1,14 @@
 <script>
-    import { GET } from '@/assets/API calls/api.js';
-    import { deleteArtwork } from '@/assets/API calls/artworkAPI';
+    import { getArtwork } from '@/assets/API calls/artworkAPI';
+    import { getSection } from '@/assets/API calls/sectionAPI';
+    import { redirect } from '@/assets/components/common/common';
+    import { format, openModal } from '@/assets/components/view-artwork/Functions';
+
     import Header from '@/assets/components/common/Header.vue';
     import Loader from '@/assets/components/common/Loader.vue';
-    import Modal from '@/assets/components/common/Modal.vue';
-    import Toast from '@/assets/components/common/Toast.vue';
     import Welcome from '@/assets/components/common/Welcome.vue';
-    import { getAdminId, getMuseumId } from '@/assets/components/common/common';
-    import moment from 'moment';
-    import { getCurrentInstance } from 'vue';
-    import { useModal } from 'vue-final-modal';
-    import EditIcon from 'icons/PencilOutline.vue';
     import DeleteIcon from 'icons/DeleteOutline.vue';
-import { Error } from '@/assets/components/common/Error';
-
-    
-    async function deleteArt() {
-        const {open, close} = useModal({
-            component: Toast,
-            attrs: {
-                type: 'warning',
-                message: 'Deleting artwork...'
-            }
-        })
-
-        open();
-        
-        const currentURL = window.location.pathname;
-        const id = currentURL.split('/').slice(-1)[0];
-        
-        await deleteArtwork(id);
-        close();
-    }
-
-    const { open, close } = useModal({
-        component: Modal,
-        attrs: {
-            logoURL: '/icons/warning.svg',
-            title: 'Delete artwork?',
-            action: 'delete',
-            artwork: 'artwork',
-            buttonLeft: 'Cancel',
-            buttonRight: 'Delete',
-            isSave: false,
-            onLeftAction() {
-                close();
-            },
-            async onRightAction() {
-                // delete here
-                close();
-                await deleteArt();
-                // window.location.href = './all';
-            }
-        },
-    });
+    import EditIcon from 'icons/PencilOutline.vue';
 
     export default {
         components: {
@@ -80,53 +35,23 @@ import { Error } from '@/assets/components/common/Error';
             const id = this.art_id = this.$route.params.id;
 
             // fetch artwork details
-            const art = await GET('/artwork/get', {
-                art_id: id,
-                admin_id: getAdminId(),
-            });
-
-            if(art.response?.status >= 400) {
-                const message = art.response.data.detail;
-                Error(message);
-                return;
-            }
+            const art = await getArtwork(id);
 
             // store thumbnail and other details
-            const deets = this.artwork = art.data.artwork;
+            const deets = this.artwork = art;
             this.artwork['thumbnail'] = deets.images.find(data => data.is_thumbnail === true);
             
             // fetch section name
-            const section = await GET('/section/get', {
-                museum_id: getMuseumId('admin'),
-                section_id: deets.section_id, 
-            });
-
-            if(section.status != 200) {
-                const message = section.response.data.detail;
-                Error(message);
-                return;
-            }
-
-            this.artwork['section'] = section.data.section[0].section_name;
+            const section = await getSection(deets.section_id);
+            this.artwork['section'] = section.section[0].section_name;
 
             this.pageLoad = false;
         },
 
         methods: {
-            redirect(path) {
-                if(path === 'back')
-                    this.$router.back();
-                else
-                    window.location.href = path;
-            },
-
-            openModal() {
-                open();
-            },
-
-            format(date, format) {
-                return moment(date).format(format);
-            }
+            redirect,
+            openModal,
+            format,
         }
     }
 </script>

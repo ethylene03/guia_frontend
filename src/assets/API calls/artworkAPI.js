@@ -69,3 +69,26 @@ export const deleteArtwork = async (id) => {
     }
     setTimeout(() => window.location.href = '/on-cloud-nine/view/all', 1000);
 }
+
+// get one artwork
+export const getArtwork = async (id) => {
+    const art = await GET('/artwork/get', {
+        art_id: id,
+        admin_id: getAdminId(),
+    });
+
+    if(art.response?.status >= 400) {
+        const {open, close} = useModal({
+            component: ToastVue,
+            attrs: {
+                type: 'error',
+                message: art.response.data.detail,
+                subtext: 'Please try again later.'
+            }
+        })
+
+        open();
+        setTimeout(() => this.$router.back(), 100);
+    } else
+        return art.data.artwork;
+}
