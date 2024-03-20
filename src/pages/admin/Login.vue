@@ -50,6 +50,6 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        
+        margin-bottom: 3.2rem;
     }
 </style>
