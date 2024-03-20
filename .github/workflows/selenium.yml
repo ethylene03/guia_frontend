@@ -27,4 +27,4 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm install -g selenium-side-runner
-    - run: selenium-side-runner -c "browserName=chrome" test_cases/guia-UD01.side
+    - run: npm run test
