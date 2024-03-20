@@ -1,0 +1,398 @@
+{
+  "id": "502f89a7-8f67-4302-9443-85c762ea11d7",
+  "version": "2.0",
+  "name": "guia-testing",
+  "url": "https://guia-frontend.vercel.app/on-cloud-nine/login",
+  "tests": [{
+    "id": "779bd1e6-af9a-40f0-ac17-5c9c78ac5aeb",
+    "name": "UD01-02",
+    "commands": [{
+      "id": "77808a38-7c03-4dc9-a29c-a536deca9cbd",
+      "comment": "",
+      "command": "open",
+      "target": "https://guia-frontend.vercel.app/on-cloud-nine/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9d7d179f-cf02-496a-bc7d-390e87916efa",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "796x836",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4fcfb527-7c4c-4a36-927a-d6b1b0d30524",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(2)",
+      "targets": [
+        ["css=.primary-form:nth-child(2)", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "ilin"
+    }, {
+      "id": "cfb44d3b-2125-4c45-bf81-306eea98de5d",
+      "comment": "",
+      "command": "type",
+      "target": "css=input:nth-child(1)",
+      "targets": [
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": "Guia12345"
+    }, {
+      "id": "e87e303e-61da-45f1-af27-480d3b4cec02",
+      "comment": "",
+      "command": "click",
+      "target": "css=.material-design-icon__svg",
+      "targets": [
+        ["css=.material-design-icon__svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "c2ec2cb0-b7e9-41aa-bcae-93effaaf0a57",
+      "comment": "",
+      "command": "click",
+      "target": "css=.material-design-icon__svg",
+      "targets": [
+        ["css=.material-design-icon__svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "14eade5d-5045-4554-85d9-5a42ecb73076",
+      "comment": "",
+      "command": "click",
+      "target": "css=.login-btn",
+      "targets": [
+        ["css=.login-btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ca200624-231d-409a-ba65-be1146c76ea3",
+      "comment": "",
+      "command": "click",
+      "target": "css=form",
+      "targets": [
+        ["css=form", "css:finder"],
+        ["xpath=//div[@id='app']/div/div/form", "xpath:idRelative"],
+        ["xpath=//form", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "cb8bc9a1-528a-447f-8dfd-2e1dd67af6f3",
+      "comment": "",
+      "command": "waitForText",
+      "target": "xpath=//span[contains(.,'Invalid login credentials.')]",
+      "targets": [],
+      "value": "Invalid login credentials."
+    }]
+  }, {
+    "id": "5752cc98-b0cb-4557-a564-d4752dadcbc4",
+    "name": "UD01-03",
+    "commands": [{
+      "id": "5924db36-b3d4-4c07-bd92-d399e86bf1d9",
+      "comment": "",
+      "command": "open",
+      "target": "https://guia-frontend.vercel.app/on-cloud-nine/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "110c6691-3551-4fb6-967c-7b5ca50a7486",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "798x835",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2b15b4e2-cff2-4cf5-a2a7-68d8dff6f8e3",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(2)",
+      "targets": [
+        ["css=.primary-form:nth-child(2)", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "tester"
+    }, {
+      "id": "fb862148-670d-4a42-9bea-399b21a91949",
+      "comment": "",
+      "command": "type",
+      "target": "css=input:nth-child(1)",
+      "targets": [
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": "Guia12345"
+    }, {
+      "id": "1c160351-088a-455b-abea-aa3271cf307a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.material-design-icon__svg",
+      "targets": [
+        ["css=.material-design-icon__svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "898d4c38-d986-4714-b123-89709ecae192",
+      "comment": "",
+      "command": "click",
+      "target": "css=.material-design-icon__svg",
+      "targets": [
+        ["css=.material-design-icon__svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "8ccd2ff1-9f64-486a-a043-dc67ec25d4f7",
+      "comment": "",
+      "command": "click",
+      "target": "css=.login-btn",
+      "targets": [
+        ["css=.login-btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1350b154-0a00-46b7-8c54-032b6ee4f113",
+      "comment": "",
+      "command": "waitForText",
+      "target": "xpath=//span[contains(.,'Invalid login credentials.')]",
+      "targets": [],
+      "value": "Invalid login credentials."
+    }]
+  }, {
+    "id": "c45e8fe9-72d8-4d0c-a12b-0622dc709ec6",
+    "name": "UD01-01",
+    "commands": [{
+      "id": "60dbab2b-c2a6-47f4-a5ab-b72aa4937686",
+      "comment": "",
+      "command": "open",
+      "target": "https://guia-frontend.vercel.app/on-cloud-nine/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e1470eea-fac6-4088-8663-bfbe8dfeaedd",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "796x836",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "72dc5538-1151-4cbb-8b01-0cbba75adcd2",
+      "comment": "",
+      "command": "click",
+      "target": "css=.primary-form:nth-child(2)",
+      "targets": [
+        ["css=.primary-form:nth-child(2)", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5599c08a-558c-4376-b2db-15d97cdad0e4",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(2)",
+      "targets": [
+        ["css=.primary-form:nth-child(2)", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "tester"
+    }, {
+      "id": "aabe9687-a9a8-4953-964c-615a14dba181",
+      "comment": "",
+      "command": "type",
+      "target": "css=input:nth-child(1)",
+      "targets": [
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": "Guia1234!"
+    }, {
+      "id": "23308c60-3561-41df-874a-cc1d948a7020",
+      "comment": "",
+      "command": "click",
+      "target": "css=.material-design-icon__svg",
+      "targets": [
+        ["css=.material-design-icon__svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "9e7a2514-803e-445e-91cf-49b5a88e3ab3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.material-design-icon__svg",
+      "targets": [
+        ["css=.material-design-icon__svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "0a37609d-37d0-4b53-a50e-78a69005473e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.login-btn",
+      "targets": [
+        ["css=.login-btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4376ce94-4b6c-497d-80f9-e6f26cd3c76b",
+      "comment": "",
+      "command": "verifyText",
+      "target": "xpath=//text[contains(.,'Loading... Please wait')]",
+      "targets": [],
+      "value": "Loading... Please wait"
+    }, {
+      "id": "928a925a-018d-4c8b-b1fa-49f70e379428",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.guia",
+      "targets": [],
+      "value": "30000"
+    }, {
+      "id": "d0af53e7-8aae-4667-8dfa-92a989a42d8a",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.menu",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e658aae7-a55a-4f94-9f8e-e6132689bbb9",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.container",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "86344cc9-6510-4a9b-a40f-d0f48eb662b2",
+    "name": "UD01-04",
+    "commands": [{
+      "id": "133e52dc-f7e8-480d-b67c-3b6f586f5097",
+      "comment": "",
+      "command": "open",
+      "target": "https://guia-frontend.vercel.app/on-cloud-nine/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4e4aeca5-1f34-43f4-87e7-be70689bab4e",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "790x850",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "302a8d17-0320-454a-9a99-9604d806c3a8",
+      "comment": "",
+      "command": "click",
+      "target": "css=.primary-form:nth-child(2)",
+      "targets": [
+        ["css=.primary-form:nth-child(2)", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6dcf7171-4c76-4493-8b55-000f24e7baed",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(2)",
+      "targets": [
+        ["css=.primary-form:nth-child(2)", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "tester"
+    }, {
+      "id": "eec94dfd-13ba-439e-9a32-999b30b41015",
+      "comment": "",
+      "command": "type",
+      "target": "css=input:nth-child(1)",
+      "targets": [
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": "wrongpassword"
+    }, {
+      "id": "11152c13-654d-4635-a66e-a42a305d8195",
+      "comment": "",
+      "command": "click",
+      "target": "css=.material-design-icon__svg",
+      "targets": [
+        ["css=.material-design-icon__svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "31dd677b-775b-4d93-89cf-1def45645264",
+      "comment": "",
+      "command": "click",
+      "target": "css=.material-design-icon__svg",
+      "targets": [
+        ["css=.material-design-icon__svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "d66c337c-e80d-41b2-a5fe-6bd761881795",
+      "comment": "",
+      "command": "click",
+      "target": "css=.login-btn",
+      "targets": [
+        ["css=.login-btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3df2ed17-8d77-497d-a946-7edc3d462240",
+      "comment": "",
+      "command": "waitForText",
+      "target": "xpath=//span[contains(.,'Invalid login credentials.')]",
+      "targets": [
+        ["css=.error-cont > span", "css:finder"],
+        ["xpath=//div[@id='app']/div/div/form/div[2]/span", "xpath:idRelative"],
+        ["xpath=//div[2]/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Invalid login credentials.')]", "xpath:innerText"]
+      ],
+      "value": "Invalid login credentials."
+    }]
+  }],
+  "suites": [{
+    "id": "4264de8f-9da7-490f-bd82-96384793ab9d",
+    "name": "UD01",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["c45e8fe9-72d8-4d0c-a12b-0622dc709ec6", "5752cc98-b0cb-4557-a564-d4752dadcbc4", "779bd1e6-af9a-40f0-ac17-5c9c78ac5aeb", "86344cc9-6510-4a9b-a40f-d0f48eb662b2"]
+  }],
+  "urls": ["https://guia-frontend.vercel.app/on-cloud-nine/login"],
+  "plugins": []
+}
