@@ -48,6 +48,7 @@ export default {
 
 .password-cont input {
     background-color: transparent;
+    color: var(--color-secondary);
     outline: none;
     border: none;
     width: 100%;
