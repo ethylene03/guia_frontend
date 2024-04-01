@@ -47,6 +47,7 @@ export default {
 }
 
 .password-cont input {
+    font-family: Inter, sans-serif;
     background-color: transparent;
     color: var(--color-secondary);
     outline: none;
