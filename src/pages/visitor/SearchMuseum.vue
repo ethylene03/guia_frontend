@@ -8,6 +8,7 @@
     import Welcome from "@/assets/components/common/Welcome.vue";
     import { getMuseumId, getToken, refreshPage } from "@/assets/components/common/common";
     import { Error } from "@/assets/components/common/Error";
+import { generateToken, getAllMuseum } from "@/assets/API calls/visitorAPI";
 
     export default {
         components: {
@@ -35,16 +36,8 @@
             if(getMuseumId('visitor'))
                 localStorage.removeItem('visitor_museum_id');
 
-            const AllMuseums = await loginGET('/museum/get');
-            // console.log(AllMuseums);
-
-            if(!AllMuseums.error) {
-                this.museums = AllMuseums.data.museum;
-                this.isReady = true;
-            } else {
-                Error(AllMuseums.response.data.detail);
-                return;
-            }
+            this.museums = await getAllMuseum();
+            this.isReady = true;
         },
 
         methods: {
@@ -64,19 +57,8 @@
                     this.isSubmitted = true;
 
                     // generate visitor token
-                    const generateToken = await loginPOST('/visitor/generate-token', {museum_id: this.museum_id});
-                    // console.log(generateToken); 
-
-                    if(!generateToken.error) {
-                        localStorage.setItem('visitor_token', generateToken.data.visitor_token);
-                        localStorage.setItem('visitor_museum_id', this.museum_id);
-
-                        this.redirect('/scan');
-                    } else {
-                        this.isSubmitted = false;
-                        Error(generateToken.response.data.detail);
-                        return;
-                    }
+                    await generateToken(this.museum_id);
+                    this.isSubmitted = false;
 
                 } else {
                     const {open, close} = useModal({

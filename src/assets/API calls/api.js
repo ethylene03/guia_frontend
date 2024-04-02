@@ -36,6 +36,7 @@ import ToastVue from '../components/common/Toast.vue';
 /** Fetch URL and API Key **/ 
 const baseURL = import.meta.env.VITE_API_URL;
 const APIKey = import.meta.env.VITE_API_KEY; 
+const expressURL = import.meta.env.VITE_API_URL_EXPRESS_LOCAL;
 
 
 /**
@@ -81,9 +82,62 @@ export const loginPOST = async (endpoint, data) => {
 };
 
 // get
-export const loginGET = async (endpoint) => {
+export const loginGET = async (endpoint, data) => {
     try {
-        const response = await login.get(endpoint);
+        const response = await login.get(endpoint, {params: data});
+        return response;
+    } catch (error) {
+        return error;
+    }
+};
+
+/**
+ * LOGIN API CALLS EXPRESS
+ */
+
+// axios for login (no authorization)
+const express = axios.create({
+    baseURL: expressURL,
+    headers: {
+        'X-API-KEY': APIKey,
+        'Content-Type': 'application/json',
+    },
+});
+
+express.interceptors.response.use(
+    response => response,
+    error => {
+        if(error.code === "ERR_NETWORK") {
+            const  {open, close} = useModal({
+                component: ToastVue,
+                attrs: {
+                    type: 'error',
+                    message: 'Server Error',
+                    subtext: 'Please try again later.'
+                }
+            })
+
+            open();
+        } else
+            return error;
+    }
+)
+  
+// post LOGIN
+export const expressPOST = async (endpoint, data) => {
+    console.log(expressURL)
+    try {
+        const response = await express.post(endpoint, data);
+        return response;
+    } catch (error) {
+        return error;
+    }
+};
+
+// get
+export const expressGET = async (endpoint, data) => {
+    try {
+        const response = await express.get(endpoint, {params: data});
         return response;
     } catch (error) {
         return error;
