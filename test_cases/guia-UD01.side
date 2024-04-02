@@ -593,7 +593,7 @@
       "id": "f7f1b6b2-2c1f-49dd-89db-cfaad141ccf7",
       "comment": "",
       "command": "setWindowSize",
-      "target": "628x677",
+      "target": "430x932",
       "targets": [],
       "value": ""
     }, {
@@ -677,7 +677,7 @@
       "id": "b12dc5d7-fe68-4a13-bcb0-a8a3afa96099",
       "comment": "",
       "command": "setWindowSize",
-      "target": "627x678",
+      "target": "430x932",
       "targets": [],
       "value": ""
     }, {
@@ -744,7 +744,7 @@
       "id": "cfb981aa-6056-4e79-8aa5-34c67b4e17de",
       "comment": "",
       "command": "setWindowSize",
-      "target": "630x680",
+      "target": "430x932",
       "targets": [],
       "value": ""
     }, {
@@ -820,7 +820,7 @@
       "id": "311c097d-0d30-4476-ae01-fd86bd57bd6e",
       "comment": "",
       "command": "setWindowSize",
-      "target": "633x683",
+      "target": "430x932",
       "targets": [],
       "value": ""
     }, {
@@ -917,7 +917,7 @@
       "id": "09f89388-5df3-49ca-8ec7-1dbb132bcd5d",
       "comment": "",
       "command": "setWindowSize",
-      "target": "627x678",
+      "target": "430x932",
       "targets": [],
       "value": ""
     }, {
@@ -994,7 +994,7 @@
       "id": "324363e3-35d3-4f84-b7b2-79d5c0a628ca",
       "comment": "",
       "command": "setWindowSize",
-      "target": "630x681",
+      "target": "430x932",
       "targets": [],
       "value": ""
     }, {
@@ -1018,6 +1018,126 @@
       ],
       "value": ""
     }]
+  }, {
+    "id": "056446da-f1ce-4d79-8aff-0d3c21af1e98",
+    "name": "UD01-14",
+    "commands": [{
+      "id": "66dd93ed-1042-4d81-8ac0-61ee497f33b8",
+      "comment": "",
+      "command": "open",
+      "target": "https://guia.kbytes.live/on-cloud-nine/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "90d66fc8-32a1-4c62-b8a2-bcbfc3a75e78",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "430x932",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a44240f5-63e2-4573-96f0-fc7940812a94",
+      "comment": "",
+      "command": "click",
+      "target": "css=.primary-form:nth-child(2)",
+      "targets": [
+        ["css=.primary-form:nth-child(2)", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fa32ff49-0acd-4824-acb3-2bf1e3cf6717",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(2)",
+      "targets": [
+        ["css=.primary-form:nth-child(2)", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "tester"
+    }, {
+      "id": "6427d2a2-8f30-4a65-8231-9b7a02255476",
+      "comment": "",
+      "command": "type",
+      "target": "css=input:nth-child(1)",
+      "targets": [
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": "Guia1234!"
+    }, {
+      "id": "f5369cdc-2b5e-4e44-a450-1d7959b26702",
+      "comment": "",
+      "command": "click",
+      "target": "css=.material-design-icon__svg",
+      "targets": [
+        ["css=.material-design-icon__svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "bae1dfbf-7ea0-437e-9f5f-5c76b6de9f25",
+      "comment": "",
+      "command": "click",
+      "target": "css=.material-design-icon__svg",
+      "targets": [
+        ["css=.material-design-icon__svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "af1fed99-1bcb-4e02-87d1-b8dc736a121e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.login-btn",
+      "targets": [
+        ["css=.login-btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "262f653a-7d37-4148-bc5c-87d478af4021",
+      "comment": "",
+      "command": "storeText",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "45f1f2ad-865e-4bf9-b1c7-a6e01f55e477",
+      "comment": "",
+      "command": "verifyText",
+      "target": "xpath=//text[contains(.,'Loading... Please wait')]",
+      "targets": [],
+      "value": "Loading... Please wait"
+    }, {
+      "id": "74398f7c-e07d-4c91-b925-8d805526f7ab",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.guia",
+      "targets": [],
+      "value": "30000"
+    }, {
+      "id": "10ac5971-c166-4ced-a936-b27bcb6bdec9",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.menu",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "fd3dc410-d047-4e91-9fcc-ae70b59b61d3",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.container",
+      "targets": [],
+      "value": ""
+    }]
   }],
   "suites": [{
     "id": "4264de8f-9da7-490f-bd82-96384793ab9d",
@@ -1027,6 +1147,6 @@
     "timeout": 300,
     "tests": ["c45e8fe9-72d8-4d0c-a12b-0622dc709ec6", "5752cc98-b0cb-4557-a564-d4752dadcbc4", "779bd1e6-af9a-40f0-ac17-5c9c78ac5aeb", "86344cc9-6510-4a9b-a40f-d0f48eb662b2", "66c55d5b-96b7-4f16-9bc0-eb0158c80f90", "0b67b298-52bc-4226-b150-7768f3e9e578", "c291609d-9244-450d-90f0-bcaf62f8c9df", "07c2eb5b-e245-47e9-84d6-e3da33c46f02", "326caf69-71f8-49f3-ab4c-099e2a4d18aa", "97891bcb-6c81-4bbe-9714-7ee387d43755", "6d81d1ef-9e53-4306-9adb-b065b5600056", "44f26be4-cb74-460e-8195-ec0009f9e3d6", "fa69397b-8c47-40f8-b671-9bbd27091213"]
   }],
-  "urls": ["https://guia-frontend.vercel.app/on-cloud-nine/login", "https://guia.kbytes.live/on-cloud-nine/login", "https://guia.kbytes.live/on-cloud-nine"],
+  "urls": ["https://guia.kbytes.live/on-cloud-nine/login", "https://guia.kbytes.live/on-cloud-nine"],
   "plugins": []
 }
