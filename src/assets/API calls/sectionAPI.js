@@ -3,9 +3,9 @@ import { getMuseumId } from "../components/common/common";
 import { GET } from "./api";
 import Toast from "../components/common/Toast.vue";
 
-export const getSection = async (id) => {
+export const getSection = async (id, type) => {
     const section = await GET('/section/get', {
-        museum_id: getMuseumId('admin'),
+        museum_id: getMuseumId(type),
         section_id: id, 
     });
 
@@ -20,7 +20,7 @@ export const getSection = async (id) => {
         });
 
         open();
-        setTimeout(() => this.$router.back(), 1000);
+        setTimeout(() => redirect('back'), 1000);
     } else
         return section.data;
 }

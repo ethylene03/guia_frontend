@@ -1,8 +1,8 @@
 import moment from "moment";
 import { useModal } from "vue-final-modal";
 import ToastVue from "../components/common/Toast.vue";
-import { getAdminId } from "../components/common/common";
-import { GET, POST } from "./api";
+import { getAdminId, redirect } from "../components/common/common";
+import { GET, POST, expressGET } from "./api";
 
 // get all
 export const getAllArtworks = async () => {
@@ -92,3 +92,27 @@ export const getArtwork = async (id) => {
     } else
         return art.data.artwork;
 }
+
+// get artwork visits per section
+export const getArtworkVisits = async (id, token) => {
+    const visits = await expressGET('/visitor/artwork-visits', {
+        section_id: id,
+        visitor_token: token,
+    });
+
+    if(visits.status < 400)
+        return visits.data;
+    else {
+        const {open, close} = useModal({
+            component: ToastVue,
+            attrs: {
+                type: 'error',
+                message: visits.response.data.detail,
+                subtext: 'Please try again later.'
+            }
+        })
+
+        open();
+        setTimeout(() => redirect('back'), 1000);
+    }
+} 

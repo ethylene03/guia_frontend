@@ -1,9 +1,49 @@
 <script>
+    import { getSection } from '@/assets/API calls/sectionAPI';
     import Section from './Section.vue';
+import { getArtworkVisits } from '@/assets/API calls/artworkAPI';
+import { getToken } from '@/assets/components/common/common';
 
     export default {
+        data() {
+            return {
+                sections: [],
+                isReady: false,
+                sizes: [
+                    {cols: 1, rows: 2},
+                    {cols: 1, rows: 1},
+                    {cols: 1, rows: 1},
+                    {cols: 1, rows: 3},
+                    {cols: 2, rows: 1},
+                    {cols: 1, rows: 1},
+                ]
+            }
+        },
+
         components: {
             Section,
+        },
+
+        async mounted() {
+            const sect = await getSection(null, 'visitor');
+            // console.log(sect);
+
+            await Promise.all(sect.section.map(async (section) => {
+                var obj = section;
+
+                const visits = await getArtworkVisits(section.section_id, getToken('visitor'));
+                obj.visited = visits.visited;
+                obj.artworks = visits.artworks;
+                obj.cols = this.sizes[section.section_id - 1].cols;
+                obj.rows = this.sizes[section.section_id - 1].rows;
+
+                this.sections.push(obj);
+            }))
+
+            // sort array by its section_id
+            this.sections.sort((a, b) => a.section_id - b.section_id);
+
+            console.log(this.sections)
         },
 
         methods: {
@@ -17,12 +57,7 @@
 <template>
     <div class="map-cont">
         <!-- each cell is equivalent to 60px x 60px -->
-        <Section class="Paglawig" sectionName="Paglawig" :traffic="21" :visited="12" :artworks="9" :cols="1" :rows="2" @click="viewCheckList(1)" />
-        <Section class="Kinaadman" sectionName="Kinaadman" :traffic="6" :visited="2" :artworks="15" :cols="1" :rows="1" @click="viewCheckList(1)" />
-        <Section class="Mugna" sectionName="Mugna" :traffic="2" :visited="10" :artworks="22" :cols="1" :rows="1" @click="viewCheckList(1)" />
-        <Section class="Sugbo" sectionName="Sugbo" :traffic="1" :visited="12" :artworks="25" :cols="1" :rows="3" @click="viewCheckList(1)" />
-        <Section class="Kinaiyahan" sectionName="Kinaiyahan" :traffic="17" :visited="5" :artworks="15" :cols="2" :rows="1" @click="viewCheckList(1)" />
-        <Section class="Lantawan" sectionName="Lantawan" :traffic="8" :visited="11" :artworks="12" :cols="1" :rows="1" @click="viewCheckList(1)" />
+        <Section v-for="section in sections" :class="section.section_name.toLowerCase()" :sectionName="section.section_name" :traffic="12" :visited="section.visited" :artworks="section.artworks" :cols="section.cols" :rows="section.rows" @click="viewCheckList(section.section_id)" />
     </div>
 </template>
 
@@ -32,12 +67,12 @@
         display: flex;
     }
 
-    .Kinaiyahan {
+    .grace {
         position: absolute;
         top: 120px;
     }
 
-    .Lantawan {
+    .rica {
         position: absolute;
         top: 180px;
     }

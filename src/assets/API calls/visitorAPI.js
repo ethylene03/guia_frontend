@@ -26,24 +26,3 @@ export const generateToken = async (museum_id) => {
         setTimeout(() => refreshPage(), 1000);
     }
 }
-
-export const getAllMuseum = async () => {
-    const AllMuseums = await loginGET('/museum/get');
-    // console.log(AllMuseums);
-
-    if(!AllMuseums.error) {
-        return AllMuseums.data.museum;
-    } else {
-        const {open, close} = useModal({
-            component: Toast,
-            attrs: {
-                type: 'error',
-                message: 'Error loading museums!',
-                subtext: 'Please try again later.'
-            }
-        })
-
-        open();
-        setTimeout(() => refreshPage(), 1000);
-    }
-}

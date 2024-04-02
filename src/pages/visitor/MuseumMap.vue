@@ -32,8 +32,6 @@
             selectedMuseum() {
                 const comp = this.museums.find(museum => museum.museum_id === parseInt(getMuseumId("visitor")));
 
-                console.log(comp)
-
                 if(comp)
                     return comp.museum;
                 else
