@@ -42,7 +42,7 @@
             this.artwork['thumbnail'] = deets.images.find(data => data.is_thumbnail === true);
             
             // fetch section name
-            const section = await getSection(deets.section_id);
+            const section = await getSection(deets.section_id, 'admin');
             this.artwork['section'] = section.section[0].section_name;
 
             this.pageLoad = false;

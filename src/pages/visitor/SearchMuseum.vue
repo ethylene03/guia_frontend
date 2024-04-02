@@ -1,14 +1,13 @@
 <script>
-    import { loginGET, loginPOST } from "@/assets/API calls/api";
-    import { useModal } from "vue-final-modal";
-    import Footer from "../../assets/components/common/Footer.vue";
+    import { getAllMuseum } from "@/assets/API calls/museumAPI";
+    import { generateToken } from "@/assets/API calls/visitorAPI";
     import Header from "@/assets/components/common/Header.vue";
-    import Toast from "@/assets/components/common/Toast.vue";
     import Loader from "@/assets/components/common/Loader.vue";
+    import Toast from "@/assets/components/common/Toast.vue";
     import Welcome from "@/assets/components/common/Welcome.vue";
     import { getMuseumId, getToken, refreshPage } from "@/assets/components/common/common";
-    import { Error } from "@/assets/components/common/Error";
-import { generateToken, getAllMuseum } from "@/assets/API calls/visitorAPI";
+    import { useModal } from "vue-final-modal";
+    import Footer from "../../assets/components/common/Footer.vue";
 
     export default {
         components: {
