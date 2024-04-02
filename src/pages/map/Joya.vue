@@ -1,8 +1,6 @@
 <script>
-    import { getSection } from '@/assets/API calls/sectionAPI';
     import Section from './Section.vue';
-import { getArtworkVisits } from '@/assets/API calls/artworkAPI';
-import { getToken } from '@/assets/components/common/common';
+    import { getSectionDetails } from '@/assets/components/museum-map/SectionDetails.js';
 
     export default {
         data() {
@@ -25,25 +23,7 @@ import { getToken } from '@/assets/components/common/common';
         },
 
         async mounted() {
-            const sect = await getSection(null, 'visitor');
-            // console.log(sect);
-
-            await Promise.all(sect.section.map(async (section) => {
-                var obj = section;
-
-                const visits = await getArtworkVisits(section.section_id, getToken('visitor'));
-                obj.visited = visits.visited;
-                obj.artworks = visits.artworks;
-                obj.cols = this.sizes[section.section_id - 1].cols;
-                obj.rows = this.sizes[section.section_id - 1].rows;
-
-                this.sections.push(obj);
-            }))
-
-            // sort array by its section_id
-            this.sections.sort((a, b) => a.section_id - b.section_id);
-
-            console.log(this.sections)
+            this.sections = await getSectionDetails(this.sizes);
         },
 
         methods: {
@@ -57,7 +37,7 @@ import { getToken } from '@/assets/components/common/common';
 <template>
     <div class="map-cont">
         <!-- each cell is equivalent to 60px x 60px -->
-        <Section v-for="section in sections" :class="section.section_name.toLowerCase()" :sectionName="section.section_name" :traffic="12" :visited="section.visited" :artworks="section.artworks" :cols="section.cols" :rows="section.rows" @click="viewCheckList(section.section_id)" />
+        <Section v-for="section in sections" :class="section.section_name.toLowerCase()" :sectionName="section.section_name" :traffic="section.traffic" :visited="section.visited" :artworks="section.artworks" :cols="section.cols" :rows="section.rows" @click="viewCheckList(section.section_id)" />
     </div>
 </template>
 
