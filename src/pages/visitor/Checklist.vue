@@ -51,7 +51,7 @@
         <div class="content">
             <!-- subheader -->
             <h1>Artwork Checklist</h1>
-            <h1>{{ section_name }}</h1>
+            <h1 style="color: var(--color-accent)">{{ section_name }}</h1>
 
             <!-- checklist -->
             <div class="checklist">
