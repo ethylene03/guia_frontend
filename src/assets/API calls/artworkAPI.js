@@ -61,10 +61,16 @@ export const deleteArtwork = async (id) => {
 }
 
 // get one artwork
-export const getArtwork = async (id) => {
-    const art = await GET('/artwork/get', {
+export const getArtwork = async (id, type) => {
+    var admin_id = "";
+    
+    if(!type) {
+        admin_id = getAdminId();
+    }
+
+    const art = await expressGET('/artwork/get', {
         art_id: id,
-        admin_id: getAdminId(),
+        admin_id: admin_id,
     });
 
     if(art.response?.status >= 400) {
