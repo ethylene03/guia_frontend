@@ -1,12 +1,11 @@
 <script>
-    import Header from '@/assets/components/common/Header.vue';
     import Footer from '@/assets/components/common/Footer.vue';
+    import Header from '@/assets/components/common/Header.vue';
     import NoContent from '@/assets/components/common/NoContent.vue';
     import MagnifyIcon from 'icons/Magnify.vue';
 
-    import art1 from '../../assets/images/art1.png';
-    import art2 from '../../assets/images/art2.png';
-    import art3 from '../../assets/images/art3.png';
+    import { redirect } from '@/assets/components/common/common';
+    import { getAllArtworks } from '@/assets/API calls/artworkAPI.js';
 
     export default {
         components: {
@@ -19,34 +18,23 @@
         data() {
             return {
                 // pseudo data for artworks
-                artworks: [
-                    {id: 1, img: art1, title: "Spolarium", artist: "Juan Luna", year: "1884"},
-                    {id: 2, img: art2, title: "Fruit Seller", artist: "Fernando Amorsolo", year: "1954"},
-                    {id: 3, img: art3, title: "Bayanihan sa Bukid", artist: "Carlos Francisco", year: "1964"},
-                    {id: 4, img: art2, title: "Lorem Ipsum", artist: "Name", year: "Year"},
-                    {id: 5, img: art1, title: "Lorem Ipsum", artist: "Name", year: "Year"},
-                    {id: 6, img: art3, title: "Lorem Ipsum", artist: "Name", year: "Year"},
-                    {id: 7, title: "Lorem Ipsum", artist: "Name", year: "Year"},
-                    {id: 8, title: "Lorem Ipsum", artist: "Name", year: "Year"},
-                    {id: 9, title: "Lorem Ipsum", artist: "Name", year: "Year"},
-                    {id: 10, title: "Lorem Ipsum", artist: "Name", year: "Year"},
-                    {id: 11, title: "Lorem Ipsum", artist: "Name", year: "Year"},
-                    {id: 12, title: "Lorem Ipsum", artist: "Name", year: "Year"},
-                    {id: 13, title: "Lorem Ipsum", artist: "Name", year: "Year"},
-                    {id: 14, title: "Lorem Ipsum", artist: "Name", year: "Year"},
-                ],
+                artworks: [],
                 // model for the search bar
                 searchedText: '',
+                isReady: false,
             };
         },
 
+        async mounted() {
+            const arts = await getAllArtworks('visitor');
+            // console.log(arts);
+            this.artworks = arts;
+
+            this.isReady = true;
+        },
+
         methods: {
-            redirect(path) {
-                if(path === 'back')
-                    this.$router.back();
-                else
-                    window.location.href = path;
-            },
+            redirect,
         },
 
         computed: {
@@ -68,7 +56,8 @@
 </script>
 
 <template>
-    <div class="container">
+    <Welcome v-if="!isReady" :start="!isReady" />
+    <div v-else class="container">
         <Header type="user" :isMap="true" />
 
         <div class="screen-body">
@@ -155,6 +144,7 @@
         border-bottom: 1px solid #00000087;
         padding: 5px 10px;
         cursor: pointer;
+        text-transform: capitalize;
     }
 
     .art:hover {

@@ -1,12 +1,12 @@
 import moment from "moment";
 import { useModal } from "vue-final-modal";
 import ToastVue from "../components/common/Toast.vue";
-import { getAdminId, redirect } from "../components/common/common";
+import { errorToast, getAdminId, redirect } from "../components/common/common";
 import { GET, POST, expressGET } from "./api";
 
 // get all
-export const getAllArtworks = async () => {
-    const AllArtworks = await GET('artwork/get/all', {admin_id: getAdminId()});
+export const getAllArtworks = async (type) => {
+    const AllArtworks = await expressGET('artwork/get/all', type ? null : {admin_id: getAdminId()});
     // console.log(AllArtworks);
 
     if(AllArtworks.status === 200) {
@@ -25,17 +25,7 @@ export const getAllArtworks = async () => {
 
         // console.log(this.artworks)
     } else {
-        const {open, close} = useModal({
-            component: Toast,
-            attrs: {
-                type: 'error',
-                message: 'Error loading the artworks',
-                subtext: 'Please try again later.'
-            }
-        })
-
-        open();
-        setTimeout(() => this.$router.back(), 1000);
+        errorToast('Error fetching artworks');
     }
 }
 
