@@ -22,7 +22,7 @@ export const getSectionDetails = async (sizes) => {
         obj.artworks = visits.artworks;
         obj.cols = sizes[section.section_id - 1].cols;
         obj.rows = sizes[section.section_id - 1].rows;
-        obj.traffic = traffic.find(x => parseInt(x.section_id) === section.section_id).total_visits;
+        obj.traffic = traffic.find(x => parseInt(x.section_id) === parseInt(section.section_id)).total_visits;
 
         sections.push(obj);
     }))

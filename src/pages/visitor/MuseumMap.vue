@@ -3,6 +3,7 @@
     import Footer from '@/assets/components/common/Footer.vue';
     import TrafficCode from '@/assets/components/museum-map/TrafficCode.vue';
     import { getMuseumId } from '@/assets/components/common/common';
+    import Welcome from '@/assets/components/common/Welcome.vue';
     
     // museum maps
     import Joya from '../map/Joya.vue';
@@ -13,6 +14,7 @@
             Footer,
             Joya,
             TrafficCode,
+            Welcome
         },
         data() {
             return {
@@ -25,24 +27,23 @@
                     {museum_id: 6, museum: "daughpane-museum"},
                     {museum_id: 7, museum: "ellenmarie-gallery"},
                 ],
+                isReady: false,
+                museumComponent: "",
             }
         },
 
-        computed: {
-            selectedMuseum() {
-                const comp = this.museums.find(museum => museum.museum_id === parseInt(getMuseumId("visitor")));
+        mounted() {
+            const comp = this.museums.find(museum => museum.museum_id === parseInt(getMuseumId("visitor")));
 
-                if(comp)
-                    return comp.museum;
-                else
-                    return;
-            }
+            this.museumComponent = comp.museum;
+            this.isReady = true;
         }
     }
 </script>
 
 <template>
-    <div class="container">
+    <Welcome v-if="!isReady" :start="!isReady" />
+    <div v-else class="container">
         <Header type="user" :isMap="false" />
 
         <div class="content">
@@ -52,7 +53,7 @@
             <!-- map -->
             <div class="map">
                 <!-- import map here -->
-                <component :is="selectedMuseum" />
+                <component :is="museumComponent" />
             </div>
 
             <traffic-code />
@@ -84,6 +85,7 @@
 
         display: flex;
         justify-content: center;
+        overflow: auto
     }
 
     /* CSS STYLING FOR RESPONSIVENESS */

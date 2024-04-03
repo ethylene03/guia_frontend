@@ -1,10 +1,10 @@
 import { useModal } from "vue-final-modal";
 import { expressGET, loginGET } from "./api";
 import Toast from "../components/common/Toast.vue";
-import { getMuseumId, refreshPage } from "../components/common/common";
+import { errorToast, getMuseumId, refreshPage } from "../components/common/common";
 
 export const getAllMuseum = async () => {
-    const AllMuseums = await loginGET('/museum/get');
+    const AllMuseums = await expressGET('/museum/get');
     // console.log(AllMuseums);
 
     if(!AllMuseums.error) {
@@ -31,16 +31,6 @@ export const getTraffic = async () => {
     if(traffic.status < 400)
         return traffic.data.traffic;
     else {
-        const {open, close} = useModal({
-            component: Toast,
-            attrs: {
-                type: 'error',
-                message: traffic.response.data.detail,
-                subtext: 'Please try again later.'
-            }
-        })
-
-        open();
-        setTimeout(() => refreshPage(), 1000);
+        errorToast(traffic.response.data.detail);
     }
 }
