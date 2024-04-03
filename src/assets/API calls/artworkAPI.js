@@ -18,7 +18,14 @@ export const getAllArtworks = async (type) => {
             artwork.img = art.image_thumbnail;
             artwork.title = art.title;
             artwork.artist = art.artist_name;
-            artwork.year = moment(art.date_published).format('YYYY');
+
+            // date published
+            if(art.date_published.includes('-')) {
+                let parts = art.date_published.split('-');
+                let date = new Date(parts[1], parts[0] - 1);
+                artwork.year = moment(date).format('YYYY');
+            } else
+                artwork.year = moment(new Date(art.date_published)).format('YYYY');
 
             return artwork;
         })
