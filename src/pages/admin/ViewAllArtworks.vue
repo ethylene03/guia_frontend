@@ -38,7 +38,6 @@
             this.pageLoad = true;
 
             this.artworks = await getAllArtworks();
-            console.log(this.artworks);
 
             this.pageLoad = false;
         },
