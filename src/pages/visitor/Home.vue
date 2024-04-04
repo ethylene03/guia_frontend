@@ -74,7 +74,7 @@ import Welcome from '@/assets/components/common/Welcome.vue';
             <img class="collab" v-if="isBigScreen" src="../../assets/images/collab.svg" alt="x" />
 
             <!-- musuem logo (change for integration) -->
-            <img class="museum" :src="'/src/assets/images/' + museum_name.toLowerCase() + '.png'" alt="museum" />
+            <img class="museum" :src="'/logo/' + museum_name.toLowerCase() + '.png'" alt="museum" />
         </div>
 
         <text>Are you in<br/>{{ museum_name }}?</text>
