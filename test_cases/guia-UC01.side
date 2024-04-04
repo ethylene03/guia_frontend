@@ -1,0 +1,151 @@
+{
+  "id": "72977743-2356-4310-b8f8-9683b5f57e78",
+  "version": "2.0",
+  "name": "guia-UC01",
+  "url": "https://guia.kbytes.live/scan",
+  "tests": [{
+    "id": "f591ad3d-626d-4fba-bc5f-c2fddb7a5037",
+    "name": "UC01-01",
+    "commands": [{
+      "id": "28a2c6ef-f8d6-4ce2-8af1-2eb4576ec547",
+      "comment": "",
+      "command": "open",
+      "target": "https://guia.kbytes.live/scan",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d5e86df0-bb78-4d24-8665-9869b34c56ff",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1296x688",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3fb45fc8-792a-41dc-a280-1f8f4ed4afbe",
+      "comment": "",
+      "command": "click",
+      "target": "css=.map-outline-icon path",
+      "targets": [
+        ["css=.map-outline-icon path", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "4f2186c8-2743-402e-9c03-b27d8370f034",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/div/div/text",
+      "targets": [
+        ["css=.yellow text:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div/div/text", "xpath:idRelative"],
+        ["xpath=//div/div/div/div/text", "xpath:position"],
+        ["xpath=//text[contains(.,'Lihangin')]", "xpath:innerText"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "94fc31ac-9522-418a-9c54-86302b21eefd",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/div/div/text[2]",
+      "targets": [
+        ["css=.yellow text:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div/div/text[2]", "xpath:idRelative"],
+        ["xpath=//text[2]", "xpath:position"],
+        ["xpath=//text[contains(.,'0/24')]", "xpath:innerText"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "601b6085-5289-4ebb-b775-add5e347ac48",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.traffic-code",
+      "targets": [
+        ["css=.traffic-code", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]", "xpath:position"]
+      ],
+      "value": "30000"
+    }]
+  }, {
+    "id": "781629c8-7523-443a-a771-d1fe1b7ad24a",
+    "name": "UC01-02",
+    "commands": [{
+      "id": "da93b00d-42fa-46b9-9d62-06b7d6175479",
+      "comment": "",
+      "command": "open",
+      "target": "https://guia.kbytes.live/scan",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "bc22496c-aa29-483f-ad1d-83dd3963ade9",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1296x688",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "37b6bbaa-9df0-44c4-ba03-0bd610d66f80",
+      "comment": "",
+      "command": "click",
+      "target": "css=.map-outline-icon > .material-design-icon__svg",
+      "targets": [
+        ["css=.map-outline-icon > .material-design-icon__svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "b65f82b8-1b8c-42bb-8e70-4d44859874a4",
+      "comment": "",
+      "command": "click",
+      "target": "css=.chevron-left-icon > .material-design-icon__svg",
+      "targets": [
+        ["css=.chevron-left-icon > .material-design-icon__svg", "css:finder"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "93d182ee-1cba-4ce6-8911-0287645d374c",
+    "name": "UC01-03",
+    "commands": [{
+      "id": "1020b611-ad0d-4296-b904-1306e61dd6da",
+      "comment": "",
+      "command": "open",
+      "target": "https://guia.kbytes.live/scan",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "baea1936-de4b-45d0-b3fe-c50cab033d45",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1296x688",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9bd82e06-5628-4232-9e30-4ac518f39af4",
+      "comment": "",
+      "command": "click",
+      "target": "css=.map-outline-icon > .material-design-icon__svg",
+      "targets": [
+        ["css=.map-outline-icon > .material-design-icon__svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "0f876eed-8951-471c-be2e-90aa026ced38",
+      "comment": "",
+      "command": "click",
+      "target": "css=.camera-outline-icon path",
+      "targets": [
+        ["css=.camera-outline-icon path", "css:finder"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "38fad1a1-74e8-408f-87bd-1452cc84674c",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["https://guia.kbytes.live/scan"],
+  "plugins": []
+}
