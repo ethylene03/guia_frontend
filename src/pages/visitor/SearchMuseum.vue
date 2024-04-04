@@ -98,7 +98,7 @@
     
             <!-- confirm button (add API submit integration) -->
             <Loader v-if="isSubmitted" />
-            <button v-else @click="confirmMuseum" :disabled="isDisabled">Confirm</button>
+            <button id="confirm-button" v-else @click="confirmMuseum" :disabled="isDisabled">Confirm</button>
         </div>
 
         <!-- Footer KBytes -->
