@@ -91,7 +91,7 @@ export const getArtwork = async (id, type) => {
         })
 
         open();
-        setTimeout(() => this.$router.back(), 100);
+        setTimeout(() => redirect('back'), 1000);
     } else
         return art.data.artwork;
 }
