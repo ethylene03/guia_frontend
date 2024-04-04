@@ -10,9 +10,9 @@ export const refreshPage = () => {
 
 // redirect to path
 export const redirect = (path) => {
-    if(path === 'back')
-        return window.history.back();
-    else
+    if(path === 'back') {
+        window.location.href = document.referrer;
+    } else
         return window.location.href = path;
 }
 
