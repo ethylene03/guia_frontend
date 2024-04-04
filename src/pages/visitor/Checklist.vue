@@ -1,46 +1,66 @@
 <script>
-    import Header from '@/assets/components/common/Header.vue';
     import Footer from '@/assets/components/common/Footer.vue';
+    import Header from '@/assets/components/common/Header.vue';
+    import { getToken } from '@/assets/components/common/common';
+    import { getSection, getChecklist } from '@/assets/API calls/sectionAPI';
+    import { redirect } from '@/assets/components/common/common';
+    import NoContent from '@/assets/components/common/NoContent.vue';
+    import Welcome from '@/assets/components/common/Welcome.vue';
 
     // pseudo image
-    import artImage from '@/assets/images/artwork.png'
-
+    
     export default {
         components: {
             Header,
             Footer,
+            NoContent,
+            Welcome
         },
 
         data() {
             return {
-                artworks: [
-                    {id: 1, name: 'Lorem Ipsum1', year: '1967', artist: 'Ellenmarie'},
-                    {id: 2, name: 'Lorem Ipsum2', year: '1967', artist: 'Ellenmarie'},
-                    {id: 3, name: 'Lorem Ipsum3', year: '1967', artist: 'Ellenmarie'},
-                    {id: 4, name: 'Lorem Ipsum4', year: '1967', artist: 'Ellenmarie'},
-                    {id: 5, name: 'Lorem Ipsum5', year: '1967', artist: 'Ellenmarie'},
-                    {id: 6, name: 'Lorem Ipsum6', year: '1967', artist: 'Ellenmarie'},
-                    {id: 7, name: 'Lorem Ipsum7', year: '1967', artist: 'Ellenmarie'},
-                ]
+                artworks: [],
+                section_id: this.$route.params.section_id,
+                section_name: "",
+                isReady: false,
             }
+        },
+
+        async mounted() {
+            // get section name
+            const getSectionName = await getSection(this.section_id, "visitor");
+            this.section_name = getSectionName.section[0].section_name;
+
+            // get artworks
+            this.artworks = await getChecklist(this.section_id, getToken('visitor'));
+
+            this.isReady = true;
+        },
+        
+        methods: {
+            redirect,
         }
     }
 </script>
 
 <template>
-    <div class="container">
+    <Welcome v-if="!isReady" :start="!isReady" />
+    <div v-else class="container">
         <Header type="user" :isMap="false" />
 
         <div class="content">
             <!-- subheader -->
             <h1>Artwork Checklist</h1>
-            <h1>Section II</h1>
+            <h1>{{ section_name }}</h1>
 
             <!-- checklist -->
             <div class="checklist">
-                <div class="list" v-for="art in artworks">
-                    <input :id="art.id" type="checkbox" />
-                    <text style="font-weight: bold;">{{ art.name }} ({{ art.year }}) by {{ art.artist }}</text>
+                <no-content v-if="!artworks.length" class="no-art" />
+                <div class="list" v-else v-for="art in artworks" :key="art.art_id">
+                    <input :id="art.id" type="checkbox" v-model="art.is_visited" />
+                    <text class="details"  @click="redirect('/view/' + art.art_id)">
+                        {{ art.title }} ({{ art.date_published }}) by {{ art.artist_name }}
+                    </text>
                 </div>
             </div>
         </div>
@@ -68,12 +88,26 @@
         overflow-y: auto;
     }
 
+    .no-art {
+        margin-top: 10vh;
+    }
+
     .list {
         border-bottom: 1px solid rgba(0, 0, 0, 0.53);
         padding: 10px 0 10px 20px;
 
         display: flex;
         align-items: center;
+        cursor: default;
+    }
+
+    .details {
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    .list:hover {
+        background-color: var(--color-primary-darker);
     }
 
     .list input {

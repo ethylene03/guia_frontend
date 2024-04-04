@@ -1,21 +1,49 @@
 <script>
     import Header from '@/assets/components/common/Header.vue';
     import Footer from '@/assets/components/common/Footer.vue';
-
-    // pseudo map
-    import JoseJoya from '../map/JoseJoya.vue';
+    import TrafficCode from '@/assets/components/museum-map/TrafficCode.vue';
+    import { getMuseumId } from '@/assets/components/common/common';
+    import Welcome from '@/assets/components/common/Welcome.vue';
+    
+    // museum maps
+    import Joya from '../map/Joya.vue';
 
     export default {
         components: {
             Header,
             Footer,
-            JoseJoya,
+            Joya,
+            TrafficCode,
+            Welcome
+        },
+        data() {
+            return {
+                museums: [
+                    {museum_id: 1, museum: "joya"},
+                    {museum_id: 2, museum: "princess-ethel"},
+                    {museum_id: 3, museum: "jade-zahyen"},
+                    {museum_id: 4, museum: "jhoanna rica"},
+                    {museum_id: 5, museum: "pinky-grace"},
+                    {museum_id: 6, museum: "daughpane-museum"},
+                    {museum_id: 7, museum: "ellenmarie-gallery"},
+                ],
+                isReady: false,
+                museumComponent: "",
+            }
+        },
+
+        mounted() {
+            const comp = this.museums.find(museum => museum.museum_id === parseInt(getMuseumId("visitor")));
+
+            this.museumComponent = comp.museum;
+            this.isReady = true;
         }
     }
 </script>
 
 <template>
-    <div class="container">
+    <Welcome v-if="!isReady" :start="!isReady" />
+    <div v-else class="container">
         <Header type="user" :isMap="false" />
 
         <div class="content">
@@ -25,28 +53,10 @@
             <!-- map -->
             <div class="map">
                 <!-- import map here -->
-                <jose-joya />
+                <component :is="museumComponent" />
             </div>
 
-            <div class="traffic-code">
-                <text style="font-weight: bold;">Museum Traffic Code:</text>
-                <div class="code">
-                    <div class="code-red"></div>
-                    <text>More than 20 visitors</text>
-                </div>
-                <div class="code">
-                    <div class="code-orange"></div>
-                    <text>11 to 20 visitors</text>
-                </div>
-                <div class="code">
-                    <div class="code-yellow"></div>
-                    <text>6 to 10 visitors</text>
-                </div>
-                <div class="code">
-                    <div class="code-white"></div>
-                    <text>Less than 6 visitors</text>
-                </div>
-            </div>
+            <traffic-code />
         </div>
 
         <Footer />
@@ -75,46 +85,7 @@
 
         display: flex;
         justify-content: center;
-    }
-
-    .traffic-code {
-        text-align: left;
-    }
-
-    .code {
-        display: flex;
-        align-items: center;
-    }
-
-    .code-red,
-    .code-orange,
-    .code-yellow,
-    .code-white {
-        width: 15px;
-        height: 15px;
-        border: 2px solid;
-
-        margin-right: 15px;
-    }
-
-    .code-red {
-        background-color: var(--color-error);
-        border-color: var(--color-error);
-    }
-
-    .code-orange {
-        background-color: #D97738;
-        border-color: #D97738;
-    }
-
-    .code-yellow {
-        background-color: #E3CC62;
-        border-color: #E3CC62;
-    }
-
-    .code-white {
-        background-color: #F4EBBF;
-        border-color: #F4EBBF;
+        overflow: auto
     }
 
     /* CSS STYLING FOR RESPONSIVENESS */

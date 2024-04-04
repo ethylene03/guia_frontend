@@ -84,3 +84,17 @@ export const isExpired = () => {
     } else
         return false;
 }
+
+export const errorToast = (message) => {
+    const {open, close} = useModal({
+        component: ToastVue,
+        attrs: {
+            type: 'error',
+            message: message,
+            subtext: 'Please try again later.'
+        }
+    })
+
+    open();
+    setTimeout(() => redirect('back'), 1000);
+}
