@@ -1,0 +1,1461 @@
+{
+  "id": "7be984eb-fc49-41fa-a899-5cd4e851b8cf",
+  "version": "2.0",
+  "name": "guia-UC03",
+  "url": "https://guia.kbytes.live/scan",
+  "tests": [{
+    "id": "952fd382-d5a0-484e-82e3-6c650fee0076",
+    "name": "UD03-01",
+    "commands": [{
+      "id": "39e730b8-eea0-4a54-8f8c-d6332b72ec32",
+      "comment": "",
+      "command": "open",
+      "target": "https://guia.kbytes.live/scan",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "79fafcc4-7291-4d03-9844-67c41d5e3f3d",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "781x677",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f6186287-2e00-4cd7-94e1-337efd5217cf",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.shutter",
+      "targets": [
+        ["css=.shutter", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[3]/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "805ccaf0-b276-452e-a8e0-f8f1a2f2b846",
+      "comment": "",
+      "command": "click",
+      "target": "css=.map-outline-icon > .material-design-icon__svg",
+      "targets": [
+        ["css=.map-outline-icon > .material-design-icon__svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "e1c06267-9abe-43f9-adfe-e883d4b13801",
+      "comment": "",
+      "command": "verifyText",
+      "target": "xpath=//h1[contains(.,'Museum Map')]",
+      "targets": [
+        ["css=h1", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Museum Map')]", "xpath:innerText"]
+      ],
+      "value": "Museum Map"
+    }, {
+      "id": "cfb568e6-947b-402a-a890-3b1ea94d50d2",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/div",
+      "targets": [
+        ["css=.yellow", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div", "xpath:position"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "de937ddf-4d82-4dea-98f2-10c323d91cd1",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/div/div/text",
+      "targets": [
+        ["css=.yellow text:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div/div/text", "xpath:idRelative"],
+        ["xpath=//div/div/div/div/text", "xpath:position"],
+        ["xpath=//text[contains(.,'Lihangin')]", "xpath:innerText"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "221b5a7f-074d-4134-b818-630603b091b4",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/div/div/text[2]",
+      "targets": [
+        ["css=.yellow text:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div/div/text[2]", "xpath:idRelative"],
+        ["xpath=//text[2]", "xpath:position"],
+        ["xpath=//text[contains(.,'0/24')]", "xpath:innerText"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "f0020da5-4abd-4ab8-a512-b2b846b25186",
+      "comment": "",
+      "command": "storeXpathCount",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/div/div/text[2]",
+      "targets": [],
+      "value": "$traffic-number"
+    }, {
+      "id": "e869ecc4-8da9-4ebb-a19b-01338adaded8",
+      "comment": "",
+      "command": "click",
+      "target": "css=.liadlaw > .texts",
+      "targets": [
+        ["css=.liadlaw text:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div[2]/div/text[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div/text[2]", "xpath:position"],
+        ["xpath=//text[contains(.,'0/6')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "fe368388-93d5-46e2-bc7a-3a641f26b57f",
+      "comment": "",
+      "command": "waitForText",
+      "target": "xpath=//h1[contains(.,'Artwork Checklist')]",
+      "targets": [
+        ["css=h1:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Artwork Checklist')]", "xpath:innerText"]
+      ],
+      "value": "Artwork Checklist"
+    }, {
+      "id": "14f70ecd-7c70-4066-bafc-ba8357d01239",
+      "comment": "",
+      "command": "waitForText",
+      "target": "xpath=//h1[contains(.,'Liadlaw')]",
+      "targets": [
+        ["css=h1:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/h1[2]", "xpath:idRelative"],
+        ["xpath=//h1[2]", "xpath:position"],
+        ["xpath=//h1[contains(.,'Liadlaw')]", "xpath:innerText"]
+      ],
+      "value": "Liadlaw"
+    }, {
+      "id": "45122982-dc5a-4d96-b2ec-1aff34b4986d",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div",
+      "targets": [
+        ["css=.list:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4a3b1c34-94bb-4cb4-9db1-e20a48cda340",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "xpath=//input[@type='checkbox']",
+      "targets": [
+        ["css=.list:nth-child(1) > input", "css:finder"],
+        ["xpath=//input[@type='checkbox']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a4e91aa7-5e1c-4ef2-a0d7-279865aa98fb",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/text",
+      "targets": [
+        ["css=.list:nth-child(1) > .details", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/text", "xpath:idRelative"],
+        ["xpath=//text", "xpath:position"],
+        ["xpath=//text[contains(.,'Teenagers (2024) by Chemical Romance')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "0e8a11e3-5167-4774-b274-c908da30ae93",
+    "name": "UD03-03",
+    "commands": [{
+      "id": "63190002-4107-4c03-8425-2cb464b91bef",
+      "comment": "",
+      "command": "open",
+      "target": "https://guia.kbytes.live/scan",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "95557e85-af56-460f-a241-9d5f2da942b5",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "782x678",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a65ceee1-3ef3-410c-bc0c-2e7657d5903d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.map-outline-icon",
+      "targets": [
+        ["css=.map-outline-icon", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/span[2]", "xpath:idRelative"],
+        ["xpath=//span[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "953c2ac4-589d-4149-b553-75d0ce6fe937",
+      "comment": "",
+      "command": "verifyText",
+      "target": "xpath=//h1[contains(.,'Museum Map')]",
+      "targets": [
+        ["css=h1", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Museum Map')]", "xpath:innerText"]
+      ],
+      "value": "Museum Map"
+    }, {
+      "id": "4ec2bcf1-e386-46a1-a596-74c1b7c9d719",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/div",
+      "targets": [
+        ["css=.yellow", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div", "xpath:position"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "cdfa1ab6-bd1c-497f-b6b9-8ed8e3bcdcc7",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/div/div/text",
+      "targets": [
+        ["css=.yellow text:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div/div/text", "xpath:idRelative"],
+        ["xpath=//div/div/div/div/text", "xpath:position"],
+        ["xpath=//text[contains(.,'Lihangin')]", "xpath:innerText"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "92293909-797d-4dc6-97f7-6220693dc8d1",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/div/div/text[2]",
+      "targets": [
+        ["css=.yellow text:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div/div/text[2]", "xpath:idRelative"],
+        ["xpath=//text[2]", "xpath:position"],
+        ["xpath=//text[contains(.,'0/24')]", "xpath:innerText"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "fcefc3ed-ad3b-4b23-96dc-97c0445928b3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.liadlaw > .texts",
+      "targets": [
+        ["css=.liadlaw > .texts", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div[2]/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4f092cb2-e89c-452a-9af1-37ff7ab950eb",
+      "comment": "",
+      "command": "waitForText",
+      "target": "xpath=//h1[contains(.,'Artwork Checklist')]",
+      "targets": [
+        ["css=h1:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Artwork Checklist')]", "xpath:innerText"]
+      ],
+      "value": "Artwork Checklist"
+    }, {
+      "id": "dbf007da-45c9-4b19-950f-edfedeaf7ba8",
+      "comment": "",
+      "command": "click",
+      "target": "css=.chevron-left-icon > .material-design-icon__svg",
+      "targets": [
+        ["css=.chevron-left-icon > .material-design-icon__svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "0e0716fa-0655-4123-b6a0-14035710ba30",
+      "comment": "",
+      "command": "verifyText",
+      "target": "xpath=//h1[contains(.,'Museum Map')]",
+      "targets": [
+        ["css=h1", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Museum Map')]", "xpath:innerText"]
+      ],
+      "value": "Museum Map"
+    }]
+  }, {
+    "id": "3b3bae16-3f81-41c3-98d8-04d7ca904138",
+    "name": "UD03-02",
+    "commands": [{
+      "id": "bfec462d-9e47-4131-91d8-67583f3ceaf5",
+      "comment": "",
+      "command": "open",
+      "target": "https://guia.kbytes.live/scan",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f4175bf7-b991-4b8a-9907-b30e1db027fb",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "782x678",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d21ea619-3d10-4025-840c-6f865ce2210b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.map-outline-icon",
+      "targets": [
+        ["css=.map-outline-icon", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/span[2]", "xpath:idRelative"],
+        ["xpath=//span[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "92e7f5c3-a61d-47bb-a0de-90491c940088",
+      "comment": "",
+      "command": "verifyText",
+      "target": "xpath=//h1[contains(.,'Museum Map')]",
+      "targets": [
+        ["css=h1", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Museum Map')]", "xpath:innerText"]
+      ],
+      "value": "Museum Map"
+    }, {
+      "id": "d4ba4665-6ade-49b9-b323-ef67dcdf2ffe",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/div",
+      "targets": [
+        ["css=.yellow", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div", "xpath:position"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "8729617b-788c-4c50-92e3-09047d328991",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/div/div/text",
+      "targets": [
+        ["css=.yellow text:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div/div/text", "xpath:idRelative"],
+        ["xpath=//div/div/div/div/text", "xpath:position"],
+        ["xpath=//text[contains(.,'Lihangin')]", "xpath:innerText"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "1e960184-e6a5-4c89-b432-9141790f1af1",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/div/div/text[2]",
+      "targets": [
+        ["css=.yellow text:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div/div/text[2]", "xpath:idRelative"],
+        ["xpath=//text[2]", "xpath:position"],
+        ["xpath=//text[contains(.,'0/24')]", "xpath:innerText"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "9dc50558-8018-4180-b4fd-decb2153e1c9",
+      "comment": "",
+      "command": "click",
+      "target": "css=.liadlaw > .texts",
+      "targets": [
+        ["css=.liadlaw > .texts", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div[2]/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "53b65163-afc5-4929-9142-83640ed8fc87",
+      "comment": "",
+      "command": "waitForText",
+      "target": "xpath=//h1[contains(.,'Artwork Checklist')]",
+      "targets": [
+        ["css=h1:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Artwork Checklist')]", "xpath:innerText"]
+      ],
+      "value": "Artwork Checklist"
+    }, {
+      "id": "bbcd42df-a600-4711-b615-eb45dbd0163f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.camera-outline-icon > .material-design-icon__svg",
+      "targets": [
+        ["css=.camera-outline-icon > .material-design-icon__svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "4f4685b2-cb59-4e07-8cd5-5e7f8bf27ca2",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.shutter",
+      "targets": [
+        ["css=.shutter", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[3]/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"]
+      ],
+      "value": "30000"
+    }]
+  }, {
+    "id": "e73f43ca-e898-4c4c-9027-f5d49f93dfd4",
+    "name": "UD03-04",
+    "commands": [{
+      "id": "58661bfb-e926-4ddf-96be-8fc5d9796bba",
+      "comment": "",
+      "command": "open",
+      "target": "https://guia.kbytes.live/scan",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4d410749-b0cd-4779-bce9-185617e78c7a",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "782x678",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "adce8a8a-bb75-4a54-88c7-aae276988673",
+      "comment": "",
+      "command": "click",
+      "target": "css=.map-outline-icon",
+      "targets": [
+        ["css=.map-outline-icon", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/span[2]", "xpath:idRelative"],
+        ["xpath=//span[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "18b28505-2023-411e-937e-0fbab8a9ba52",
+      "comment": "",
+      "command": "verifyText",
+      "target": "xpath=//h1[contains(.,'Museum Map')]",
+      "targets": [
+        ["css=h1", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Museum Map')]", "xpath:innerText"]
+      ],
+      "value": "Museum Map"
+    }, {
+      "id": "f48b7a79-c520-4969-a2ea-e8bd89ece05b",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/div",
+      "targets": [
+        ["css=.yellow", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div", "xpath:position"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "8ea4cb75-48ee-4386-9df4-1f3a054eaa33",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/div/div/text",
+      "targets": [
+        ["css=.yellow text:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div/div/text", "xpath:idRelative"],
+        ["xpath=//div/div/div/div/text", "xpath:position"],
+        ["xpath=//text[contains(.,'Lihangin')]", "xpath:innerText"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "e0164c05-84a6-419b-a97c-e9d8535de6ca",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/div/div/text[2]",
+      "targets": [
+        ["css=.yellow text:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div/div/text[2]", "xpath:idRelative"],
+        ["xpath=//text[2]", "xpath:position"],
+        ["xpath=//text[contains(.,'0/24')]", "xpath:innerText"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "ca872881-8aca-41f9-b68e-41b0bd32082f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.liadlaw > .texts",
+      "targets": [
+        ["css=.liadlaw > .texts", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div[2]/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6e4be383-d56f-4206-a576-c65e41ae199d",
+      "comment": "",
+      "command": "waitForText",
+      "target": "xpath=//h1[contains(.,'Artwork Checklist')]",
+      "targets": [
+        ["css=h1:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Artwork Checklist')]", "xpath:innerText"]
+      ],
+      "value": "Artwork Checklist"
+    }, {
+      "id": "4899ff6a-7d8d-44be-a394-1a225b4160fd",
+      "comment": "",
+      "command": "waitForText",
+      "target": "xpath=//h1[contains(.,'Liadlaw')]",
+      "targets": [
+        ["css=h1:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/h1[2]", "xpath:idRelative"],
+        ["xpath=//h1[2]", "xpath:position"],
+        ["xpath=//h1[contains(.,'Liadlaw')]", "xpath:innerText"]
+      ],
+      "value": "Liadlaw"
+    }, {
+      "id": "3b70723f-4859-46ce-ad71-70a4938e2aa2",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div",
+      "targets": [
+        ["css=.list:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "03848232-a6ed-4751-800c-4d0d688a99c9",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "xpath=//input[@type='checkbox']",
+      "targets": [
+        ["css=.list:nth-child(1) > input", "css:finder"],
+        ["xpath=//input[@type='checkbox']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3b0a3ee9-0200-4c7b-9f8e-56cae6a911c4",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/text",
+      "targets": [
+        ["css=.list:nth-child(1) > .details", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/text", "xpath:idRelative"],
+        ["xpath=//text", "xpath:position"],
+        ["xpath=//text[contains(.,'Teenagers (2024) by Chemical Romance')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4302d107-3472-4f39-a5ae-b5ad60bdda56",
+      "comment": "",
+      "command": "click",
+      "target": "css=.list:nth-child(1) > .details",
+      "targets": [
+        ["css=.list:nth-child(1) > .details", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/text", "xpath:idRelative"],
+        ["xpath=//text", "xpath:position"],
+        ["xpath=//text[contains(.,'Teenagers (2024) by Chemical Romance')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1c06ba3a-60fe-4315-8a23-1422add9df60",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.content > img",
+      "targets": [
+        ["css=.content > img", "css:finder"],
+        ["xpath=//img[@alt='Welcome to the Black Parade']", "xpath:img"],
+        ["xpath=//div[@id='app']/div/div[2]/img", "xpath:idRelative"],
+        ["xpath=//div[2]/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "81bffdae-fdb8-42e1-b0af-5f94d25fdd77",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.subtitle",
+      "targets": [
+        ["css=.subtitle", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b12a5850-019e-43f3-870a-bced34563ddf",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.details",
+      "targets": [
+        ["css=.details", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9c7231f9-c2e5-4e44-968b-246f1b5216ef",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.description",
+      "targets": [
+        ["css=.description", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[3]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4d5955a2-f88f-4532-97c3-e23073577ae8",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.scan-again",
+      "targets": [
+        ["css=.scan-again", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Scan Again')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d2053215-20bf-416c-af2e-18d2af38dc1d",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.map-outline-icon",
+      "targets": [
+        ["css=.map-outline-icon", "css:finder"],
+        ["xpath=//div[@id='app']/div/div/span[2]", "xpath:idRelative"],
+        ["xpath=//span[2]", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "92cc1610-7acf-4c85-85c1-09cdc1208026",
+    "name": "UD03-05",
+    "commands": [{
+      "id": "9acfbb86-1af8-4d33-809c-3fc01f8daa15",
+      "comment": "",
+      "command": "open",
+      "target": "https://guia.kbytes.live/scan",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ae8389b9-d1bf-40c3-b171-743384cefcea",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "782x678",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b81ceabc-547b-41a6-b947-bc60dbfdc5d6",
+      "comment": "",
+      "command": "click",
+      "target": "css=.map-outline-icon",
+      "targets": [
+        ["css=.map-outline-icon", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/span[2]", "xpath:idRelative"],
+        ["xpath=//span[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "78e5ba8d-7839-474c-b197-8ea41ce7312a",
+      "comment": "",
+      "command": "verifyText",
+      "target": "xpath=//h1[contains(.,'Museum Map')]",
+      "targets": [
+        ["css=h1", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Museum Map')]", "xpath:innerText"]
+      ],
+      "value": "Museum Map"
+    }, {
+      "id": "e6a4d57b-e23a-4644-a302-e638fa50a2dc",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/div",
+      "targets": [
+        ["css=.yellow", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div", "xpath:position"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "f3d556c9-073e-4aba-877e-11830b55f82b",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/div/div/text",
+      "targets": [
+        ["css=.yellow text:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div/div/text", "xpath:idRelative"],
+        ["xpath=//div/div/div/div/text", "xpath:position"],
+        ["xpath=//text[contains(.,'Lihangin')]", "xpath:innerText"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "d9e109e3-5a28-4de6-9037-bf41e06926de",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/div/div/text[2]",
+      "targets": [
+        ["css=.yellow text:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div/div/text[2]", "xpath:idRelative"],
+        ["xpath=//text[2]", "xpath:position"],
+        ["xpath=//text[contains(.,'0/24')]", "xpath:innerText"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "a451d6cc-b5ab-4780-a76a-85d5d511df9b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.liadlaw > .texts",
+      "targets": [
+        ["css=.liadlaw > .texts", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div[2]/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "696b9e1d-513c-41a9-a1ac-e1c70f11d707",
+      "comment": "",
+      "command": "waitForText",
+      "target": "xpath=//h1[contains(.,'Artwork Checklist')]",
+      "targets": [
+        ["css=h1:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Artwork Checklist')]", "xpath:innerText"]
+      ],
+      "value": "Artwork Checklist"
+    }, {
+      "id": "aed07c17-c259-45af-ac85-4830a1cda464",
+      "comment": "",
+      "command": "waitForText",
+      "target": "xpath=//h1[contains(.,'Liadlaw')]",
+      "targets": [
+        ["css=h1:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/h1[2]", "xpath:idRelative"],
+        ["xpath=//h1[2]", "xpath:position"],
+        ["xpath=//h1[contains(.,'Liadlaw')]", "xpath:innerText"]
+      ],
+      "value": "Liadlaw"
+    }, {
+      "id": "c04a2aa8-722c-4d2a-aeb2-574b62c9f275",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div",
+      "targets": [
+        ["css=.list:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1643a2ce-cd3b-4770-8e63-1a1e0a8e7333",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "xpath=//input[@type='checkbox']",
+      "targets": [
+        ["css=.list:nth-child(1) > input", "css:finder"],
+        ["xpath=//input[@type='checkbox']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fbeb7828-2074-4e5f-a935-75a085ac7709",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/text",
+      "targets": [
+        ["css=.list:nth-child(1) > .details", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/text", "xpath:idRelative"],
+        ["xpath=//text", "xpath:position"],
+        ["xpath=//text[contains(.,'Teenagers (2024) by Chemical Romance')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "be5c5c90-2b17-4e9d-b101-8595fa3e46ad",
+      "comment": "",
+      "command": "click",
+      "target": "css=.list:nth-child(3) > .details",
+      "targets": [
+        ["css=.list:nth-child(1) > .details", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/text", "xpath:idRelative"],
+        ["xpath=//text", "xpath:position"],
+        ["xpath=//text[contains(.,'Teenagers (2024) by Chemical Romance')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7c094fcc-dbb3-44be-88b5-ae911156a89f",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.content > img",
+      "targets": [
+        ["css=.content > img", "css:finder"],
+        ["xpath=//img[@alt='Welcome to the Black Parade']", "xpath:img"],
+        ["xpath=//div[@id='app']/div/div[2]/img", "xpath:idRelative"],
+        ["xpath=//div[2]/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a5725dbc-df75-473d-9dc6-b6c72a474821",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.subtitle",
+      "targets": [
+        ["css=.subtitle", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "dfaed77c-fee9-4e1e-bdc3-f930520c761b",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.details",
+      "targets": [
+        ["css=.details", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5e014875-18c0-4a2a-90f3-25e51c8f2325",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.description",
+      "targets": [
+        ["css=.description", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[3]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2b60f8f0-dcb0-4bd9-a854-7b2f65eb7330",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.scan-again",
+      "targets": [
+        ["css=.scan-again", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Scan Again')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d6ea1c5f-e3e4-4648-8911-03f0d3d8ba28",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.map-outline-icon",
+      "targets": [
+        ["css=.map-outline-icon", "css:finder"],
+        ["xpath=//div[@id='app']/div/div/span[2]", "xpath:idRelative"],
+        ["xpath=//span[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b434395f-a8ac-4a6a-9710-a2d01c0a8531",
+      "comment": "",
+      "command": "click",
+      "target": "css=.map-outline-icon",
+      "targets": [
+        ["css=.map-outline-icon", "css:finder"],
+        ["xpath=//div[@id='app']/div/div/span[2]", "xpath:idRelative"],
+        ["xpath=//span[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fb1a8ed4-f995-47de-a5e4-b43a1c4ee2ec",
+      "comment": "",
+      "command": "verifyText",
+      "target": "xpath=//h1[contains(.,'Museum Map')]",
+      "targets": [
+        ["css=h1", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Museum Map')]", "xpath:innerText"]
+      ],
+      "value": "Museum Map"
+    }]
+  }, {
+    "id": "f6218716-3ed8-4e35-baf9-db27d53ac1e0",
+    "name": "UD03-06",
+    "commands": [{
+      "id": "54dc8191-2641-4ea8-8297-927d1b3eb179",
+      "comment": "",
+      "command": "open",
+      "target": "https://guia.kbytes.live/scan",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e71eccb3-285d-4e23-a17e-f7e01b7633bc",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "782x678",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d41b620f-d31a-4a2b-b680-fc04250cd5d0",
+      "comment": "",
+      "command": "click",
+      "target": "css=.map-outline-icon",
+      "targets": [
+        ["css=.map-outline-icon", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/span[2]", "xpath:idRelative"],
+        ["xpath=//span[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b8923b48-f0e3-4cce-9d8e-c3ee5d84ae8c",
+      "comment": "",
+      "command": "verifyText",
+      "target": "xpath=//h1[contains(.,'Museum Map')]",
+      "targets": [
+        ["css=h1", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Museum Map')]", "xpath:innerText"]
+      ],
+      "value": "Museum Map"
+    }, {
+      "id": "4f91725a-0787-46d8-a2d4-5dc26afbaabc",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/div",
+      "targets": [
+        ["css=.yellow", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div", "xpath:position"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "7dcaf133-f6ad-47e2-b882-c4e01d6e6267",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/div/div/text",
+      "targets": [
+        ["css=.yellow text:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div/div/text", "xpath:idRelative"],
+        ["xpath=//div/div/div/div/text", "xpath:position"],
+        ["xpath=//text[contains(.,'Lihangin')]", "xpath:innerText"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "663fd81e-eb5f-4905-bd8a-30fbc7730959",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/div/div/text[2]",
+      "targets": [
+        ["css=.yellow text:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div/div/text[2]", "xpath:idRelative"],
+        ["xpath=//text[2]", "xpath:position"],
+        ["xpath=//text[contains(.,'0/24')]", "xpath:innerText"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "8e269f2d-6f77-4702-929c-330afd6a5918",
+      "comment": "",
+      "command": "click",
+      "target": "css=.liadlaw > .texts",
+      "targets": [
+        ["css=.liadlaw > .texts", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div[2]/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "27067aba-159c-47be-bf45-ba329c62ee09",
+      "comment": "",
+      "command": "waitForText",
+      "target": "xpath=//h1[contains(.,'Artwork Checklist')]",
+      "targets": [
+        ["css=h1:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Artwork Checklist')]", "xpath:innerText"]
+      ],
+      "value": "Artwork Checklist"
+    }, {
+      "id": "7ad1d4de-8689-40bd-a3c2-59cfd249bd49",
+      "comment": "",
+      "command": "waitForText",
+      "target": "xpath=//h1[contains(.,'Liadlaw')]",
+      "targets": [
+        ["css=h1:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/h1[2]", "xpath:idRelative"],
+        ["xpath=//h1[2]", "xpath:position"],
+        ["xpath=//h1[contains(.,'Liadlaw')]", "xpath:innerText"]
+      ],
+      "value": "Liadlaw"
+    }, {
+      "id": "0ab679e5-02bd-47a0-aa4f-02682f4cc06e",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div",
+      "targets": [
+        ["css=.list:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "559e5367-613f-4afb-9850-6f1106c13b33",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "xpath=//input[@type='checkbox']",
+      "targets": [
+        ["css=.list:nth-child(1) > input", "css:finder"],
+        ["xpath=//input[@type='checkbox']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "29a937d0-ded4-4bfb-9343-e2415879994a",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/text",
+      "targets": [
+        ["css=.list:nth-child(1) > .details", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/text", "xpath:idRelative"],
+        ["xpath=//text", "xpath:position"],
+        ["xpath=//text[contains(.,'Teenagers (2024) by Chemical Romance')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3fd546e9-3a49-4754-9bff-f88455b12862",
+      "comment": "",
+      "command": "click",
+      "target": "css=.list:nth-child(3) > .details",
+      "targets": [
+        ["css=.list:nth-child(1) > .details", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/text", "xpath:idRelative"],
+        ["xpath=//text", "xpath:position"],
+        ["xpath=//text[contains(.,'Teenagers (2024) by Chemical Romance')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4631d220-cb2c-4267-be63-ed994faa516c",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.content > img",
+      "targets": [
+        ["css=.content > img", "css:finder"],
+        ["xpath=//img[@alt='Welcome to the Black Parade']", "xpath:img"],
+        ["xpath=//div[@id='app']/div/div[2]/img", "xpath:idRelative"],
+        ["xpath=//div[2]/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "394c2a9b-94ad-454f-823f-877e969bd7a2",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.subtitle",
+      "targets": [
+        ["css=.subtitle", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e763f02a-54f2-4e34-91bd-edff82d9b327",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.details",
+      "targets": [
+        ["css=.details", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f80c36bc-2c0f-4877-8a30-86759c7b77e1",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.description",
+      "targets": [
+        ["css=.description", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[3]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "601d4cb1-17e4-463f-b783-845e9081b7d4",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.scan-again",
+      "targets": [
+        ["css=.scan-again", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Scan Again')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2758dd24-88ef-48e2-a695-6185b6496430",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.map-outline-icon",
+      "targets": [
+        ["css=.map-outline-icon", "css:finder"],
+        ["xpath=//div[@id='app']/div/div/span[2]", "xpath:idRelative"],
+        ["xpath=//span[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bdb9aa8d-c6b0-4c90-ab3e-7284ea2f3407",
+      "comment": "",
+      "command": "click",
+      "target": "css=.scan-again",
+      "targets": [
+        ["css=.map-outline-icon", "css:finder"],
+        ["xpath=//div[@id='app']/div/div/span[2]", "xpath:idRelative"],
+        ["xpath=//span[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "365cf4df-365a-4726-bc56-b13087881709",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.shutter",
+      "targets": [
+        ["css=.shutter", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[3]/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "821a1641-fdbd-4d00-99ab-bc5eea00c27a",
+      "comment": "",
+      "command": "verifyText",
+      "target": "xpath=//h2[contains(.,'Please point the camera to the artwork')]",
+      "targets": [
+        ["css=h2", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/h2", "xpath:idRelative"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Please point the camera to the artwork')]", "xpath:innerText"]
+      ],
+      "value": "Please point the camera to the artwork"
+    }]
+  }, {
+    "id": "09bba5b8-310f-4533-bbb0-5699bfd67b8b",
+    "name": "UD03-07",
+    "commands": [{
+      "id": "0d0a3088-e163-43ce-96e8-20db51b2b1ee",
+      "comment": "",
+      "command": "open",
+      "target": "https://guia.kbytes.live/scan",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "25dd0f18-0a42-42ba-917c-32ecb62b08b3",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "782x678",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e6cf73db-e320-4dd1-b3eb-2f1166c24795",
+      "comment": "",
+      "command": "click",
+      "target": "css=.map-outline-icon",
+      "targets": [
+        ["css=.map-outline-icon", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/span[2]", "xpath:idRelative"],
+        ["xpath=//span[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "17b01a9a-48db-4be9-b040-a643788f057e",
+      "comment": "",
+      "command": "verifyText",
+      "target": "xpath=//h1[contains(.,'Museum Map')]",
+      "targets": [
+        ["css=h1", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Museum Map')]", "xpath:innerText"]
+      ],
+      "value": "Museum Map"
+    }, {
+      "id": "abfa542a-a71f-4cbe-ad86-a1e41f5302a1",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/div",
+      "targets": [
+        ["css=.yellow", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div", "xpath:position"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "0bc208dd-faf6-4ee7-bcd6-bc55b7a9b8da",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/div/div/text",
+      "targets": [
+        ["css=.yellow text:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div/div/text", "xpath:idRelative"],
+        ["xpath=//div/div/div/div/text", "xpath:position"],
+        ["xpath=//text[contains(.,'Lihangin')]", "xpath:innerText"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "1d3132b0-6323-460d-a54b-3035e7afbada",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/div/div/text[2]",
+      "targets": [
+        ["css=.yellow text:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div/div/text[2]", "xpath:idRelative"],
+        ["xpath=//text[2]", "xpath:position"],
+        ["xpath=//text[contains(.,'0/24')]", "xpath:innerText"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "0de2eb0d-b5fa-4946-8a9a-955f6f029973",
+      "comment": "",
+      "command": "click",
+      "target": "css=.liadlaw > .texts",
+      "targets": [
+        ["css=.liadlaw > .texts", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div[2]/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b59c1659-1efd-40f5-9183-b2cc0ed513a5",
+      "comment": "",
+      "command": "waitForText",
+      "target": "xpath=//h1[contains(.,'Artwork Checklist')]",
+      "targets": [
+        ["css=h1:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Artwork Checklist')]", "xpath:innerText"]
+      ],
+      "value": "Artwork Checklist"
+    }, {
+      "id": "35d8988b-bb84-45b4-92ca-acc53f359f0c",
+      "comment": "",
+      "command": "waitForText",
+      "target": "xpath=//h1[contains(.,'Liadlaw')]",
+      "targets": [
+        ["css=h1:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/h1[2]", "xpath:idRelative"],
+        ["xpath=//h1[2]", "xpath:position"],
+        ["xpath=//h1[contains(.,'Liadlaw')]", "xpath:innerText"]
+      ],
+      "value": "Liadlaw"
+    }, {
+      "id": "f9f8ba44-1393-49f2-b9a9-21b80024dee8",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div",
+      "targets": [
+        ["css=.list:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c576c823-a580-4e72-b39b-3559054c875f",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "xpath=//input[@type='checkbox']",
+      "targets": [
+        ["css=.list:nth-child(1) > input", "css:finder"],
+        ["xpath=//input[@type='checkbox']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "68c7e4f1-ccc7-49c3-b45b-00bfffa7c9b6",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/text",
+      "targets": [
+        ["css=.list:nth-child(1) > .details", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/text", "xpath:idRelative"],
+        ["xpath=//text", "xpath:position"],
+        ["xpath=//text[contains(.,'Teenagers (2024) by Chemical Romance')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "112b63e8-2a1c-4516-8d81-6fc25490e68c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.list:nth-child(3) > .details",
+      "targets": [
+        ["css=.list:nth-child(1) > .details", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/text", "xpath:idRelative"],
+        ["xpath=//text", "xpath:position"],
+        ["xpath=//text[contains(.,'Teenagers (2024) by Chemical Romance')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "59c3dc99-bd8a-4114-b3b7-c6bf0f338f46",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.content > img",
+      "targets": [
+        ["css=.content > img", "css:finder"],
+        ["xpath=//img[@alt='Welcome to the Black Parade']", "xpath:img"],
+        ["xpath=//div[@id='app']/div/div[2]/img", "xpath:idRelative"],
+        ["xpath=//div[2]/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "53c42930-1042-4c7c-a1c5-cd4004307d56",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.subtitle",
+      "targets": [
+        ["css=.subtitle", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ece6b4b7-49d4-442c-820d-8e2adb7890db",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.details",
+      "targets": [
+        ["css=.details", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "dcdb4838-7202-4b63-8628-874bcba04f2e",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.description",
+      "targets": [
+        ["css=.description", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[3]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "288ed459-4d48-471a-8681-564483c78432",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.scan-again",
+      "targets": [
+        ["css=.scan-again", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Scan Again')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0803f3f1-3d03-4dbb-9f70-a0f1e8a64c1b",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.map-outline-icon",
+      "targets": [
+        ["css=.map-outline-icon", "css:finder"],
+        ["xpath=//div[@id='app']/div/div/span[2]", "xpath:idRelative"],
+        ["xpath=//span[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bd0518b7-92d8-488c-bf34-892e0151684f",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.chevron-left-icon",
+      "targets": [
+        ["css=.chevron-left-icon", "css:finder"],
+        ["xpath=//div[@id='app']/div/div/span", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9956a0d2-073e-4db6-ad79-82c2b18e6aa6",
+      "comment": "",
+      "command": "click",
+      "target": "css=.chevron-left-icon",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "60dcc15d-95ea-47af-9626-f788aeedfe18",
+      "comment": "",
+      "command": "waitForText",
+      "target": "xpath=//h1[contains(.,'Artwork Checklist')]",
+      "targets": [
+        ["css=h1:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Artwork Checklist')]", "xpath:innerText"]
+      ],
+      "value": "Artwork Checklist"
+    }, {
+      "id": "97127a88-b8e2-4512-9c97-d7d7e31db999",
+      "comment": "",
+      "command": "waitForText",
+      "target": "xpath=//h1[contains(.,'Liadlaw')]",
+      "targets": [
+        ["css=h1:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/h1[2]", "xpath:idRelative"],
+        ["xpath=//h1[2]", "xpath:position"],
+        ["xpath=//h1[contains(.,'Liadlaw')]", "xpath:innerText"]
+      ],
+      "value": "Liadlaw"
+    }, {
+      "id": "d69075e4-91b0-4cf9-b7d4-4ee4b14b6c8a",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div",
+      "targets": [
+        ["css=.list:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e34ad6ec-fac9-4780-a99e-4d38ba8e14b8",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "xpath=//input[@type='checkbox']",
+      "targets": [
+        ["css=.list:nth-child(1) > input", "css:finder"],
+        ["xpath=//input[@type='checkbox']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c7c42f65-b686-4c45-9be0-580e6d696adb",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/text",
+      "targets": [
+        ["css=.list:nth-child(1) > .details", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/text", "xpath:idRelative"],
+        ["xpath=//text", "xpath:position"],
+        ["xpath=//text[contains(.,'Teenagers (2024) by Chemical Romance')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "491bd377-66c1-412d-98d4-09e463b38538",
+    "name": "UC03",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["952fd382-d5a0-484e-82e3-6c650fee0076", "3b3bae16-3f81-41c3-98d8-04d7ca904138", "0e8a11e3-5167-4774-b274-c908da30ae93", "e73f43ca-e898-4c4c-9027-f5d49f93dfd4", "92cc1610-7acf-4c85-85c1-09cdc1208026"]
+  }],
+  "urls": ["https://guia.kbytes.live/scan"],
+  "plugins": []
+}
