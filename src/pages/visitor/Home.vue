@@ -1,9 +1,20 @@
 <script>
+    import { getMuseum } from '@/assets/API calls/museumAPI';
+import { generateToken } from '@/assets/API calls/visitorAPI';
+import Welcome from '@/assets/components/common/Welcome.vue';
+
     export default {
+        components: {
+            Welcome,
+        },
+
         data() {
             // the screen width variable for responsiveness
             return {
                 screenWidth: window.innerWidth,
+                museum_id: this.$route.params.id,
+                museum_name: '',
+                isReady: false,
             };
         },
 
@@ -15,8 +26,15 @@
         },
 
         // window listener to fetch screen size
-        mounted() {
+        async mounted() {
             window.addEventListener('resize', this.updateScreenSize);
+
+            // fetch museum id
+            const mus = await getMuseum(this.museum_id);
+            // console.log(mus)
+
+            this.museum_name = mus[0].museum_name;
+            this.isReady = true;
         },
         
         methods: {
@@ -29,6 +47,12 @@
             updateScreenSize() {
                 this.screenWidth = window.innerWidth;
             },
+
+            // generate token
+            async confirmMuseum() {
+                // generate visitor token
+                await generateToken(this.museum_id);
+            }
         },
 
         // delete the variable after use
@@ -39,7 +63,8 @@
 </script>
 
 <template>
-    <div class="container">
+    <Welcome v-if="!isReady" :start="!isReady" :welcome="true" />
+    <div v-else class="container">
         <!-- top border curly thing -->
         <img class="border" src='../../assets/images/top-border.svg' alt="border" />
 
@@ -49,14 +74,14 @@
             <img class="collab" v-if="isBigScreen" src="../../assets/images/collab.svg" alt="x" />
 
             <!-- musuem logo (change for integration) -->
-            <img class="museum" src='../../assets/images/museum.png' alt="museum" />
+            <img class="museum" :src="'/src/assets/images/' + museum_name.toLowerCase() + '.png'" alt="museum" />
         </div>
 
-        <text>Are you in<br/>Jose T. Joya Gallery?</text>
+        <text>Are you in<br/>{{ museum_name }}?</text>
 
         <!-- button choices (Y/N) -->
         <div class="btn-cont">
-            <button @click="redirect('/scan')">Yes</button>
+            <button @click="confirmMuseum">Yes</button>
             <button @click="redirect('/search-museum')">No</button>
         </div>
 

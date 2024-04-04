@@ -1,13 +1,12 @@
 <script>
-    import Header from '@/assets/components/common/Header.vue';
     import Footer from '@/assets/components/common/Footer.vue';
+    import Header from '@/assets/components/common/Header.vue';
     import CameraIcon from 'icons/Camera.vue';
 
     // pseudo image
-    import artImage from '@/assets/images/artwork.png'
     import { getArtwork } from '@/assets/API calls/artworkAPI';
-    import moment from 'moment';
     import { redirect } from '@/assets/components/common/common';
+    import moment from 'moment';
 
     export default {
         components: {

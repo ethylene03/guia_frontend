@@ -3,11 +3,11 @@ import { expressGET, loginGET } from "./api";
 import Toast from "../components/common/Toast.vue";
 import { errorToast, getMuseumId, refreshPage } from "../components/common/common";
 
-export const getAllMuseum = async () => {
-    const AllMuseums = await expressGET('/museum/get');
+export const getMuseum = async (id) => {
+    const AllMuseums = await expressGET('/museum/get', {museum_id: id ? id : ''});
     // console.log(AllMuseums);
 
-    if(!AllMuseums.error) {
+    if(AllMuseums.status < 400) {
         return AllMuseums.data.museum;
     } else {
         const {open, close} = useModal({
