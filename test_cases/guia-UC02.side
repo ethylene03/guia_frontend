@@ -17,7 +17,7 @@
       "id": "3564056f-b523-421e-8217-e3d7c3d0217f",
       "comment": "",
       "command": "setWindowSize",
-      "target": "1296x688",
+      "target": "430x932",
       "targets": [],
       "value": ""
     }, {
@@ -66,7 +66,7 @@
   }],
   "suites": [{
     "id": "54f83866-767f-40b7-8634-856b03c7ab6e",
-    "name": "Default Suite",
+    "name": "UC02",
     "persistSession": false,
     "parallel": false,
     "timeout": 300,

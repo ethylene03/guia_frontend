@@ -17,7 +17,7 @@
       "id": "0c67d027-fa72-41da-9309-31a30d1257ed",
       "comment": "",
       "command": "setWindowSize",
-      "target": "1296x688",
+      "target": "430x932",
       "targets": [],
       "value": ""
     }, {
@@ -65,7 +65,7 @@
       "id": "d5c0923b-b61a-424c-97a3-feb344a004a0",
       "comment": "",
       "command": "setWindowSize",
-      "target": "1296x688",
+      "target": "430x932",
       "targets": [],
       "value": ""
     }, {
@@ -90,11 +90,11 @@
   }],
   "suites": [{
     "id": "64c7bef1-4948-42c3-b1a1-b7d89aeb7781",
-    "name": "Default Suite",
+    "name": "UA02",
     "persistSession": false,
     "parallel": false,
     "timeout": 300,
-    "tests": ["5a973ec5-a8c4-43e5-947c-0387fee11042"]
+    "tests": ["5a973ec5-a8c4-43e5-947c-0387fee11042", "3ce8eb66-f142-4b62-a950-265b7ff41c1b"]
   }],
   "urls": ["https://guia.kbytes.live/search-museum"],
   "plugins": []

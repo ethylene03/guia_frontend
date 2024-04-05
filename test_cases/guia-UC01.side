@@ -17,7 +17,7 @@
       "id": "d5e86df0-bb78-4d24-8665-9869b34c56ff",
       "comment": "",
       "command": "setWindowSize",
-      "target": "1296x688",
+      "target": "430x932",
       "targets": [],
       "value": ""
     }, {
@@ -79,7 +79,7 @@
       "id": "bc22496c-aa29-483f-ad1d-83dd3963ade9",
       "comment": "",
       "command": "setWindowSize",
-      "target": "1296x688",
+      "target": "430x932",
       "targets": [],
       "value": ""
     }, {
@@ -115,7 +115,7 @@
       "id": "baea1936-de4b-45d0-b3fe-c50cab033d45",
       "comment": "",
       "command": "setWindowSize",
-      "target": "1296x688",
+      "target": "430x932",
       "targets": [],
       "value": ""
     }, {
@@ -140,11 +140,11 @@
   }],
   "suites": [{
     "id": "38fad1a1-74e8-408f-87bd-1452cc84674c",
-    "name": "Default Suite",
+    "name": "UC01",
     "persistSession": false,
     "parallel": false,
     "timeout": 300,
-    "tests": []
+    "tests": ["f591ad3d-626d-4fba-bc5f-c2fddb7a5037", "781629c8-7523-443a-a771-d1fe1b7ad24a", "93d182ee-1cba-4ce6-8911-0287645d374c"]
   }],
   "urls": ["https://guia.kbytes.live/scan"],
   "plugins": []

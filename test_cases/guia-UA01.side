@@ -17,7 +17,7 @@
       "id": "8bf29d62-9dc7-48b0-b5ea-83e3440346e4",
       "comment": "",
       "command": "setWindowSize",
-      "target": "766x672",
+      "target": "430x932",
       "targets": [],
       "value": ""
     }, {
@@ -54,7 +54,7 @@
       "id": "0f9b609e-8a9f-4b79-bced-408e9e1e99a7",
       "comment": "",
       "command": "setWindowSize",
-      "target": "766x672",
+      "target": "430x932",
       "targets": [],
       "value": ""
     }, {
@@ -80,11 +80,11 @@
   }],
   "suites": [{
     "id": "5b6e8b5f-e7d6-46a0-9ad3-da07f1127d74",
-    "name": "Default Suite",
+    "name": "UA01",
     "persistSession": false,
     "parallel": false,
     "timeout": 300,
-    "tests": ["408ff9e9-de77-46b4-a2fb-259710be09a8"]
+    "tests": ["408ff9e9-de77-46b4-a2fb-259710be09a8", "c95603a0-b041-44f8-9aad-364c23cb5ac7"]
   }],
   "urls": ["https://guia.kbytes.live/hands-down/1"],
   "plugins": []
