@@ -1,4 +1,8 @@
-# guia_frontend
+# Guía
+
+![Guia-logo](https://github.com/ethylene03/guia_frontend/assets/92715199/e140b2b9-0f89-4d90-bc4e-73b7dfbb99ba)
+
+– a museum guide web application with a TensorFlow image recognition system, serving as an innovative solution to enhance the experience of our museum visitors. 
 
 This template should help get you started developing with Vue 3 in Vite.
 
