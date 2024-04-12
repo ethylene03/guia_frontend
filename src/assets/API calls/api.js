@@ -97,7 +97,7 @@ export const loginGET = async (endpoint, data) => {
 
 // axios for login (no authorization)
 const express = axios.create({
-    baseURL: expressURL,
+    baseURL: baseURL,
     headers: {
         'X-API-KEY': APIKey,
         'Content-Type': 'application/json',
