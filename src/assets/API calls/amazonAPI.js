@@ -1,9 +1,9 @@
 import axios from 'axios';
-import { POST } from './api.js'
+import { authPOST } from './api.js';
 
 export const uploadFile = async (image) => {
     // get amazon credentials
-  const credentials = await POST('/amazon/get-credentials', { image_name: image.name });
+  const credentials = await authPOST('/amazon/get-credentials', { image_name: image.name });
   // console.log(credentials)
 
     // receive response

@@ -1,10 +1,10 @@
 import Toast from "../components/common/Toast.vue";
 import { redirect, refreshPage } from "../components/common/common";
-import { expressGET, loginGET } from "./api";
+import { GET } from "./api";
 
 // generate token
 export const generateToken = async (museum_id) => {
-    const getToken = await expressGET('/visitor/generate-token', {museum_id: museum_id});
+    const getToken = await GET('/visitor/generate-token', {museum_id: museum_id});
     // console.log(getToken.data);
 
     if(getToken.data) {

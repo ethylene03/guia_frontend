@@ -1,8 +1,8 @@
 import { errorToast, getMuseumId, getToken } from "../components/common/common";
-import { GET, expressGET, expressPOST } from "./api";
+import { GET, POST } from "./api";
 
 export const getSection = async (id, type) => {
-    const section = await expressGET('/section/get', {
+    const section = await GET('/section/get', {
         museum_id: getMuseumId(type),
         section_id: id, 
     });
@@ -14,7 +14,7 @@ export const getSection = async (id, type) => {
 }
 
 export const getChecklist = async (id, token) => {
-    const checklist = await expressGET('visitor/artwork-checklist/get', {
+    const checklist = await GET('visitor/artwork-checklist/get', {
         section_id: id,
         visitor_token: token
     });
@@ -29,7 +29,7 @@ export const getChecklist = async (id, token) => {
 }
 
 export const editChecklist = async (artworks) => {
-    const update = await expressPOST('visitor/artwork-checklist/edit', {
+    const update = await POST('visitor/artwork-checklist/edit', {
         visitor_token: getToken('visitor'),
         visit_id: artworks.visit_id,
         art_id: artworks.art_id,

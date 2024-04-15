@@ -4,12 +4,13 @@
     // component used
     import { fetchDashboard } from "@/assets/API calls/dashboardAPI";
     import Welcome from "@/assets/components/common/Welcome.vue";
-    import { redirect, redirectNewTab } from "@/assets/components/common/common";
+    import { getMuseumId, redirect, redirectNewTab } from "@/assets/components/common/common";
     import MenuIcon from 'icons/Menu.vue';
     import LaunchIcon from 'icons/OpenInNew.vue';
     import PlusIcon from 'icons/Plus.vue';
     import Cards from "@/assets/components/dashboard/Cards.vue";
     import Header from '@/assets/components/dashboard/Header.vue';
+    import { getMuseum } from "@/assets/API calls/museumAPI";
 
     export default {
         components: {
@@ -29,6 +30,7 @@
                 popular_sections: [{section_id:0, section_name:''}]
                 },
                 pageLoad: false,
+                museum_name: '',
             };
         },
 
@@ -45,6 +47,9 @@
             this.pageLoad = true;
 
             this.museum_data = await fetchDashboard();
+            const museum = await getMuseum(getMuseumId('admin'));
+            // console.log(museum)
+            this.museum_name = museum[0].museum_name;
 
             this.pageLoad = false;
         },
@@ -72,7 +77,7 @@
         <Header />
     
         <!-- museum name -->
-        <h1>Jose T. Joya Gallery</h1>
+        <h1>{{ museum_name }}</h1>
     
         <div :class="{'dashboard-cont': isBigScreen, 'dashboard-cont-small': !isBigScreen}">
             <!-- buttons -->
@@ -208,4 +213,4 @@
             margin-bottom: 20px;
         }
     }
-</style>@/assets/components/common/common/common../../assets/components/dashboard/Cards.vue
+</style>

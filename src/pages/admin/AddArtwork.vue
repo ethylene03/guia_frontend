@@ -3,13 +3,13 @@
     import Header from '@/assets/components/common/Header.vue';
 
     // modal component
+    import { uploadFile } from '@/assets/API calls/amazonAPI';
+    import { authPOST } from '@/assets/API calls/api';
+    import Loader from '@/assets/components/common/Loader.vue';
+    import { getAdminId, getMuseumId } from '@/assets/components/common/common';
+    import UploadOutlineIcon from 'icons/UploadOutline.vue';
     import { useModal } from 'vue-final-modal';
     import Modal from '../../assets/components/common/Modal.vue';
-    import { GET, POST } from '@/assets/API calls/api';
-    import { uploadFile } from '@/assets/API calls/amazonAPI';
-    import { getAdminId, getMuseumId } from '@/assets/components/common/common';
-    import Loader from '@/assets/components/common/Loader.vue';
-    import UploadOutlineIcon from 'icons/UploadOutline.vue';
 
     const { open: openCancelModal, close: closeCancelModal } = useModal({
         component: Modal,
@@ -63,7 +63,7 @@
 
         async mounted() {
             // get sections
-            const getSections = await GET('/section/get', {museum_id: getMuseumId('admin')});
+            const getSections = await authGET('/section/get', {museum_id: getMuseumId('admin')});
             this.sections = getSections.data.section;
         },
 
@@ -188,32 +188,31 @@
                 this.isSubmit = true;
 
                 if(this.validate()) {
-                        const art = this.artwork;
+                    const art = this.artwork;
 
-                        const images = art.images.map(img => amazonUrl + img.name);
-                        const thumb = amazonUrl + art.thumbnail;
+                    const images = art.images.map(img => amazonUrl + img.name);
+                    const thumb = amazonUrl + art.thumbnail;
 
-                        art.images = images;
-                        art.thumbnail = thumb;
-                        art.added_by = getAdminId();
+                    art.images = images;
+                    art.thumbnail = thumb;
+                    art.added_by = getAdminId();
 
-                        // console.log(art);
+                    // console.log(art);
 
-                        // create artwork
-                        const create = await POST('/artwork/create', art);
-                        // console.log(create);
+                    // create artwork
+                    const create = await authPOST('/artwork/create', art);
+                    // console.log(create);
 
-                        if(create.status < 300 )
-                            window.location.href = './view/' + create.data.artwork_id;
-                            // console.log("success");
-                        else {
-                            this.errorAPI = create.response.data.detail;
-                            this.isSubmit = false;
-                        }
-                    } else {
+                    if(create.status < 300 )
+                        window.location.href = './view/' + create.data.artwork_id;
+                    else {
+                        this.errorAPI = create.response.data.detail;
                         this.isSubmit = false;
-                        console.log("error!");
                     }
+                } else {
+                    this.isSubmit = false;
+                    console.log("error!");
+                }
             },
 
             handleChange(e) {  

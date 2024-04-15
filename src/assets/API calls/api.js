@@ -17,8 +17,8 @@
  * 
  * Name Convention:
  *      1. Visitor - no prefix (example: await visitorPOST('/scan', data);)
- *      2. Admin - no prefix (example: await POST('/admin/change-password', data);)
- *      3. Login - use prefix 'login' (example: await loginPOST('/admin/login', data);)
+ *      2. Admin - no prefix (example: await authPOST('/admin/change-password', data);)
+ *      3. Login - use prefix 'login' (example: await POST('/admin/login', data);)
  * 
  * Functions Available:
  *      1. GET - (endpoint)
@@ -36,15 +36,13 @@ import ToastVue from '../components/common/Toast.vue';
 /** Fetch URL and API Key **/ 
 const baseURL = import.meta.env.VITE_API_URL;
 const APIKey = import.meta.env.VITE_API_KEY; 
-const expressURL = import.meta.env.VITE_API_URL_EXPRESS_LOCAL;
-
 
 /**
  * LOGIN API CALLS
  */
 
 // axios for login (no authorization)
-const login = axios.create({
+const noauthAPI = axios.create({
     baseURL,
     headers: {
         'X-API-KEY': APIKey,
@@ -52,7 +50,7 @@ const login = axios.create({
     },
 });
 
-login.interceptors.response.use(
+noauthAPI.interceptors.response.use(
     response => response,
     error => {
         if(error.code === "ERR_NETWORK") {
@@ -72,9 +70,9 @@ login.interceptors.response.use(
 )
   
 // post LOGIN
-export const loginPOST = async (endpoint, data) => {
+export const POST = async (endpoint, data) => {
     try {
-        const response = await login.post(endpoint, data);
+        const response = await noauthAPI.post(endpoint, data);
         return response;
     } catch (error) {
         return error;
@@ -82,75 +80,21 @@ export const loginPOST = async (endpoint, data) => {
 };
 
 // get
-export const loginGET = async (endpoint, data) => {
+export const GET = async (endpoint, data) => {
     try {
-        const response = await login.get(endpoint, {params: data});
+        const response = await noauthAPI.get(endpoint, {params: data});
         return response;
     } catch (error) {
         return error;
     }
 };
-
-/**
- * LOGIN API CALLS EXPRESS
- */
-
-// axios for login (no authorization)
-const express = axios.create({
-    baseURL: baseURL,
-    headers: {
-        'X-API-KEY': APIKey,
-        'Content-Type': 'application/json',
-    },
-});
-
-express.interceptors.response.use(
-    response => response,
-    error => {
-        if(error.code === "ERR_NETWORK") {
-            const  {open, close} = useModal({
-                component: ToastVue,
-                attrs: {
-                    type: 'error',
-                    message: 'Server Error',
-                    subtext: 'Please try again later.'
-                }
-            })
-
-            open();
-        } else
-            return error;
-    }
-)
-  
-// post LOGIN
-export const expressPOST = async (endpoint, data) => {
-    console.log(expressURL)
-    try {
-        const response = await express.post(endpoint, data);
-        return response;
-    } catch (error) {
-        return error;
-    }
-};
-
-// get
-export const expressGET = async (endpoint, data) => {
-    try {
-        const response = await express.get(endpoint, {params: data});
-        return response;
-    } catch (error) {
-        return error;
-    }
-};
-
 
 /**
  * OTHER API CALLS
  */
 
-// axios for any API aside login (w/ authorization)
-const api = axios.create({
+// axios for any API (w/ authorization)
+const authAPI = axios.create({
     baseURL,
     headers: {
         'X-API-KEY': APIKey,
@@ -158,7 +102,7 @@ const api = axios.create({
     },
 });
 
-api.interceptors.request.use(
+authAPI.interceptors.request.use(
     (config) => {
         if(!isExpired()) {
             var token = "";
@@ -182,7 +126,7 @@ api.interceptors.request.use(
     }
 )
 
-api.interceptors.response.use(
+authAPI.interceptors.response.use(
     response => response,
     error => {
         // console.log(error);
@@ -215,9 +159,9 @@ api.interceptors.response.use(
 )
 
 // get
-export const GET = async (endpoint, data) => {
+export const authGET = async (endpoint, data) => {
     try {
-        const response = await api.get(endpoint, {params: data});
+        const response = await authAPI.get(endpoint, {params: data});
         return response;
     } catch (error) {
         return error;
@@ -225,39 +169,9 @@ export const GET = async (endpoint, data) => {
 };
   
 // post
-export const POST = async (endpoint, data) => {
+export const authPOST = async (endpoint, data) => {
     try {
-        const response = await api.post(endpoint, data);
-        return response;
-    } catch (error) {
-        return error;
-    }
-};
-  
-// put
-export const PUT = async (endpoint, data) => {
-    try {
-        const response = await api.put(endpoint, data);
-        return response;
-    } catch (error) {
-        return error;
-    }
-};
-  
-// delete
-export const DELETE = async (endpoint) => {
-    try {
-        const response = await api.delete(endpoint);
-        return response;
-    } catch (error) {
-        return error;
-    }
-};
-  
-// update 
-export const UPDATE = async (endpoint, data) => {
-    try {
-        const response = await api.patch(endpoint, data);
+        const response = await authAPI.post(endpoint, data);
         return response;
     } catch (error) {
         return error;

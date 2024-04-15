@@ -2,11 +2,11 @@ import moment from "moment";
 import { useModal } from "vue-final-modal";
 import ToastVue from "../components/common/Toast.vue";
 import { errorToast, getAdminId, redirect } from "../components/common/common";
-import { GET, POST, expressGET } from "./api";
+import { GET, authPOST } from "./api";
 
 // get all
 export const getAllArtworks = async (type) => {
-    const AllArtworks = await expressGET('artwork/get/all', type ? null : {admin_id: getAdminId()});
+    const AllArtworks = await GET('artwork/get/all', type ? null : {admin_id: getAdminId()});
     // console.log(AllArtworks);
 
     if(AllArtworks.status < 300) {
@@ -38,7 +38,7 @@ export const getAllArtworks = async (type) => {
 
 
 export const deleteArtwork = async (id) => {
-    const deletedArt = await POST('/artwork/delete', {art_id: id});
+    const deletedArt = await authPOST('/artwork/delete', {art_id: id});
     console.log(deletedArt);
 
     if(deletedArt.status < 300) {
@@ -75,7 +75,7 @@ export const getArtwork = async (id, type) => {
         admin_id = getAdminId();
     }
 
-    const art = await expressGET('/artwork/get', {
+    const art = await GET('/artwork/get', {
         art_id: id,
         admin_id: admin_id,
     });
@@ -98,7 +98,7 @@ export const getArtwork = async (id, type) => {
 
 // get artwork visits per section
 export const getArtworkVisits = async (id, token) => {
-    const visits = await expressGET('/visitor/artwork-visits', {
+    const visits = await GET('/visitor/artwork-visits', {
         section_id: id,
         visitor_token: token,
     });

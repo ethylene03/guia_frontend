@@ -1,10 +1,10 @@
 import { useModal } from "vue-final-modal";
-import { getAdminId, logout } from "../components/common/common";
-import { GET } from "./api";
 import Toast from "../components/common/Toast.vue";
+import { getAdminId, logout } from "../components/common/common";
+import { authGET } from "./api";
 
 export const fetchDashboard = async () => {
-    const data = await GET('/dashboard/get', {admin_id: getAdminId()});
+    const data = await authGET('/dashboard/get', {admin_id: getAdminId()});
     // console.log(data);
 
     if(data.status < 300) {
