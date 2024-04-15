@@ -7,7 +7,7 @@ export const changePassword = async (deets) => {
     const changePass = await POST('/admin/change-password', deets);
     // console.log(changePass);
 
-    if(changePass.status === 200) {
+    if(changePass.status < 300) {
         // success toaster
         const { open, close } = useModal({
             component: Toast,

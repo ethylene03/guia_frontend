@@ -17,7 +17,7 @@ export const submitLogin = async (credentials) => {
     const submit = await loginPOST('/admin/login', credentials);
 
     // check if success
-    if(submit?.status === 200) {
+    if(submit?.status < 300) {
         const post = submit.data;
 
         // store locally

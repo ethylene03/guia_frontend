@@ -7,7 +7,7 @@ export const getSection = async (id, type) => {
         section_id: id, 
     });
 
-    if(section.status != 200) {
+    if(section.status >= 300) {
         errorToast(section.response.data.detail);
     } else
         return section.data;

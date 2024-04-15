@@ -7,7 +7,7 @@ export const fetchDashboard = async () => {
     const data = await GET('/dashboard/get', {admin_id: getAdminId()});
     // console.log(data);
 
-    if(data.status === 200) {
+    if(data.status < 300) {
         return data.data;
     } else {
         const {open, close} = useModal({

@@ -9,7 +9,7 @@ export const getAllArtworks = async (type) => {
     const AllArtworks = await expressGET('artwork/get/all', type ? null : {admin_id: getAdminId()});
     // console.log(AllArtworks);
 
-    if(AllArtworks.status === 200) {
+    if(AllArtworks.status < 300) {
         const arts = AllArtworks.data.artworks;
         return arts.map(art => {
             let artwork = {};
@@ -41,7 +41,7 @@ export const deleteArtwork = async (id) => {
     const deletedArt = await POST('/artwork/delete', {art_id: id});
     console.log(deletedArt);
 
-    if(deletedArt.status === 200) {
+    if(deletedArt.status < 300) {
         const {open, close} = useModal({
             component: ToastVue,
             attrs: {
