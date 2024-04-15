@@ -1,7 +1,7 @@
-import moment from "moment";
 import { useModal } from "vue-final-modal";
 import ToastVue from "../components/common/Toast.vue";
 import { errorToast, getAdminId, redirect } from "../components/common/common";
+import { format } from "../components/view-artwork/Functions";
 import { GET, authPOST } from "./api";
 
 // get all
@@ -18,15 +18,8 @@ export const getAllArtworks = async (type) => {
             artwork.img = art.image_thumbnail;
             artwork.title = art.title;
             artwork.artist = art.artist_name;
-
-            // date published
-            if(art.date_published.includes('-')) {
-                let parts = art.date_published.split('-');
-                let date = new Date(parts[1], parts[0] - 1);
-                artwork.year = moment(date).format('YYYY');
-            } else
-                artwork.year = moment(new Date(art.date_published)).format('YYYY');
-
+            artwork.year = format(art.date_published, 'YYYY');
+            
             return artwork;
         })
 

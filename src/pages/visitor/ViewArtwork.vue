@@ -7,6 +7,7 @@
     import { getArtwork } from '@/assets/API calls/artworkAPI';
     import { redirect } from '@/assets/components/common/common';
     import moment from 'moment';
+import { format } from '@/assets/components/view-artwork/Functions';
 
     export default {
         components: {
@@ -32,6 +33,7 @@
         methods: {
             redirect,
             moment,
+            format,
         }
     };
 </script>
@@ -46,7 +48,7 @@
 
             <!-- art title -->
             <div class="subtitle">
-                <h3 style="font-weight: bolder;">{{ this.artwork.title }} ({{ moment(new Date(this.artwork.date_published)).format('YYYY') }})</h3>
+                <h3 style="font-weight: bolder;">{{ this.artwork.title }} ({{ format(artwork.date_published, 'YYYY') }})</h3>
                 <text>by <b style="font-weight: bold;">{{ this.artwork.artist_name }}</b> </text>
             </div>
 

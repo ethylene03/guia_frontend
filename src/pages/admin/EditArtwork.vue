@@ -5,7 +5,7 @@
 
     // modal component
     import { uploadFile } from '@/assets/API calls/amazonAPI';
-    import { authGET } from '@/assets/API calls/api';
+    import { authGET, authPOST } from '@/assets/API calls/api';
     import { Error } from '@/assets/components/common/Error';
     import Loader from '@/assets/components/common/Loader.vue';
     import Welcome from '@/assets/components/common/Welcome.vue';

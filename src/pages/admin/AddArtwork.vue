@@ -4,7 +4,7 @@
 
     // modal component
     import { uploadFile } from '@/assets/API calls/amazonAPI';
-    import { authPOST } from '@/assets/API calls/api';
+    import { authGET, authPOST } from '@/assets/API calls/api';
     import Loader from '@/assets/components/common/Loader.vue';
     import { getAdminId, getMuseumId } from '@/assets/components/common/common';
     import UploadOutlineIcon from 'icons/UploadOutline.vue';

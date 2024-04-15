@@ -5,7 +5,9 @@ import { useModal } from "vue-final-modal";
 import Toast from "../common/Toast.vue";
 
 export const format = (date, format) => {
-    if(format === "MMMM D, YYYY") {
+    if(date === "unknown") {
+        return "Unknown";
+    } else if(format === "MMMM D, YYYY") {
         if(!date?.includes('-'))
             return moment(date, "YYYY").format('YYYY');
 
