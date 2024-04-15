@@ -42,21 +42,21 @@
                 this.isSubmit = true;
 
                 const valid = checkValidity(this.deets.new_password);
+                if(this.deets.old_password === this.deets.new_password)
+                    this.error = "New Password should not match Current Password.";
+                  
+                if(this.confirm_password !== this.deets.new_password)
+                    this.error = "Password does not match.";
 
-                if(this.isSame) {
-                    if(this.deets.old_password === this.deets.new_password)
-                        this.error = "New Password should not match Current Password.";
-
-                    else if(valid !== "success")
-                        this.error = valid;
-                    
-                    else {
-                        const res = await changePassword(this.deets);
-
-                        if(res)
-                            this.error = res;
-                    }
+                else if(valid !== "success")
+                    this.error = valid;
+                
+                else {
+                    const res = await changePassword(this.deets);
+                    if(res)
+                        this.error = res;
                 }
+                
 
                 this.isSubmit = false;
             },

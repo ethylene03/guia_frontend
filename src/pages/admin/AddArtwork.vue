@@ -203,7 +203,7 @@
                         const create = await POST('/artwork/create', art);
                         // console.log(create);
 
-                        if(create.status === 201)
+                        if(create.status >= 200 )
                             window.location.href = './view/' + create.data.artwork_id;
                             // console.log("success");
                         else {
