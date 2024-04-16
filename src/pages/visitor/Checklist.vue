@@ -2,7 +2,7 @@
     import Footer from '@/assets/components/common/Footer.vue';
     import Header from '@/assets/components/common/Header.vue';
     import { getToken } from '@/assets/components/common/common';
-    import { getSection, getChecklist } from '@/assets/API calls/sectionAPI';
+    import { getSection, getChecklist, editChecklist } from '@/assets/API calls/sectionAPI';
     import { redirect } from '@/assets/components/common/common';
     import NoContent from '@/assets/components/common/NoContent.vue';
     import Welcome from '@/assets/components/common/Welcome.vue';
@@ -39,6 +39,15 @@
         
         methods: {
             redirect,
+
+            async updateChecklist(id) {
+                const art = this.artworks.find(art => art.art_id === id);
+                const res = await editChecklist(art);
+
+                if(res) {
+                    this.artworks = await getChecklist(this.section_id, getToken('visitor'));
+                }
+            }
         }
     }
 </script>
@@ -51,13 +60,13 @@
         <div class="content">
             <!-- subheader -->
             <h1>Artwork Checklist</h1>
-            <h1>{{ section_name }}</h1>
+            <h1 style="color: var(--color-accent)">{{ section_name }}</h1>
 
             <!-- checklist -->
             <div class="checklist">
                 <no-content v-if="!artworks.length" class="no-art" />
                 <div class="list" v-else v-for="art in artworks" :key="art.art_id">
-                    <input :id="art.id" type="checkbox" v-model="art.is_visited" />
+                    <input :id="art.art_id" type="checkbox" v-model="art.is_visited" @change="updateChecklist(art.art_id)" />
                     <text class="details"  @click="redirect('/view/' + art.art_id)">
                         {{ art.title }} ({{ art.date_published }}) by {{ art.artist_name }}
                     </text>

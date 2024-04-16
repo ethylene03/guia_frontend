@@ -10,9 +10,9 @@ export const refreshPage = () => {
 
 // redirect to path
 export const redirect = (path) => {
-    if(path === 'back')
-        return window.history.back();
-    else
+    if(path === 'back') {
+        window.location.href = document.referrer;
+    } else
         return window.location.href = path;
 }
 
@@ -50,16 +50,10 @@ export const getTokenExpiry = () => {
 };
 
 // logout
-export const logout = async () => {
-    const logOut = await POST('/admin/logout', {admin_id: getAdminId()});
-    
+export const logout = async () => {   
     localStorage.clear();
     refreshPage();
-    
-    if(logOut.status === 200)
-        return true;
-    else
-        return false;
+    return true
 }
 
 // check if token is expired
@@ -97,4 +91,8 @@ export const errorToast = (message) => {
 
     open();
     setTimeout(() => redirect('back'), 1000);
+}
+
+export const capitalizeFirstLetter = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
 }

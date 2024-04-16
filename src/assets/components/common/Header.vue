@@ -36,6 +36,7 @@
     import MenuIcon from 'icons/Menu.vue';
     import CameraIcon from 'icons/CameraOutline.vue';
     import MapIcon from 'icons/MapOutline.vue';
+import { redirect } from './common';
     
     export default {
         components: {
@@ -73,12 +74,7 @@
         },
 
         methods: {
-            redirect(path) {
-                if(path == "back")
-                    this.$router.back();
-                else
-                    window.location.href = path;
-            },
+            redirect,
         }
     }
 </script>

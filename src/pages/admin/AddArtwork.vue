@@ -3,13 +3,13 @@
     import Header from '@/assets/components/common/Header.vue';
 
     // modal component
+    import { uploadFile } from '@/assets/API calls/amazonAPI';
+    import { authGET, authPOST } from '@/assets/API calls/api';
+    import Loader from '@/assets/components/common/Loader.vue';
+    import { getAdminId, getMuseumId } from '@/assets/components/common/common';
+    import UploadOutlineIcon from 'icons/UploadOutline.vue';
     import { useModal } from 'vue-final-modal';
     import Modal from '../../assets/components/common/Modal.vue';
-    import { GET, POST } from '@/assets/API calls/api';
-    import { uploadFile } from '@/assets/API calls/amazonAPI';
-    import { getAdminId, getMuseumId } from '@/assets/components/common/common';
-    import Loader from '@/assets/components/common/Loader.vue';
-    import UploadOutlineIcon from 'icons/UploadOutline.vue';
 
     const { open: openCancelModal, close: closeCancelModal } = useModal({
         component: Modal,
@@ -63,7 +63,7 @@
 
         async mounted() {
             // get sections
-            const getSections = await GET('/section/get', {museum_id: getMuseumId('admin')});
+            const getSections = await authGET('/section/get', {museum_id: getMuseumId('admin')});
             this.sections = getSections.data.section;
         },
 
@@ -148,7 +148,7 @@
                 const month = /^(0[1-9]|1[0-2])-((1[2-9]\d{2})|20[0-1][0-9]|202[0-4])$/;
                 const day = /^(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])-((1[2-9]\d{2})|20[0-1][0-9]|202[0-4])$/;
 
-                if(year.test(input.date_published) || month.test(input.date_published) || day.test(input.date_published))
+                if(year.test(input.date_published) || month.test(input.date_published) || day.test(input.date_published) || input.date_published.toLowerCase() === "unknown")
                     this.dateCheck = true;
                 else {
                     this.dateCheck = false;
@@ -188,32 +188,31 @@
                 this.isSubmit = true;
 
                 if(this.validate()) {
-                        const art = this.artwork;
+                    const art = this.artwork;
 
-                        const images = art.images.map(img => amazonUrl + img.name);
-                        const thumb = amazonUrl + art.thumbnail;
+                    const images = art.images.map(img => amazonUrl + img.name);
+                    const thumb = amazonUrl + art.thumbnail;
 
-                        art.images = images;
-                        art.thumbnail = thumb;
-                        art.added_by = getAdminId();
+                    art.images = images;
+                    art.thumbnail = thumb;
+                    art.added_by = getAdminId();
 
-                        // console.log(art);
+                    // console.log(art);
 
-                        // create artwork
-                        const create = await POST('/artwork/create', art);
-                        // console.log(create);
+                    // create artwork
+                    const create = await authPOST('/artwork/create', art);
+                    // console.log(create);
 
-                        if(create.status === 201)
-                            window.location.href = './view/' + create.data.artwork_id;
-                            // console.log("success");
-                        else {
-                            this.errorAPI = create.response.data.detail;
-                            this.isSubmit = false;
-                        }
-                    } else {
+                    if(create.status < 300 )
+                        window.location.href = './view/' + create.data.artwork_id;
+                    else {
+                        this.errorAPI = create.response.data.detail;
                         this.isSubmit = false;
-                        console.log("error!");
                     }
+                } else {
+                    this.isSubmit = false;
+                    console.log("error!");
+                }
             },
 
             handleChange(e) {  
@@ -293,7 +292,7 @@
                 
                 <!-- date published -->
                 <h2>Date Published<span class="asterisk">*</span></h2>
-                <input type="text" v-model="artwork.date_published" class="primary-form" placeholder="YYYY or MM-YYYY or MM-DD-YYYY" required />
+                <input type="text" v-model="artwork.date_published" class="primary-form" placeholder="YYYY or MM-YYYY or MM-DD-YYYY or unknown" required />
                 <span ref="errorMessage" v-if="!artwork.date_published && this.isSaved" class="val-error">Please input the artwork's correct date published.</span>
                 <span ref="errorMessage" v-if="!dateCheck && artwork.date_published" class="val-error">Please input the artwork's correct date published format.</span>
                 

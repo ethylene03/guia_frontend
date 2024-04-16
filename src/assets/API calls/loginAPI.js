@@ -1,4 +1,4 @@
-import { loginPOST } from "./api";
+import { POST } from "./api";
 import { refreshPage } from '@/assets/components/common/common.js';
 import moment from 'moment';
 
@@ -14,10 +14,10 @@ export const submitLogin = async (credentials) => {
     
     
     
-    const submit = await loginPOST('/admin/login', credentials);
+    const submit = await POST('/admin/login', credentials);
 
     // check if success
-    if(submit?.status === 200) {
+    if(submit?.status < 300) {
         const post = submit.data;
 
         // store locally

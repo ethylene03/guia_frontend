@@ -4,16 +4,14 @@
     import UploadOutlineIcon from 'icons/UploadOutline.vue';
 
     // modal component
-    import { useModal } from 'vue-final-modal';
-    import Modal from '../../assets/components/common/Modal.vue';
-    import { GET, POST } from '@/assets/API calls/api';
-    import { getAdminId, getMuseumId } from '@/assets/components/common/common';
-    import axios from 'axios';
+    import { uploadFile } from '@/assets/API calls/amazonAPI';
+    import { authGET, authPOST } from '@/assets/API calls/api';
+    import { Error } from '@/assets/components/common/Error';
     import Loader from '@/assets/components/common/Loader.vue';
     import Welcome from '@/assets/components/common/Welcome.vue';
-    import { uploadFile } from '@/assets/API calls/amazonAPI';
-import { Error } from '@/assets/components/common/Error';
-import Toast from '@/assets/components/common/Toast.vue';
+    import { getAdminId, getMuseumId } from '@/assets/components/common/common';
+    import { useModal } from 'vue-final-modal';
+    import Modal from '../../assets/components/common/Modal.vue';
 
     const { open: openCancelModal, close: closeCancelModal } = useModal({
         component: Modal,
@@ -71,7 +69,7 @@ import Toast from '@/assets/components/common/Toast.vue';
             this.pageLoad = true;
 
             // get artwork details
-            const getArtwork = await GET('/artwork/get', {art_id: this.$route.params.id});
+            const getArtwork = await authGET('/artwork/get', {art_id: this.$route.params.id});
             // console.log(getArtwork);
             if(!getArtwork.data) {
                 Error(getArtwork.response.data.detail);
@@ -91,7 +89,7 @@ import Toast from '@/assets/components/common/Toast.vue';
             this.artwork['thumbnail'] = imgs.find(image => image.is_thumbnail === true) ? imgs.find(image => image.is_thumbnail === true).name : null;
 
             // get sections
-            const getSections = await GET('/section/get', {museum_id: getMuseumId('admin')});
+            const getSections = await authGET('/section/get', {museum_id: getMuseumId('admin')});
             // console.log(getSections);
             this.sections = getSections.data.section;
 
@@ -180,7 +178,7 @@ import Toast from '@/assets/components/common/Toast.vue';
                 const month = /^(0[1-9]|1[0-2])-((1[2-9]\d{2})|20[0-1][0-9]|202[0-4])$/;
                 const day = /^(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])-((1[2-9]\d{2})|20[0-1][0-9]|202[0-4])$/;
 
-                if(year.test(input.date_published) || month.test(input.date_published) || day.test(input.date_published))
+                if(year.test(input.date_published) || month.test(input.date_published) || day.test(input.date_published) || input.date_published.toLowerCase() === "unknown")
                     this.dateCheck = true;
                 else {
                     this.dateCheck = false;
@@ -230,7 +228,7 @@ import Toast from '@/assets/components/common/Toast.vue';
                     art.updated_by = getAdminId();
 
                     // create artwork
-                    const create = await POST('/artwork/edit', art);
+                    const create = await authPOST('/artwork/edit', art);
                     // console.log(create);
 
                     if(create.status === 201)
@@ -324,7 +322,7 @@ import Toast from '@/assets/components/common/Toast.vue';
                 
                 <!-- date published -->
                 <h2>Date Published<span class="asterisk">*</span></h2>
-                <input type="text" v-model="artwork.date_published" class="primary-form" placeholder="YYYY or MM-YYYY or MM-DD-YYYY" required />
+                <input type="text" v-model="artwork.date_published" class="primary-form" placeholder="YYYY or MM-YYYY or MM-DD-YYYY or unknown" required />
                 <span ref="errorMessage" v-if="!artwork.date_published && this.isSaved" class="val-error">Please input the artwork's correct date published.</span>
                 <span ref="errorMessage" v-if="!dateCheck && artwork.date_published" class="val-error">Please input the artwork's correct date published format.</span>
                 

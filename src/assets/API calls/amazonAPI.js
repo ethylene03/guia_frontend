@@ -1,26 +1,20 @@
 import axios from 'axios';
-import { POST } from './api.js'
+import { authPOST } from './api.js';
 
 export const uploadFile = async (image) => {
     // get amazon credentials
-    const credentials = await POST('/amazon/get-credentials', {image_name: image.name});
+  const credentials = await authPOST('/amazon/get-credentials', { image_name: image.name });
+  // console.log(credentials)
 
     // receive response
-    const url = credentials.data.url;
-    const fields = credentials.data.fields;
+    const url = credentials.data.upload_url;
 
     // upload images
     const formData = new FormData();
-    formData.append('Content-Type', 'image/jpeg');
-    formData.append('key', fields.key);
-    formData.append('AWSAccessKeyId', fields.AWSAccessKeyId);
-    formData.append('policy', fields.policy);
-    formData.append('signature', fields.signature);
-    formData.append('file', image);
 
-    const response = await axios.post(url, formData, {
+    const response = await axios.put(url, image, {
         headers: {
-            'Content-Type': 'multipart/form-data',
+            'Content-Type': 'image/jpeg',
         }
     });
 

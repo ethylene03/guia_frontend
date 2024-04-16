@@ -1,13 +1,13 @@
 import { useModal } from "vue-final-modal";
-import { logout, refreshPage } from "../components/common/common";
-import { POST } from "./api";
 import Toast from "../components/common/Toast.vue";
+import { logout, refreshPage } from "../components/common/common";
+import { authPOST } from "./api";
 
 export const changePassword = async (deets) => {
-    const changePass = await POST('/admin/change-password', deets);
+    const changePass = await authPOST('/admin/change-password', deets);
     // console.log(changePass);
 
-    if(changePass.status === 200) {
+    if(changePass.status < 300) {
         // success toaster
         const { open, close } = useModal({
             component: Toast,

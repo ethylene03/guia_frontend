@@ -1,15 +1,15 @@
-import moment from "moment";
 import { useModal } from "vue-final-modal";
 import ToastVue from "../components/common/Toast.vue";
-import { getAdminId, redirect } from "../components/common/common";
-import { GET, POST, expressGET } from "./api";
+import { errorToast, getAdminId, redirect } from "../components/common/common";
+import { format } from "../components/view-artwork/Functions";
+import { GET, authPOST } from "./api";
 
 // get all
-export const getAllArtworks = async () => {
-    const AllArtworks = await GET('artwork/get/all', {admin_id: getAdminId()});
+export const getAllArtworks = async (type) => {
+    const AllArtworks = await GET('artwork/get/all', type ? null : {admin_id: getAdminId()});
     // console.log(AllArtworks);
 
-    if(AllArtworks.status === 200) {
+    if(AllArtworks.status < 300) {
         const arts = AllArtworks.data.artworks;
         return arts.map(art => {
             let artwork = {};
@@ -18,33 +18,23 @@ export const getAllArtworks = async () => {
             artwork.img = art.image_thumbnail;
             artwork.title = art.title;
             artwork.artist = art.artist_name;
-            artwork.year = moment(art.date_published).format('YYYY');
-
+            artwork.year = format(art.date_published, 'YYYY');
+            
             return artwork;
         })
 
         // console.log(this.artworks)
     } else {
-        const {open, close} = useModal({
-            component: Toast,
-            attrs: {
-                type: 'error',
-                message: 'Error loading the artworks',
-                subtext: 'Please try again later.'
-            }
-        })
-
-        open();
-        setTimeout(() => this.$router.back(), 1000);
+        errorToast('Error fetching artworks');
     }
 }
 
 
 export const deleteArtwork = async (id) => {
-    const deletedArt = await POST('/artwork/delete', {art_id: id});
+    const deletedArt = await authPOST('/artwork/delete', {art_id: id});
     console.log(deletedArt);
 
-    if(deletedArt.status === 200) {
+    if(deletedArt.status < 300) {
         const {open, close} = useModal({
             component: ToastVue,
             attrs: {
@@ -71,10 +61,16 @@ export const deleteArtwork = async (id) => {
 }
 
 // get one artwork
-export const getArtwork = async (id) => {
+export const getArtwork = async (id, type) => {
+    var admin_id = "";
+    
+    if(!type) {
+        admin_id = getAdminId();
+    }
+
     const art = await GET('/artwork/get', {
         art_id: id,
-        admin_id: getAdminId(),
+        admin_id: admin_id,
     });
 
     if(art.response?.status >= 400) {
@@ -88,14 +84,14 @@ export const getArtwork = async (id) => {
         })
 
         open();
-        setTimeout(() => this.$router.back(), 100);
+        setTimeout(() => redirect('back'), 1000);
     } else
         return art.data.artwork;
 }
 
 // get artwork visits per section
 export const getArtworkVisits = async (id, token) => {
-    const visits = await expressGET('/visitor/artwork-visits', {
+    const visits = await GET('/visitor/artwork-visits', {
         section_id: id,
         visitor_token: token,
     });

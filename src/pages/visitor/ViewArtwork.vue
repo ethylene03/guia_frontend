@@ -1,10 +1,13 @@
 <script>
-    import Header from '@/assets/components/common/Header.vue';
     import Footer from '@/assets/components/common/Footer.vue';
+    import Header from '@/assets/components/common/Header.vue';
     import CameraIcon from 'icons/Camera.vue';
 
     // pseudo image
-    import artImage from '@/assets/images/artwork.png'
+    import { getArtwork } from '@/assets/API calls/artworkAPI';
+    import { redirect } from '@/assets/components/common/common';
+    import moment from 'moment';
+import { format } from '@/assets/components/view-artwork/Functions';
 
     export default {
         components: {
@@ -15,27 +18,22 @@
 
         data() {
             return {
-                // pseudo art details
-                artwork: {
-                    imgURL: artImage,
-                    title: "Fruit Seller",
-                    year: "1954",
-                    artist: "Fernando Amorsolo",
-                    medium: "Oil on Canvas",
-                    width: 97,
-                    height: 71.5,
-                    description: "Fruit Seller is one of Amorsolo’s paintings that portrays a woman selling fruits in a basket, with a bamboo tree in the background. It reflects his style of using natural light and vibrant colors to create a realistic and idealized image of Filipino life. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex"
-                },
+                artwork: {},
+                isReady: false,
             };
         },
 
+        async mounted() {
+            this.artwork = await getArtwork(this.$route.params.id, 'visitor');
+            
+            this.artwork.image = this.artwork.images.find(art => art.is_thumbnail === true).image_link;
+            console.log(this.artwork);
+        },
+ 
         methods: {
-            redirect(path) {
-                if(path === 'back')
-                    this.$router.back();
-                else
-                    window.location.href = path;
-            }
+            redirect,
+            moment,
+            format,
         }
     };
 </script>
@@ -46,12 +44,12 @@
 
         <div class="content">
             <!-- image -->
-            <img :src="this.artwork.imgURL" :alt="this.artwork.title" />
+            <img :src="this.artwork.image" :alt="this.artwork.title" />
 
             <!-- art title -->
             <div class="subtitle">
-                <h3 style="font-weight: bolder;">{{ this.artwork.title }} ({{ this.artwork.year }})</h3>
-                <text>by <b style="font-weight: bold;">{{ this.artwork.artist }}</b> </text>
+                <h3 style="font-weight: bolder;">{{ this.artwork.title }} ({{ format(artwork.date_published, 'YYYY') }})</h3>
+                <text>by <b style="font-weight: bold;">{{ this.artwork.artist_name }}</b> </text>
             </div>
 
             <!-- art details -->
@@ -60,7 +58,7 @@
                 <text style="font-weight: bold;">{{ this.artwork.medium }}</text>
 
                 <text>Dimensions</text>
-                <text style="font-weight: bold;">{{ this.artwork.height }} x {{ this.artwork.width }} cm</text>
+                <text style="font-weight: bold;">{{ this.artwork.dimen_length_cm }} x {{ this.artwork.dimen_width_cm }} {{ this.artwork.dimen_height_cm ? "x " + this.artwork.dimen_height_cm : null }} cm</text>
             </div>
 
             <!-- description -->

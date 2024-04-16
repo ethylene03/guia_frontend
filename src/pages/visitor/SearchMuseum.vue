@@ -1,5 +1,5 @@
 <script>
-    import { getAllMuseum } from "@/assets/API calls/museumAPI";
+    import { getMuseum } from "@/assets/API calls/museumAPI";
     import { generateToken } from "@/assets/API calls/visitorAPI";
     import Header from "@/assets/components/common/Header.vue";
     import Loader from "@/assets/components/common/Loader.vue";
@@ -35,7 +35,7 @@
             if(getMuseumId('visitor'))
                 localStorage.removeItem('visitor_museum_id');
 
-            this.museums = await getAllMuseum();
+            this.museums = await getMuseum();
             this.isReady = true;
         },
 
@@ -98,7 +98,7 @@
     
             <!-- confirm button (add API submit integration) -->
             <Loader v-if="isSubmitted" />
-            <button v-else @click="confirmMuseum" :disabled="isDisabled">Confirm</button>
+            <button id="confirm-button" v-else @click="confirmMuseum" :disabled="isDisabled">Confirm</button>
         </div>
 
         <!-- Footer KBytes -->

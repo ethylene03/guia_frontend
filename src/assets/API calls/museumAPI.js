@@ -1,13 +1,13 @@
 import { useModal } from "vue-final-modal";
-import { expressGET, loginGET } from "./api";
 import Toast from "../components/common/Toast.vue";
 import { errorToast, getMuseumId, refreshPage } from "../components/common/common";
+import { GET } from "./api";
 
-export const getAllMuseum = async () => {
-    const AllMuseums = await expressGET('/museum/get');
+export const getMuseum = async (id) => {
+    const AllMuseums = await GET('/museum/get', {museum_id: id ? id : ''});
     // console.log(AllMuseums);
 
-    if(!AllMuseums.error) {
+    if(AllMuseums.status < 400) {
         return AllMuseums.data.museum;
     } else {
         const {open, close} = useModal({
@@ -25,7 +25,7 @@ export const getAllMuseum = async () => {
 }
 
 export const getTraffic = async () => {
-    const traffic = await expressGET('visitor/traffic', {museum_id: getMuseumId('visitor')});
+    const traffic = await GET('visitor/traffic', {museum_id: getMuseumId('visitor')});
     // console.log(traffic);
 
     if(traffic.status < 400)
