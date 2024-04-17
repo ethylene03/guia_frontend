@@ -1,8 +1,9 @@
 import { useModal } from "vue-final-modal";
 import ToastVue from "../components/common/Toast.vue";
-import { errorToast, getAdminId, redirect } from "../components/common/common";
+import { errorToast, getAdminId, redirect, refreshPage } from "../components/common/common";
 import { format } from "../components/view-artwork/Functions";
-import { GET, authPOST } from "./api";
+import { GET, POST, authPOST } from "./api";
+import axios from "axios";
 
 // get all
 export const getAllArtworks = async (type) => {
@@ -74,17 +75,7 @@ export const getArtwork = async (id, type) => {
     });
 
     if(art.response?.status >= 400) {
-        const {open, close} = useModal({
-            component: ToastVue,
-            attrs: {
-                type: 'error',
-                message: art.response.data.detail,
-                subtext: 'Please try again later.'
-            }
-        })
-
-        open();
-        setTimeout(() => redirect('back'), 1000);
+        errorToast(art.response.data.detail);
     } else
         return art.data.artwork;
 }
@@ -99,16 +90,44 @@ export const getArtworkVisits = async (id, token) => {
     if(visits.status < 400)
         return visits.data;
     else {
-        const {open, close} = useModal({
-            component: ToastVue,
-            attrs: {
-                type: 'error',
-                message: visits.response.data.detail,
-                subtext: 'Please try again later.'
-            }
-        })
-
-        open();
-        setTimeout(() => redirect('back'), 1000);
+        errorToast(visits.response.data.detail);
     }
 } 
+
+export const predictImage = async (image) => {
+    const baseURL = import.meta.env.VITE_API_URL;
+    const APIKey = import.meta.env.VITE_API_KEY;
+
+    // convert image to file
+    let fetchRes = await fetch(image);
+    let blob = await fetchRes.blob();
+    let file = new File([blob], 'image.jpg', {type: 'image/jpeg'});
+
+    // create form data
+    const formData = new FormData();
+    formData.append('image', file);
+    
+    // make request
+    try {
+        const response = await axios.post(baseURL + '/artwork/predict', formData, {
+            headers: {
+                'X-API-KEY': APIKey,
+                'Content-Type': 'multipart/form-data',
+            }
+        });
+
+        redirect('/view/' + response.data.art_id);
+    } catch (err) {
+        const { open, close } = useModal({
+            component: ToastVue,
+            attrs: {
+                type: 'info',
+                message: 'Cannot read image!',
+                subtext: 'Please try again.'
+            }
+        })
+    
+        open();
+        setTimeout(() => close(), 1000);
+    }
+}

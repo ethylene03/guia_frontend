@@ -8,6 +8,7 @@
     import OrbitVariantIcon from 'icons/OrbitVariant.vue'
     import CameraOutlineIcon from 'icons/CameraOutline.vue'
     import MagnifyIcon from 'icons/Magnify.vue'
+import { predictImage } from '@/assets/API calls/artworkAPI';
 
     export default {
         components: {
@@ -74,7 +75,7 @@
             },
 
             // captures the image (integration should be here)
-            capture() {
+            async capture() {
                 console.log("image captured!");
                 const videoElement = this.$refs.videoFront;
                 const canvasElement = this.$refs.canvas;
@@ -84,7 +85,9 @@
                 canvasElement.height = videoElement.videoHeight;
         
                 context.drawImage(videoElement, 0, 0, canvasElement.width, canvasElement.height);
-                this.capturedImage = canvasElement.toDataURL('image/png');
+                this.capturedImage = canvasElement.toDataURL('image/jpeg');
+
+                const data = await predictImage(this.capturedImage);
             },
 
             // redirects to another page/screens
