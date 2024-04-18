@@ -33,6 +33,7 @@ export const editChecklist = async (artworks) => {
         visitor_token: getToken('visitor'),
         visit_id: artworks.visit_id,
         art_id: artworks.art_id,
+        visit_type: artworks.visit_type,
         is_visited: artworks.is_visited
     })
 

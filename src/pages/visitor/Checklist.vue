@@ -42,6 +42,7 @@
 
             async updateChecklist(id) {
                 const art = this.artworks.find(art => art.art_id === id);
+                art.visit_type = "manual";
                 const res = await editChecklist(art);
 
                 if(res) {

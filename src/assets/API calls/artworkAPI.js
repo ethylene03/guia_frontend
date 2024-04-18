@@ -4,6 +4,7 @@ import { errorToast, getAdminId, redirect, refreshPage } from "../components/com
 import { format } from "../components/view-artwork/Functions";
 import { GET, POST, authPOST } from "./api";
 import axios from "axios";
+import { editChecklist } from "./sectionAPI";
 
 // get all
 export const getAllArtworks = async (type) => {
@@ -116,7 +117,16 @@ export const predictImage = async (image) => {
             }
         });
 
-        redirect('/view/' + response.data.art_id);
+        const res = await editChecklist({
+            visit_id: null,
+            art_id: response.data.art_id,
+            visit_type: "scan",
+            is_visited: true,
+        })
+
+        if(res) {
+            redirect('/view/' + response.data.art_id);
+        }
     } catch (err) {
         const { open, close } = useModal({
             component: ToastVue,
