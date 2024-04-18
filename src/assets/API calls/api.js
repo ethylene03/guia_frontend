@@ -50,6 +50,19 @@ const noauthAPI = axios.create({
     },
 });
 
+noauthAPI.interceptors.request.use(
+    (config) => {
+        if(baseURL.includes("ngrok")) {
+            config.headers['ngrok-skip-browser-warning'] = 60924;
+        }
+
+        return config
+    },
+    (error) => {
+        return Promise.reject(error);
+    }
+)
+
 noauthAPI.interceptors.response.use(
     response => response,
     error => {
@@ -114,6 +127,10 @@ authAPI.interceptors.request.use(
         
             if(token)
                 config.headers.Authorization = token;
+
+            if(baseURL.includes("ngrok")) {
+                config.headers["ngrok-skip-browser-warning"] = 60924;
+            }
 
             return config
         } else {
