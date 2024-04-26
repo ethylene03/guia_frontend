@@ -53,7 +53,7 @@
     }
 
     .welcome img {
-        width: 50%;
+        width: 50dvw;
         margin-bottom: 50px;
     }
 
@@ -71,7 +71,7 @@
 
     @media screen and (min-width: 650px) {
         .welcome img {
-            width: 30%;
+            width: 30dvw;
         }
     }
 </style>

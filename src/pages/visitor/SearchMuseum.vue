@@ -36,7 +36,7 @@
                 localStorage.removeItem('visitor_museum_id');
 
             this.museums = await getMuseum();
-            this.isReady = true;
+            // this.isReady = true;
         },
 
         methods: {
@@ -90,7 +90,7 @@
                 <h1 :style="{marginBottom: '15px'}">Search Museum</h1>
 
                 <!-- select form (map the options for the integration) -->
-                <select class="dropdown" @change="handleChange">
+                <select class="dropdown box-shadow" @change="handleChange">
                     <option value="" hidden>Input museum name here</option>
                     <option v-for="(mus) in museums" :value="mus.museum_id">{{ mus.museum_name }}</option>
                 </select>
@@ -98,7 +98,9 @@
     
             <!-- confirm button (add API submit integration) -->
             <Loader v-if="isSubmitted" />
-            <button id="confirm-button" v-else @click="confirmMuseum" :disabled="isDisabled">Confirm</button>
+            <button id="confirm-button" v-else @click="confirmMuseum" :disabled="isDisabled" class="box-shadow">
+                Confirm
+            </button>
         </div>
 
         <!-- Footer KBytes -->
@@ -121,7 +123,7 @@
 
     .museum-logo {
         height: 15rem;
-        border: 2px solid var(--color-secondary);
+        /* border: 2px solid var(--color-secondary); */
         border-radius: 5px;
 
         margin-bottom: 5rem;
@@ -129,11 +131,12 @@
 
     .form {
         width: 100%;
+        text-align: center;
     }
 
     .dropdown {
         width: 100%;
-        border: 1px solid var(--color-secondary);
+        /* border: 1px solid var(--color-secondary); */
         border-radius: 10px;
 
         background-color: var(--color-surface);
@@ -142,6 +145,8 @@
         margin-bottom: 25px;
 
         font-weight: normal !important;
+        outline: none;
+        cursor: pointer;
     }
 
     .dropdown::selection {
