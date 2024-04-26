@@ -131,6 +131,10 @@
         margin-bottom: 5rem;
     }
 
+    .museum-logo img {
+        height: 250px;
+    }
+
     .form {
         width: 100%;
         text-align: center;
