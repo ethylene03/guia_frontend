@@ -36,7 +36,7 @@
                 localStorage.removeItem('visitor_museum_id');
 
             this.museums = await getMuseum();
-            // this.isReady = true;
+            this.isReady = true;
         },
 
         methods: {
