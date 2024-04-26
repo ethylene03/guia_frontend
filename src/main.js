@@ -7,7 +7,9 @@ import { ModalsContainer } from 'vue-final-modal';
 import { createVfm } from 'vue-final-modal'
 import { isExpired, logout } from './assets/components/common/common';
 
+
 import App from './App.vue'
+import VueHead from 'vue-head'
 
 // import admin pages here
 import AdminHome from './pages/admin/Home.vue'
@@ -110,6 +112,7 @@ const vfm = createVfm()
 // add component here
 app.use(router);
 app.use(vfm);
+app.use(VueHead)
 
 app.component('ModalsContainer', ModalsContainer);
 
