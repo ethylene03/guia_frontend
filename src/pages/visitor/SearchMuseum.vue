@@ -83,7 +83,9 @@
         <Header type="user" :showMenu="false" />
         <div class="search-cont">
             <!-- museum logo here (change the src for the integration) -->
-            <img src="../../assets/images/museum-dark.png" alt="museum-logo" class="museum-logo" />
+            <div class="museum-logo">
+                <img src="../../assets/images/museum-dark.png" alt="museum-logo" />
+            </div>
     
             <!-- select museum here -->
             <div class="form">
@@ -122,7 +124,7 @@
     }
 
     .museum-logo {
-        height: 15rem;
+        height: 250px;
         /* border: 2px solid var(--color-secondary); */
         border-radius: 5px;
 
