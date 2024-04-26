@@ -83,7 +83,7 @@
         <Header type="user" :showMenu="false" />
         <div class="search-cont">
             <!-- museum logo here (change the src for the integration) -->
-            <img src="../../assets/images/museum-dark.png" class="museum-logo" />
+            <img src="../../assets/images/museum-dark.png" alt="museum-logo" class="museum-logo" />
     
             <!-- select museum here -->
             <div class="form">
