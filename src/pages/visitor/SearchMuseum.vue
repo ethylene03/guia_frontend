@@ -175,7 +175,7 @@
 
     @media screen and (min-width: 650px) {
         .container {
-            width: 60vw;
+            width: 60dvw;
         }
     }
 </style>@/assets/components/common/common/common../../assets/components/common/Footer.vue@/assets/components/common/Error

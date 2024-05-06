@@ -128,7 +128,7 @@
 
     .logo {
         width: clamp(150px, 200px, 300px);
-        margin-bottom: 5vh;
+        margin-bottom: 5dvh;
     }
 
     .header {
@@ -156,7 +156,7 @@
 
     .button-icons {
         display: flex;
-        margin-bottom: 5vh;
+        margin-bottom: 5dvh;
     }
 
     .button-icons div {
@@ -188,7 +188,7 @@
         padding: 20px 0 50px 0;
         width: 100%;
 
-        margin-bottom: 5vh;
+        margin-bottom: 5dvh;
     }
 
     .label-dark {
@@ -238,7 +238,7 @@
 
     .logout-btn {
         background-color: var(--color-accent);
-        margin-bottom: 5vh;
+        margin-bottom: 5dvh;
     }
     .logout-btn:hover {
         background-color: var(--color-accent-darker);
@@ -248,7 +248,7 @@
     /* CSS for bigger screens */
     @media screen and (min-width: 650px) {
         .container {
-            width: 60vw;
+            width: 60dvw;
         }
 
         .form-cont {

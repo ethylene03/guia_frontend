@@ -135,7 +135,7 @@ import { format } from '@/assets/components/view-artwork/Functions';
 
     @media screen and (min-width: 650px) {
         .container {
-            width: 60vw;
+            width: 60dvw;
         }
 
         .content {

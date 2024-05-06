@@ -540,7 +540,7 @@
     /* CSS for big screens */
     @media screen and (min-width: 650px) {
         .container {
-            width: 60vw;
+            width: 60dvw;
             margin: auto;
         }
 

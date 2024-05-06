@@ -127,7 +127,7 @@
         border-radius: 10px;
 
         width: 100%;
-        height: 65vh;
+        height: 65dvh;
         margin-top: 10px;
         padding: 0px;
 
@@ -153,7 +153,7 @@
 
     @media screen and (min-width: 650px) {
         .container {
-            width: 60vw;
+            width: 60dvw;
         }
 
         .screen-body {

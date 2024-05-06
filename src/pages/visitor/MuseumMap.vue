@@ -80,7 +80,7 @@
 
         padding: 10px;
         margin: 20px 0;
-        min-height: 45vh;
+        min-height: 45dvh;
         width: 100%;
 
         display: flex;
@@ -91,7 +91,7 @@
     /* CSS STYLING FOR RESPONSIVENESS */
     @media screen and (min-width: 650px) {
         .container {
-            width: 60vw;
+            width: 60dvw;
         }
 
         .content {

@@ -127,11 +127,11 @@ import Welcome from '@/assets/components/common/Welcome.vue';
 
     .collab {
         height: 30px;
-        margin: 0 20vh;
+        margin: 0 20dvh;
     }
 
     .museum {
-        margin-top: 5vh;
+        margin-top: 5dvh;
         height: 20em;
     }
 

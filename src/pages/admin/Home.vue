@@ -183,7 +183,7 @@
     /* CSS for bigger screens */
     @media screen and (min-width: 650px) {
         .container {
-            width: 60vw;
+            width: 60dvw;
         }
 
         h1 {

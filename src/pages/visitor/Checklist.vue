@@ -92,14 +92,14 @@
         border-radius: 5px;
         border: 2px solid var(--color-secondary);
         width: 100%;
-        height: 65vh;
+        height: 65dvh;
         margin-top: 20px;
 
         overflow-y: auto;
     }
 
     .no-art {
-        margin-top: 10vh;
+        margin-top: 10dvh;
     }
 
     .list {
@@ -131,7 +131,7 @@
     /* CSS STYLING FOR RESPONSIVENESS */
     @media screen and (min-width: 650px) {
         .container {
-            width: 60vw;
+            width: 60dvw;
         }
 
         .content {

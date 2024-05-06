@@ -174,7 +174,7 @@
     /* CSS for big screens */
     @media screen and (min-width: 650px) {
         .button-cont {
-            width: 30vw;
+            width: 30dvw;
         }
     }
 

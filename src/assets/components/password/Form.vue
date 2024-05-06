@@ -63,8 +63,8 @@ export default {
 /* CSS for big screens */
 @media screen and (min-width: 650px) {
     .change-pass-cont {
-        margin-top: 25vh;
-        width: 30vw;
+        margin-top: 25dvh;
+        width: 30dvw;
         margin-bottom: 10px;
     }
 }
