@@ -53,7 +53,7 @@
     }
 
     .welcome img {
-        width: 50ddvw;
+        width: 50dvw;
         margin-bottom: 50px;
     }
 
