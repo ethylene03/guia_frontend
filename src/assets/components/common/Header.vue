@@ -82,21 +82,21 @@ import { redirect } from './common';
 <template>
     <div class="header">
         <!-- back button -->
-        <back-icon v-if="!isLight && showMenu" class="menu" @click="redirect(isBack)" title="Back" fillColor="var(--color-primary)" :size="38" style="display: flex; justify-content: center; align-items: center;" />
-        <back-icon v-if="!isLight && !showMenu" class="menu" disabled fillColor="var(--color-primary)" :size="38" :style="{opacity: '0', display: 'flex', justifyContent: 'center', alignItems: 'center'}" title="Back" />
-        <back-icon v-if="isLight && showMenu" class="menu-light" @click="redirect(isBack)" title="Back" fillColor="var(--color-secondary)" :size="38" style="display: flex; justify-content: center; align-items: center;" />
+        <back-icon v-if="!isLight && showMenu" class="menu box-shadow" @click="redirect(isBack)" title="Back" fillColor="var(--color-primary)" :size="38" style="display: flex; justify-content: center; align-items: center;" />
+        <back-icon v-if="!isLight && !showMenu" class="menu box-shadow" disabled fillColor="var(--color-primary)" :size="38" :style="{opacity: '0', display: 'flex', justifyContent: 'center', alignItems: 'center'}" title="Back" />
+        <back-icon v-if="isLight && showMenu" class="menu-light box-shadow" @click="redirect(isBack)" title="Back" fillColor="var(--color-secondary)" :size="38" style="display: flex; justify-content: center; align-items: center;" />
         
         <!-- guia logo -->
         <img v-if="type === 'admin'" src="/icons/guia-long.svg" alt="Guía" class="guia" title="Guia" @click="redirect('/on-cloud-nine')" style="cursor: pointer;" />
         <img v-else src="/icons/guia-long.svg" alt="Guía" class="guia" title="Guia" />
         
         <!-- admin menu -->
-        <menu-icon v-if="type === 'admin'" class="menu" @click="redirect('/on-cloud-nine/menu')" title="Menu" fillColor="var(--color-primary)" :size="38" style="display: flex; justify-content: center; align-items: center;" />
+        <menu-icon v-if="type === 'admin'" class="menu box-shadow" @click="redirect('/on-cloud-nine/menu')" title="Menu" fillColor="var(--color-primary)" :size="38" style="display: flex; justify-content: center; align-items: center;" />
 
         <!-- user map/camera -->
-        <map-icon v-if="type === 'user' && isMap && !isLight && showMenu" class="menu" @click="redirect('/map')" title="Check museum map" fillColor="var(--color-primary)" :size="38" style="display: flex; justify-content: center; align-items: center;" />
-        <camera-icon v-if="type === 'user' && !isMap && !isLight && showMenu" class="menu" @click="redirect('/scan')" title="Scan artwork" fillColor="var(--color-primary)" :size="38" style="display: flex; justify-content: center; align-items: center;" />
-        <map-icon v-if="type === 'user' && isMap && isLight && showMenu" class="menu-light" @click="redirect('/map')" title="Check museum map" fillColor="var(--color-secondary)" :size="38" style="display: flex; justify-content: center; align-items: center;" />
+        <map-icon v-if="type === 'user' && isMap && !isLight && showMenu" class="menu box-shadow" @click="redirect('/map')" title="Check museum map" fillColor="var(--color-primary)" :size="38" style="display: flex; justify-content: center; align-items: center;" />
+        <camera-icon v-if="type === 'user' && !isMap && !isLight && showMenu" class="menu box-shadow" @click="redirect('/scan')" title="Scan artwork" fillColor="var(--color-primary)" :size="38" style="display: flex; justify-content: center; align-items: center;" />
+        <map-icon v-if="type === 'user' && isMap && isLight && showMenu" class="menu-light box-shadow" @click="redirect('/map')" title="Check museum map" fillColor="var(--color-secondary)" :size="38" style="display: flex; justify-content: center; align-items: center;" />
         <map-icon v-if="type === 'user' && !showMenu" disabled :style="{opacity: '0'}" title="Check museum map" fillColor="var(--color-secondary)" :size="38" style="display: flex; justify-content: center; align-items: center;" />
     </div>
 </template>
@@ -124,9 +124,9 @@ import { redirect } from './common';
 
     .menu, .menu-light {
         padding: 10px;
-        border-radius: 20px;
-        height: 40px;
-        width: 40px;
+        border-radius: 50px;
+        height: 50px;
+        width: 50px;
 
         cursor: pointer;
     }

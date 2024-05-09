@@ -147,7 +147,7 @@
 
         background-color: var(--color-surface);
         color: var(--color-white);
-        padding: 7px 5px;
+        padding: 10px 5px;
         margin-bottom: 25px;
 
         font-weight: normal !important;
@@ -177,5 +177,9 @@
         .container {
             width: 60dvw;
         }
+
+        .museum-logo {
+            margin-bottom: 3rem;
+        }
     }
-</style>@/assets/components/common/common/common../../assets/components/common/Footer.vue@/assets/components/common/Error
+</style>

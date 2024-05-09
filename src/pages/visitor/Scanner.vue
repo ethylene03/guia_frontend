@@ -123,17 +123,17 @@ import { predictImage } from '@/assets/API calls/artworkAPI';
     
             <!-- buttons -->
             <div class="btn-cont">
-                <button class="flip-camera" @click="toggleCamera">
+                <button class="flip-camera  box-shadow" @click="toggleCamera">
                     <orbit-variant-icon title="flip camera" fillColor="var(--color-secondary)" />
                     <!-- <img src="/icons/flip-camera.svg" alt="flip camera" /> -->
                 </button>
                 
-                <button class="shutter" @click="capture">
+                <button class="shutter box-shadow" @click="capture">
                     <camera-outline-icon title="capture image" fillColor="var(--color-secondary)" :size="38" />
                     <!-- <img src="/icons/camera-light.svg" alt="capture image" /> -->
                 </button>
                 
-                <button @click="redirect('/search')">
+                <button class="box-shadow" @click="redirect('/search')">
                     <magnify-icon title="search artwork" fillColor="var(--color-secondary)" />
                     <!-- <img src="/icons/search.svg" alt="search artwork" /> -->
                 </button>
@@ -249,7 +249,7 @@ import { predictImage } from '@/assets/API calls/artworkAPI';
     }
 
     .vid-cont {
-        width: 100%;
+        width: 20rem;
         height: 30rem;
         margin-top: 20px;
 
@@ -273,7 +273,7 @@ import { predictImage } from '@/assets/API calls/artworkAPI';
         justify-content: space-between;
         align-items: center;
         
-        width: 70%;
+        width: 100%;
         margin: 70px 0 0 0;
     }
 
@@ -281,6 +281,7 @@ import { predictImage } from '@/assets/API calls/artworkAPI';
         display: flex;
         justify-content: center;
         align-items: center;
+        padding: 10px 2.5em !important;
 
         padding: 15px;
         border-radius: 100px;
@@ -297,7 +298,7 @@ import { predictImage } from '@/assets/API calls/artworkAPI';
 
     @media screen and (min-width: 650px) {
         .vid-cont {
-            width: 70%;
+            width: 30rem;
             height: fit-content;
             padding: 25px 0;
             margin-top: 0;
