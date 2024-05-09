@@ -13,6 +13,7 @@
   --color-error-darker: #752d2d;
   
   --color-primary: #FFF0DA;
+  --color-primary-cont: #FFEBCC;
   --color-primary-darker: #e3d1b6;
   
   --color-secondary: #534137;
@@ -102,6 +103,17 @@ text {
 
 .box-shadow {
   filter: drop-shadow(0px 4px 3px rgb(0, 0, 0, 0.25));
+}
+    
+.placeholder {
+  background-color: var(--color-primary-cont); 
+  width: 100%;
+}
+
+.placeholder text,
+.placeholder p,
+.placeholder h3 {
+  opacity: 0;
 }
 
 /* Style for the scrollbar track */
