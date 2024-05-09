@@ -43,6 +43,7 @@
             async updateChecklist(id) {
                 const art = this.artworks.find(art => art.art_id === id);
                 art.visit_type = "manual";
+                art.is_visited = art.is_visited === null ? true : !art.is_visited;
                 const res = await editChecklist(art);
 
                 if(res) {
@@ -67,7 +68,9 @@
             <div class="checklist">
                 <no-content v-if="!artworks.length" class="no-art" />
                 <div class="list" v-else v-for="art in artworks" :key="art.art_id">
-                    <input :id="art.art_id" type="checkbox" v-model="art.is_visited" @change="updateChecklist(art.art_id)" />
+                    <div className="checkbox-cont" @click="updateChecklist(art.art_id)">
+                        <input :id="art.art_id" type="checkbox" v-model="art.is_visited" />
+                    </div>
                     <text class="details"  @click="redirect('/view/' + art.art_id)">
                         {{ art.title }} ({{ art.date_published }}) by {{ art.artist_name }}
                     </text>
@@ -104,7 +107,7 @@
 
     .list {
         border-bottom: 1px solid rgba(0, 0, 0, 0.53);
-        padding: 10px 0 10px 20px;
+        /* padding: 10px 0; */
 
         display: flex;
         align-items: center;
@@ -120,8 +123,13 @@
         background-color: var(--color-primary-darker);
     }
 
-    .list input {
-        margin-right: 10px;
+    .list .checkbox-cont {
+        cursor: pointer;
+        padding: 20px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     
     .list input:checked {
