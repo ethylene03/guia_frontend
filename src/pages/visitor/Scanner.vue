@@ -9,6 +9,7 @@
     import CameraOutlineIcon from 'icons/CameraOutline.vue'
     import MagnifyIcon from 'icons/Magnify.vue'
 import { predictImage } from '@/assets/API calls/artworkAPI';
+import { predictArtwork } from '@/assets/API calls/predictAPI';
 
     export default {
         components: {
@@ -87,7 +88,7 @@ import { predictImage } from '@/assets/API calls/artworkAPI';
                 context.drawImage(videoElement, 0, 0, canvasElement.width, canvasElement.height);
                 this.capturedImage = canvasElement.toDataURL('image/jpeg');
 
-                const data = await predictImage(this.capturedImage);
+                const data = await predictArtwork(this.capturedImage);
             },
 
             // redirects to another page/screens
