@@ -39,6 +39,6 @@ export const editChecklist = async (artworks) => {
 
     if(update.status < 400)
         return true;
-    // else
-        // errorToast(update.response.data.detail);
+    else
+        errorToast(update.response.data.detail, 'refresh');
 }

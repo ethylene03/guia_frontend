@@ -1,5 +1,4 @@
 import moment from "moment";
-import { POST } from "../../API calls/api";
 import { useModal } from "vue-final-modal";
 import ToastVue from "./Toast.vue";
 
@@ -12,8 +11,11 @@ export const refreshPage = () => {
 export const redirect = (path) => {
     if(path === 'back') {
         window.location.href = document.referrer;
-    } else
+    } else if(path === 'refresh') {
+        refreshPage();
+    } else {
         return window.location.href = path;
+    }
 }
 
 // redirect to new tab
@@ -79,7 +81,7 @@ export const isExpired = () => {
         return false;
 }
 
-export const errorToast = (message) => {
+export const errorToast = (message, path) => {
     const {open, close} = useModal({
         component: ToastVue,
         attrs: {
@@ -90,7 +92,7 @@ export const errorToast = (message) => {
     })
 
     open();
-    setTimeout(() => redirect('back'), 1000);
+    setTimeout(() => redirect(path ? path : 'back'), 1000);
 }
 
 export const capitalizeFirstLetter = (string) => {

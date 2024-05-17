@@ -29,9 +29,9 @@
  */
 
 import axios from 'axios';
-import { getToken, isExpired, logout } from '../components/common/common';
 import { useModal } from 'vue-final-modal';
 import ToastVue from '../components/common/Toast.vue';
+import { getToken, isExpired, logout } from '../components/common/common';
 
 /** Fetch URL and API Key **/ 
 const baseURL = import.meta.env.VITE_API_URL;

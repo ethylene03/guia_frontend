@@ -3,13 +3,12 @@
 -->
 
 <script>
+    import { predictArtwork } from '@/assets/API calls/predictAPI';
     import Header from '@/assets/components/common/Header.vue';
+    import CameraOutlineIcon from 'icons/CameraOutline.vue';
+    import MagnifyIcon from 'icons/Magnify.vue';
+    import OrbitVariantIcon from 'icons/OrbitVariant.vue';
     import { VueFinalModal } from 'vue-final-modal';
-    import OrbitVariantIcon from 'icons/OrbitVariant.vue'
-    import CameraOutlineIcon from 'icons/CameraOutline.vue'
-    import MagnifyIcon from 'icons/Magnify.vue'
-import { predictImage } from '@/assets/API calls/artworkAPI';
-import { predictArtwork } from '@/assets/API calls/predictAPI';
 
     export default {
         components: {

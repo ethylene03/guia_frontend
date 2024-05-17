@@ -36,7 +36,7 @@
     import MenuIcon from 'icons/Menu.vue';
     import CameraIcon from 'icons/CameraOutline.vue';
     import MapIcon from 'icons/MapOutline.vue';
-import { redirect } from './common';
+    import { redirect } from './common';
     
     export default {
         components: {

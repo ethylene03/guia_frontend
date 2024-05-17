@@ -1,7 +1,3 @@
-<script>
-
-</script>
-
 <template>
     <div class="no-content">
         <img src="/icons/no-art.png" />

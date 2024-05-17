@@ -1,17 +1,16 @@
 <script>
     // header component
     import Header from '@/assets/components/common/Header.vue';
-    import UploadOutlineIcon from 'icons/UploadOutline.vue';
+import UploadOutlineIcon from 'icons/UploadOutline.vue';
 
     // modal component
     import { uploadFile } from '@/assets/API calls/amazonAPI';
-    import { authGET, authPOST } from '@/assets/API calls/api';
-    import { Error } from '@/assets/components/common/Error';
-    import Loader from '@/assets/components/common/Loader.vue';
-    import Welcome from '@/assets/components/common/Welcome.vue';
-    import { getAdminId, getMuseumId } from '@/assets/components/common/common';
-    import { useModal } from 'vue-final-modal';
-    import Modal from '../../assets/components/common/Modal.vue';
+import { authGET, authPOST } from '@/assets/API calls/api';
+import Loader from '@/assets/components/common/Loader.vue';
+import Welcome from '@/assets/components/common/Welcome.vue';
+import { errorToast, getAdminId, getMuseumId } from '@/assets/components/common/common';
+import { useModal } from 'vue-final-modal';
+import Modal from '../../assets/components/common/Modal.vue';
 
     const { open: openCancelModal, close: closeCancelModal } = useModal({
         component: Modal,
@@ -72,7 +71,7 @@
             const getArtwork = await authGET('/artwork/get', {art_id: this.$route.params.id});
             // console.log(getArtwork);
             if(!getArtwork.data) {
-                Error(getArtwork.response.data.detail);
+                errorToast(getArtwork.response.data.detail);
                 return;
             }
 

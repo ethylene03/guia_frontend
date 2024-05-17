@@ -1,7 +1,9 @@
 import axios from "axios";
-import { getAllArtworks, getArtwork } from "./artworkAPI";
-import { editChecklist } from "./sectionAPI";
+import { useModal } from "vue-final-modal";
+import Toast from "../components/common/Toast.vue";
 import { redirect } from "../components/common/common";
+import { getAllArtworks } from "./artworkAPI";
+import { editChecklist } from "./sectionAPI";
 
 function compare( a, b ) {
     let x = a.id.toString(),
@@ -38,7 +40,6 @@ export const predictArtwork = async (img) => {
         })
 
         const idx = response.data.preds[0];
-        console.log(idx);
 
         // get art_id
         var artworks = await getAllArtworks();
@@ -59,6 +60,16 @@ export const predictArtwork = async (img) => {
             redirect('/view/' + art_id);
         }
     } catch(e) {
-        console.error(e);
+        const { open, close } = useModal({
+            component: Toast,
+            attrs: {
+                type: 'info',
+                message: 'Cannot read image!',
+                subtext: 'Please try again.'
+            }
+        })
+    
+        open();
+        setTimeout(() => close(), 1000);
     }
 }
