@@ -128,7 +128,7 @@ import { visitorExpired } from '@/assets/components/common/common';
         <!-- page elements -->
         <div class="foreground">
             <!-- user header -->
-            <Header type="user" :isMap="true" :isLight="true" isBack="/search-museum" />
+            <Header type="user" :isMap="true" :isLight="true" />
             
             <!-- main camera preview -->
             <div class="vid-cont">
