@@ -75,12 +75,12 @@
     }
 
     .map {
-        border: 2px solid var(--color-secondary);
         border-radius: 5px;
+        filter: drop-shadow(0px 4px 3px rgb(0, 0, 0, 0.25));
 
         padding: 10px;
         margin: 20px 0;
-        min-height: 45dvh;
+        height: 45dvh;
         width: 100%;
 
         display: flex;
