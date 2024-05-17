@@ -122,8 +122,7 @@
 
     .logo {
         width: clamp(150px, 200px, 300px);
-        position: absolute;
-        top: 6%;
+        margin-bottom: 50px;
     }
 
     form {
@@ -173,9 +172,15 @@
 
     /* CSS for big screens */
     @media screen and (min-width: 650px) {
+        .logo {
+            position: absolute;
+            top: 6%;
+            margin-bottom: 0;
+        }
+
         .button-cont {
             width: 30dvw;
         }
     }
 
-</style>@/assets/components/common/common/common../../assets/components/common/Footer.vue../../assets/components/password/InputIcon.vue../../assets/components/password/InputIcon.vue../../assets/components/password/Password.vue
+</style>
