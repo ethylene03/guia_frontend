@@ -5,10 +5,11 @@
 <script>
     import { predictArtwork } from '@/assets/API calls/predictAPI';
     import Header from '@/assets/components/common/Header.vue';
+import Toast from '@/assets/components/common/Toast.vue';
     import CameraOutlineIcon from 'icons/CameraOutline.vue';
     import MagnifyIcon from 'icons/Magnify.vue';
     import OrbitVariantIcon from 'icons/OrbitVariant.vue';
-    import { VueFinalModal } from 'vue-final-modal';
+    import { VueFinalModal, useModal } from 'vue-final-modal';
 
     export default {
         components: {
@@ -74,9 +75,22 @@
                 }
             },
 
+            imageCaptured() {
+                const {open, close} = useModal({
+                    component: Toast,
+                    attrs: {
+                        type: 'info',
+                        message: 'Image Captured!',
+                        subtext: 'Redirecting you to the artwork...'
+                    }
+                })
+
+                open();
+            },
+
             // captures the image (integration should be here)
             async capture() {
-                console.log("image captured!");
+                this.imageCaptured();                
                 const videoElement = this.$refs.videoFront;
                 const canvasElement = this.$refs.canvas;
                 const context = canvasElement.getContext('2d');

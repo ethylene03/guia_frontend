@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useModal } from "vue-final-modal";
 import Toast from "../components/common/Toast.vue";
-import { redirect } from "../components/common/common";
+import { errorToast, redirect } from "../components/common/common";
 import { getAllArtworks } from "./artworkAPI";
 import { editChecklist } from "./sectionAPI";
 
@@ -60,16 +60,6 @@ export const predictArtwork = async (img) => {
             redirect('/view/' + art_id);
         }
     } catch(e) {
-        const { open, close } = useModal({
-            component: Toast,
-            attrs: {
-                type: 'info',
-                message: 'Cannot read image!',
-                subtext: 'Please try again.'
-            }
-        })
-    
-        open();
-        setTimeout(() => close(), 1000);
+        errorToast('Cannot read image!', 'refresh');
     }
 }
