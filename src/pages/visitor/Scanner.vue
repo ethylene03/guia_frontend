@@ -6,6 +6,7 @@
     import { predictArtwork } from '@/assets/API calls/predictAPI';
     import Header from '@/assets/components/common/Header.vue';
 import Toast from '@/assets/components/common/Toast.vue';
+import { visitorExpired } from '@/assets/components/common/common';
     import CameraOutlineIcon from 'icons/CameraOutline.vue';
     import MagnifyIcon from 'icons/Magnify.vue';
     import OrbitVariantIcon from 'icons/OrbitVariant.vue';

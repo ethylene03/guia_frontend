@@ -27,6 +27,8 @@
 
         async mounted() {
             // clear local storage
+            localStorage.removeItem('visitor_token_expiry');
+            
             if(getToken('visitor')) 
                 localStorage.removeItem('visitor_token');
 

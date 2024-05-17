@@ -47,9 +47,35 @@ export const getUsername = () => {
 };
 
 // get the username stored locally
-export const getTokenExpiry = () => {
-    return localStorage.getItem("token_expiry");
+export const getTokenExpiry = (type) => {
+    if(type === 'visitor')
+        return localStorage.getItem('visitor_token_expiry');
+    else
+        return localStorage.getItem("token_expiry");
 };
+
+// visitor token expired
+export const visitorExpired = () => {
+    const currentDate = moment(new Date()).format('MM-DD-YYYY');
+    const expiry = moment(getTokenExpiry('visitor')).format('MM-DD-YYYY')
+
+    if(currentDate !== expiry) {
+        const {open, close} = useModal({
+            component: ToastVue,
+            attrs: {
+                type: 'warning',
+                message: "Token expired!",
+                subtext: 'Please login again to continue.'
+            }
+        })
+
+        open();
+        localStorage.clear();
+        setTimeout(() => close(), 1000);
+        return true;
+    } else 
+        return false;
+}
 
 // logout
 export const logout = async () => {   

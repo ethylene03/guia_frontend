@@ -9,6 +9,7 @@ export const generateToken = async (museum_id) => {
     if(getToken.data) {
         localStorage.setItem('visitor_token', getToken.data.visitor_token);
         localStorage.setItem('visitor_museum_id', museum_id);
+        localStorage.setItem('visitor_token_expiry', new Date());
 
         redirect('/scan');
     } else {
