@@ -30,9 +30,9 @@ export const predictArtwork = async (img) => {
         formData.append('image', file);
 
         // predict image
-        const response = await axios.post(import.meta.env.VITE_API_URL + "/artwork/predict", formData, {
+        const response = await axios.post(import.meta.env.VITE_PREDICT_URL, formData, {
             headers: {
-                'x-api-key': import.meta.env.VITE_API_KEY,
+                'Authorization': 'Bearer ' + import.meta.env.VITE_PREDICT_KEY,
                 'Content-Type': 'multipart/form-data',
             }
         })
