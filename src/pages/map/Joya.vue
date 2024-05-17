@@ -8,12 +8,9 @@
                 sections: [],
                 isReady: false,
                 sizes: [
-                    {cols: 1, rows: 2},
-                    {cols: 1, rows: 1},
-                    {cols: 1, rows: 1},
-                    {cols: 1, rows: 3},
-                    {cols: 2, rows: 1},
-                    {cols: 1, rows: 1},
+                    {cols: 4, rows: 1}, // ground floor
+                    {cols: 4, rows: 1}, // second floor
+                    {cols: 1, rows: 2}, // staircase
                 ]
             }
         },
@@ -47,9 +44,15 @@
         display: flex;
     }
 
-    .grace {
+    .ground.floor {
         position: absolute;
-        top: 120px;
+        top: 184px;
+    }
+
+    .staircase {
+        position: absolute;
+        top: 62px;
+        left: 0;
     }
 
     .rica {
