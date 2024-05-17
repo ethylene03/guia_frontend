@@ -58,6 +58,7 @@
                 dateCheck: true,
                 numCheck: [true, true, true],
                 errorAPI: '',
+                hasError: false,
             };
         },
 
@@ -148,7 +149,7 @@
                 const month = /^(0[1-9]|1[0-2])-((1[2-9]\d{2})|20[0-1][0-9]|202[0-4])$/;
                 const day = /^(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])-((1[2-9]\d{2})|20[0-1][0-9]|202[0-4])$/;
 
-                if(year.test(input.date_published) || month.test(input.date_published) || day.test(input.date_published) || input.date_published.toLowerCase() === "unknown")
+                if(year.test(input.date_published) || month.test(input.date_published) || day.test(input.date_published) || input.date_published?.toLowerCase() === "unknown")
                     this.dateCheck = true;
                 else {
                     this.dateCheck = false;
@@ -188,6 +189,7 @@
                 this.isSubmit = true;
 
                 if(this.validate()) {
+                    this.hasError = false;
                     const art = this.artwork;
 
                     const images = art.images.map(img => amazonUrl + img.name);
@@ -211,7 +213,7 @@
                     }
                 } else {
                     this.isSubmit = false;
-                    console.log("error!");
+                    this.hasError = true;
                 }
             },
 
@@ -268,7 +270,7 @@
             <text style="font-size: 13px;">Please tick the image that you want to be displayed.<br/></text>
             <text style="font-weight: bold;">Image Uploaded: {{ artwork.images.length }} / 10<br/></text>
             <text ref="errorMessage" v-if="hasExceeded" class="val-error">Oh no! Can't upload more than 10 images.</text>
-            <span ref="errorMessage" v-if="isSaved && !hasExceeded && 0 <= artwork.images.length && artwork.images.length < 10" class="val-error">Please upload {{ 10 - artwork.images.length }} more images.</span>
+            <span ref="errorMessage" v-if="isSaved && !hasExceeded && 0 <= artwork.images.length && artwork.images.length < 10" class="val-error">Please upload {{ 10 - artwork.images.length }} more images.<br/></span>
             <span ref="errorMessage" v-if="isSaved && !artwork.thumbnail" class="val-error">Please choose a thumbnail.</span>
 
             <!-- binded upload button -->
@@ -294,7 +296,6 @@
                 <h2>Date Published<span class="asterisk">*</span></h2>
                 <input type="text" v-model="artwork.date_published" class="primary-form" placeholder="YYYY or MM-YYYY or MM-DD-YYYY or unknown" required />
                 <span ref="errorMessage" v-if="!artwork.date_published && this.isSaved" class="val-error">Please input the artwork's correct date published.</span>
-                <span ref="errorMessage" v-if="!dateCheck && artwork.date_published" class="val-error">Please input the artwork's correct date published format.</span>
                 
                 <!-- medium -->
                 <h2>Medium<span class="asterisk">*</span></h2>
@@ -339,6 +340,7 @@
             <span ref="errorMessage" class="val-error">{{ errorAPI }}</span>
 
             <!-- buttons -->
+            <span v-if="hasError" class="val-error">Error found. Please check the form again.</span>
             <div v-if="isSubmit" class="btn-cont load">
                 <Loader />
             </div>
@@ -519,4 +521,4 @@
             margin: auto;
         }
     }
-</style>@/assets/components/common/common/common../../assets/components/common/Modal.vue
+</style>
