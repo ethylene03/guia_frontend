@@ -248,7 +248,7 @@
 
         /* CSS for bigger screens */
         @media (min-width: 650px) {
-            .menu-cont .vfm__content {
+            .vfm__content {
                 width: 30rem;
             }
         }
