@@ -3,14 +3,13 @@
 <script>
     // component used
     import { fetchDashboard } from "@/assets/API calls/dashboardAPI";
+    import { getMuseum } from "@/assets/API calls/museumAPI";
     import Welcome from "@/assets/components/common/Welcome.vue";
     import { getMuseumId, redirect, redirectNewTab } from "@/assets/components/common/common";
-    import MenuIcon from 'icons/Menu.vue';
+    import Cards from "@/assets/components/dashboard/Cards.vue";
+    import Header from "@/assets/components/common/Header.vue";
     import LaunchIcon from 'icons/OpenInNew.vue';
     import PlusIcon from 'icons/Plus.vue';
-    import Cards from "@/assets/components/dashboard/Cards.vue";
-    import Header from '@/assets/components/dashboard/Header.vue';
-    import { getMuseum } from "@/assets/API calls/museumAPI";
 
     export default {
         components: {
@@ -74,7 +73,7 @@
     <Welcome v-if="pageLoad" :start="pageLoad" />
     <div v-else class="container">
         <!-- header -->
-        <Header />
+        <Header :isDashboard="true" />
     
         <!-- museum name -->
         <h1>{{ museum_name }}</h1>

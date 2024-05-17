@@ -53,7 +53,7 @@ const router = createRouter({
         { name: 'EditArtwork', path: '/on-cloud-nine/edit/:id', component: EditArtwork, meta: { requiresAuth: true, role: 'admin' } },
         { name: 'ViewAll', path: '/on-cloud-nine/view/all', component: ViewAllArtworks, meta: { requiresAuth: true, role: 'admin' } },
         { name: 'AdminViewArtwork', path: '/on-cloud-nine/view/:id', component: AdminViewArtwork, meta: { requiresAuth: true, role: 'admin' } },
-        { name: 'Menu', path: '/on-cloud-nine/menu', component: Menu, meta: { requiresAuth: true, role: 'admin' } },
+        // { name: 'Menu', path: '/on-cloud-nine/menu', component: Menu, meta: { requiresAuth: true, role: 'admin' } },
     ]
 });
 

@@ -1,45 +1,26 @@
 <script>
-    import { getUsername, logout } from "@/assets/components/common/common";
-    import Footer from "../../assets/components/common/Footer.vue"
-    import { useModal } from "vue-final-modal";
     import Toast from "@/assets/components/common/Toast.vue";
-    import CloseIcon from 'icons/Close.vue';
+    import { getUsername, logout, redirect } from "@/assets/components/common/common";
     import PassIcon from 'icons/AccountKeyOutline.vue';
-    import LogoutIcon from 'icons/Logout.vue';
+    import CloseIcon from 'icons/Close.vue';
     import HomeIcon from 'icons/HomeCircleOutline.vue';
     import ArtIcon from 'icons/ListBoxOutline.vue';
-
-    // toaster
-    const {open: openI, close: closeI} = useModal({
-        component: Toast,
-        attrs: {
-            type: 'info',
-            message: 'You will be logged out!',
-            subtext: 'Please login again to continue'
-        }
-    })
-
-    const {open: openE, close: closeE} = useModal({
-        component: Toast,
-        attrs: {
-            type: 'error',
-            message: 'Error logging out!'
-        }
-    })
+    import LogoutIcon from 'icons/Logout.vue';
+    import { VueFinalModal, useModal } from "vue-final-modal";
+    import Footer from "../../assets/components/common/Footer.vue";
 
     // naa sulod sa export default ang pagdeclare sa components ug methods
     export default {
-        //ideclare ang footer component
         components: {
-        Footer,
-        CloseIcon,
-        PassIcon,
-        LogoutIcon,
-        HomeIcon,
-        ArtIcon,
-    },
+            Footer,
+            CloseIcon,
+            PassIcon,
+            LogoutIcon,
+            HomeIcon,
+            ArtIcon,
+            VueFinalModal
+        },
 
-        // temporary user email rani, replace this one puhon with the data in our database
         data() {
             return {
                 userEmail: getUsername(),
@@ -48,44 +29,50 @@
 
         //ideclare ang mga methods nga iperform sa change password ug logout buttons
         methods: {
-            goTo(path) {
-                if(path == 'back')
-                    this.$router.back();
-                else
-                    window.location.href = path;
-            },
+            redirect,
 
             logout() {
-                openI();
-                const val = logout();
-
-                if(!val) {
-                    closeI();
-                    openE();
-                } 
+                const {open, close} = useModal({
+                    component: Toast,
+                    attrs: {
+                        type: 'info',
+                        message: 'You will be logged out!',
+                        subtext: 'Please login again to continue'
+                    }
+                })
+                
+                open();
+                logout();
             }
         }
     };
 </script>
 
-<template>
-    <div class="container">
-        <!-- container for exit icon -->
-        <div class="header" @click="goTo('back')">
-            <close-icon title="close menu" class="exit-icon" fillColor="var(--color-primary)" style="display: flex; align-items: center; justify-content: center;" />
-            <!-- <img src="/icons/exit.svg" alt="exit" class="exit-icon"/> -->
-        </div>
+<script setup>
+    const emit = defineEmits(['closeMenu'])
+</script>
 
+<template>
+    <VueFinalModal 
+        class="menu-cont"
+        overlay-transition="vfm-fade"
+        content-transition="vfm-slide-right"
+    >
+    
         <div class="form-cont">
+            <!-- container for exit icon -->
+            <div class="header" @click="emit('closeMenu')">
+                <close-icon title="close menu" class="exit-icon" fillColor="var(--color-primary)" style="display: flex; align-items: center; justify-content: center;" />
+            </div>
             <!-- guia logo -->
             <img class="logo" src="../../assets/images/admin-logo.png"/>
 
             <div class="button-icons">
-                <div style="margin-right: 30px;" @click="goTo('/on-cloud-nine/home')">
+                <div @click="redirect('/on-cloud-nine/home')">
                     <home-icon :size="40" />
                     <text>Dashboard</text>
                 </div>
-                <div @click="goTo('/on-cloud-nine/view/all')">
+                <div @click="redirect('/on-cloud-nine/view/all')">
                     <art-icon :size="40" />
                     <text>Artwork Directory</text>
                 </div>
@@ -100,9 +87,8 @@
             <!-- container for change pass and logout buttons -->
             <div class="button-cont">
                 <!-- change password button -->
-                <button class="change-pass-btn" type="button" @click="goTo('/on-cloud-nine/change-password')">
+                <button class="change-pass-btn" type="button" @click="redirect('/on-cloud-nine/change-password')">
                     <pass-icon fillColor="var(--color-primary)" :size="20" />
-                    <!-- <img src="/icons/change-password.svg" alt="change_password" class="change-pass-icon"/> -->
                     <h2>Change Password</h2>
                 </button>
 
@@ -114,39 +100,49 @@
                 </button>
             </div>
         </div>
-
-        <!-- KBytes Footer -->
-        <Footer/>
-    </div>
+    </VueFinalModal>
 </template>
 
-<style scoped>
+<style>
+    .menu-cont .vfm__content {
+        background-color: var(--color-primary);
+        width: 90dvw;
+        height: 100dvh;
+        padding: 30px;
+        position: absolute;
+        top: 0;
+        right: 0;
 
-    .container {
-        justify-content: flex-start;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 
     .logo {
         width: clamp(150px, 200px, 300px);
-        margin-bottom: 5dvh;
+        /* margin-bottom: 5dvh; */
     }
 
-    .header {
-        padding: 20px 0 10px 0;
+    .menu-cont .header {
+        /* padding: 20px 0 10px 0; */
         width: 100%;
         
         display: flex;
         justify-content: flex-end;
         align-items: center;
-        margin-bottom: 30px;
+
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        /* margin-bottom: 30px; */
     }
 
     .exit-icon {
         background-color: var(--color-secondary);
         padding: 10px;
-        border-radius: 20px;
-        height: 40px;
-        width: 40px; 
+        border-radius: 50px;
+        height: 50px;
+        width: 50px; 
     }
 
     .exit-icon:hover {
@@ -156,7 +152,8 @@
 
     .button-icons {
         display: flex;
-        margin-bottom: 5dvh;
+        gap: 20px;
+        /* margin-bottom: 5dvh; */
     }
 
     .button-icons div {
@@ -177,18 +174,16 @@
 
     .form-cont {
         width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        margin-bottom: 3.2rem;
+        display: grid;
+        justify-items: center;
+        gap: 10px;
     }
 
     .user-info-cont {
         padding: 20px 0 50px 0;
         width: 100%;
 
-        margin-bottom: 5dvh;
+        /* margin-bottom: 5dvh; */
     }
 
     .label-dark {
@@ -207,6 +202,9 @@
     }
 
     .button-cont {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
         width: 100%;
     }
 
@@ -229,8 +227,9 @@
 
     .change-pass-btn {
         background-color: var(--color-secondary);
-        margin-bottom: 15px;
+        /* margin-bottom: 15px; */
     }
+    
     .change-pass-btn:hover {
         background-color: var(--color-secondary-darker);
         cursor: pointer;
@@ -238,7 +237,7 @@
 
     .logout-btn {
         background-color: var(--color-accent);
-        margin-bottom: 5dvh;
+        /* margin-bottom: 5dvh; */
     }
     .logout-btn:hover {
         background-color: var(--color-accent-darker);
@@ -246,14 +245,10 @@
     }
 
     /* CSS for bigger screens */
-    @media screen and (min-width: 650px) {
-        .container {
-            width: 60dvw;
+    @media (min-width: 650px) {
+        .menu-cont .vfm__content {
+            width: 30rem;
         }
-
-        .form-cont {
-            width: 60%;
-        } 
     }
 
-</style>@/assets/components/common/common/common../../assets/components/common/Footer.vue
+</style>

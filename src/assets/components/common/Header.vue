@@ -37,6 +37,17 @@
     import CameraIcon from 'icons/CameraOutline.vue';
     import MapIcon from 'icons/MapOutline.vue';
     import { redirect } from './common';
+    import Menu from '@/pages/admin/Menu.vue';
+    import { useModal } from 'vue-final-modal';
+    
+    const {open, close} = useModal({ 
+        component: Menu,
+        attrs: {
+            onCloseMenu() {
+                close();
+            }
+        }
+    })
     
     export default {
         components: {
@@ -65,28 +76,43 @@
             showMenu: {
                 type: Boolean,
                 default: true,
+            },
+
+            isDashboard: {
+                type: Boolean,
+                default: false,
             }
         },
 
         methods: {
             redirect,
+
+            openMenu() {
+                open();
+            }
         }
     }
 </script>
 
 <template>
-    <div v-if="type === 'admin'" class="header">
+    <div v-if="isDashboard" class="header">
+        <img src="/icons/museum-logo.svg" alt="museum_name" class="museum" />
+        <img src="/icons/guia-long.svg" alt="Guía" class="guia" title="Guia" />
+        <menu-icon class="menu box-shadow" @click="openMenu" title="Menu" fillColor="var(--color-primary)" :size="38" style="display: flex; justify-content: center; align-items: center;" />
+    </div>
+
+    <div v-else-if="type === 'admin'" class="header">
         <back-icon class="menu box-shadow" @click="redirect('back')" title="Back" fillColor="var(--color-primary)" :size="38" style="display: flex; justify-content: center; align-items: center;" />
         <img src="/icons/guia-long.svg" alt="Guía" class="guia" title="Guia" @click="redirect('/on-cloud-nine')" style="cursor: pointer;" />
-        <menu-icon class="menu box-shadow" @click="redirect('/on-cloud-nine/menu')" title="Menu" fillColor="var(--color-primary)" :size="38" style="display: flex; justify-content: center; align-items: center;" />
+        <menu-icon class="menu box-shadow" @click="openMenu" title="Menu" fillColor="var(--color-primary)" :size="38" style="display: flex; justify-content: center; align-items: center;" />
     </div>
     
-        <div v-else-if="isMap && !showMenu" class="header">
-            <!-- back button -->
-            <back-icon class="menu box-shadow" disabled fillColor="var(--color-primary)" :size="38" :style="{opacity: '0', display: 'flex', justifyContent: 'center', alignItems: 'center'}" title="Back" />
-            <img src="/icons/guia-long.svg" alt="Guía" class="guia" title="Guia" />
-            <map-icon disabled :style="{opacity: '0'}" title="Check museum map" fillColor="var(--color-secondary)" :size="38" style="display: flex; justify-content: center; align-items: center;" />
-        </div>
+    <div v-else-if="isMap && !showMenu" class="header">
+        <!-- back button -->
+        <back-icon class="menu box-shadow" disabled fillColor="var(--color-primary)" :size="38" :style="{opacity: '0', display: 'flex', justifyContent: 'center', alignItems: 'center'}" title="Back" />
+        <img src="/icons/guia-long.svg" alt="Guía" class="guia" title="Guia" />
+        <map-icon disabled :style="{opacity: '0'}" title="Check museum map" fillColor="var(--color-secondary)" :size="38" style="display: flex; justify-content: center; align-items: center;" />
+    </div>
 
     <div v-else-if="isMap && !isLight" class="header">
         <back-icon class="menu box-shadow" @click="redirect('back')" title="Back" fillColor="var(--color-primary)" :size="38" style="display: flex; justify-content: center; align-items: center;" />
@@ -135,6 +161,11 @@
         width: 50px;
 
         cursor: pointer;
+    }
+
+    .museum {
+        height: 80px;
+        width: auto;
     }
 
     .menu {
