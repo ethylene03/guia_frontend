@@ -3,10 +3,8 @@
     import { generateToken } from "@/assets/API calls/visitorAPI";
     import Header from "@/assets/components/common/Header.vue";
     import Loader from "@/assets/components/common/Loader.vue";
-    import Toast from "@/assets/components/common/Toast.vue";
     import Welcome from "@/assets/components/common/Welcome.vue";
-    import { getMuseumId, getToken, refreshPage } from "@/assets/components/common/common";
-    import { useModal } from "vue-final-modal";
+    import { errorToast, getMuseumId, getToken } from "@/assets/components/common/common";
     import Footer from "../../assets/components/common/Footer.vue";
 
     export default {
@@ -60,17 +58,7 @@
                     this.isSubmitted = false;
 
                 } else {
-                    const {open, close} = useModal({
-                        component: Toast,
-                        attrs: {
-                            type: 'error',
-                            message: 'Please select a museum',
-                            subtext: 'Refreshing the page...',
-                        }
-                    })
-
-                    open();
-                    setTimeout(() => refreshPage(), 500);
+                    errorToast('Please select a museum', 'refresh');
                 }
             }
         },
@@ -84,7 +72,8 @@
         <div class="search-cont">
             <!-- museum logo here (change the src for the integration) -->
             <div class="museum-logo">
-                <img src="../../assets/images/museum-dark.png" alt="museum-logo" />
+                <img v-if="!museum_id" src="../../assets/images/no-museum.png" alt="no-museum" />
+                <img v-else src="../../assets/images/museum-dark.png" alt="museum-logo" />
             </div>
     
             <!-- select museum here -->
@@ -125,6 +114,7 @@
 
     .museum-logo {
         height: 250px;
+        width: 250px;
         /* border: 2px solid var(--color-secondary); */
         border-radius: 5px;
 
