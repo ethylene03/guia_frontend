@@ -65,11 +65,6 @@
             showMenu: {
                 type: Boolean,
                 default: true,
-            },
-
-            isBack: {
-                type: String,
-                default: 'back'
             }
         },
 
@@ -80,24 +75,35 @@
 </script>
 
 <template>
-    <div class="header">
-        <!-- back button -->
-        <back-icon v-if="!isLight && showMenu" class="menu box-shadow" @click="redirect(isBack)" title="Back" fillColor="var(--color-primary)" :size="38" style="display: flex; justify-content: center; align-items: center;" />
-        <back-icon v-if="!isLight && !showMenu" class="menu box-shadow" disabled fillColor="var(--color-primary)" :size="38" :style="{opacity: '0', display: 'flex', justifyContent: 'center', alignItems: 'center'}" title="Back" />
-        <back-icon v-if="isLight && showMenu" class="menu-light box-shadow" @click="redirect(isBack)" title="Back" fillColor="var(--color-secondary)" :size="38" style="display: flex; justify-content: center; align-items: center;" />
-        
-        <!-- guia logo -->
-        <img v-if="type === 'admin'" src="/icons/guia-long.svg" alt="Guía" class="guia" title="Guia" @click="redirect('/on-cloud-nine')" style="cursor: pointer;" />
-        <img v-else src="/icons/guia-long.svg" alt="Guía" class="guia" title="Guia" />
-        
-        <!-- admin menu -->
-        <menu-icon v-if="type === 'admin'" class="menu box-shadow" @click="redirect('/on-cloud-nine/menu')" title="Menu" fillColor="var(--color-primary)" :size="38" style="display: flex; justify-content: center; align-items: center;" />
+    <div v-if="type === 'admin'" class="header">
+        <back-icon class="menu box-shadow" @click="redirect('back')" title="Back" fillColor="var(--color-primary)" :size="38" style="display: flex; justify-content: center; align-items: center;" />
+        <img src="/icons/guia-long.svg" alt="Guía" class="guia" title="Guia" @click="redirect('/on-cloud-nine')" style="cursor: pointer;" />
+        <menu-icon class="menu box-shadow" @click="redirect('/on-cloud-nine/menu')" title="Menu" fillColor="var(--color-primary)" :size="38" style="display: flex; justify-content: center; align-items: center;" />
+    </div>
+    
+        <div v-else-if="isMap && !showMenu" class="header">
+            <!-- back button -->
+            <back-icon class="menu box-shadow" disabled fillColor="var(--color-primary)" :size="38" :style="{opacity: '0', display: 'flex', justifyContent: 'center', alignItems: 'center'}" title="Back" />
+            <img src="/icons/guia-long.svg" alt="Guía" class="guia" title="Guia" />
+            <map-icon disabled :style="{opacity: '0'}" title="Check museum map" fillColor="var(--color-secondary)" :size="38" style="display: flex; justify-content: center; align-items: center;" />
+        </div>
 
-        <!-- user map/camera -->
-        <map-icon v-if="type === 'user' && isMap && !isLight && showMenu" class="menu box-shadow" @click="redirect('/map')" title="Check museum map" fillColor="var(--color-primary)" :size="38" style="display: flex; justify-content: center; align-items: center;" />
-        <camera-icon v-if="type === 'user' && !isMap && !isLight && showMenu" class="menu box-shadow" @click="redirect('/scan')" title="Scan artwork" fillColor="var(--color-primary)" :size="38" style="display: flex; justify-content: center; align-items: center;" />
-        <map-icon v-if="type === 'user' && isMap && isLight && showMenu" class="menu-light box-shadow" @click="redirect('/map')" title="Check museum map" fillColor="var(--color-secondary)" :size="38" style="display: flex; justify-content: center; align-items: center;" />
-        <map-icon v-if="type === 'user' && !showMenu" disabled :style="{opacity: '0'}" title="Check museum map" fillColor="var(--color-secondary)" :size="38" style="display: flex; justify-content: center; align-items: center;" />
+    <div v-else-if="isMap && !isLight" class="header">
+        <back-icon class="menu box-shadow" @click="redirect('back')" title="Back" fillColor="var(--color-primary)" :size="38" style="display: flex; justify-content: center; align-items: center;" />
+        <img src="/icons/guia-long.svg" alt="Guía" class="guia" title="Guia" />
+        <map-icon class="menu box-shadow" @click="redirect('/map')" title="Check museum map" fillColor="var(--color-primary)" :size="38" style="display: flex; justify-content: center; align-items: center;" />
+    </div>
+
+    <div v-else-if="isMap && isLight" class="header">
+        <back-icon class="menu-light box-shadow" @click="redirect('back')" title="Back" fillColor="var(--color-secondary)" :size="38" style="display: flex; justify-content: center; align-items: center;" />
+        <img src="/icons/guia-long.svg" alt="Guía" class="guia" title="Guia" />
+        <map-icon class="menu-light box-shadow" @click="redirect('/map')" title="Check museum map" fillColor="var(--color-secondary)" :size="38" style="display: flex; justify-content: center; align-items: center;" />
+    </div>
+
+    <div v-else-if="!isMap" class="header">
+        <back-icon class="menu box-shadow" @click="redirect('back')" title="Back" fillColor="var(--color-primary)" :size="38" style="display: flex; justify-content: center; align-items: center;" />
+        <img src="/icons/guia-long.svg" alt="Guía" class="guia" title="Guia" />
+        <camera-icon class="menu box-shadow" @click="redirect('/scan')" title="Scan artwork" fillColor="var(--color-primary)" :size="38" style="display: flex; justify-content: center; align-items: center;" />
     </div>
 </template>
 
