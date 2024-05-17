@@ -1,4 +1,5 @@
 <script>
+    import Loader from '@/assets/components/common/Loader.vue';
     import Section from './Section.vue';
     import { getSectionDetails } from '@/assets/components/museum-map/SectionDetails.js';
 
@@ -17,6 +18,7 @@
 
         components: {
             Section,
+            Loader
         },
 
         async mounted() {
@@ -32,13 +34,19 @@
 </script>
 
 <template>
-    <div class="map-cont">
+    <div :class="'map-cont ' + (sections.length === 0 ? 'loader-cont' : '')">
         <!-- each cell is equivalent to 60px x 60px -->
+        <Loader v-if="sections.length === 0" />
         <Section v-for="section in sections" :class="section.section_name.toLowerCase()" :sectionName="section.section_name" :traffic="section.traffic" :visited="section.visited" :artworks="section.artworks" :cols="section.cols" :rows="section.rows" @click="viewCheckList(section.section_id)" />
     </div>
 </template>
 
 <style scoped>
+    .loader-cont {
+        align-items: center;
+        justify-content: center;
+    }
+
     .map-cont {
         position: relative;
         display: flex;
