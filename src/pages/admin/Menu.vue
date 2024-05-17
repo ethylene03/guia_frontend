@@ -87,13 +87,13 @@
             <!-- container for change pass and logout buttons -->
             <div class="button-cont">
                 <!-- change password button -->
-                <button class="change-pass-btn" type="button" @click="redirect('/on-cloud-nine/change-password')">
+                <button class="change-pass-btn box-shadow" type="button" @click="redirect('/on-cloud-nine/change-password')">
                     <pass-icon fillColor="var(--color-primary)" :size="20" />
                     <h2>Change Password</h2>
                 </button>
 
                 <!-- logout button -->
-                <button class="logout-btn" type="button" @click="logout">
+                <button class="logout-btn box-shadow" type="button" @click="logout">
                     <logout-icon fillColor="var(--color-primary)" :size="20" />
                     <!-- <img src="/icons/logout.svg" alt="logout" class="logout-icon" /> -->
                     <h2>Logout</h2>

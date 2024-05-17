@@ -82,7 +82,7 @@ import { format } from '@/assets/components/view-artwork/Functions';
                 <p>{{ this.artwork.description }}</p>
             </div>
 
-            <button class="scan-again" type="button" @click="redirect('/scan')">
+            <button class="scan-again box-shadow" type="button" @click="redirect('/scan')">
                 <camera-icon title="scan again" fillColor="var(--color-primary)" :size="20" style="display: flex; margin-right: 10px;" />
                 <!-- <img src="/icons/scan.svg" alt="scan again" /> -->
                 Scan Again
