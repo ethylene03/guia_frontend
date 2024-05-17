@@ -113,12 +113,12 @@
 
     .checklist {
         border-radius: 5px;
-        border: 2px solid var(--color-secondary);
+        /* border: 2px solid var(--color-secondary); */
         width: 100%;
-        height: 65dvh;
+        /* height: 65dvh; */
         margin-top: 20px;
 
-        overflow-y: auto;
+        /* overflow-y: auto; */
     }
 
     .no-art {
@@ -136,7 +136,7 @@
 
     .list {
         border-bottom: 1px solid rgba(0, 0, 0, 0.53);
-        /* padding: 10px 0; */
+        padding: 5px 0;
 
         display: flex;
         align-items: center;
