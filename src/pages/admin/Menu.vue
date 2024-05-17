@@ -104,151 +104,154 @@
 </template>
 
 <style>
-    .menu-cont .vfm__content {
-        background-color: var(--color-primary);
-        width: 90dvw;
-        height: 100dvh;
-        padding: 30px;
-        position: absolute;
-        top: 0;
-        right: 0;
+    .menu-cont {
+        .vfm__content {
+            background-color: var(--color-primary);
+            width: 90dvw;
+            height: 100dvh;
+            padding: 30px;
+            position: absolute;
+            top: 0;
+            right: 0;
 
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    .logo {
-        width: clamp(150px, 200px, 300px);
-        /* margin-bottom: 5dvh; */
-    }
-
-    .menu-cont .header {
-        /* padding: 20px 0 10px 0; */
-        width: 100%;
-        
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-
-        position: absolute;
-        top: 30px;
-        right: 30px;
-        /* margin-bottom: 30px; */
-    }
-
-    .exit-icon {
-        background-color: var(--color-secondary);
-        padding: 10px;
-        border-radius: 50px;
-        height: 50px;
-        width: 50px; 
-    }
-
-    .exit-icon:hover {
-        background-color: var(--color-secondary-darker);
-        cursor: pointer;
-    }
-
-    .button-icons {
-        display: flex;
-        gap: 20px;
-        /* margin-bottom: 5dvh; */
-    }
-
-    .button-icons div {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-
-        cursor: pointer;
-        width: 150px;
-        padding: 10px 0;
-        border-radius: 10px;
-    }
-
-    .button-icons div:hover {
-        background-color: var(--color-primary-darker);
-    }
-
-    .form-cont {
-        width: 100%;
-        display: grid;
-        justify-items: center;
-        gap: 10px;
-    }
-
-    .user-info-cont {
-        padding: 20px 0 50px 0;
-        width: 100%;
-
-        /* margin-bottom: 5dvh; */
-    }
-
-    .label-dark {
-        color: var(--color-secondary);
-        padding-bottom: 10px;
-    }
-
-    .user-info-cont span {
-        border-bottom: 2px solid var(--color-secondary);
-        padding-bottom: 10px;
-        width: 100%;
-        color: var(--color-secondary);
-        
-        display: block;
-        
-    }
-
-    .button-cont {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        width: 100%;
-    }
-
-    .button-cont button {
-        color: var(--color-primary);
-        width: 100%;
-        padding: 10px 20px !important;
-        
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-    }
-
-    .button-cont button h2 {
-        width: 100%;
-        
-        display: flex;
-        justify-content: center;
-    }
-
-    .change-pass-btn {
-        background-color: var(--color-secondary);
-        /* margin-bottom: 15px; */
-    }
-    
-    .change-pass-btn:hover {
-        background-color: var(--color-secondary-darker);
-        cursor: pointer;
-    }
-
-    .logout-btn {
-        background-color: var(--color-accent);
-        /* margin-bottom: 5dvh; */
-    }
-    .logout-btn:hover {
-        background-color: var(--color-accent-darker);
-        cursor: pointer;
-    }
-
-    /* CSS for bigger screens */
-    @media (min-width: 650px) {
-        .menu-cont .vfm__content {
-            width: 30rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
-    }
+
+        .logo {
+            width: clamp(150px, 200px, 300px);
+            /* margin-bottom: 5dvh; */
+        }
+
+        .header {
+            /* padding: 20px 0 10px 0; */
+            width: 100%;
+            
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            /* margin-bottom: 30px; */
+        }
+
+        .exit-icon {
+            background-color: var(--color-secondary);
+            padding: 10px;
+            border-radius: 50px;
+            height: 50px;
+            width: 50px; 
+        }
+
+        .exit-icon:hover {
+            background-color: var(--color-secondary-darker);
+            cursor: pointer;
+        }
+
+        .button-icons {
+            display: flex;
+            gap: 20px;
+            /* margin-bottom: 5dvh; */
+        }
+
+        .button-icons div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            cursor: pointer;
+            width: 150px;
+            padding: 10px 0;
+            border-radius: 10px;
+        }
+
+        .button-icons div:hover {
+            background-color: var(--color-primary-darker);
+        }
+
+        .form-cont {
+            width: 100%;
+            display: grid;
+            justify-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .user-info-cont {
+            padding: 20px 0 50px 0;
+            width: 100%;
+
+            /* margin-bottom: 5dvh; */
+        }
+
+        .label-dark {
+            color: var(--color-secondary);
+            padding-bottom: 10px;
+        }
+
+        .user-info-cont span {
+            border-bottom: 2px solid var(--color-secondary);
+            padding-bottom: 10px;
+            width: 100%;
+            color: var(--color-secondary);
+            
+            display: block;
+            
+        }
+
+        .button-cont {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+        }
+
+        .button-cont button {
+            color: var(--color-primary);
+            width: 100%;
+            padding: 10px 20px !important;
+            
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .button-cont button h2 {
+            width: 100%;
+            
+            display: flex;
+            justify-content: center;
+        }
+
+        .change-pass-btn {
+            background-color: var(--color-secondary);
+            /* margin-bottom: 15px; */
+        }
+        
+        .change-pass-btn:hover {
+            background-color: var(--color-secondary-darker);
+            cursor: pointer;
+        }
+
+        .logout-btn {
+            background-color: var(--color-accent);
+            /* margin-bottom: 5dvh; */
+        }
+        .logout-btn:hover {
+            background-color: var(--color-accent-darker);
+            cursor: pointer;
+        }
+
+        /* CSS for bigger screens */
+        @media (min-width: 650px) {
+            .menu-cont .vfm__content {
+                width: 30rem;
+            }
+        }
+    } 
 
 </style>
