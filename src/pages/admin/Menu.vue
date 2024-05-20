@@ -107,7 +107,7 @@
     .menu-cont {
         .vfm__content {
             background-color: var(--color-primary);
-            width: 90dvw;
+            width: 80dvw;
             height: 100dvh;
             padding: 30px;
             position: absolute;
@@ -153,20 +153,24 @@
 
         .button-icons {
             display: flex;
-            gap: 20px;
+            gap: 10px;
             /* margin-bottom: 5dvh; */
         }
 
         .button-icons div {
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
 
             cursor: pointer;
-            width: 150px;
+            width: 120px;
             padding: 10px 0;
             border-radius: 10px;
+
+            text {
+                text-align: center;
+            }
         }
 
         .button-icons div:hover {
@@ -250,6 +254,14 @@
         @media (min-width: 650px) {
             .vfm__content {
                 width: 30rem;
+            }
+
+            .button-icons {
+                gap: 20px;
+
+                div {
+                    width: 150px;    
+                }
             }
         }
     } 

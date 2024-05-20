@@ -84,7 +84,7 @@
 
                 <!-- select form (map the options for the integration) -->
                 <select class="dropdown box-shadow" @change="handleChange">
-                    <option value="" hidden>Input museum name here</option>
+                    <option value="" hidden>Select museum name here</option>
                     <option v-for="(mus) in museums" :value="mus.museum_id">{{ mus.museum_name }}</option>
                 </select>
             </div>

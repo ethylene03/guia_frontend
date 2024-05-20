@@ -35,7 +35,7 @@ export default {
 
 <style scoped>
 .password-cont {
-    padding: 0;
+    padding: 0 5px 0 0;
     display: flex;
     justify-content: flex-start;
     align-items: center;
