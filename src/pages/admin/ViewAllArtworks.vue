@@ -68,6 +68,8 @@
                     filteredArtwork = this.artworks.filter(art => art.year <= 2020 && art.year >= 2010);
                 } else if(this.filterType === "2020-Present") {
                     filteredArtwork = this.artworks.filter(art => art.year >= 2020);
+                } else if(this.filterType === "Unknown") {
+                    filteredArtwork = this.artworks.filter(art => art.year.toLowerCase() === "unknown");
                 }
 
                 // search

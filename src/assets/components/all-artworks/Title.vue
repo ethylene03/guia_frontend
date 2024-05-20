@@ -16,7 +16,7 @@
                 filter: false,
     
                 sortOpt: ["title", "artist", "year"],
-                filterOpt: ["All", "Before 1900s", "1900-1950", "1950-2000", "2000-2010", "2010-2020", "2020-Present"],
+                filterOpt: ["All", "Before 1900s", "1900-1950", "1950-2000", "2000-2010", "2010-2020", "2020-Present", "Unknown"],
             }
         },
 
