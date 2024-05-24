@@ -39,7 +39,20 @@ export const predictArtwork = async (img) => {
             }
         })
 
-        const idx = response.data.preds[0];
+        // Object.entries(response.data).map(item => console.log(item))
+        const prediction = Object.entries(response.data).find(item => parseFloat(item[1]) > 50);
+        // console.log(prediction)
+
+        if(prediction.length == 0) {
+            errorToast('Cannot read image!', 'refresh');
+            return
+        } else if(prediction.length > 1) {
+            prediction.sort((a, b) => parseFloat(a[1]) - parseFloat(b[1]));
+        }
+
+        // console.log(prediction[0])
+        const idx = parseInt(prediction[0].replace("Class ", ""));
+        // console.log(idx)
 
         // get art_id
         var artworks = await getAllArtworks();
