@@ -73,6 +73,7 @@ export const predictArtwork = async (img) => {
             redirect('/view/' + art_id);
         }
     } catch(e) {
-        errorToast('Cannot read image!', 'refresh');
+        // errorToast('Cannot read image!', 'refresh');
+        console.error(e)
     }
 }
