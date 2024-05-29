@@ -96,7 +96,7 @@
 
 <template>
     <div v-if="isDashboard" class="header">
-        <img src="/icons/museum-logo.svg" alt="museum_name" class="museum" />
+        <map-icon disabled :style="{opacity: '0'}" title="Check museum map" fillColor="var(--color-secondary)" :size="38" style="display: flex; justify-content: center; align-items: center;" />
         <img src="/icons/guia-long.svg" alt="Guía" class="guia" title="Guia" />
         <menu-icon class="menu box-shadow" @click="openMenu" title="Menu" fillColor="var(--color-primary)" :size="38" style="display: flex; justify-content: center; align-items: center;" />
     </div>

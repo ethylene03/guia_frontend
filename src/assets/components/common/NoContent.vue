@@ -1,7 +1,15 @@
+<script>
+    export default {
+        props: {
+            item: 'artworks',
+        }
+    }
+</script>
+
 <template>
     <div class="no-content">
         <img src="/icons/no-art.png" />
-        <text>Oops! No artworks found.</text>
+        <text>Oops! No {{ item }} found.</text>
     </div>
 </template>
 
