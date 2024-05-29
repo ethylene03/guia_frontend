@@ -12,6 +12,7 @@
                     {cols: 4, rows: 1}, // ground floor
                     {cols: 4, rows: 1}, // second floor
                     {cols: 1, rows: 2}, // staircase
+                    {cols: 0, rows: 0}, // hidden
                 ]
             }
         },
@@ -62,9 +63,8 @@
         top: 62px;
         left: 0;
     }
-
-    .rica {
-        position: absolute;
-        top: 180px;
+    
+    .archive {
+        display: none;
     }
 </style>
