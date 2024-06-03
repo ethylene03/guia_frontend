@@ -340,9 +340,9 @@ import UploadOutlineIcon from 'icons/UploadOutline.vue';
                 <span ref="errorMessage" v-if="!artwork.section_id && this.isSaved" class="val-error">Please input the artwork's section.</span>
                 
                 <!-- length -->
-                <h2>Length (cm)<span class="asterisk">*</span></h2>
+                <h2>Height (cm)<span class="asterisk">*</span></h2>
                 <input type="number" v-model="artwork.dimen_length_cm" min="0" class="primary-form" required />
-                <span ref="errorMessage" v-if="!artwork.dimen_length_cm && this.isSaved" class="val-error">Please input the artwork's correct length.</span>
+                <span ref="errorMessage" v-if="!artwork.dimen_length_cm && this.isSaved" class="val-error">Please input the artwork's correct height.</span>
                 <span ref="errorMessage" v-if="!numCheck[0] && this.isSaved" class="val-error">Please input positive number.</span>
                 
                 <!-- width -->
@@ -352,7 +352,7 @@ import UploadOutlineIcon from 'icons/UploadOutline.vue';
                 <span ref="errorMessage" v-if="!numCheck[1] && this.isSaved" class="val-error">Please input positive number.</span>
                 
                 <!-- height -->
-                <h2>Height (cm)</h2>
+                <h2>Depth (cm)</h2>
                 <input type="number" v-model="artwork.dimen_height_cm" min="0" class="primary-form" />
                 <span ref="errorMessage" v-if="!numCheck[2] && this.isSaved" class="val-error">Please input positive number.</span>
                 
