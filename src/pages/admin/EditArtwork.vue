@@ -70,7 +70,8 @@ import UploadOutlineIcon from 'icons/UploadOutline.vue';
 
             // get artwork details
             const getArtwork = await authGET('/artwork/get', {art_id: this.$route.params.id});
-            // console.log(getArtwork);
+            console.log(getArtwork);
+            
             if(!getArtwork.data) {
                 errorToast(getArtwork.response.data.detail);
                 return;
@@ -78,15 +79,17 @@ import UploadOutlineIcon from 'icons/UploadOutline.vue';
 
             this.artwork = getArtwork.data.artwork;
             let imgs = getArtwork.data.artwork.images;
-            imgs.map(image => {
+            imgs = imgs.map(image => {
                 const name = image.image_link.substring(image.image_link.indexOf('artworks/') + 9, image.image_link.indexOf('jpg') + 3);
                 image['name'] = name;
                 image['file'] = image.image_link;
+
+                // thumbnail
+                if(image.is_thumbnail)
+                    this.artwork.thumbnail = name;
             })
 
             this.images = imgs;
-
-            this.artwork['thumbnail'] = imgs.find(image => image.is_thumbnail === true) ? imgs.find(image => image.is_thumbnail === true).image_link : null;
 
             // get sections
             const getSections = await authGET('/section/get', {museum_id: getMuseumId('admin')});
@@ -220,13 +223,16 @@ import UploadOutlineIcon from 'icons/UploadOutline.vue';
 
                 if(this.validate()) {
                     this.hasError = false;
-                    const art = this.artwork;
-
+                    var art = {...this.artwork};
                     const images = art.images.map(img => amazonUrl + img.name);
-                    const thumb = amazonUrl + art.thumbnail;
+                    
+                    const idx = art.thumbnail.indexOf('jpg') + 3;
+                    if(art.thumbnail.includes("https"))
+                        art.thumbnail = art.thumbnail.substring(0, idx).replace("https://guia-buckets.s3.amazonaws.com/", "");
+                    else
+                        art.thumbnail = 'artworks/' + art.thumbnail;
 
                     art.images = images;
-                    art.thumbnail = thumb;
                     art.updated_by = getAdminId();
 
                     // create artwork
@@ -264,7 +270,6 @@ import UploadOutlineIcon from 'icons/UploadOutline.vue';
         <Header />
         <div class="input-form">
             <h1>Edit Artwork</h1>
-
             <!-- input for upload file -->
             <input id="fileUpload" type="file" accept="image/jpeg" @change="receiveFiles" multiple hidden /> 
             
@@ -285,9 +290,9 @@ import UploadOutlineIcon from 'icons/UploadOutline.vue';
                     <input id="thumbnail" 
                         type="checkbox" 
                         :value="image.name" 
-                        :disabled="artwork.thumbnail != null && artwork.thumbnail != image.image_link"
+                        :disabled="artwork.thumbnail != null && artwork.thumbnail != image.name"
                         :style="{marginTop: '10px'}"
-                        :checked="artwork.thumbnail === image.image_link"
+                        :checked="artwork.thumbnail === image.name"
                         @input="handleChange"
                     />
                 </div>
