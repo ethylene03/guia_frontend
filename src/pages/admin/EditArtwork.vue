@@ -86,7 +86,7 @@ import UploadOutlineIcon from 'icons/UploadOutline.vue';
 
             this.images = imgs;
 
-            this.artwork['thumbnail'] = imgs.find(image => image.is_thumbnail === true) ? imgs.find(image => image.is_thumbnail === true).name : null;
+            this.artwork['thumbnail'] = imgs.find(image => image.is_thumbnail === true) ? imgs.find(image => image.is_thumbnail === true).image_link : null;
 
             // get sections
             const getSections = await authGET('/section/get', {museum_id: getMuseumId('admin')});
@@ -94,6 +94,7 @@ import UploadOutlineIcon from 'icons/UploadOutline.vue';
             this.sections = getSections.data.section;
 
             this.pageLoad = false;
+            console.log(this.artwork)
         },
 
         methods: {
@@ -284,9 +285,9 @@ import UploadOutlineIcon from 'icons/UploadOutline.vue';
                     <input id="thumbnail" 
                         type="checkbox" 
                         :value="image.name" 
-                        :disabled="artwork.thumbnail != null && artwork.thumbnail != image.name"
+                        :disabled="artwork.thumbnail != null && artwork.thumbnail != image.image_link"
                         :style="{marginTop: '10px'}"
-                        :checked="artwork.thumbnail === image.name"
+                        :checked="artwork.thumbnail === image.image_link"
                         @input="handleChange"
                     />
                 </div>
