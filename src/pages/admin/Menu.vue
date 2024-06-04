@@ -74,7 +74,7 @@
                 </div>
                 <div @click="redirect('/on-cloud-nine/view/all')">
                     <art-icon :size="40" />
-                    <text>Artwork Directory</text>
+                    <text>Directory</text>
                 </div>
             </div>
 
