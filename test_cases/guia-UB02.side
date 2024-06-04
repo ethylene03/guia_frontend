@@ -1,0 +1,613 @@
+{
+  "id": "eb9be83e-dc2a-48b5-94c7-0ff9b9c6d61f",
+  "version": "2.0",
+  "name": "guia-UB02",
+  "url": "https://guia.kbytes.live/hands-down/1",
+  "tests": [{
+    "id": "408ff9e9-de77-46b4-a2fb-259710be09a8",
+    "name": "UB02-01",
+    "commands": [{
+      "id": "b2afdc98-104f-47ff-96d4-0e374ec4a6a2",
+      "comment": "",
+      "command": "open",
+      "target": "https://guia.kbytes.live/hands-down/1",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8bf29d62-9dc7-48b0-b5ea-83e3440346e4",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "430x932",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "237bb4c2-4544-46cb-91c9-4b7388a4438b",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//img[@alt='Guia: Guiding you through history']",
+      "targets": [],
+      "value": "30000"
+    }, {
+      "id": "d94bd144-132f-4bf5-949e-96c73a3c5cd8",
+      "comment": "",
+      "command": "click",
+      "target": "css=button:nth-child(1)",
+      "targets": [
+        ["css=button:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Yes')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "06d45e2b-4009-4e38-9741-1cebfa85c50d",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=button:nth-child(3)",
+      "targets": [
+        ["css=button:nth-child(3)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[3]/button[3]", "xpath:idRelative"],
+        ["xpath=//button[3]", "xpath:position"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "b8a07b08-7c0f-4563-b8f2-6a68d484af45",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.chevron-left-icon",
+      "targets": [
+        ["css=.chevron-left-icon", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/span", "xpath:idRelative"],
+        ["xpath=//div[2]/div/span", "xpath:position"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "662f2025-9dc5-4b9b-9312-ee9060d72895",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.guia",
+      "targets": [],
+      "value": "30000"
+    }, {
+      "id": "9a37c1f9-0a95-411b-9fb7-adcc887a2005",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.map-outline-icon",
+      "targets": [
+        ["css=.map-outline-icon", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/span[2]", "xpath:idRelative"],
+        ["xpath=//span[2]", "xpath:position"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "11b443cf-a07a-4ac5-9967-f3a359379808",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//h2[contains(.,'Please point the camera to the artwork')]",
+      "targets": [],
+      "value": "Please point the camera to the artwork"
+    }, {
+      "id": "c61840cf-581f-4c3f-8260-b03383aa9d9d",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.flip-camera",
+      "targets": [
+        ["css=.flip-camera", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[3]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "ce255da6-be35-4ba8-b099-4959a0492a4a",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.shutter",
+      "targets": [
+        ["css=.shutter", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[3]/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"]
+      ],
+      "value": "30000"
+    }]
+  }, {
+    "id": "bd79af11-7363-4ab1-bb78-51a9e974185c",
+    "name": "UB02-02",
+    "commands": [{
+      "id": "67d1148a-6f40-476b-857a-d7138c15ea09",
+      "comment": "",
+      "command": "open",
+      "target": "https://guia.kbytes.live/hands-down/1",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9972528b-6746-4bde-af42-4397312dccc7",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "430x932",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3810b595-e95f-48bd-90b8-ab94729c962a",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//img[@alt='Guia: Guiding you through history']",
+      "targets": [],
+      "value": "30000"
+    }, {
+      "id": "99537ee7-c35f-4e0f-8aa9-6c8a9906ddcc",
+      "comment": "",
+      "command": "click",
+      "target": "css=button:nth-child(1)",
+      "targets": [
+        ["css=button:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Yes')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "068ba1d1-5cc1-4bfb-a2e6-769da7550635",
+      "comment": "",
+      "command": "click",
+      "target": "css=.vid-cont > video",
+      "targets": [
+        ["css=.vid-cont > video", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]/video", "xpath:idRelative"],
+        ["xpath=//div[2]/video", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "64b41f94-c738-4ee0-9156-4b1856aff73d",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.vid-cont > video",
+      "targets": [
+        ["css=.vid-cont > video", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]/video", "xpath:idRelative"],
+        ["xpath=//div[2]/video", "xpath:position"]
+      ],
+      "value": "100000"
+    }, {
+      "id": "0853052d-b9cf-401a-b135-90f1fdc9a656",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.chevron-left-icon",
+      "targets": [
+        ["css=.chevron-left-icon", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/span", "xpath:idRelative"],
+        ["xpath=//div[2]/div/span", "xpath:position"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "e664d865-366b-4e07-80ba-a95b94a588f1",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.guia",
+      "targets": [],
+      "value": "30000"
+    }, {
+      "id": "f385c8cc-a336-445a-b1b2-22af5d741e1e",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.map-outline-icon",
+      "targets": [
+        ["css=.map-outline-icon", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/span[2]", "xpath:idRelative"],
+        ["xpath=//span[2]", "xpath:position"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "2cdf2113-de6c-4ed2-90b4-f3462f21425c",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//h2[contains(.,'Please point the camera to the artwork')]",
+      "targets": [],
+      "value": "Please point the camera to the artwork"
+    }, {
+      "id": "231a9d5b-d5b3-47cf-9a42-ff501e32ae1d",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.flip-camera",
+      "targets": [
+        ["css=.flip-camera", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[3]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "4de15c76-f7b9-4cfb-acbb-3c98b47e5831",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.shutter",
+      "targets": [
+        ["css=.shutter", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[3]/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "fc5bdd23-f6f3-4201-acb8-29b79a0a9102",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=button:nth-child(3)",
+      "targets": [
+        ["css=button:nth-child(3)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[3]/button[3]", "xpath:idRelative"],
+        ["xpath=//button[3]", "xpath:position"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "fc3ca1ac-b638-447f-afc1-9fafecf4a229",
+      "comment": "",
+      "command": "click",
+      "target": "css=button:nth-child(3)",
+      "targets": [
+        ["css=button:nth-child(3)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[3]/button[3]", "xpath:idRelative"],
+        ["xpath=//button[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f2dfec30-74cd-489e-8d92-00d50553e727",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//h1[contains(.,'Search Artwork')]",
+      "targets": [
+        ["css=h1", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Search Artwork')]", "xpath:innerText"]
+      ],
+      "value": "Search Artwork"
+    }, {
+      "id": "d1458f54-ea49-4f51-9f29-2ab16912992a",
+      "comment": "",
+      "command": "click",
+      "target": "css=input",
+      "targets": [
+        ["css=input", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a4a517d8-a1e5-4617-9937-8ebfb57f8f0a",
+      "comment": "",
+      "command": "type",
+      "target": "css=input",
+      "targets": [
+        ["css=input", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "after"
+    }, {
+      "id": "49743345-fe95-4a9c-b775-090b3bfe1341",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "css=input",
+      "targets": [
+        ["css=input", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "97fc2ef1-1af9-4293-b05e-b82e23fff99b",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.art",
+      "targets": [
+        ["css=.art", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/ul/li", "xpath:idRelative"],
+        ["xpath=//li", "xpath:position"]
+      ],
+      "value": "30000"
+    }]
+  }, {
+    "id": "c9e2b7e7-c503-4f8d-b25e-e63c4616ed79",
+    "name": "UB02-03",
+    "commands": [{
+      "id": "714e8558-cddd-4ece-a6d5-53765294321f",
+      "comment": "",
+      "command": "open",
+      "target": "https://guia.kbytes.live/hands-down/1",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9bc8a4ec-e599-43cc-8c72-9abd4483e15e",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "430x932",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "dbec5e16-240d-4914-8d17-822916d300f0",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//img[@alt='Guia: Guiding you through history']",
+      "targets": [],
+      "value": "30000"
+    }, {
+      "id": "3f2f366d-b322-47ba-beae-e7bdbef8a64a",
+      "comment": "",
+      "command": "click",
+      "target": "css=button:nth-child(1)",
+      "targets": [
+        ["css=button:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Yes')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7b2d89e3-780f-4f1e-b980-842008632f1a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.vid-cont > video",
+      "targets": [
+        ["css=.vid-cont > video", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]/video", "xpath:idRelative"],
+        ["xpath=//div[2]/video", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "88989d3d-5512-4584-9e64-9bba29571992",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.vid-cont > video",
+      "targets": [
+        ["css=.vid-cont > video", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]/video", "xpath:idRelative"],
+        ["xpath=//div[2]/video", "xpath:position"]
+      ],
+      "value": "100000"
+    }, {
+      "id": "f930c693-0b03-4eb4-b26d-f66e0ca5036e",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.chevron-left-icon",
+      "targets": [
+        ["css=.chevron-left-icon", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/span", "xpath:idRelative"],
+        ["xpath=//div[2]/div/span", "xpath:position"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "8bae6735-5389-44cc-a257-b4164a40a13c",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.guia",
+      "targets": [],
+      "value": "30000"
+    }, {
+      "id": "fc08dda4-4aa7-4b5f-acd2-9b46aac6f4df",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.map-outline-icon",
+      "targets": [
+        ["css=.map-outline-icon", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/span[2]", "xpath:idRelative"],
+        ["xpath=//span[2]", "xpath:position"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "da33e188-4f55-4c8b-b04d-c35505e71d70",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//h2[contains(.,'Please point the camera to the artwork')]",
+      "targets": [],
+      "value": "Please point the camera to the artwork"
+    }, {
+      "id": "c297592e-1d14-42ae-ba87-0ffffd959a84",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.flip-camera",
+      "targets": [
+        ["css=.flip-camera", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[3]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "8ea8c8f5-506e-47f1-9b0c-49e200e5e1a0",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.shutter",
+      "targets": [
+        ["css=.shutter", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[3]/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "4c9f1212-2068-42fe-a7af-c6d3fde24781",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=button:nth-child(3)",
+      "targets": [
+        ["css=button:nth-child(3)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[3]/button[3]", "xpath:idRelative"],
+        ["xpath=//button[3]", "xpath:position"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "9651e9a9-494d-4988-a09e-0fc9a33bc9c7",
+      "comment": "",
+      "command": "click",
+      "target": "css=button:nth-child(3)",
+      "targets": [
+        ["css=button:nth-child(3)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[3]/button[3]", "xpath:idRelative"],
+        ["xpath=//button[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fd978f57-11d6-4d83-93f9-eeea1b43e985",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//h1[contains(.,'Search Artwork')]",
+      "targets": [
+        ["css=h1", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Search Artwork')]", "xpath:innerText"]
+      ],
+      "value": "Search Artwork"
+    }, {
+      "id": "b71026ef-a6f1-46b3-800e-bfcea211ad6c",
+      "comment": "",
+      "command": "click",
+      "target": "css=input",
+      "targets": [
+        ["css=input", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "23e2a2de-167b-4f76-9beb-cb15afaf2146",
+      "comment": "",
+      "command": "type",
+      "target": "css=input",
+      "targets": [
+        ["css=input", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "after"
+    }, {
+      "id": "c455acd9-2780-4f9b-99e5-bb813ade2752",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "css=input",
+      "targets": [
+        ["css=input", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "8d9101a7-bf97-4e4d-bd29-c0bc511ab61f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.art",
+      "targets": [
+        ["css=.art", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/ul/li", "xpath:idRelative"],
+        ["xpath=//li", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "732e4529-cb40-4084-b1dc-74e992ca50c5",
+      "comment": "",
+      "command": "click",
+      "target": "css=h3",
+      "targets": [
+        ["css=h3", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/h3", "xpath:idRelative"],
+        ["xpath=//h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'After The Fire (Unknown)')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f2246a78-c5fa-40df-892b-48665aa934eb",
+      "comment": "",
+      "command": "click",
+      "target": "css=.subtitle",
+      "targets": [
+        ["css=.subtitle", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d6dd2abd-dc74-40cc-bcf2-5bf36fdd83e7",
+      "comment": "",
+      "command": "click",
+      "target": "css=text:nth-child(1)",
+      "targets": [
+        ["css=text:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]/text", "xpath:idRelative"],
+        ["xpath=//div[2]/text", "xpath:position"],
+        ["xpath=//text[contains(.,'Medium')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8a1961f0-0c52-4a2e-a175-2ed5d39795a3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.details > text:nth-child(2)",
+      "targets": [
+        ["css=.details > text:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]/text[2]", "xpath:idRelative"],
+        ["xpath=//text[2]", "xpath:position"],
+        ["xpath=//text[contains(.,'Oil on Canvas')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "64f41689-3230-4a05-a347-8c04c8ef7021",
+      "comment": "",
+      "command": "click",
+      "target": "css=text:nth-child(3)",
+      "targets": [
+        ["css=text:nth-child(3)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]/text[3]", "xpath:idRelative"],
+        ["xpath=//text[3]", "xpath:position"],
+        ["xpath=//text[contains(.,'Dimensions')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1399b562-ca8b-4a94-9f72-4652175ae2ba",
+      "comment": "",
+      "command": "click",
+      "target": "css=text:nth-child(4)",
+      "targets": [
+        ["css=text:nth-child(4)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]/text[4]", "xpath:idRelative"],
+        ["xpath=//text[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d28731cc-cfec-4a16-a85a-9a3b43010eed",
+      "comment": "",
+      "command": "click",
+      "target": "css=p",
+      "targets": [
+        ["css=p", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[3]/p", "xpath:idRelative"],
+        ["xpath=//p", "xpath:position"],
+        ["xpath=//p[contains(.,'This is one of the famous paintings of Gabriel Abellana.')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6cf98f85-1365-4515-90a0-03ba4a2dfcc8",
+      "comment": "",
+      "command": "click",
+      "target": "css=.content > img",
+      "targets": [
+        ["css=.content > img", "css:finder"],
+        ["xpath=//img[@alt='After The Fire']", "xpath:img"],
+        ["xpath=//div[@id='app']/div/div[2]/img", "xpath:idRelative"],
+        ["xpath=//div[2]/img", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "5b6e8b5f-e7d6-46a0-9ad3-da07f1127d74",
+    "name": "UB01",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["408ff9e9-de77-46b4-a2fb-259710be09a8"]
+  }],
+  "urls": ["https://guia.kbytes.live/hands-down/1"],
+  "plugins": []
+}

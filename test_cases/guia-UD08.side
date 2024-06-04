@@ -1,0 +1,2790 @@
+{
+  "id": "ea2b5a06-4b72-4462-836c-59ff227f6849",
+  "version": "2.0",
+  "name": "guia-UD08",
+  "url": "https://guia.kbytes.live/on-cloud-nine",
+  "tests": [{
+    "id": "2d473872-a3c6-4fb7-8811-dfa7e1961104",
+    "name": "Untitled",
+    "commands": []
+  }, {
+    "id": "041049e0-0c49-4e08-a0ef-b6b98fa15a99",
+    "name": "UD08-01",
+    "commands": [{
+      "id": "4b244fb1-b89a-4415-a54c-d5772f08cc3a",
+      "comment": "",
+      "command": "open",
+      "target": "https://guia.kbytes.live/on-cloud-nine/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "cbbeac94-061f-4b1e-aa5f-df6e4d2e5edf",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "697x720",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e38c1ab2-250a-4931-b264-75d47e00dedf",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(2)",
+      "targets": [
+        ["css=.primary-form:nth-child(2)", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "princess"
+    }, {
+      "id": "655a5113-2f8e-4225-96bd-9ced2e22fcea",
+      "comment": "",
+      "command": "type",
+      "target": "css=input:nth-child(1)",
+      "targets": [
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": "Atillo123!!"
+    }, {
+      "id": "4d6b930a-e94a-497d-bef7-99453fa26810",
+      "comment": "",
+      "command": "click",
+      "target": "css=form",
+      "targets": [
+        ["css=form", "css:finder"],
+        ["xpath=//div[@id='app']/div/div/form", "xpath:idRelative"],
+        ["xpath=//form", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3b7846bb-fa74-4fb8-a4d0-066fcb75aafd",
+      "comment": "",
+      "command": "click",
+      "target": "css=.login-btn",
+      "targets": [
+        ["css=.login-btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d32d8a1e-a146-498f-9041-878f88d68c19",
+      "comment": "",
+      "command": "click",
+      "target": "css=.menu",
+      "targets": [
+        ["css=.menu", "css:finder"],
+        ["xpath=//div[@id='app']/div/div/span[2]", "xpath:idRelative"],
+        ["xpath=//span[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0f858eb9-7576-426d-880a-079948986546",
+      "comment": "",
+      "command": "click",
+      "target": "css=.change-pass-btn",
+      "targets": [
+        ["css=.change-pass-btn", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div[4]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Change Password')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8bf37b3f-7772-447f-a817-9d44ec8bd8b6",
+      "comment": "",
+      "command": "click",
+      "target": "css=.primary-form:nth-child(2) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(2) > input", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "839c2731-f79c-4d85-a3c1-683b4ff08cfb",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(2) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(2) > input", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Atillo123!!"
+    }, {
+      "id": "dd4638fa-448c-42b1-9063-1f70f9b44757",
+      "comment": "",
+      "command": "click",
+      "target": "css=.primary-form:nth-child(4) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(4) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2b1238f9-2e31-46a6-aaba-8a1c2a5c3ae8",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(4) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(4) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "Atillo123!"
+    }, {
+      "id": "bc4c36af-2e87-43c3-bd86-73cd46bff093",
+      "comment": "",
+      "command": "click",
+      "target": "css=.primary-form:nth-child(6) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(6) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6dc646c1-204d-4623-972b-1fd0e19d6525",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(6) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(6) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "Atillo123!"
+    }, {
+      "id": "afc68077-18ea-4169-916a-25fdaac554a4",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-save",
+      "targets": [
+        ["css=.btn-save", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div[4]/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Save Password')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e8edd405-6921-4952-a99b-de08df7554c3",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(2)",
+      "targets": [
+        ["css=.primary-form:nth-child(2)", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "princess"
+    }, {
+      "id": "4674eff4-baeb-4d36-967c-cf9ce35d7a71",
+      "comment": "",
+      "command": "type",
+      "target": "css=input:nth-child(1)",
+      "targets": [
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": "Atillo123!!"
+    }]
+  }, {
+    "id": "2d9eceaf-c476-4358-a0c9-49e4ef340587",
+    "name": "UD08-02",
+    "commands": [{
+      "id": "a6949327-3522-47bb-bd4f-25a24eee9ffc",
+      "comment": "",
+      "command": "open",
+      "target": "https://guia.kbytes.live/on-cloud-nine/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "bd3b3c0f-fb85-4a58-8479-421650561758",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "697x720",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2d5151d1-16e5-471c-be5d-2f26301f9469",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(2)",
+      "targets": [
+        ["css=.primary-form:nth-child(2)", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "princess"
+    }, {
+      "id": "11fe2d69-b9e7-4e87-ab87-a470524718bc",
+      "comment": "",
+      "command": "type",
+      "target": "css=input:nth-child(1)",
+      "targets": [
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": "Atillo123!"
+    }, {
+      "id": "a5531870-1ed2-4e19-b692-dd7ae5ed6815",
+      "comment": "",
+      "command": "click",
+      "target": "css=.login-btn",
+      "targets": [
+        ["css=.login-btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "17fe71b3-1d5f-4606-8716-3ffff6b9a21b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.menu > .material-design-icon__svg",
+      "targets": [
+        ["css=.menu > .material-design-icon__svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "dcfb56b3-9b54-4330-85ce-d6090d4de92a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.change-pass-btn",
+      "targets": [
+        ["css=.change-pass-btn", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div[4]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Change Password')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d5a3b2fe-cd6a-4361-beee-537db863756b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.primary-form:nth-child(2) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(2) > input", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a532feb1-5b26-449a-a6d0-4ed90960b366",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(2) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(2) > input", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Atillo123!"
+    }, {
+      "id": "f73b8231-9463-4c96-aa30-2bb1d84a3d7b",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(2) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(2) > input", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Atillo123"
+    }, {
+      "id": "385e8120-2291-4608-8464-091a8d728fac",
+      "comment": "",
+      "command": "click",
+      "target": "css=.primary-form:nth-child(4) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(4) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "13889433-4307-48fc-aa04-420aec9b1772",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(4) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(4) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "Atillo123#"
+    }, {
+      "id": "1b6db319-04d3-4d82-ae9b-4c582d391c7e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.primary-form:nth-child(6) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(6) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e9321a8a-bfbf-44ed-81c3-69c6b1e043fd",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(6) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(6) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "Atillo123#"
+    }, {
+      "id": "ce78cfde-654a-4513-a626-c42b04dacb80",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-save",
+      "targets": [
+        ["css=.btn-save", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div[4]/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Save Password')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "a4c33142-0553-424b-8da9-c3dd713cdb19",
+    "name": "UD08-03",
+    "commands": [{
+      "id": "31b19e7d-b28e-4f5f-a596-bbb045cb5680",
+      "comment": "",
+      "command": "open",
+      "target": "https://guia.kbytes.live/on-cloud-nine/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b0e00cc4-46aa-41b1-add9-f11e6ebf716a",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "697x720",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c27617d8-87c3-4f9e-a348-9540c026a187",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(2)",
+      "targets": [
+        ["css=.primary-form:nth-child(2)", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "princess"
+    }, {
+      "id": "62a14850-a52a-450b-957b-28986d5754c0",
+      "comment": "",
+      "command": "type",
+      "target": "css=input:nth-child(1)",
+      "targets": [
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": "Atillo123!"
+    }, {
+      "id": "ec21c888-c929-4f24-ad9b-1121e5e70686",
+      "comment": "",
+      "command": "click",
+      "target": "css=.login-btn",
+      "targets": [
+        ["css=.login-btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "35a42798-c195-4b9a-8158-b8d5eaf1be61",
+      "comment": "",
+      "command": "click",
+      "target": "css=.menu > .material-design-icon__svg",
+      "targets": [
+        ["css=.menu > .material-design-icon__svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "f921a911-65f4-4d63-9490-4495d62d2717",
+      "comment": "",
+      "command": "click",
+      "target": "css=.change-pass-btn",
+      "targets": [
+        ["css=.change-pass-btn", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div[4]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Change Password')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9d1bfb36-c3f6-4d5d-bd6f-975dcbc5dd19",
+      "comment": "",
+      "command": "click",
+      "target": "css=.primary-form:nth-child(2) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(2) > input", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b679de0e-fd99-46b9-9d45-ae5a91223315",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(2) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(2) > input", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Atillo123!"
+    }, {
+      "id": "e417b8fe-36f2-463e-acad-f053f53a96b9",
+      "comment": "",
+      "command": "click",
+      "target": "css=.primary-form:nth-child(4) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(4) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bbda56db-de3d-47e8-acaf-1859c7c199ec",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(4) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(4) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "Atillo123!"
+    }, {
+      "id": "1f453f36-c10e-41d7-9e7d-9d0f8c184f68",
+      "comment": "",
+      "command": "click",
+      "target": "css=.primary-form:nth-child(6) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(6) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e2d128ca-56b7-4306-beea-01c2193fef05",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(6) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(6) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "Atillo123!"
+    }, {
+      "id": "afe7959f-c50f-4f99-bb40-eaa01e4be489",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-save",
+      "targets": [
+        ["css=.btn-save", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div[4]/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Save Password')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "6b47edd0-4eb4-47a1-ba98-7a839a78fbc3",
+    "name": "UD08-04",
+    "commands": [{
+      "id": "11371364-652d-40f4-8ac2-a4e8c8dbc1cc",
+      "comment": "",
+      "command": "open",
+      "target": "https://guia.kbytes.live/on-cloud-nine/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "43f94b44-ec5e-42df-8d2a-a0a46d3ff974",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "697x720",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ca7055fb-f20b-4e26-abfc-e84dbc169591",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(2)",
+      "targets": [
+        ["css=.primary-form:nth-child(2)", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "princess"
+    }, {
+      "id": "203ea84e-fb79-4ece-885a-0f087a9b6fa3",
+      "comment": "",
+      "command": "type",
+      "target": "css=input:nth-child(1)",
+      "targets": [
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": "Atillo123!"
+    }, {
+      "id": "f5fc113a-1da8-4bf9-82e7-e6a3a684d146",
+      "comment": "",
+      "command": "click",
+      "target": "css=.login-btn",
+      "targets": [
+        ["css=.login-btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "71e7da25-4c0a-43d7-a36a-5c72f4394137",
+      "comment": "",
+      "command": "mouseDownAt",
+      "target": "css=.menu > .material-design-icon__svg",
+      "targets": [
+        ["css=.menu > .material-design-icon__svg", "css:finder"]
+      ],
+      "value": "19.203125,6"
+    }, {
+      "id": "2233219b-36cb-4946-bd11-c0d4503abebc",
+      "comment": "",
+      "command": "mouseMoveAt",
+      "target": "css=.menu > .material-design-icon__svg",
+      "targets": [
+        ["css=.menu > .material-design-icon__svg", "css:finder"]
+      ],
+      "value": "19.203125,6"
+    }, {
+      "id": "093f1142-80be-47b9-a2e8-9edae1594e55",
+      "comment": "",
+      "command": "mouseUpAt",
+      "target": "css=.menu > .material-design-icon__svg",
+      "targets": [
+        ["css=.menu > .material-design-icon__svg", "css:finder"]
+      ],
+      "value": "19.203125,6"
+    }, {
+      "id": "3bb35aa3-a7db-49c6-a9b0-7cf8a2f1a360",
+      "comment": "",
+      "command": "click",
+      "target": "css=.container",
+      "targets": [
+        ["css=.container", "css:finder"],
+        ["xpath=//div[@id='app']/div", "xpath:idRelative"],
+        ["xpath=//div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e4a8b5ce-2d42-4176-9f20-f7d72c79b4ee",
+      "comment": "",
+      "command": "click",
+      "target": "css=.menu > .material-design-icon__svg",
+      "targets": [
+        ["css=.menu > .material-design-icon__svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "49ec93ae-23d8-4a4d-aa2d-e23e23178d07",
+      "comment": "",
+      "command": "click",
+      "target": "css=.change-pass-btn",
+      "targets": [
+        ["css=.change-pass-btn", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div[4]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Change Password')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b1828df4-6128-4bbf-941d-9c9fd6a1ea93",
+      "comment": "",
+      "command": "click",
+      "target": "css=.primary-form:nth-child(2) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(2) > input", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3337da2b-9e4d-497b-919d-294f2451f30f",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(2) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(2) > input", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Atillo123!"
+    }, {
+      "id": "d90f2bfb-f090-4415-b117-7c4f5c5a6148",
+      "comment": "",
+      "command": "click",
+      "target": "css=.primary-form:nth-child(4) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(4) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "690051fc-f7be-4764-af7f-8f9eee283b79",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(4) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(4) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "atillo"
+    }, {
+      "id": "4bb972b8-8c79-4706-88b5-2deade0a802e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.primary-form:nth-child(6) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(6) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "220250c7-ce3c-4a03-8f26-63ff7289785d",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(6) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(6) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "atillo"
+    }, {
+      "id": "5cd66309-acc1-448e-b5ea-2f76403ca621",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-save",
+      "targets": [
+        ["css=.btn-save", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div[4]/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Save Password')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "3559e972-36c7-447e-8104-27e9c510d58e",
+    "name": "UD08-05",
+    "commands": [{
+      "id": "1f08e3be-2ed3-4474-8185-4f9fdf012d9a",
+      "comment": "",
+      "command": "open",
+      "target": "https://guia.kbytes.live/on-cloud-nine/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ee68a6d9-c44e-4261-938f-1d9a4f04bb30",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "697x720",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1b91354b-41bd-4c9c-aeb0-4ebb0c6dd676",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(2)",
+      "targets": [
+        ["css=.primary-form:nth-child(2)", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "princess"
+    }, {
+      "id": "2237322c-389f-4413-af8d-931cbdce1208",
+      "comment": "",
+      "command": "type",
+      "target": "css=input:nth-child(1)",
+      "targets": [
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": "Atillo123!"
+    }, {
+      "id": "18da1418-2f78-4c43-b94b-1f95a913469d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.login-btn",
+      "targets": [
+        ["css=.login-btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "36fe5d7e-ab17-48a9-a32b-3fbfd5f10c6a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.menu > .material-design-icon__svg",
+      "targets": [
+        ["css=.menu > .material-design-icon__svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "0d06f5a8-edea-417d-be4c-049905ea24ec",
+      "comment": "",
+      "command": "click",
+      "target": "css=.change-pass-btn",
+      "targets": [
+        ["css=.change-pass-btn", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div[4]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Change Password')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "739e746f-7090-4b58-93b3-d36b28d06326",
+      "comment": "",
+      "command": "mouseDownAt",
+      "target": "css=.primary-form:nth-child(4) .material-design-icon__svg",
+      "targets": [
+        ["css=.primary-form:nth-child(4) .material-design-icon__svg", "css:finder"]
+      ],
+      "value": "14.53125,20.75"
+    }, {
+      "id": "dd5531c0-4ffe-4744-b7a3-f2a19c92c331",
+      "comment": "",
+      "command": "mouseMoveAt",
+      "target": "css=.primary-form:nth-child(4) .material-design-icon__svg",
+      "targets": [
+        ["css=.primary-form:nth-child(4) .material-design-icon__svg", "css:finder"]
+      ],
+      "value": "14.53125,20.75"
+    }, {
+      "id": "746f0194-0eec-494b-a34d-8392811417fb",
+      "comment": "",
+      "command": "mouseUpAt",
+      "target": "css=.primary-form:nth-child(4) .material-design-icon__svg",
+      "targets": [
+        ["css=.primary-form:nth-child(4) .material-design-icon__svg", "css:finder"]
+      ],
+      "value": "14.53125,20.75"
+    }, {
+      "id": "aeb4f31c-b644-4c09-b25a-7907b0b6801c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.change-pass-cont",
+      "targets": [
+        ["css=.change-pass-cont", "css:finder"],
+        ["xpath=//div[@id='app']/div/form/div", "xpath:idRelative"],
+        ["xpath=//form/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "208ef5ca-1d56-4f84-a818-82c96a8980e2",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(2) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(2) > input", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Atillo123!"
+    }, {
+      "id": "e0f67ba7-9d70-4442-a367-fc75829ef36e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.primary-form:nth-child(4) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(4) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f194ea62-7130-4fba-831c-72fb361097a7",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(4) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(4) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "hu"
+    }, {
+      "id": "fb62b527-414f-4059-9d4c-f19ed000c078",
+      "comment": "",
+      "command": "click",
+      "target": "css=.primary-form:nth-child(6) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(6) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "05c24028-a622-404c-84ae-152587ee8021",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(6) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(6) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "hu"
+    }, {
+      "id": "65ac07be-d309-4895-a42a-c5b706d3c221",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-save",
+      "targets": [
+        ["css=.btn-save", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div[4]/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Save Password')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "e5f5de1c-5ae7-42a7-96e3-2fd1bfc44cd0",
+    "name": "UD08-06",
+    "commands": [{
+      "id": "04242f49-e556-46c6-be1a-1f872bb57bca",
+      "comment": "",
+      "command": "open",
+      "target": "https://guia.kbytes.live/on-cloud-nine/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "244c5218-8ab5-4763-80c2-8abe0e5deae0",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "697x720",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "acea5710-40ea-4280-9533-1e6cb78e8c46",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(2)",
+      "targets": [
+        ["css=.primary-form:nth-child(2)", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "princess"
+    }, {
+      "id": "7c1472fb-b62c-4bf0-a0c8-8e51c952400e",
+      "comment": "",
+      "command": "type",
+      "target": "css=input:nth-child(1)",
+      "targets": [
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": "Atillo123!"
+    }, {
+      "id": "7a2d3651-caf8-4ae5-8cdc-a4ee95c01632",
+      "comment": "",
+      "command": "click",
+      "target": "css=.login-btn",
+      "targets": [
+        ["css=.login-btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "240aecbc-634c-4ee7-a459-f8c403ea49b0",
+      "comment": "",
+      "command": "click",
+      "target": "css=.menu > .material-design-icon__svg",
+      "targets": [
+        ["css=.menu > .material-design-icon__svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "ad633d02-a5b4-42ce-8687-ba49f9b3b034",
+      "comment": "",
+      "command": "click",
+      "target": "css=.change-pass-btn",
+      "targets": [
+        ["css=.change-pass-btn", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div[4]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Change Password')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d01da391-2893-4caa-bfd6-82dc45f4d397",
+      "comment": "",
+      "command": "mouseDownAt",
+      "target": "css=.primary-form:nth-child(4) .material-design-icon__svg",
+      "targets": [
+        ["css=.primary-form:nth-child(4) .material-design-icon__svg", "css:finder"]
+      ],
+      "value": "14.53125,20.75"
+    }, {
+      "id": "2d4399d5-e383-4bfb-b254-5d66d0b25abb",
+      "comment": "",
+      "command": "mouseMoveAt",
+      "target": "css=.primary-form:nth-child(4) .material-design-icon__svg",
+      "targets": [
+        ["css=.primary-form:nth-child(4) .material-design-icon__svg", "css:finder"]
+      ],
+      "value": "14.53125,20.75"
+    }, {
+      "id": "afa5191b-3257-40c8-a8c3-d086e6370241",
+      "comment": "",
+      "command": "mouseUpAt",
+      "target": "css=.primary-form:nth-child(4) .material-design-icon__svg",
+      "targets": [
+        ["css=.primary-form:nth-child(4) .material-design-icon__svg", "css:finder"]
+      ],
+      "value": "14.53125,20.75"
+    }, {
+      "id": "8deffb5e-df7c-42a2-a5be-c4ab17f0bcdf",
+      "comment": "",
+      "command": "click",
+      "target": "css=.change-pass-cont",
+      "targets": [
+        ["css=.change-pass-cont", "css:finder"],
+        ["xpath=//div[@id='app']/div/form/div", "xpath:idRelative"],
+        ["xpath=//form/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4445417f-d6e8-4173-a6d3-3b2285e28d0a",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(2) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(2) > input", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Atillo123!"
+    }, {
+      "id": "5b0c1970-9ffd-4244-8c82-aced238de937",
+      "comment": "",
+      "command": "click",
+      "target": "css=.primary-form:nth-child(4) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(4) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "de42f580-cea8-44ef-bb52-286ee8dc3886",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(4) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(4) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "hi"
+    }, {
+      "id": "1f5f1de6-92c8-4199-9341-901d9c557d9d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.primary-form:nth-child(6) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(6) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "418582f9-5f18-49bb-9a88-09d1fa6a271f",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(6) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(6) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "hi"
+    }, {
+      "id": "f20dc729-93c4-4dd2-bd27-6d18473631eb",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-save",
+      "targets": [
+        ["css=.btn-save", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div[4]/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Save Password')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "00e490e3-818a-4c05-8ac4-e83bdb6dc197",
+    "name": "UD08-07",
+    "commands": [{
+      "id": "3c37602a-1404-403c-9cfc-31cb3f0936e7",
+      "comment": "",
+      "command": "open",
+      "target": "https://guia.kbytes.live/on-cloud-nine/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c6c57f57-a215-4aff-b426-aebd918acc93",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "697x720",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "65dae5fd-eb58-4014-a4ee-864d285ee9ce",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(2)",
+      "targets": [
+        ["css=.primary-form:nth-child(2)", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "princess"
+    }, {
+      "id": "466cea1d-1ba4-4f99-89b1-df77800ef615",
+      "comment": "",
+      "command": "type",
+      "target": "css=input:nth-child(1)",
+      "targets": [
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": "Atillo123!"
+    }, {
+      "id": "bb21523a-77e0-4b7e-a14d-96c0c694da1a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.login-btn",
+      "targets": [
+        ["css=.login-btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "acfd280c-6438-47df-9062-351ec7cb48fc",
+      "comment": "",
+      "command": "click",
+      "target": "css=.menu > .material-design-icon__svg",
+      "targets": [
+        ["css=.menu > .material-design-icon__svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "57369db9-be7e-4eb4-9ecd-eba9d0f1974a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.change-pass-btn",
+      "targets": [
+        ["css=.change-pass-btn", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div[4]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Change Password')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "42f5c7c1-8a10-4cf3-85ce-585c218de793",
+      "comment": "",
+      "command": "mouseDownAt",
+      "target": "css=.primary-form:nth-child(4) .material-design-icon__svg",
+      "targets": [
+        ["css=.primary-form:nth-child(4) .material-design-icon__svg", "css:finder"]
+      ],
+      "value": "14.53125,20.75"
+    }, {
+      "id": "f8d256e0-32b4-4fec-907d-1293a6173950",
+      "comment": "",
+      "command": "mouseMoveAt",
+      "target": "css=.primary-form:nth-child(4) .material-design-icon__svg",
+      "targets": [
+        ["css=.primary-form:nth-child(4) .material-design-icon__svg", "css:finder"]
+      ],
+      "value": "14.53125,20.75"
+    }, {
+      "id": "62d7c853-3d3f-4818-9f2a-3245ad4adaad",
+      "comment": "",
+      "command": "mouseUpAt",
+      "target": "css=.primary-form:nth-child(4) .material-design-icon__svg",
+      "targets": [
+        ["css=.primary-form:nth-child(4) .material-design-icon__svg", "css:finder"]
+      ],
+      "value": "14.53125,20.75"
+    }, {
+      "id": "a8c57f39-60d7-4cba-9657-e27468352bf1",
+      "comment": "",
+      "command": "click",
+      "target": "css=.change-pass-cont",
+      "targets": [
+        ["css=.change-pass-cont", "css:finder"],
+        ["xpath=//div[@id='app']/div/form/div", "xpath:idRelative"],
+        ["xpath=//form/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "228ae977-a1fc-4b37-b421-4764d23d5ea4",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(2) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(2) > input", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Atillo123!"
+    }, {
+      "id": "25474e8d-13f2-4a87-919b-4356bd3a6a25",
+      "comment": "",
+      "command": "click",
+      "target": "css=.primary-form:nth-child(4) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(4) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fbb25304-1d21-4baa-ae3e-5969ec9746f9",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(4) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(4) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "hi123"
+    }, {
+      "id": "52d18f53-1515-4727-8985-03dd83490b74",
+      "comment": "",
+      "command": "click",
+      "target": "css=.primary-form:nth-child(6) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(6) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6d401735-2b26-4ecc-8e97-91611bbf2c41",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(6) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(6) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "hi123"
+    }, {
+      "id": "2114df4a-b3f9-4807-9337-cad40c47e0a5",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-save",
+      "targets": [
+        ["css=.btn-save", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div[4]/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Save Password')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "cd7f21fb-6c04-4f70-aa8a-dbab4149a3b5",
+    "name": "UD08-08",
+    "commands": [{
+      "id": "0ab08020-b7b1-4589-b0ef-ff514c0edd17",
+      "comment": "",
+      "command": "open",
+      "target": "https://guia.kbytes.live/on-cloud-nine/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f74293f6-ce8c-4a99-9e0c-28964b0ffa26",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "697x720",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6fd685dc-7e97-4e92-ab7d-0c859ef4e7ad",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(2)",
+      "targets": [
+        ["css=.primary-form:nth-child(2)", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "princess"
+    }, {
+      "id": "1e301393-f424-478d-ae73-dc13a7742252",
+      "comment": "",
+      "command": "type",
+      "target": "css=input:nth-child(1)",
+      "targets": [
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": "Atillo123!"
+    }, {
+      "id": "59a6596c-4ad9-4f50-afeb-4bbdb99e1f44",
+      "comment": "",
+      "command": "click",
+      "target": "css=.login-btn",
+      "targets": [
+        ["css=.login-btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "595ffe11-2ba3-4bee-bef3-53c92ede370d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.menu > .material-design-icon__svg",
+      "targets": [
+        ["css=.menu > .material-design-icon__svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "057ad327-7874-4b53-b77f-7ad19c9f8ba9",
+      "comment": "",
+      "command": "click",
+      "target": "css=.change-pass-btn",
+      "targets": [
+        ["css=.change-pass-btn", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div[4]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Change Password')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "47ee9ab9-ccd1-4a99-8fda-ebdcec65d740",
+      "comment": "",
+      "command": "mouseDownAt",
+      "target": "css=.primary-form:nth-child(4) .material-design-icon__svg",
+      "targets": [
+        ["css=.primary-form:nth-child(4) .material-design-icon__svg", "css:finder"]
+      ],
+      "value": "14.53125,20.75"
+    }, {
+      "id": "e9f958fa-44bf-40a4-a0da-0c32771d24fc",
+      "comment": "",
+      "command": "mouseMoveAt",
+      "target": "css=.primary-form:nth-child(4) .material-design-icon__svg",
+      "targets": [
+        ["css=.primary-form:nth-child(4) .material-design-icon__svg", "css:finder"]
+      ],
+      "value": "14.53125,20.75"
+    }, {
+      "id": "2400efd7-926c-4aba-8cde-95f03487f5cf",
+      "comment": "",
+      "command": "mouseUpAt",
+      "target": "css=.primary-form:nth-child(4) .material-design-icon__svg",
+      "targets": [
+        ["css=.primary-form:nth-child(4) .material-design-icon__svg", "css:finder"]
+      ],
+      "value": "14.53125,20.75"
+    }, {
+      "id": "6aa6a900-a312-4c4c-a4ae-2411f0b87cd1",
+      "comment": "",
+      "command": "click",
+      "target": "css=.change-pass-cont",
+      "targets": [
+        ["css=.change-pass-cont", "css:finder"],
+        ["xpath=//div[@id='app']/div/form/div", "xpath:idRelative"],
+        ["xpath=//form/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "eb99d8c2-9994-48d6-937a-fa65b65de0b0",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(2) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(2) > input", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Atillo123!"
+    }, {
+      "id": "1d2925c4-fc7a-4122-bb48-417e9abb4ba3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.primary-form:nth-child(4) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(4) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bb59f7ef-176e-44c5-b758-34273e7cfda1",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(4) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(4) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "123"
+    }, {
+      "id": "7e8f1c1e-ac46-48e5-9ff5-a802535500be",
+      "comment": "",
+      "command": "click",
+      "target": "css=.primary-form:nth-child(6) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(6) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "62591bba-2e4a-4bc9-9568-6c3b4a5b9328",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(6) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(6) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "123"
+    }, {
+      "id": "ae2ff36c-5f69-4df6-8cfc-327abac39012",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-save",
+      "targets": [
+        ["css=.btn-save", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div[4]/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Save Password')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "ac795a16-f0e9-4830-96d9-c4ffc03caaaf",
+    "name": "UD08-09",
+    "commands": [{
+      "id": "1d9eda90-502d-43d7-bf3d-544118f4c4ff",
+      "comment": "",
+      "command": "open",
+      "target": "https://guia.kbytes.live/on-cloud-nine/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f212aa80-1aa0-47ad-83ad-c5a17cf1a426",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "697x720",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ee55c114-cdcd-401a-b433-5a54458803df",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(2)",
+      "targets": [
+        ["css=.primary-form:nth-child(2)", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "princess"
+    }, {
+      "id": "7c9b5568-4402-4fb6-b5cd-11132516c886",
+      "comment": "",
+      "command": "type",
+      "target": "css=input:nth-child(1)",
+      "targets": [
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": "Atillo123!"
+    }, {
+      "id": "9604fa43-73e9-4f6f-98e4-25ad83f44406",
+      "comment": "",
+      "command": "click",
+      "target": "css=.login-btn",
+      "targets": [
+        ["css=.login-btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "634ddb30-d14a-4503-8046-b96a2f1afd0a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.menu > .material-design-icon__svg",
+      "targets": [
+        ["css=.menu > .material-design-icon__svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "d95b69f3-3f65-40ef-96e6-d3b1578a2361",
+      "comment": "",
+      "command": "click",
+      "target": "css=.change-pass-btn",
+      "targets": [
+        ["css=.change-pass-btn", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div[4]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Change Password')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3a31d5c7-f4ad-499a-857a-e91ab8fa8d85",
+      "comment": "",
+      "command": "click",
+      "target": "css=.primary-form:nth-child(2) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(2) > input", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6223e5cf-f84a-4f67-ba7b-ece9a1f9e98b",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(2) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(2) > input", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Atillo123!"
+    }, {
+      "id": "156d7567-8201-47ac-a795-6b58a545fcc2",
+      "comment": "",
+      "command": "click",
+      "target": "css=.primary-form:nth-child(4) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(4) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1eb60404-7c58-4db7-9b3a-9d46f10630c1",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(4) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(4) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "Atillo123!!"
+    }, {
+      "id": "d8a2d3f0-7695-4cbd-b6fc-f9a12187bb52",
+      "comment": "",
+      "command": "click",
+      "target": "css=.primary-form:nth-child(6) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(6) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "416ccafe-f4d1-4e45-ac86-0188df354ad6",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(6) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(6) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "Atillo123!!!"
+    }, {
+      "id": "84436c7d-01a7-4985-925c-7376b6153130",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-save",
+      "targets": [
+        ["css=.btn-save", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div[4]/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Save Password')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "fae8ea1a-5439-4831-8c2b-23490ad5ff85",
+    "name": "UD08-10",
+    "commands": [{
+      "id": "152b0d8b-e4ae-4ccd-b327-3d40fa9088bd",
+      "comment": "",
+      "command": "open",
+      "target": "https://guia.kbytes.live/on-cloud-nine/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7a26df13-dd0c-4892-bcd0-78dedaf9e8a2",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "697x720",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "46d3fd03-8dfe-4191-be02-6aa3ac52a77e",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(2)",
+      "targets": [
+        ["css=.primary-form:nth-child(2)", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "princess"
+    }, {
+      "id": "73525484-0827-4b64-a529-7c0ad207f3aa",
+      "comment": "",
+      "command": "type",
+      "target": "css=input:nth-child(1)",
+      "targets": [
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": "Atillo123!"
+    }, {
+      "id": "87848bf4-430a-47c3-8bc9-e0241acd72ff",
+      "comment": "",
+      "command": "click",
+      "target": "css=.login-btn",
+      "targets": [
+        ["css=.login-btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "29731e54-25c0-4db7-b039-fbde2ebc4a74",
+      "comment": "",
+      "command": "click",
+      "target": "css=.menu path",
+      "targets": [
+        ["css=.menu path", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "b4b9efaf-279c-4c95-9c83-89954234c2cd",
+      "comment": "",
+      "command": "click",
+      "target": "css=.change-pass-btn > h2",
+      "targets": [
+        ["css=.change-pass-btn > h2", "css:finder"],
+        ["xpath=//button/h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Change Password')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8ac73a14-44b2-4490-98f5-c4ce3d6a0aa5",
+      "comment": "",
+      "command": "click",
+      "target": "css=.primary-form:nth-child(2) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(2) > input", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6645a2eb-527f-43bd-a50e-7ff8d09ad681",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(2) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(2) > input", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Atillo123!"
+    }, {
+      "id": "f4e7a937-2a64-4021-a175-26517dc7f783",
+      "comment": "",
+      "command": "click",
+      "target": "css=.primary-form:nth-child(4) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(4) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "55a0f744-c461-47a5-928f-e117d36cf51e",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(4) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(4) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "test"
+    }, {
+      "id": "693c4220-ed8a-4911-94c6-0e023363de08",
+      "comment": "",
+      "command": "click",
+      "target": "css=.primary-form:nth-child(6) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(6) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d22be554-0d17-496c-b65a-50c7f76bb0a0",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(6) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(6) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "test"
+    }, {
+      "id": "42ba79c8-0b7f-4f70-8569-372de39205ad",
+      "comment": "",
+      "command": "click",
+      "target": "css=.primary-form:nth-child(6) .material-design-icon__svg",
+      "targets": [
+        ["css=.primary-form:nth-child(6) .material-design-icon__svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "6da4e6fb-4c03-4858-b02e-ee4aa2480fc5",
+      "comment": "",
+      "command": "click",
+      "target": "css=.label-dark:nth-child(5)",
+      "targets": [
+        ["css=.label-dark:nth-child(5)", "css:finder"],
+        ["xpath=//div[@id='app']/div/form/div/h2[3]", "xpath:idRelative"],
+        ["xpath=//h2[3]", "xpath:position"],
+        ["xpath=//h2[contains(.,'Confirm New Password')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4260efe5-3176-49b0-bd6e-25bce3c65fb5",
+      "comment": "",
+      "command": "click",
+      "target": "css=.primary-form:nth-child(4) .material-design-icon__svg",
+      "targets": [
+        ["css=.primary-form:nth-child(4) .material-design-icon__svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "2ed7d4f4-a4a1-4140-95a8-bf8c603f473d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.eye-off-outline-icon > .material-design-icon__svg",
+      "targets": [
+        ["css=.eye-off-outline-icon > .material-design-icon__svg", "css:finder"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "e74f2c27-a834-4748-8088-647389bd7068",
+    "name": "UD08-11",
+    "commands": [{
+      "id": "4f82a288-f7d1-49c9-8dcf-ffcfcd6f0373",
+      "comment": "",
+      "command": "open",
+      "target": "https://guia.kbytes.live/on-cloud-nine/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "bb098732-c843-4be1-9104-dd3686bc8ce2",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "697x720",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c0b03133-57fd-4e5a-b732-367aea5c0d81",
+      "comment": "",
+      "command": "click",
+      "target": "css=.login-btn",
+      "targets": [
+        ["css=.login-btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b2e7626e-1c9b-463e-9773-d7480a93ed88",
+      "comment": "",
+      "command": "click",
+      "target": "css=.menu path",
+      "targets": [
+        ["css=.menu path", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "7c66ef9b-5b99-4851-9ce9-14ad3a9ef339",
+      "comment": "",
+      "command": "click",
+      "target": "css=.change-pass-btn > h2",
+      "targets": [
+        ["css=.change-pass-btn > h2", "css:finder"],
+        ["xpath=//button/h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Change Password')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3eb8e2ee-d852-493b-9cd3-bfea72638ca7",
+      "comment": "",
+      "command": "click",
+      "target": "css=.primary-form:nth-child(2) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(2) > input", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6ec5fdf7-7502-48ed-b60c-e4b11aba12d4",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(2) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(2) > input", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Atillo123!"
+    }, {
+      "id": "1cf0d620-abd0-4aec-b23c-8c8127bcd2d2",
+      "comment": "",
+      "command": "click",
+      "target": "css=.primary-form:nth-child(4) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(4) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3422aa46-2f3c-4b43-9d0d-15332c8d9b30",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(4) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(4) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "test"
+    }, {
+      "id": "8e4c476f-c0e4-4f43-a9a3-2ea9ed26e004",
+      "comment": "",
+      "command": "click",
+      "target": "css=.primary-form:nth-child(6) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(6) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a1b6a7dc-6e70-48d9-872c-b104341a8319",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(6) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(6) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "test"
+    }, {
+      "id": "bddcdc5e-ccc3-4091-8493-6f4b21c815dc",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-cancel",
+      "targets": [
+        ["css=.btn-cancel", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div[4]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Cancel')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "50ecdebc-8d51-4535-a074-f22060365638",
+    "name": "UD08-12",
+    "commands": [{
+      "id": "5d74307d-6d72-4b99-b273-6646f577a519",
+      "comment": "",
+      "command": "open",
+      "target": "https://guia.kbytes.live/on-cloud-nine/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7642880f-3da1-4d7c-9077-386eb08ded7c",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "697x720",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "55be833b-2a30-4e2c-b9d1-65f48d21844b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.login-btn",
+      "targets": [
+        ["css=.login-btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f5acb13d-7692-4a54-abdf-a30b5e103dc5",
+      "comment": "",
+      "command": "click",
+      "target": "css=.menu > .material-design-icon__svg",
+      "targets": [
+        ["css=.menu > .material-design-icon__svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "1182bc9a-ef96-4f09-9e44-455fd1f2e253",
+      "comment": "",
+      "command": "click",
+      "target": "css=.change-pass-btn",
+      "targets": [
+        ["css=.change-pass-btn", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div[4]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Change Password')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3cc81c6d-dc0f-4a7e-9bd0-dbc79c0f10b5",
+      "comment": "",
+      "command": "click",
+      "target": "css=.primary-form:nth-child(2) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(2) > input", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "06a19366-9c42-4b74-92a2-ba6d15cef13f",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(2) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(2) > input", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Atillo123!"
+    }, {
+      "id": "13d2ec1a-8ca9-44ff-9f67-02a4ee7ed6ec",
+      "comment": "",
+      "command": "click",
+      "target": "css=.primary-form:nth-child(4) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(4) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b59c5345-aa92-4877-b5de-a46bf163186a",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(4) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(4) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "test"
+    }, {
+      "id": "d2739765-48b3-4567-b03b-1c5dd55d5de7",
+      "comment": "",
+      "command": "click",
+      "target": "css=.primary-form:nth-child(6) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(6) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5213868b-f5df-4b29-8b4c-9589a78495f3",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "e9c6046a-dbb7-4eaa-b130-7ebad2eb506b",
+    "name": "UD08-13",
+    "commands": [{
+      "id": "ac767b26-5da6-4226-b6db-b4c8400a2d68",
+      "comment": "",
+      "command": "open",
+      "target": "https://guia.kbytes.live/on-cloud-nine/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ad8ba28b-d251-4a30-a7a7-f3f24ba782a6",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "697x720",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f7e23463-e992-4de3-b1b1-0bd08b3c9fd7",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(2)",
+      "targets": [
+        ["css=.primary-form:nth-child(2)", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "princess"
+    }, {
+      "id": "fedf67e2-aff2-4674-b353-43fa7ce8bd4e",
+      "comment": "",
+      "command": "type",
+      "target": "css=input:nth-child(1)",
+      "targets": [
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": "Atillo123!"
+    }, {
+      "id": "27c8c7a7-f997-461c-9d00-0ee92c70afb8",
+      "comment": "",
+      "command": "click",
+      "target": "css=.login-btn",
+      "targets": [
+        ["css=.login-btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0192928c-ca87-4ff2-b9fc-386e2a38359f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.menu path",
+      "targets": [
+        ["css=.menu path", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "5c9265af-d4f2-49de-bb23-b3fc754301e9",
+      "comment": "",
+      "command": "click",
+      "target": "css=.change-pass-btn > h2",
+      "targets": [
+        ["css=.change-pass-btn > h2", "css:finder"],
+        ["xpath=//button/h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Change Password')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "eccf6339-50fd-438a-acab-d0b2f8be9f87",
+      "comment": "",
+      "command": "click",
+      "target": "css=.primary-form:nth-child(2) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(2) > input", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fcd3338c-f826-4318-be01-99a47657d811",
+      "comment": "",
+      "command": "click",
+      "target": "css=.primary-form:nth-child(4) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(4) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "131af486-3b8f-49af-bc49-8e40a825ea34",
+      "comment": "",
+      "command": "click",
+      "target": "css=.primary-form:nth-child(2) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(2) > input", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "563dc47a-d184-4cd6-91df-7c780997936c",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(2) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(2) > input", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "DROP database postgres"
+    }, {
+      "id": "238e0bc3-a9c9-462f-9a24-f39a91596c3f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.primary-form:nth-child(4) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(4) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "86adb308-c136-4763-9f1b-766eb74fe9d6",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(4) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(4) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "test"
+    }, {
+      "id": "cba479b4-3a5a-428f-a920-a81ad74aeb82",
+      "comment": "",
+      "command": "click",
+      "target": "css=.primary-form:nth-child(6) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(6) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "29bdb85f-d6ba-488f-89ef-96673fe44ef4",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(6) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(6) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "test"
+    }, {
+      "id": "f53e2ce5-3acd-4ba8-8f0c-e7f26c5579f6",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-save",
+      "targets": [
+        ["css=.btn-save", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div[4]/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Save Password')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "16b684cc-235e-4f0b-88bf-928bf4d2b9d4",
+      "comment": "",
+      "command": "click",
+      "target": "css=.primary-form:nth-child(2) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(2) > input", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "bdb77f76-c6b6-4bb3-a5d6-16e326238ad1",
+    "name": "UD08-14",
+    "commands": [{
+      "id": "84ea71fc-3881-4b69-b35f-0dfca4cc64e4",
+      "comment": "",
+      "command": "open",
+      "target": "https://guia.kbytes.live/on-cloud-nine/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "93025395-7bd1-4646-a154-e05fc75911ef",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "697x720",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d732803d-6ca7-4527-a8b4-cc6249cb6894",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(2)",
+      "targets": [
+        ["css=.primary-form:nth-child(2)", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "princess"
+    }, {
+      "id": "af9dc31c-7fe5-43f0-869b-bbd7a955e293",
+      "comment": "",
+      "command": "type",
+      "target": "css=input:nth-child(1)",
+      "targets": [
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": "Atillo123!"
+    }, {
+      "id": "173a1831-aaff-4799-a64e-6c44e81dc799",
+      "comment": "",
+      "command": "click",
+      "target": "css=.login-btn",
+      "targets": [
+        ["css=.login-btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5a6835e9-5119-4acc-890b-4a1a6688aac2",
+      "comment": "",
+      "command": "click",
+      "target": "css=.menu > .material-design-icon__svg",
+      "targets": [
+        ["css=.menu > .material-design-icon__svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "437fd0dc-6c04-44e2-aabe-0cb17169cfbc",
+      "comment": "",
+      "command": "click",
+      "target": "css=.change-pass-btn > h2",
+      "targets": [
+        ["css=.change-pass-btn > h2", "css:finder"],
+        ["xpath=//button/h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Change Password')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "bb05d619-827e-4fd4-b269-92f629aaebe9",
+      "comment": "",
+      "command": "click",
+      "target": "css=.primary-form:nth-child(2) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(2) > input", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e3c81878-2e0d-4929-97f1-13b3c20ccfbe",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(2) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(2) > input", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Atillo123!"
+    }, {
+      "id": "d4adfdf9-0ab1-4fae-93d2-8f7afdcce095",
+      "comment": "",
+      "command": "click",
+      "target": "css=.primary-form:nth-child(4) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(4) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b31f0a6d-372e-434f-880a-eecbae56a99d",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(4) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(4) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "DROP database postgres"
+    }, {
+      "id": "18b5b369-7428-4209-bb55-e45c26bb0ae5",
+      "comment": "",
+      "command": "click",
+      "target": "css=.primary-form:nth-child(6) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(6) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "366a114c-a7d5-48b3-98bf-9179997af698",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(6) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(6) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "test"
+    }, {
+      "id": "86cdab81-30fb-4afa-b9fb-1f15c8ac6a79",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-save",
+      "targets": [
+        ["css=.btn-save", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div[4]/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Save Password')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "2a0358b9-3065-4f8d-ac94-787847457501",
+    "name": "UD08-15",
+    "commands": [{
+      "id": "792a4695-d9d0-4034-a76a-ad9a056f5ece",
+      "comment": "",
+      "command": "open",
+      "target": "https://guia.kbytes.live/on-cloud-nine/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "236ee7dd-0f75-4bed-8ca9-979fd219fb78",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "697x720",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4f4b52ac-584b-417a-880c-16784d53189b",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(2)",
+      "targets": [
+        ["css=.primary-form:nth-child(2)", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "princess"
+    }, {
+      "id": "1a0113c7-96f3-44d6-9bef-82635cbeea54",
+      "comment": "",
+      "command": "type",
+      "target": "css=input:nth-child(1)",
+      "targets": [
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": "Atillo123!"
+    }, {
+      "id": "c213ebeb-565e-4c74-8915-eb88f37fd744",
+      "comment": "",
+      "command": "click",
+      "target": "css=.login-btn",
+      "targets": [
+        ["css=.login-btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b3aeaa62-a427-4a17-96de-bf9907dfe430",
+      "comment": "",
+      "command": "click",
+      "target": "css=.header",
+      "targets": [
+        ["css=.header", "css:finder"],
+        ["xpath=//div[@id='app']/div/div", "xpath:idRelative"],
+        ["xpath=//div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "38470114-c69d-4ad7-ae69-92956acb80fa",
+      "comment": "",
+      "command": "click",
+      "target": "css=.menu path",
+      "targets": [
+        ["css=.menu path", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "b472aa7e-51ee-422f-8405-298ca21821aa",
+      "comment": "",
+      "command": "click",
+      "target": "css=.change-pass-btn > h2",
+      "targets": [
+        ["css=.change-pass-btn > h2", "css:finder"],
+        ["xpath=//button/h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Change Password')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "28550b85-e7ec-4f67-8e49-71440d1e960b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.primary-form:nth-child(2) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(2) > input", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "18f2d763-9b17-4956-a276-e32fec1506d2",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(2) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(2) > input", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Atillo123!"
+    }, {
+      "id": "e1865d7c-9d94-48cb-9592-fe3d25af6c87",
+      "comment": "",
+      "command": "click",
+      "target": "css=.primary-form:nth-child(4) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(4) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "613dc6cd-7b18-497d-97cf-e5ba6083ef0c",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(4) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(4) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "test"
+    }, {
+      "id": "5b829141-1df2-4f37-bed2-ad6e163fad9e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.primary-form:nth-child(6) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(6) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9f0d03b1-36be-4606-a581-d47534e9ada8",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(6) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(6) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "DROP database postgres"
+    }, {
+      "id": "3328a599-0d1e-4c96-a744-d743f544c782",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-save",
+      "targets": [
+        ["css=.btn-save", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div[4]/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Save Password')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "da2bc025-1145-4138-88bf-f32e0e11c2e5",
+    "name": "UD08-16",
+    "commands": [{
+      "id": "fd043f79-79dc-4313-b7d9-463f5293ea39",
+      "comment": "",
+      "command": "open",
+      "target": "https://guia.kbytes.live/on-cloud-nine/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b6db59f4-fa4f-4287-ad45-154133119c68",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "697x720",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "998a831e-5698-4b5b-b649-c6cfcf2c54aa",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(2)",
+      "targets": [
+        ["css=.primary-form:nth-child(2)", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "princess"
+    }, {
+      "id": "e6defc64-bbb7-4f73-affc-db0a9e795b9d",
+      "comment": "",
+      "command": "type",
+      "target": "css=input:nth-child(1)",
+      "targets": [
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": "Atillo123!"
+    }, {
+      "id": "45415278-84a7-4ecf-a9d3-2c4d0885ede4",
+      "comment": "",
+      "command": "click",
+      "target": "css=.login-btn",
+      "targets": [
+        ["css=.login-btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a6998450-1ef8-451c-8288-5b980f766005",
+      "comment": "",
+      "command": "click",
+      "target": "css=.menu > .material-design-icon__svg",
+      "targets": [
+        ["css=.menu > .material-design-icon__svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "b6f5e04f-e161-4fbc-a538-4bb82cebddfd",
+      "comment": "",
+      "command": "click",
+      "target": "css=.change-pass-btn",
+      "targets": [
+        ["css=.change-pass-btn", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div[4]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Change Password')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "832cb031-631c-462f-b542-d725d7790b6a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.primary-form:nth-child(2) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(2) > input", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a2632e14-1167-4ad5-8c13-302862ebdf2b",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(2) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(2) > input", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Atillo123!"
+    }, {
+      "id": "77dc423b-644f-430b-a183-e5b635de2e84",
+      "comment": "",
+      "command": "click",
+      "target": "css=.primary-form:nth-child(4) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(4) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f7317fb3-b512-43bd-95ef-2ce48cd9b312",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(4) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(4) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "DROP database postgres"
+    }, {
+      "id": "7d6c83dc-3648-43b9-9d6e-6791330cb12e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.primary-form:nth-child(6) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(6) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "706e6c66-f1c7-41f2-b194-cd95f160275e",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(6) > input",
+      "targets": [
+        ["css=.primary-form:nth-child(6) > input", "css:finder"],
+        ["xpath=(//input[@type='password'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "DROP database postgres"
+    }, {
+      "id": "bbffbe36-b0b7-425e-999b-765b3a4f0c17",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-save",
+      "targets": [
+        ["css=.btn-save", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/form/div[4]/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Save Password')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "429530bc-f3d5-4493-b602-d8c1623197cd",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["2d473872-a3c6-4fb7-8811-dfa7e1961104"]
+  }],
+  "urls": ["https://guia.kbytes.live/on-cloud-nine"],
+  "plugins": []
+}

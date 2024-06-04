@@ -1,0 +1,761 @@
+{
+  "id": "5f4a8102-df64-4b63-99cf-a3cacbf0ecb0",
+  "version": "2.0",
+  "name": "guia-UD03",
+  "url": "https://guia.kbytes.live/on-cloud-nine/login",
+  "tests": [{
+    "id": "2324dcc9-2001-4e19-ad08-1ea6a86e02d8",
+    "name": "UD03-01",
+    "commands": [{
+      "id": "964131b7-dd93-4594-9749-6d4045ca4cc0",
+      "comment": "",
+      "command": "open",
+      "target": "https://guia.kbytes.live/on-cloud-nine/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "861db977-5a2e-49f4-b25d-3d31b6b73307",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "430x932",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1c372f2f-2c7b-44fb-aeea-2022a6f1efd8",
+      "comment": "",
+      "command": "click",
+      "target": "css=.primary-form:nth-child(2)",
+      "targets": [
+        ["css=.primary-form:nth-child(2)", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "055dcbf8-90da-4846-a077-23d6366309d6",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(2)",
+      "targets": [
+        ["css=.primary-form:nth-child(2)", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "tester"
+    }, {
+      "id": "2e545403-b5b8-4e28-88fa-55398b629804",
+      "comment": "",
+      "command": "type",
+      "target": "css=input:nth-child(1)",
+      "targets": [
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": "Guia1234!"
+    }, {
+      "id": "5a7edecc-b85c-4fbe-86dc-fc0bb796598b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.material-design-icon__svg",
+      "targets": [
+        ["css=.material-design-icon__svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "817941f3-d291-4748-abb7-717c021ca476",
+      "comment": "",
+      "command": "click",
+      "target": "css=.material-design-icon__svg",
+      "targets": [
+        ["css=path", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "541e4c05-b657-42cc-a546-c44128c11e49",
+      "comment": "",
+      "command": "click",
+      "target": "css=.login-btn",
+      "targets": [
+        ["css=.login-btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "dbc47a95-4ded-499b-96b2-42b1739eff57",
+      "comment": "",
+      "command": "click",
+      "target": "css=.card-container:nth-child(1) h2",
+      "targets": [
+        ["css=.card-container:nth-child(1) h2", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]/div/div[2]/h2", "xpath:idRelative"],
+        ["xpath=//div[2]/h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Artworks in the Directory >')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "bbef6514-7afc-4a0a-b7f4-81c3f2b11cdf",
+      "comment": "",
+      "command": "click",
+      "target": "css=.art-card:nth-child(1) text",
+      "targets": [
+        ["css=.art-card:nth-child(1) text", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]/div/div/text", "xpath:idRelative"],
+        ["xpath=//text", "xpath:position"],
+        ["xpath=//text[contains(.,'Gabriel Abellana, Unknown')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "cd2237f2-a958-4518-8551-6279a9063f3d",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.header",
+      "targets": [],
+      "value": "60000"
+    }, {
+      "id": "7de1d2e8-bc10-4166-9264-310579a3adb1",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=h3",
+      "targets": [
+        ["css=h3", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/h3", "xpath:idRelative"],
+        ["xpath=//h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'After The Fire (Unknown)')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "fa8666d6-d22f-49dd-a2c9-4f1d4e7adcb9",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.content > img",
+      "targets": [
+        ["css=.content > img", "css:finder"],
+        ["xpath=//img[@alt='After The Fire']", "xpath:img"],
+        ["xpath=//div[@id='app']/div/div[2]/img", "xpath:idRelative"],
+        ["xpath=//div[2]/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3cfa0f88-b821-41b4-a05b-a2370126e62e",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=text:nth-child(1)",
+      "targets": [
+        ["css=text:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]/text", "xpath:idRelative"],
+        ["xpath=//text", "xpath:position"],
+        ["xpath=//text[contains(.,'Artist Name')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "157ee7dd-f2b2-4535-8d6f-3fe5239e0e74",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.data:nth-child(2)",
+      "targets": [
+        ["css=.data:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]/text[2]", "xpath:idRelative"],
+        ["xpath=//text[2]", "xpath:position"],
+        ["xpath=//text[contains(.,'Gabriel Abellana')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1243044a-4134-4cb2-b1b2-ff90ffe05b16",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=text:nth-child(3)",
+      "targets": [
+        ["css=text:nth-child(3)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]/text[3]", "xpath:idRelative"],
+        ["xpath=//text[3]", "xpath:position"],
+        ["xpath=//text[contains(.,'Date Published')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e97c17cf-0f1e-41fc-81f5-af61ee563b87",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.data:nth-child(4)",
+      "targets": [
+        ["css=.data:nth-child(4)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]/text[4]", "xpath:idRelative"],
+        ["xpath=//text[4]", "xpath:position"],
+        ["xpath=//text[contains(.,'Unknown')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0440ca5f-64a1-4aba-9c10-9abc9875e62c",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=text:nth-child(5)",
+      "targets": [
+        ["css=text:nth-child(5)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]/text[5]", "xpath:idRelative"],
+        ["xpath=//text[5]", "xpath:position"],
+        ["xpath=//text[contains(.,'Medium')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "204d55dd-a9c3-47b5-be5a-e0e4c019c8d7",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=data:nth-child(6)",
+      "targets": [
+        ["css=text:nth-child(5)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]/text[5]", "xpath:idRelative"],
+        ["xpath=//text[5]", "xpath:position"],
+        ["xpath=//text[contains(.,'Medium')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1969e57d-8568-4a68-970c-bc70e105d855",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=text:nth-child(7)",
+      "targets": [
+        ["css=text:nth-child(5)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]/text[5]", "xpath:idRelative"],
+        ["xpath=//text[5]", "xpath:position"],
+        ["xpath=//text[contains(.,'Medium')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7ba4691c-57ca-4f76-b599-e53608eca7e4",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=data:nth-child(8)",
+      "targets": [
+        ["css=text:nth-child(5)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]/text[5]", "xpath:idRelative"],
+        ["xpath=//text[5]", "xpath:position"],
+        ["xpath=//text[contains(.,'Medium')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "14a9fbe9-8efe-4531-b6f8-aee564aac468",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=text:nth-child(9)",
+      "targets": [
+        ["css=text:nth-child(5)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]/text[5]", "xpath:idRelative"],
+        ["xpath=//text[5]", "xpath:position"],
+        ["xpath=//text[contains(.,'Medium')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "841f909b-cc33-4061-ae8d-3c4e84d246ce",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=data:nth-child(10)",
+      "targets": [
+        ["css=text:nth-child(5)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]/text[5]", "xpath:idRelative"],
+        ["xpath=//text[5]", "xpath:position"],
+        ["xpath=//text[contains(.,'Medium')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8794d301-a25e-4b34-9d5b-5953eb08a254",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=text:nth-child(11)",
+      "targets": [
+        ["css=text:nth-child(11)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]/text[11]", "xpath:idRelative"],
+        ["xpath=//text[11]", "xpath:position"],
+        ["xpath=//text[contains(.,'Width (cm)')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9d227319-6b47-4387-906e-333ce8b8ebc1",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=data:nth-child(12)",
+      "targets": [
+        ["css=text:nth-child(5)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]/text[5]", "xpath:idRelative"],
+        ["xpath=//text[5]", "xpath:position"],
+        ["xpath=//text[contains(.,'Medium')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e7fbd885-6346-48b2-8c40-f76dac921f23",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=text:nth-child(13)",
+      "targets": [
+        ["css=text:nth-child(11)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]/text[11]", "xpath:idRelative"],
+        ["xpath=//text[11]", "xpath:position"],
+        ["xpath=//text[contains(.,'Width (cm)')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "65e5de86-8129-4d26-b5cc-1cb6d50708d0",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=data:nth-child(14)",
+      "targets": [
+        ["css=text:nth-child(5)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]/text[5]", "xpath:idRelative"],
+        ["xpath=//text[5]", "xpath:position"],
+        ["xpath=//text[contains(.,'Medium')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "946e03d5-02de-48cf-8d5c-e2223de2ebcb",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=text:nth-child(15)",
+      "targets": [
+        ["css=text:nth-child(11)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]/text[11]", "xpath:idRelative"],
+        ["xpath=//text[11]", "xpath:position"],
+        ["xpath=//text[contains(.,'Width (cm)')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "82dde40f-aa16-4bd4-a4db-4ff282760938",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=data:nth-child(16)",
+      "targets": [
+        ["css=text:nth-child(5)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]/text[5]", "xpath:idRelative"],
+        ["xpath=//text[5]", "xpath:position"],
+        ["xpath=//text[contains(.,'Medium')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b9f6abc2-552c-4af0-9c73-bb7f65c8ca85",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=text:nth-child(17)",
+      "targets": [
+        ["css=text:nth-child(11)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]/text[11]", "xpath:idRelative"],
+        ["xpath=//text[11]", "xpath:position"],
+        ["xpath=//text[contains(.,'Width (cm)')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c46039c7-7a44-476a-a752-63772c56e0b5",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=data:nth-child(18)",
+      "targets": [
+        ["css=text:nth-child(5)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]/text[5]", "xpath:idRelative"],
+        ["xpath=//text[5]", "xpath:position"],
+        ["xpath=//text[contains(.,'Medium')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c510d82a-7ab0-4891-903d-63704a567888",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.buttons",
+      "targets": [
+        ["css=.buttons", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[3]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[3]", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "e3fe2859-4a93-4475-959f-5a7079299b10",
+    "name": "UD03-02",
+    "commands": [{
+      "id": "86271812-3fd0-4f49-b0ba-e9a83f4eee75",
+      "comment": "",
+      "command": "open",
+      "target": "https://guia.kbytes.live/on-cloud-nine/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "317b4b9f-e66e-4599-88b2-02c19bc41662",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "430x932",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8f8e98e4-0a04-451c-ba4b-320274c8ebd5",
+      "comment": "",
+      "command": "click",
+      "target": "css=.primary-form:nth-child(2)",
+      "targets": [
+        ["css=.primary-form:nth-child(2)", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2f2af191-e986-4611-a1a1-5ea2596bef88",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(2)",
+      "targets": [
+        ["css=.primary-form:nth-child(2)", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "tester"
+    }, {
+      "id": "56fe5c86-e1e9-489e-bf05-adb9e8f663b3",
+      "comment": "",
+      "command": "type",
+      "target": "css=input:nth-child(1)",
+      "targets": [
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": "Guia1234!"
+    }, {
+      "id": "64eccbf7-2686-4fb3-8c53-c7f93ab90f90",
+      "comment": "",
+      "command": "click",
+      "target": "css=.material-design-icon__svg",
+      "targets": [
+        ["css=path", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "dc1da2ba-20cb-417a-aa32-15b7b89173aa",
+      "comment": "",
+      "command": "click",
+      "target": "css=.material-design-icon__svg",
+      "targets": [
+        ["css=path", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "525efc77-3cfc-4771-9846-ed92e1dc0a8d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.login-btn",
+      "targets": [
+        ["css=.login-btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a57738bf-1893-429d-bfca-861d8d702c89",
+      "comment": "",
+      "command": "click",
+      "target": "css=.card-container:nth-child(1) h2",
+      "targets": [
+        ["css=.card-container:nth-child(1) h2", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]/div/div[2]/h2", "xpath:idRelative"],
+        ["xpath=//div[2]/h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Artworks in the Directory >')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2ad22966-4d71-4f50-98fc-5c03c74085bb",
+      "comment": "",
+      "command": "click",
+      "target": "css=.art-card:nth-child(1) text",
+      "targets": [
+        ["css=.art-card:nth-child(1) text", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]/div/div/text", "xpath:idRelative"],
+        ["xpath=//text", "xpath:position"],
+        ["xpath=//text[contains(.,'Gabriel Abellana, Unknown')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c7dd660f-4331-4f60-963b-1e94f4edccb3",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.header",
+      "targets": [],
+      "value": "60000"
+    }, {
+      "id": "e09c0c03-2aba-4811-8a09-990ce4893779",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=h3",
+      "targets": [
+        ["css=h3", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/h3", "xpath:idRelative"],
+        ["xpath=//h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'After The Fire (Unknown)')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0d2fe968-129c-41b5-af30-6ee70766c692",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.content > img",
+      "targets": [
+        ["css=.content > img", "css:finder"],
+        ["xpath=//img[@alt='After The Fire']", "xpath:img"],
+        ["xpath=//div[@id='app']/div/div[2]/img", "xpath:idRelative"],
+        ["xpath=//div[2]/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4edd3aa3-d50e-41b5-bea9-ea66b3f45fed",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=text:nth-child(1)",
+      "targets": [
+        ["css=text:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]/text", "xpath:idRelative"],
+        ["xpath=//text", "xpath:position"],
+        ["xpath=//text[contains(.,'Artist Name')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "952e502c-b448-4072-a9a1-adc57f1bd5ab",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.data:nth-child(2)",
+      "targets": [
+        ["css=.data:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]/text[2]", "xpath:idRelative"],
+        ["xpath=//text[2]", "xpath:position"],
+        ["xpath=//text[contains(.,'Gabriel Abellana')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "90c1e342-e83e-4a12-8453-686e79ce947e",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=text:nth-child(3)",
+      "targets": [
+        ["css=text:nth-child(3)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]/text[3]", "xpath:idRelative"],
+        ["xpath=//text[3]", "xpath:position"],
+        ["xpath=//text[contains(.,'Date Published')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9e85b09e-e6fc-4ebf-a98d-a92033449a0f",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.data:nth-child(4)",
+      "targets": [
+        ["css=.data:nth-child(4)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]/text[4]", "xpath:idRelative"],
+        ["xpath=//text[4]", "xpath:position"],
+        ["xpath=//text[contains(.,'Unknown')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "596480df-8bab-4220-a658-d59e81a9dd75",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=text:nth-child(5)",
+      "targets": [
+        ["css=text:nth-child(5)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]/text[5]", "xpath:idRelative"],
+        ["xpath=//text[5]", "xpath:position"],
+        ["xpath=//text[contains(.,'Medium')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d71d36fa-7922-4d03-bc5f-159a9f52acf9",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.data:nth-child(6)",
+      "targets": [
+        ["css=.data:nth-child(6)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]/text[6]", "xpath:idRelative"],
+        ["xpath=//text[6]", "xpath:position"],
+        ["xpath=//text[contains(.,'Oil on Canvas')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "89d65e39-ccd9-46a9-8dba-2de77798d986",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=text:nth-child(7)",
+      "targets": [
+        ["css=text:nth-child(7)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]/text[7]", "xpath:idRelative"],
+        ["xpath=//text[7]", "xpath:position"],
+        ["xpath=//text[contains(.,'Assigned Section')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7dbc37c0-6e5c-4375-aaef-3f424bc4f6b5",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.data:nth-child(8)",
+      "targets": [
+        ["css=.data:nth-child(8)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]/text[8]", "xpath:idRelative"],
+        ["xpath=//text[8]", "xpath:position"],
+        ["xpath=//text[contains(.,'Staircase')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f1fc9244-29c0-49d4-a510-1dafa3bd099d",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=text:nth-child(9)",
+      "targets": [
+        ["css=text:nth-child(5)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]/text[5]", "xpath:idRelative"],
+        ["xpath=//text[5]", "xpath:position"],
+        ["xpath=//text[contains(.,'Medium')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1aee826e-6e3f-4cad-bef1-f16a4fca342f",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.data:nth-child(10)",
+      "targets": [
+        ["css=.data:nth-child(10)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]/text[10]", "xpath:idRelative"],
+        ["xpath=//text[10]", "xpath:position"],
+        ["xpath=//text[contains(.,'24.00')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a8d1fdb0-c96a-4e3f-b82f-cb48dde876c9",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=text:nth-child(11)",
+      "targets": [
+        ["css=text:nth-child(11)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]/text[11]", "xpath:idRelative"],
+        ["xpath=//text[11]", "xpath:position"],
+        ["xpath=//text[contains(.,'Width (cm)')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9e2a45ef-7d98-4839-9ff5-ea07deaf300e",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.data:nth-child(12)",
+      "targets": [
+        ["css=.data:nth-child(12)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]/text[12]", "xpath:idRelative"],
+        ["xpath=//text[12]", "xpath:position"],
+        ["xpath=//text[contains(.,'32.00')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "04da5680-e0dd-4133-993a-5b9fcc059bff",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=text:nth-child(13)",
+      "targets": [
+        ["css=text:nth-child(11)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]/text[11]", "xpath:idRelative"],
+        ["xpath=//text[11]", "xpath:position"],
+        ["xpath=//text[contains(.,'Width (cm)')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2390cddd-a32a-489e-a9db-c684328a054f",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.data:nth-child(14)",
+      "targets": [
+        ["css=.data:nth-child(14)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]/text[14]", "xpath:idRelative"],
+        ["xpath=//text[14]", "xpath:position"],
+        ["xpath=//text[contains(.,'N/A')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a5fdb0c8-a8b8-4faf-a7ab-e01d2593cc2c",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=text:nth-child(15)",
+      "targets": [
+        ["css=text:nth-child(11)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]/text[11]", "xpath:idRelative"],
+        ["xpath=//text[11]", "xpath:position"],
+        ["xpath=//text[contains(.,'Width (cm)')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "efb1a8c9-50a8-477d-9769-bb510035033e",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.data:nth-child(16)",
+      "targets": [
+        ["css=.data:nth-child(16)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]/text[16]", "xpath:idRelative"],
+        ["xpath=//text[16]", "xpath:position"],
+        ["xpath=//text[contains(.,'\"This is one of the famous paintings of Gabriel Abellana.\"')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ccd774d7-da7d-4b69-be44-151760a7baa8",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=text:nth-child(17)",
+      "targets": [
+        ["css=text:nth-child(11)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]/text[11]", "xpath:idRelative"],
+        ["xpath=//text[11]", "xpath:position"],
+        ["xpath=//text[contains(.,'Width (cm)')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d8d7083e-76fc-4815-a0e5-b6dd0b609f39",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.data:nth-child(18)",
+      "targets": [
+        ["css=.data:nth-child(18)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]/text[18]", "xpath:idRelative"],
+        ["xpath=//text[18]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a2dd83d7-0abd-4926-90e3-4f7403cbd63e",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.buttons",
+      "targets": [
+        ["css=.buttons", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[3]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ae048fb3-84e7-4d97-a59b-bb4f98658b5a",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.buttons",
+      "targets": [
+        ["css=.buttons", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[3]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[3]", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "12f25f1b-04eb-404c-81de-7213d8f6a90d",
+    "name": "UD03",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["2324dcc9-2001-4e19-ad08-1ea6a86e02d8", "e3fe2859-4a93-4475-959f-5a7079299b10"]
+  }],
+  "urls": ["https://guia.kbytes.live/on-cloud-nine/login"],
+  "plugins": []
+}

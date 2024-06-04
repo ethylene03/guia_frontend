@@ -1,0 +1,480 @@
+{
+  "id": "4cdf84fb-b0d5-4750-aa92-ede1752d22dd",
+  "version": "2.0",
+  "name": "guia-UD09",
+  "url": "https://guia.kbytes.live/on-cloud-nine",
+  "tests": [{
+    "id": "3b86b541-2878-4097-b53c-38175a4e9ee9",
+    "name": "Untitled",
+    "commands": []
+  }, {
+    "id": "66452b95-6513-4af8-8501-8c2bea9e6a7d",
+    "name": "UD09-01",
+    "commands": [{
+      "id": "53c379e8-e0dd-4b88-af8f-4e02b08a1476",
+      "comment": "",
+      "command": "open",
+      "target": "https://guia.kbytes.live/on-cloud-nine/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2e56e4fa-4c76-4ab7-8403-49deffc89581",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "697x720",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b1ba062b-4eb5-4d61-bc46-cf57af4e86b6",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(2)",
+      "targets": [
+        ["css=.primary-form:nth-child(2)", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "princess"
+    }, {
+      "id": "55690f82-d888-47f1-ac81-9a7a42929ff5",
+      "comment": "",
+      "command": "type",
+      "target": "css=input:nth-child(1)",
+      "targets": [
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": "Atillo123!"
+    }, {
+      "id": "b8c3d351-9021-47cb-8e88-2d71cc149089",
+      "comment": "",
+      "command": "click",
+      "target": "css=.login-btn",
+      "targets": [
+        ["css=.login-btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "dee10c63-24c6-4243-886d-3df38846e389",
+      "comment": "",
+      "command": "click",
+      "target": "css=.menu path",
+      "targets": [
+        ["css=.menu path", "css:finder"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "b57f4a27-744a-41be-84de-1840e9e19c2d",
+    "name": "UD09-02",
+    "commands": [{
+      "id": "40133af3-ac0a-4daf-b677-c96b43713685",
+      "comment": "",
+      "command": "open",
+      "target": "https://guia.kbytes.live/on-cloud-nine/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e9578352-9ab0-4a52-b8ac-7fdceb6f3920",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "697x720",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "84ca55c4-7874-43ae-b682-88ef88f7a5a9",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(2)",
+      "targets": [
+        ["css=.primary-form:nth-child(2)", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "princess"
+    }, {
+      "id": "cc3749ff-f28c-4f40-84fc-217ba03106fc",
+      "comment": "",
+      "command": "type",
+      "target": "css=input:nth-child(1)",
+      "targets": [
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": "Atillo123!"
+    }, {
+      "id": "6fdb38f3-f4ac-4e70-81a4-3790d8e015e3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.login-btn",
+      "targets": [
+        ["css=.login-btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "337ce023-2b6b-4f5d-be43-1580e551c453",
+      "comment": "",
+      "command": "click",
+      "target": "css=.menu > .material-design-icon__svg",
+      "targets": [
+        ["css=.menu > .material-design-icon__svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "02ed0ee7-7567-4824-8049-087b4136eb01",
+      "comment": "",
+      "command": "click",
+      "target": "css=.home-circle-outline-icon > .material-design-icon__svg",
+      "targets": [
+        ["css=.home-circle-outline-icon > .material-design-icon__svg", "css:finder"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "b7ec6e0a-427d-4258-b991-9bd12e66075f",
+    "name": "UD09-03",
+    "commands": [{
+      "id": "d5df4fcb-06ed-460d-9df5-e153e2114f85",
+      "comment": "",
+      "command": "open",
+      "target": "https://guia.kbytes.live/on-cloud-nine/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "74fcb133-11f1-4ebb-8968-17ccaf1e518a",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "697x720",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "182900e8-a71f-4a5c-a7d3-64556ffdf449",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(2)",
+      "targets": [
+        ["css=.primary-form:nth-child(2)", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "princess"
+    }, {
+      "id": "a1b13af9-d3b6-40dd-a045-f3c2ea26f815",
+      "comment": "",
+      "command": "type",
+      "target": "css=input:nth-child(1)",
+      "targets": [
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": "Atillo123!"
+    }, {
+      "id": "53ae5af3-cf6c-4116-934b-d0856d60c21e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.login-btn",
+      "targets": [
+        ["css=.login-btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f80b6046-2e5d-452d-8a18-802c9fc5fa8c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.menu > .material-design-icon__svg",
+      "targets": [
+        ["css=.menu > .material-design-icon__svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "acc87e1c-34ab-43e3-bbdf-f22c77e33b01",
+      "comment": "",
+      "command": "click",
+      "target": "css=.button-icons > div:nth-child(2)",
+      "targets": [
+        ["css=.button-icons > div:nth-child(2)", "css:finder"],
+        ["xpath=//div[2]/div/div[2]/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "814afbcf-7cc4-451a-9318-bdb7a1bb56c1",
+    "name": "UD09-04",
+    "commands": [{
+      "id": "11490de2-dcf6-4c57-8d80-50d52f512193",
+      "comment": "",
+      "command": "open",
+      "target": "https://guia.kbytes.live/on-cloud-nine/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b01db42f-eea9-4a89-ac1c-a0fd5c0c0815",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "697x720",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8a9b11e4-0925-4c30-b6e0-cd964fdacff9",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(2)",
+      "targets": [
+        ["css=.primary-form:nth-child(2)", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "princess"
+    }, {
+      "id": "ca14b8c0-1072-4856-8609-f8c2894e5b2e",
+      "comment": "",
+      "command": "type",
+      "target": "css=input:nth-child(1)",
+      "targets": [
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": "Atillo123!"
+    }, {
+      "id": "76b44143-11e6-44b8-aac9-da48d31ae30e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.login-btn",
+      "targets": [
+        ["css=.login-btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "677bc237-b53e-4bae-9a36-d3087d70107a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.menu path",
+      "targets": [
+        ["css=.menu path", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "1e1f21c5-bf45-417e-910b-71580f7db4ef",
+      "comment": "",
+      "command": "click",
+      "target": "css=.change-pass-btn > h2",
+      "targets": [
+        ["css=.change-pass-btn > h2", "css:finder"],
+        ["xpath=//button/h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Change Password')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "ae32d4d2-6eed-4ea6-ad0a-4fd0cc1bc263",
+    "name": "UD09-05",
+    "commands": [{
+      "id": "02108281-9427-4599-9297-20c03784506a",
+      "comment": "",
+      "command": "open",
+      "target": "https://guia.kbytes.live/on-cloud-nine/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "98e8f553-b769-4dc5-acae-c13d93e46318",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "697x720",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9410bafe-1a95-46ba-a201-cc38b140e273",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(2)",
+      "targets": [
+        ["css=.primary-form:nth-child(2)", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "princess"
+    }, {
+      "id": "ec5d52c3-c02d-4629-8a83-10b5b36b686a",
+      "comment": "",
+      "command": "type",
+      "target": "css=input:nth-child(1)",
+      "targets": [
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": "Atillo123!"
+    }, {
+      "id": "fa2de3c3-8dce-4c49-93de-1e88af96edec",
+      "comment": "",
+      "command": "click",
+      "target": "css=.login-btn",
+      "targets": [
+        ["css=.login-btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2f3fd9af-a2dc-458c-aac4-1b13cf0f91e7",
+      "comment": "",
+      "command": "click",
+      "target": "css=.menu > .material-design-icon__svg",
+      "targets": [
+        ["css=.menu > .material-design-icon__svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "d1aed0a4-46af-4393-a4b8-8690fe840e4a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.logout-btn",
+      "targets": [
+        ["css=.logout-btn", "css:finder"],
+        ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
+        ["xpath=//div[4]/button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Logout')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a3d05828-f3a3-4141-8ff3-7235f803d740",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(2)",
+      "targets": [
+        ["css=.primary-form:nth-child(2)", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "princess"
+    }, {
+      "id": "9275cee4-0a74-4f26-95e1-2ea30b8606fb",
+      "comment": "",
+      "command": "type",
+      "target": "css=input:nth-child(1)",
+      "targets": [
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": "Atillo123!"
+    }]
+  }, {
+    "id": "dd73200d-b0cb-4507-8125-0a8ca644b980",
+    "name": "UD09-06",
+    "commands": [{
+      "id": "0b20aa2c-1dfd-4958-90ee-64424b5b0c7f",
+      "comment": "",
+      "command": "open",
+      "target": "https://guia.kbytes.live/on-cloud-nine/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c05f7d87-0af2-4afd-ace0-358fa49ced03",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "697x720",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1c8f3959-b67f-419d-ac5c-0ebf1c3f44f8",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(2)",
+      "targets": [
+        ["css=.primary-form:nth-child(2)", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "princess"
+    }, {
+      "id": "5bb9a087-559d-41c0-9976-69014b39e712",
+      "comment": "",
+      "command": "type",
+      "target": "css=input:nth-child(1)",
+      "targets": [
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": "Atillo123!"
+    }, {
+      "id": "6cccabfc-4705-47a6-8b4a-90c637a97be2",
+      "comment": "",
+      "command": "click",
+      "target": "css=.login-btn",
+      "targets": [
+        ["css=.login-btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "83143ac0-414f-4caa-a86a-0c5a99c1ed66",
+      "comment": "",
+      "command": "click",
+      "target": "css=.menu > .material-design-icon__svg",
+      "targets": [
+        ["css=.menu > .material-design-icon__svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "a97e924b-5c8d-4781-9563-7ff70ee39b55",
+      "comment": "",
+      "command": "click",
+      "target": "css=.exit-icon > .material-design-icon__svg",
+      "targets": [
+        ["css=.exit-icon > .material-design-icon__svg", "css:finder"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "7b344237-e8b8-465a-9b24-3edc7ae7724b",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["3b86b541-2878-4097-b53c-38175a4e9ee9"]
+  }],
+  "urls": ["https://guia.kbytes.live/on-cloud-nine"],
+  "plugins": []
+}

@@ -1,0 +1,101 @@
+{
+  "id": "d7521723-482b-4868-9d4c-5aeb7c01f23c",
+  "version": "2.0",
+  "name": "guia-UA02",
+  "url": "https://guia.kbytes.live/search-museum",
+  "tests": [{
+    "id": "5a973ec5-a8c4-43e5-947c-0387fee11042",
+    "name": "UA02-01",
+    "commands": [{
+      "id": "accf76f5-926d-47ae-89a6-c785ef71b9cc",
+      "comment": "",
+      "command": "open",
+      "target": "https://guia.kbytes.live/search-museum",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0c67d027-fa72-41da-9309-31a30d1257ed",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "430x932",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "435934ce-1d63-40b9-9d18-04a1895623d3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.dropdown",
+      "targets": [
+        ["css=.dropdown", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3ac0232a-f97c-414a-bf8b-c16497d697a3",
+      "comment": "",
+      "command": "select",
+      "target": "css=.dropdown",
+      "targets": [],
+      "value": "label=Joya"
+    }, {
+      "id": "75559eed-202a-414f-b7c0-541c6fde1dc7",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//button[contains(.,'Confirm')]",
+      "targets": [
+        ["css=button", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Confirm')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "3ce8eb66-f142-4b62-a950-265b7ff41c1b",
+    "name": "UA02-02",
+    "commands": [{
+      "id": "f2c2a98d-71f6-4c23-980d-77beb33ec611",
+      "comment": "",
+      "command": "open",
+      "target": "https://guia.kbytes.live/search-museum",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d5c0923b-b61a-424c-97a3-feb344a004a0",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "430x932",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1efa1fab-118b-4e49-b794-b2517408dfe7",
+      "comment": "",
+      "command": "click",
+      "target": "css=.container",
+      "targets": [
+        ["css=.container", "css:finder"],
+        ["xpath=//div[@id='app']/div", "xpath:idRelative"],
+        ["xpath=//div[3]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "04fe9048-cddb-4637-8737-079830156b0f",
+      "comment": "",
+      "command": "executeScript",
+      "target": "document.getElementById(\"confirm-button\").disabled=true;",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "64c7bef1-4948-42c3-b1a1-b7d89aeb7781",
+    "name": "UA02",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["5a973ec5-a8c4-43e5-947c-0387fee11042", "3ce8eb66-f142-4b62-a950-265b7ff41c1b"]
+  }],
+  "urls": ["https://guia.kbytes.live/search-museum"],
+  "plugins": []
+}

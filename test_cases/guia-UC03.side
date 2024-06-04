@@ -1,0 +1,2163 @@
+{
+  "id": "eede6571-18de-4d5c-b9f5-2ab6e5ed9a34",
+  "version": "2.0",
+  "name": "guia-UC03",
+  "url": "https://guia.kbytes.live/hands-down/1",
+  "tests": [{
+    "id": "ad2eb95d-dfe5-48c5-a6fd-f3bb74664015",
+    "name": "UC03-01",
+    "commands": [{
+      "id": "c13569b9-379b-4763-a62c-dba0e378e204",
+      "comment": "",
+      "command": "open",
+      "target": "https://guia.kbytes.live/hands-down/1",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "df68e549-bfc4-492a-8df6-c1f89c89d429",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "430x932",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1c1d420d-eba1-4301-ae65-26e07a57dd3e",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "xpath=//img[@alt='Guia: Guiding you through history']",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a8562b85-eb3a-4390-9d98-4701328da5f1",
+      "comment": "",
+      "command": "click",
+      "target": "css=button:nth-child(1)",
+      "targets": [
+        ["css=button:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Yes')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b426e016-2251-47d0-89ce-91dd347e6a19",
+      "comment": "",
+      "command": "click",
+      "target": "css=.foreground",
+      "targets": [
+        ["css=.foreground", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]", "xpath:idRelative"],
+        ["xpath=//div/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1b15ab15-1eea-40f8-a823-e3be10973021",
+      "comment": "",
+      "command": "waitForText",
+      "target": "xpath=//h2[contains(.,'Please point the camera to the artwork')]",
+      "targets": [
+        ["css=h2", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/h2", "xpath:idRelative"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Please point the camera to the artwork')]", "xpath:innerText"]
+      ],
+      "value": "Please point the camera to the artwork"
+    }, {
+      "id": "58be338e-6389-47f4-8db1-41d378984ed1",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.chevron-left-icon",
+      "targets": [
+        ["css=.chevron-left-icon", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/span", "xpath:idRelative"],
+        ["xpath=//div[2]/div/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d9778873-ff1d-468b-8905-1a7abf9c6e88",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.map-outline-icon",
+      "targets": [
+        ["css=.map-outline-icon", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/span[2]", "xpath:idRelative"],
+        ["xpath=//span[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "be8c347f-e381-42e9-a2c9-426533ac3f7b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.map-outline-icon > .material-design-icon__svg",
+      "targets": [
+        ["css=.map-outline-icon > .material-design-icon__svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "fb3f2ded-2823-4bbc-8b59-fe4c0404573b",
+      "comment": "",
+      "command": "waitForText",
+      "target": "xpath=//h1[contains(.,'Museum Map')]",
+      "targets": [
+        ["css=h1", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Museum Map')]", "xpath:innerText"]
+      ],
+      "value": "Museum Map"
+    }, {
+      "id": "8fa1b178-f31d-4614-8598-2647add97372",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.map-cont",
+      "targets": [
+        ["css=.map-cont", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div", "xpath:position"]
+      ],
+      "value": "60000"
+    }, {
+      "id": "5959c205-37a1-444e-80e7-86587a7616da",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/div/div/text",
+      "targets": [
+        ["css=.orange text:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div/div/text", "xpath:idRelative"],
+        ["xpath=//div/div/div/div/text", "xpath:position"],
+        ["xpath=//text[contains(.,'Lihangin')]", "xpath:innerText"]
+      ],
+      "value": "60000"
+    }, {
+      "id": "ae2249f9-7bf9-48d1-891f-a592899ff119",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/div/div/text[2]",
+      "targets": [
+        ["css=.orange text:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div/div/text[2]", "xpath:idRelative"],
+        ["xpath=//text[2]", "xpath:position"],
+        ["xpath=//text[contains(.,'0/12')]", "xpath:innerText"]
+      ],
+      "value": "60000"
+    }, {
+      "id": "25454fe6-6295-4c5c-8a1c-8c8ce0312c90",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.traffic-code",
+      "targets": [
+        ["css=.traffic-code", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]", "xpath:position"]
+      ],
+      "value": "60000"
+    }, {
+      "id": "012b8cb0-aa55-4532-98ad-70ec4d76945d",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/div",
+      "targets": [
+        ["css=.orange", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div", "xpath:position"]
+      ],
+      "value": "60000"
+    }, {
+      "id": "48e7d26e-9cce-4c9b-b6b3-c3414bbc05af",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/div",
+      "targets": [
+        ["css=.orange", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "da9de320-5d2f-4540-a894-678e40602031",
+      "comment": "",
+      "command": "waitForText",
+      "target": "xpath=//h1[contains(.,'Artwork Checklist')]",
+      "targets": [
+        ["css=h1:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Artwork Checklist')]", "xpath:innerText"]
+      ],
+      "value": "Artwork Checklist"
+    }, {
+      "id": "cd8b8279-c378-47b4-a623-ce311ae40e90",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=h1:nth-child(2)",
+      "targets": [],
+      "value": "60000"
+    }, {
+      "id": "a35fa416-4b70-451e-8a89-553b27119def",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "xpath=//input",
+      "targets": [
+        ["id=5", "id"],
+        ["css=#\\35", "css:finder"],
+        ["xpath=//input[@id='5']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "719674a4-fe7a-47cb-89ac-35993b77afcf",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/text",
+      "targets": [
+        ["css=.list:nth-child(1) > .details", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/text", "xpath:idRelative"],
+        ["xpath=//text", "xpath:position"],
+        ["xpath=//text[contains(.,'Sample 1 (2024) by Princess Ethel')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "256efe04-56d1-46e7-ac12-7ec5ebf515ce",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.checklist",
+      "targets": [
+        ["css=.checklist", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "2bd9655d-7eb2-42b6-a11d-608ecb2b3497",
+    "name": "UC03-02",
+    "commands": [{
+      "id": "89cac888-2f2e-4aff-816e-c14964852c79",
+      "comment": "",
+      "command": "open",
+      "target": "https://guia.kbytes.live/hands-down/1",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0abc5a5e-281c-43c1-8916-0b27e49a498b",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "430x932",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a5a7f7ef-4fdb-4684-ad2c-1e2246f52565",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "xpath=//img[@alt='Guia: Guiding you through history']",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5aaffc02-7263-4030-ac47-317b250b8b1d",
+      "comment": "",
+      "command": "click",
+      "target": "css=button:nth-child(1)",
+      "targets": [
+        ["css=button:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Yes')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2d851985-a10e-49f0-977a-95ea16b457e9",
+      "comment": "",
+      "command": "click",
+      "target": "css=.foreground",
+      "targets": [
+        ["css=.foreground", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]", "xpath:idRelative"],
+        ["xpath=//div/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c314b888-e659-4df6-b1ce-050858c9506f",
+      "comment": "",
+      "command": "waitForText",
+      "target": "xpath=//h2[contains(.,'Please point the camera to the artwork')]",
+      "targets": [
+        ["css=h2", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/h2", "xpath:idRelative"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Please point the camera to the artwork')]", "xpath:innerText"]
+      ],
+      "value": "Please point the camera to the artwork"
+    }, {
+      "id": "3632a3f8-06c6-4991-9452-321e1cfb2b44",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.chevron-left-icon",
+      "targets": [
+        ["css=.chevron-left-icon", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/span", "xpath:idRelative"],
+        ["xpath=//div[2]/div/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "05ddea9d-70e4-4729-ad1e-f81c151054fe",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.map-outline-icon",
+      "targets": [
+        ["css=.map-outline-icon", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/span[2]", "xpath:idRelative"],
+        ["xpath=//span[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b20e8a6f-4234-479b-9305-177d08d425a6",
+      "comment": "",
+      "command": "click",
+      "target": "css=.map-outline-icon > .material-design-icon__svg",
+      "targets": [
+        ["css=.map-outline-icon > .material-design-icon__svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "3a7b78ff-77b3-472e-8790-dc459f01d02c",
+      "comment": "",
+      "command": "waitForText",
+      "target": "xpath=//h1[contains(.,'Museum Map')]",
+      "targets": [
+        ["css=h1", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Museum Map')]", "xpath:innerText"]
+      ],
+      "value": "Museum Map"
+    }, {
+      "id": "bf2c5a7b-9b10-4346-b1aa-9119a970e01a",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.map-cont",
+      "targets": [
+        ["css=.map-cont", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div", "xpath:position"]
+      ],
+      "value": "60000"
+    }, {
+      "id": "6de02a01-31b2-4846-ada4-3cb23bd27dc6",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/div/div/text",
+      "targets": [
+        ["css=.orange text:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div/div/text", "xpath:idRelative"],
+        ["xpath=//div/div/div/div/text", "xpath:position"],
+        ["xpath=//text[contains(.,'Lihangin')]", "xpath:innerText"]
+      ],
+      "value": "60000"
+    }, {
+      "id": "e8f0dd26-70e5-43a3-97a1-8cdfc74ce7ca",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/div/div/text[2]",
+      "targets": [
+        ["css=.orange text:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div/div/text[2]", "xpath:idRelative"],
+        ["xpath=//text[2]", "xpath:position"],
+        ["xpath=//text[contains(.,'0/12')]", "xpath:innerText"]
+      ],
+      "value": "60000"
+    }, {
+      "id": "09a1b529-d191-4f26-8761-f01513b0e997",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.traffic-code",
+      "targets": [
+        ["css=.traffic-code", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]", "xpath:position"]
+      ],
+      "value": "60000"
+    }, {
+      "id": "f64c27af-5775-47df-afa3-a13ed72473e2",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/div",
+      "targets": [
+        ["css=.orange", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div", "xpath:position"]
+      ],
+      "value": "60000"
+    }, {
+      "id": "339019ba-6925-4eb3-9ddc-5a2860bbff47",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/div",
+      "targets": [
+        ["css=.orange", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "aea0d2a0-4a2b-4aac-8420-132bde916e17",
+      "comment": "",
+      "command": "waitForText",
+      "target": "xpath=//h1[contains(.,'Artwork Checklist')]",
+      "targets": [
+        ["css=h1:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Artwork Checklist')]", "xpath:innerText"]
+      ],
+      "value": "Artwork Checklist"
+    }, {
+      "id": "7b74d150-3d48-4a51-a0b8-85c3b0a8f7db",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=h1:nth-child(2)",
+      "targets": [],
+      "value": "60000"
+    }, {
+      "id": "533bb163-2ece-4f94-902e-57ad8f5a2a26",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "xpath=//input",
+      "targets": [
+        ["id=5", "id"],
+        ["css=#\\35", "css:finder"],
+        ["xpath=//input[@id='5']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f11f84a3-7b52-474c-bb25-6fbf84af652b",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/text",
+      "targets": [
+        ["css=.list:nth-child(1) > .details", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/text", "xpath:idRelative"],
+        ["xpath=//text", "xpath:position"],
+        ["xpath=//text[contains(.,'Sample 1 (2024) by Princess Ethel')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d18b2cec-c760-4a83-9b17-17f53e669a34",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.checklist",
+      "targets": [
+        ["css=.checklist", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "11126fa1-2a16-42c8-a579-725b1a637d5d",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.camera-outline-icon",
+      "targets": [
+        ["css=.camera-outline-icon", "css:finder"],
+        ["xpath=//div[@id='app']/div/div/span[2]", "xpath:idRelative"],
+        ["xpath=//span[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5a4e18e2-4b4b-4dc4-a781-0ac96d300af0",
+      "comment": "",
+      "command": "click",
+      "target": "css=.camera-outline-icon",
+      "targets": [
+        ["css=.camera-outline-icon", "css:finder"],
+        ["xpath=//div[@id='app']/div/div/span[2]", "xpath:idRelative"],
+        ["xpath=//span[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "97bb0463-a210-457e-8113-c406a4500971",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.shutter",
+      "targets": [
+        ["css=.shutter", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[3]/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "0aac958b-1547-4f4e-889b-34204cf39eef",
+    "name": "UC03-04",
+    "commands": [{
+      "id": "ef774a2e-0da1-44c5-b000-cd236e8590e1",
+      "comment": "",
+      "command": "open",
+      "target": "https://guia.kbytes.live/hands-down/1",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0874ed2b-7ee4-4b07-8f91-e986247892d0",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "430x932",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "04979d1b-f5d3-4422-b828-01b342368ac5",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "xpath=//img[@alt='Guia: Guiding you through history']",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2c4e421e-2527-4493-a5c7-78afb39e2202",
+      "comment": "",
+      "command": "click",
+      "target": "css=button:nth-child(1)",
+      "targets": [
+        ["css=button:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Yes')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "708eae23-097c-43ce-975a-fbfeeb3def72",
+      "comment": "",
+      "command": "click",
+      "target": "css=.foreground",
+      "targets": [
+        ["css=.foreground", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]", "xpath:idRelative"],
+        ["xpath=//div/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b0f486ee-fc1e-4b80-aef8-5ede4d88a8b3",
+      "comment": "",
+      "command": "waitForText",
+      "target": "xpath=//h2[contains(.,'Please point the camera to the artwork')]",
+      "targets": [
+        ["css=h2", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/h2", "xpath:idRelative"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Please point the camera to the artwork')]", "xpath:innerText"]
+      ],
+      "value": "Please point the camera to the artwork"
+    }, {
+      "id": "cdc5a942-ff6f-4f3e-a1d5-42e910dbacdf",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.chevron-left-icon",
+      "targets": [
+        ["css=.chevron-left-icon", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/span", "xpath:idRelative"],
+        ["xpath=//div[2]/div/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7b00dff4-90fa-4533-8148-58986b60caf5",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.map-outline-icon",
+      "targets": [
+        ["css=.map-outline-icon", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/span[2]", "xpath:idRelative"],
+        ["xpath=//span[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7c8497a5-6de7-49ea-84c5-ce1bf2733b99",
+      "comment": "",
+      "command": "click",
+      "target": "css=.map-outline-icon > .material-design-icon__svg",
+      "targets": [
+        ["css=.map-outline-icon > .material-design-icon__svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "c1f6cccd-3870-4868-87a4-2a4e16409944",
+      "comment": "",
+      "command": "waitForText",
+      "target": "xpath=//h1[contains(.,'Museum Map')]",
+      "targets": [
+        ["css=h1", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Museum Map')]", "xpath:innerText"]
+      ],
+      "value": "Museum Map"
+    }, {
+      "id": "a7076548-1905-49dc-a61c-e9c2b7fddbfd",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.map-cont",
+      "targets": [
+        ["css=.map-cont", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div", "xpath:position"]
+      ],
+      "value": "60000"
+    }, {
+      "id": "9f0669f6-bbdf-4945-a761-b416d5a70bf9",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/div/div/text",
+      "targets": [
+        ["css=.orange text:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div/div/text", "xpath:idRelative"],
+        ["xpath=//div/div/div/div/text", "xpath:position"],
+        ["xpath=//text[contains(.,'Lihangin')]", "xpath:innerText"]
+      ],
+      "value": "60000"
+    }, {
+      "id": "86060f3b-7060-4d4a-a7dd-c2b9c76163f2",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/div/div/text[2]",
+      "targets": [
+        ["css=.orange text:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div/div/text[2]", "xpath:idRelative"],
+        ["xpath=//text[2]", "xpath:position"],
+        ["xpath=//text[contains(.,'0/12')]", "xpath:innerText"]
+      ],
+      "value": "60000"
+    }, {
+      "id": "5c95962c-a050-4a2e-b384-73f0763f1c45",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.traffic-code",
+      "targets": [
+        ["css=.traffic-code", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]", "xpath:position"]
+      ],
+      "value": "60000"
+    }, {
+      "id": "fa6823ba-c6e7-4c31-9416-3e8092f56a7e",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/div",
+      "targets": [
+        ["css=.orange", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div", "xpath:position"]
+      ],
+      "value": "60000"
+    }, {
+      "id": "8f6628d8-7cc7-463b-9d91-6fcff5006db5",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/div",
+      "targets": [
+        ["css=.orange", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d7a57ce9-6111-43e5-baca-36f1f242ac68",
+      "comment": "",
+      "command": "waitForText",
+      "target": "xpath=//h1[contains(.,'Artwork Checklist')]",
+      "targets": [
+        ["css=h1:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Artwork Checklist')]", "xpath:innerText"]
+      ],
+      "value": "Artwork Checklist"
+    }, {
+      "id": "1b174431-27e0-4eee-9374-75b81e58b6d5",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=h1:nth-child(2)",
+      "targets": [],
+      "value": "60000"
+    }, {
+      "id": "9bf8631f-560d-4bee-9dd4-b0da126e28d0",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "xpath=//input",
+      "targets": [
+        ["id=5", "id"],
+        ["css=#\\35", "css:finder"],
+        ["xpath=//input[@id='5']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "dd501da2-f84a-407c-a349-adbd13618591",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/text",
+      "targets": [
+        ["css=.list:nth-child(1) > .details", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/text", "xpath:idRelative"],
+        ["xpath=//text", "xpath:position"],
+        ["xpath=//text[contains(.,'Sample 1 (2024) by Princess Ethel')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "65c04322-53f6-4d23-b878-306419fe8092",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.checklist",
+      "targets": [
+        ["css=.checklist", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6daf3aae-ecab-422a-ae4a-6e9d75b81844",
+      "comment": "",
+      "command": "click",
+      "target": "css=.list:nth-child(1)",
+      "targets": [
+        ["css=.list:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4900f4a7-92af-4cf2-ac3f-504c961a1635",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.map-outline-icon",
+      "targets": [
+        ["css=.map-outline-icon", "css:finder"],
+        ["xpath=//div[@id='app']/div/div/span[2]", "xpath:idRelative"],
+        ["xpath=//span[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ef39ab62-6afd-47fa-8caa-5455e385297c",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.chevron-left-icon",
+      "targets": [
+        ["css=.chevron-left-icon", "css:finder"],
+        ["xpath=//div[@id='app']/div/div/span", "xpath:idRelative"],
+        ["xpath=//div[5]/div/div/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "12ba4e68-480f-45a0-91d1-da34731a80d8",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.content > img",
+      "targets": [
+        ["css=.content > img", "css:finder"],
+        ["xpath=//img[@alt='Sample 1']", "xpath:img"],
+        ["xpath=//div[@id='app']/div/div[2]/img", "xpath:idRelative"],
+        ["xpath=//div[2]/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2ce4e539-3c02-47c1-8f57-6364ee00aa96",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.subtitle",
+      "targets": [
+        ["css=.subtitle", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ca8968a8-5dcd-4d4c-9edb-7bcc6962946f",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.details",
+      "targets": [
+        ["css=.details", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "72e7a20c-03ae-4a0b-b0db-7b8136c1f4f7",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.description",
+      "targets": [
+        ["css=.description", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[3]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2a6d2e26-b8ab-4a7e-8955-cc8a22febb56",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.scan-again",
+      "targets": [
+        ["css=.scan-again", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Scan Again')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "e545cbca-11e0-4318-98f1-367abe76d8ea",
+    "name": "UC03-03",
+    "commands": [{
+      "id": "f76ab836-72f5-4ef7-bf13-8a0694410847",
+      "comment": "",
+      "command": "open",
+      "target": "https://guia.kbytes.live/hands-down/1",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "353be4b5-9482-49a9-9489-756186af79cb",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "430x932",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "bb47db6f-824c-4601-905d-f10cb3d0f449",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "xpath=//img[@alt='Guia: Guiding you through history']",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c073654b-8874-460b-98c3-5b0d8dc31a33",
+      "comment": "",
+      "command": "click",
+      "target": "css=button:nth-child(1)",
+      "targets": [
+        ["css=button:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Yes')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "125da6d1-37b6-4a64-8db1-5e34d2dea84c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.foreground",
+      "targets": [
+        ["css=.foreground", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]", "xpath:idRelative"],
+        ["xpath=//div/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b5ca4ac7-d1c7-44d1-a9d1-343fbf097013",
+      "comment": "",
+      "command": "waitForText",
+      "target": "xpath=//h2[contains(.,'Please point the camera to the artwork')]",
+      "targets": [
+        ["css=h2", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/h2", "xpath:idRelative"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Please point the camera to the artwork')]", "xpath:innerText"]
+      ],
+      "value": "Please point the camera to the artwork"
+    }, {
+      "id": "a69acd58-0ec0-40c9-9d65-401fbee7cca0",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.chevron-left-icon",
+      "targets": [
+        ["css=.chevron-left-icon", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/span", "xpath:idRelative"],
+        ["xpath=//div[2]/div/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a0e2966a-ae74-44a0-9cc5-b289eb56093f",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.map-outline-icon",
+      "targets": [
+        ["css=.map-outline-icon", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/span[2]", "xpath:idRelative"],
+        ["xpath=//span[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "331b5514-3ce3-422e-88a1-ac21fbb45e07",
+      "comment": "",
+      "command": "click",
+      "target": "css=.map-outline-icon > .material-design-icon__svg",
+      "targets": [
+        ["css=.map-outline-icon > .material-design-icon__svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "8243bf51-d9d7-43fa-b5cb-4ab44b32e4f5",
+      "comment": "",
+      "command": "waitForText",
+      "target": "xpath=//h1[contains(.,'Museum Map')]",
+      "targets": [
+        ["css=h1", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Museum Map')]", "xpath:innerText"]
+      ],
+      "value": "Museum Map"
+    }, {
+      "id": "bd67c4bb-f929-41b0-b08b-d352e5d6040c",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.map-cont",
+      "targets": [
+        ["css=.map-cont", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div", "xpath:position"]
+      ],
+      "value": "60000"
+    }, {
+      "id": "d2a8fb10-750c-4679-83f5-2d144df34b01",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/div/div/text",
+      "targets": [
+        ["css=.orange text:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div/div/text", "xpath:idRelative"],
+        ["xpath=//div/div/div/div/text", "xpath:position"],
+        ["xpath=//text[contains(.,'Lihangin')]", "xpath:innerText"]
+      ],
+      "value": "60000"
+    }, {
+      "id": "62d0159a-a616-48f2-ae4d-9be5c4532267",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/div/div/text[2]",
+      "targets": [
+        ["css=.orange text:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div/div/text[2]", "xpath:idRelative"],
+        ["xpath=//text[2]", "xpath:position"],
+        ["xpath=//text[contains(.,'0/12')]", "xpath:innerText"]
+      ],
+      "value": "60000"
+    }, {
+      "id": "c7bdc68f-6615-46a8-a3e3-97754be878fb",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.traffic-code",
+      "targets": [
+        ["css=.traffic-code", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]", "xpath:position"]
+      ],
+      "value": "60000"
+    }, {
+      "id": "f11227df-63ab-4a15-97dc-6233c384693b",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/div",
+      "targets": [
+        ["css=.orange", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div", "xpath:position"]
+      ],
+      "value": "60000"
+    }, {
+      "id": "d09441ab-c8d6-4425-8429-f1a00da8b535",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/div",
+      "targets": [
+        ["css=.orange", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a9434e7e-3597-48c2-a6c8-1b7de29d4936",
+      "comment": "",
+      "command": "waitForText",
+      "target": "xpath=//h1[contains(.,'Artwork Checklist')]",
+      "targets": [
+        ["css=h1:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Artwork Checklist')]", "xpath:innerText"]
+      ],
+      "value": "Artwork Checklist"
+    }, {
+      "id": "f1cc1dad-92d1-4650-9342-9cdd14cd0a5a",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=h1:nth-child(2)",
+      "targets": [],
+      "value": "60000"
+    }, {
+      "id": "cda06d9c-e17f-48b9-bf0b-40770a3c615d",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "xpath=//input",
+      "targets": [
+        ["id=5", "id"],
+        ["css=#\\35", "css:finder"],
+        ["xpath=//input[@id='5']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1d941506-ba8c-4ad8-a07d-13ec7067361e",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/text",
+      "targets": [
+        ["css=.list:nth-child(1) > .details", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/text", "xpath:idRelative"],
+        ["xpath=//text", "xpath:position"],
+        ["xpath=//text[contains(.,'Sample 1 (2024) by Princess Ethel')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8c0fbeea-7ad6-462f-b4b7-ddbed37f70ae",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.checklist",
+      "targets": [
+        ["css=.checklist", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "812494fc-8c07-456d-a013-dee81b00ff0c",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.chevron-left-icon",
+      "targets": [
+        ["css=.chevron-left-icon", "css:finder"],
+        ["xpath=//div[@id='app']/div/div/span", "xpath:idRelative"],
+        ["xpath=//div[6]/div/div/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "843fb3cd-fa1a-4c7f-9597-167654842b08",
+      "comment": "",
+      "command": "click",
+      "target": "css=.chevron-left-icon",
+      "targets": [
+        ["css=.chevron-left-icon", "css:finder"],
+        ["xpath=//div[@id='app']/div/div/span", "xpath:idRelative"],
+        ["xpath=//div[7]/div/div/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bbdb12ce-ce23-48da-8ef0-8f981163bef9",
+      "comment": "",
+      "command": "waitForText",
+      "target": "xpath=//h1[contains(.,'Museum Map')]",
+      "targets": [
+        ["css=h1", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Museum Map')]", "xpath:innerText"]
+      ],
+      "value": "Museum Map"
+    }, {
+      "id": "185504be-0f53-44e1-a028-541aa0757351",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.map-cont",
+      "targets": [
+        ["css=.map-cont", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div", "xpath:position"]
+      ],
+      "value": "60000"
+    }]
+  }, {
+    "id": "bcf87c90-3f19-4179-954a-9fecd2ecbe3f",
+    "name": "UC03-05",
+    "commands": [{
+      "id": "9a77f66d-bd1d-4776-89cd-804dadb82bfe",
+      "comment": "",
+      "command": "open",
+      "target": "https://guia.kbytes.live/hands-down/1",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e2766741-4c93-4fd9-b6ca-203a1c8243ae",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "430x932",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1c66786d-89db-4ae5-a252-25997993cb1e",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "xpath=//img[@alt='Guia: Guiding you through history']",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "83f3c773-4cd0-4865-8324-61a483d932f3",
+      "comment": "",
+      "command": "click",
+      "target": "css=button:nth-child(1)",
+      "targets": [
+        ["css=button:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Yes')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "adec1292-e454-4acf-a962-06614cd47a8d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.foreground",
+      "targets": [
+        ["css=.foreground", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]", "xpath:idRelative"],
+        ["xpath=//div/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e2afafcd-05eb-41e4-81bd-4dcf5e027613",
+      "comment": "",
+      "command": "waitForText",
+      "target": "xpath=//h2[contains(.,'Please point the camera to the artwork')]",
+      "targets": [
+        ["css=h2", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/h2", "xpath:idRelative"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Please point the camera to the artwork')]", "xpath:innerText"]
+      ],
+      "value": "Please point the camera to the artwork"
+    }, {
+      "id": "44e2cda9-b701-4318-b534-1abf9b72cf3c",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.chevron-left-icon",
+      "targets": [
+        ["css=.chevron-left-icon", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/span", "xpath:idRelative"],
+        ["xpath=//div[2]/div/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "afccaac5-6c26-4e41-bbc3-9aab89df51c9",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.map-outline-icon",
+      "targets": [
+        ["css=.map-outline-icon", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/span[2]", "xpath:idRelative"],
+        ["xpath=//span[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0b7fd39e-3ffa-4e60-a411-884c2c4d9830",
+      "comment": "",
+      "command": "click",
+      "target": "css=.map-outline-icon > .material-design-icon__svg",
+      "targets": [
+        ["css=.map-outline-icon > .material-design-icon__svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "4f92451e-7994-457f-83a7-86690d46db15",
+      "comment": "",
+      "command": "waitForText",
+      "target": "xpath=//h1[contains(.,'Museum Map')]",
+      "targets": [
+        ["css=h1", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Museum Map')]", "xpath:innerText"]
+      ],
+      "value": "Museum Map"
+    }, {
+      "id": "cfacc25a-ab4f-4199-97b4-152620ee612d",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.map-cont",
+      "targets": [
+        ["css=.map-cont", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div", "xpath:position"]
+      ],
+      "value": "60000"
+    }, {
+      "id": "91ddd72a-8d63-4872-b45c-81225ad5d80d",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/div/div/text",
+      "targets": [
+        ["css=.orange text:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div/div/text", "xpath:idRelative"],
+        ["xpath=//div/div/div/div/text", "xpath:position"],
+        ["xpath=//text[contains(.,'Lihangin')]", "xpath:innerText"]
+      ],
+      "value": "60000"
+    }, {
+      "id": "f078b292-e125-493a-8330-744bf8847aa7",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/div/div/text[2]",
+      "targets": [
+        ["css=.orange text:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div/div/text[2]", "xpath:idRelative"],
+        ["xpath=//text[2]", "xpath:position"],
+        ["xpath=//text[contains(.,'0/12')]", "xpath:innerText"]
+      ],
+      "value": "60000"
+    }, {
+      "id": "86589778-c224-4cab-8c27-71a2e3f5129e",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.traffic-code",
+      "targets": [
+        ["css=.traffic-code", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]", "xpath:position"]
+      ],
+      "value": "60000"
+    }, {
+      "id": "3abb41f0-2d46-42fe-be97-8a21cdaa0c58",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/div",
+      "targets": [
+        ["css=.orange", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div", "xpath:position"]
+      ],
+      "value": "60000"
+    }, {
+      "id": "1ad25626-4837-41d2-8484-3e64c824d0a7",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/div",
+      "targets": [
+        ["css=.orange", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b48d918a-64ab-4cda-ac6a-3269e77a922d",
+      "comment": "",
+      "command": "waitForText",
+      "target": "xpath=//h1[contains(.,'Artwork Checklist')]",
+      "targets": [
+        ["css=h1:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Artwork Checklist')]", "xpath:innerText"]
+      ],
+      "value": "Artwork Checklist"
+    }, {
+      "id": "e573645d-6c4a-475f-8154-45d6bb88959c",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=h1:nth-child(2)",
+      "targets": [],
+      "value": "60000"
+    }, {
+      "id": "ed583506-440e-462a-8e8f-7bcfaa92f111",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "xpath=//input",
+      "targets": [
+        ["id=5", "id"],
+        ["css=#\\35", "css:finder"],
+        ["xpath=//input[@id='5']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f7d1a908-af21-4b7c-bd06-768031e57c21",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/text",
+      "targets": [
+        ["css=.list:nth-child(1) > .details", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/text", "xpath:idRelative"],
+        ["xpath=//text", "xpath:position"],
+        ["xpath=//text[contains(.,'Sample 1 (2024) by Princess Ethel')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b63028fc-a306-4181-bf0c-651b162c4e3b",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.checklist",
+      "targets": [
+        ["css=.checklist", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2e99b8a8-0eed-4946-83d4-f3700c950ecb",
+      "comment": "",
+      "command": "click",
+      "target": "css=.list:nth-child(1)",
+      "targets": [
+        ["css=.list:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7a26db2c-b0d4-4776-9b12-3c815f66f1eb",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.map-outline-icon",
+      "targets": [
+        ["css=.map-outline-icon", "css:finder"],
+        ["xpath=//div[@id='app']/div/div/span[2]", "xpath:idRelative"],
+        ["xpath=//span[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "402738ee-426d-4945-935d-d19998a19784",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.chevron-left-icon",
+      "targets": [
+        ["css=.chevron-left-icon", "css:finder"],
+        ["xpath=//div[@id='app']/div/div/span", "xpath:idRelative"],
+        ["xpath=//div[5]/div/div/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e1088d4e-a1fd-479d-9381-4e8d82246b2e",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.content > img",
+      "targets": [
+        ["css=.content > img", "css:finder"],
+        ["xpath=//img[@alt='Sample 1']", "xpath:img"],
+        ["xpath=//div[@id='app']/div/div[2]/img", "xpath:idRelative"],
+        ["xpath=//div[2]/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7614c96b-ed38-4109-b7e0-4e9b683f8763",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.subtitle",
+      "targets": [
+        ["css=.subtitle", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "93236f17-b8a0-4279-b376-fd1c86da33d1",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.details",
+      "targets": [
+        ["css=.details", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "37c6dc00-a45a-4cbf-a0c7-43dc06de66d3",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.description",
+      "targets": [
+        ["css=.description", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[3]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bfb9c4d7-a604-4a31-905f-181db193548f",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.scan-again",
+      "targets": [
+        ["css=.scan-again", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Scan Again')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6ef43c9a-1d54-4c7c-af22-74815a44ef91",
+      "comment": "",
+      "command": "click",
+      "target": "css=.map-outline-icon",
+      "targets": [
+        ["css=.map-outline-icon", "css:finder"],
+        ["xpath=//div[@id='app']/div/div/span[2]", "xpath:idRelative"],
+        ["xpath=//span[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "009a2df5-8a60-47af-98eb-77c1585b30e4",
+      "comment": "",
+      "command": "waitForText",
+      "target": "xpath=//h1[contains(.,'Museum Map')]",
+      "targets": [
+        ["css=h1", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Museum Map')]", "xpath:innerText"]
+      ],
+      "value": "Museum Map"
+    }, {
+      "id": "bcb9ea31-d539-4efc-8e14-a5f36671d039",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.map-cont",
+      "targets": [
+        ["css=.map-cont", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div", "xpath:position"]
+      ],
+      "value": "60000"
+    }]
+  }, {
+    "id": "c29e2fde-290d-4e8a-b516-99e5254e7ae3",
+    "name": "UC03-06",
+    "commands": [{
+      "id": "36fbf26b-2a5a-4db1-8dad-606ce922a77f",
+      "comment": "",
+      "command": "open",
+      "target": "https://guia.kbytes.live/hands-down/1",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "fa42b87c-f15c-4cd9-9657-99d2613b2ac8",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "430x932",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d8892d24-52f5-4f9a-b466-59443c44e94e",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "xpath=//img[@alt='Guia: Guiding you through history']",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "be8a2263-7ff4-4e91-9adf-f1d23ce14896",
+      "comment": "",
+      "command": "click",
+      "target": "css=button:nth-child(1)",
+      "targets": [
+        ["css=button:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Yes')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c8b992ff-bb2e-45d0-95aa-0590d633ffe9",
+      "comment": "",
+      "command": "click",
+      "target": "css=.foreground",
+      "targets": [
+        ["css=.foreground", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]", "xpath:idRelative"],
+        ["xpath=//div/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "658625c9-be1d-4c11-87e4-51623f3562ec",
+      "comment": "",
+      "command": "waitForText",
+      "target": "xpath=//h2[contains(.,'Please point the camera to the artwork')]",
+      "targets": [
+        ["css=h2", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/h2", "xpath:idRelative"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Please point the camera to the artwork')]", "xpath:innerText"]
+      ],
+      "value": "Please point the camera to the artwork"
+    }, {
+      "id": "14af5a26-fd28-4fe9-b28e-643b398d2376",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.chevron-left-icon",
+      "targets": [
+        ["css=.chevron-left-icon", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/span", "xpath:idRelative"],
+        ["xpath=//div[2]/div/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2901be04-6327-416d-8a9d-1f798c591ad3",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.map-outline-icon",
+      "targets": [
+        ["css=.map-outline-icon", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/span[2]", "xpath:idRelative"],
+        ["xpath=//span[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1bf3073f-8b6b-4ef4-9309-121ef6922a8f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.map-outline-icon > .material-design-icon__svg",
+      "targets": [
+        ["css=.map-outline-icon > .material-design-icon__svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "bfabc20b-0ce6-432c-bfb4-a841e1cbca44",
+      "comment": "",
+      "command": "waitForText",
+      "target": "xpath=//h1[contains(.,'Museum Map')]",
+      "targets": [
+        ["css=h1", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Museum Map')]", "xpath:innerText"]
+      ],
+      "value": "Museum Map"
+    }, {
+      "id": "a9ecca84-52fd-4f06-98a9-3beb7ac466bc",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.map-cont",
+      "targets": [
+        ["css=.map-cont", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div", "xpath:position"]
+      ],
+      "value": "60000"
+    }, {
+      "id": "4250040a-c919-43db-9b48-c9cc4ec93a9b",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/div/div/text",
+      "targets": [
+        ["css=.orange text:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div/div/text", "xpath:idRelative"],
+        ["xpath=//div/div/div/div/text", "xpath:position"],
+        ["xpath=//text[contains(.,'Lihangin')]", "xpath:innerText"]
+      ],
+      "value": "60000"
+    }, {
+      "id": "e77487b4-227f-4ece-83c9-d9d74b1f8b40",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/div/div/text[2]",
+      "targets": [
+        ["css=.orange text:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div/div/text[2]", "xpath:idRelative"],
+        ["xpath=//text[2]", "xpath:position"],
+        ["xpath=//text[contains(.,'0/12')]", "xpath:innerText"]
+      ],
+      "value": "60000"
+    }, {
+      "id": "686adb16-a8e4-4b9a-8d5c-bea25e4bd5a7",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.map-cont",
+      "targets": [
+        ["css=.map-cont", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div", "xpath:position"]
+      ],
+      "value": "60000"
+    }, {
+      "id": "7fc7d571-ff37-4699-93fa-452eca075257",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.traffic-code",
+      "targets": [
+        ["css=.traffic-code", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]", "xpath:position"]
+      ],
+      "value": "60000"
+    }, {
+      "id": "edf74ccd-702c-45c9-9c4a-44ca748fb3b0",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/div",
+      "targets": [
+        ["css=.orange", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div", "xpath:position"]
+      ],
+      "value": "60000"
+    }, {
+      "id": "0157d8e7-c3f4-4a5f-8b31-58479f2f3497",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/div",
+      "targets": [
+        ["css=.orange", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6c703a6a-cfd8-473d-874d-ab44a0a55edf",
+      "comment": "",
+      "command": "waitForText",
+      "target": "xpath=//h1[contains(.,'Artwork Checklist')]",
+      "targets": [
+        ["css=h1:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Artwork Checklist')]", "xpath:innerText"]
+      ],
+      "value": "Artwork Checklist"
+    }, {
+      "id": "2af4096c-d5d7-4341-b728-a271e5c0ddd2",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=h1:nth-child(2)",
+      "targets": [],
+      "value": "60000"
+    }, {
+      "id": "fc892122-05b8-43ba-8a76-752d5dc2fdd2",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "xpath=//input",
+      "targets": [
+        ["id=5", "id"],
+        ["css=#\\35", "css:finder"],
+        ["xpath=//input[@id='5']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6fbcf62b-b80d-493b-8f85-9c47250b6a9f",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/text",
+      "targets": [
+        ["css=.list:nth-child(1) > .details", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/text", "xpath:idRelative"],
+        ["xpath=//text", "xpath:position"],
+        ["xpath=//text[contains(.,'Sample 1 (2024) by Princess Ethel')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7eb535d6-d7bd-43f5-bfcd-3cef94369c30",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.checklist",
+      "targets": [
+        ["css=.checklist", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "567cb593-769c-4b48-8b74-f4e126e8a379",
+      "comment": "",
+      "command": "click",
+      "target": "css=.list:nth-child(1)",
+      "targets": [
+        ["css=.list:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4ddaf61a-ff0a-4172-9c6f-0d0d16c91f97",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.map-outline-icon",
+      "targets": [
+        ["css=.map-outline-icon", "css:finder"],
+        ["xpath=//div[@id='app']/div/div/span[2]", "xpath:idRelative"],
+        ["xpath=//span[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "97668140-df3f-4fca-9791-61439c6f7166",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.chevron-left-icon",
+      "targets": [
+        ["css=.chevron-left-icon", "css:finder"],
+        ["xpath=//div[@id='app']/div/div/span", "xpath:idRelative"],
+        ["xpath=//div[5]/div/div/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c3660a93-7db5-4704-9efe-0820813fd9f2",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.content > img",
+      "targets": [
+        ["css=.content > img", "css:finder"],
+        ["xpath=//img[@alt='Sample 1']", "xpath:img"],
+        ["xpath=//div[@id='app']/div/div[2]/img", "xpath:idRelative"],
+        ["xpath=//div[2]/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "967d23fc-12c5-4f39-98cb-5105654e7873",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.subtitle",
+      "targets": [
+        ["css=.subtitle", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8b1d6c70-1afa-4b08-b000-81154556b96b",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.details",
+      "targets": [
+        ["css=.details", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e42b15d9-4a22-4a46-9451-f5ec5c9763ec",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.description",
+      "targets": [
+        ["css=.description", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[3]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "91b736de-489c-4a91-8b00-2b854779e8ae",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.scan-again",
+      "targets": [
+        ["css=.scan-again", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Scan Again')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8f0a999c-08b4-4400-a0be-3f3176ff796b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.scan-again",
+      "targets": [
+        ["css=.scan-again", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Scan Again')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6bc4d3c1-2be4-4920-be01-084ddc353a4e",
+      "comment": "",
+      "command": "waitForText",
+      "target": "xpath=//h2[contains(.,'Please point the camera to the artwork')]",
+      "targets": [
+        ["css=h2", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/h2", "xpath:idRelative"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Please point the camera to the artwork')]", "xpath:innerText"]
+      ],
+      "value": "Please point the camera to the artwork"
+    }]
+  }, {
+    "id": "c9c0ec74-f111-41a6-85e3-70e97a484a02",
+    "name": "UC03-07",
+    "commands": [{
+      "id": "0b8bc106-2c5d-445c-b8aa-c6c27d518888",
+      "comment": "",
+      "command": "open",
+      "target": "https://guia.kbytes.live/hands-down/1",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d75b7838-5992-483f-af52-db19bfe6aae9",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "430x932",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b906d4be-39af-4da2-9c6f-49b16ac6b20c",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "xpath=//img[@alt='Guia: Guiding you through history']",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8a5dcd37-dd9e-4dbd-8226-db515531ccd5",
+      "comment": "",
+      "command": "click",
+      "target": "css=button:nth-child(1)",
+      "targets": [
+        ["css=button:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Yes')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "dd48da24-79ec-43a5-a362-a78020e0a7d1",
+      "comment": "",
+      "command": "click",
+      "target": "css=.foreground",
+      "targets": [
+        ["css=.foreground", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]", "xpath:idRelative"],
+        ["xpath=//div/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "48aae7d7-fdd4-4dc7-bf2f-ca91f44e84b8",
+      "comment": "",
+      "command": "waitForText",
+      "target": "xpath=//h2[contains(.,'Please point the camera to the artwork')]",
+      "targets": [
+        ["css=h2", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/h2", "xpath:idRelative"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Please point the camera to the artwork')]", "xpath:innerText"]
+      ],
+      "value": "Please point the camera to the artwork"
+    }, {
+      "id": "62cce935-77c6-4ad0-8954-07ea91257a4d",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.chevron-left-icon",
+      "targets": [
+        ["css=.chevron-left-icon", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/span", "xpath:idRelative"],
+        ["xpath=//div[2]/div/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c777b019-6bb9-4bfc-a151-b864880dd37c",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.map-outline-icon",
+      "targets": [
+        ["css=.map-outline-icon", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/span[2]", "xpath:idRelative"],
+        ["xpath=//span[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f70e26fd-aed1-4afa-aa91-4268d2412322",
+      "comment": "",
+      "command": "click",
+      "target": "css=.map-outline-icon > .material-design-icon__svg",
+      "targets": [
+        ["css=.map-outline-icon > .material-design-icon__svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "7f838bc4-c57f-4630-83d5-320a52c9bbac",
+      "comment": "",
+      "command": "waitForText",
+      "target": "xpath=//h1[contains(.,'Museum Map')]",
+      "targets": [
+        ["css=h1", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Museum Map')]", "xpath:innerText"]
+      ],
+      "value": "Museum Map"
+    }, {
+      "id": "360e5f6b-a73b-42c1-8bf8-73b75f7fbadc",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.map-cont",
+      "targets": [
+        ["css=.map-cont", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div", "xpath:position"]
+      ],
+      "value": "60000"
+    }, {
+      "id": "ca7ba85c-6825-4b54-b2bf-275b4e4b2112",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/div/div/text",
+      "targets": [
+        ["css=.orange text:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div/div/text", "xpath:idRelative"],
+        ["xpath=//div/div/div/div/text", "xpath:position"],
+        ["xpath=//text[contains(.,'Lihangin')]", "xpath:innerText"]
+      ],
+      "value": "60000"
+    }, {
+      "id": "316b3540-6a8b-4c53-9d4f-220d95bb5822",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/div/div/text[2]",
+      "targets": [
+        ["css=.orange text:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div/div/text[2]", "xpath:idRelative"],
+        ["xpath=//text[2]", "xpath:position"],
+        ["xpath=//text[contains(.,'0/12')]", "xpath:innerText"]
+      ],
+      "value": "60000"
+    }, {
+      "id": "c248ac5c-87b6-4a20-86e0-c443a44a7cdb",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.map-cont",
+      "targets": [
+        ["css=.map-cont", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div", "xpath:position"]
+      ],
+      "value": "60000"
+    }, {
+      "id": "c423cb2d-5b4b-4be7-8063-fc6d6d8808ef",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.traffic-code",
+      "targets": [
+        ["css=.traffic-code", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]", "xpath:position"]
+      ],
+      "value": "60000"
+    }, {
+      "id": "74d54ee0-2f0e-4f8a-8072-b8f62f0e3b08",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/div",
+      "targets": [
+        ["css=.orange", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div", "xpath:position"]
+      ],
+      "value": "60000"
+    }, {
+      "id": "b22b9290-02ee-49c3-8a5b-0d1c10c19b39",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/div",
+      "targets": [
+        ["css=.orange", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f493faae-dc5d-4ebf-acfa-a7dc65dbfe4c",
+      "comment": "",
+      "command": "waitForText",
+      "target": "xpath=//h1[contains(.,'Artwork Checklist')]",
+      "targets": [
+        ["css=h1:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Artwork Checklist')]", "xpath:innerText"]
+      ],
+      "value": "Artwork Checklist"
+    }, {
+      "id": "f5f9bb4b-e64f-4a8b-8d32-df8f171600c1",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=h1:nth-child(2)",
+      "targets": [],
+      "value": "60000"
+    }, {
+      "id": "7a32e5be-af02-4f97-a837-dc39755fc40d",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "xpath=//input",
+      "targets": [
+        ["id=5", "id"],
+        ["css=#\\35", "css:finder"],
+        ["xpath=//input[@id='5']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2e02133c-369f-423e-8b53-2109d9130c8d",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div/div/text",
+      "targets": [
+        ["css=.list:nth-child(1) > .details", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/text", "xpath:idRelative"],
+        ["xpath=//text", "xpath:position"],
+        ["xpath=//text[contains(.,'Sample 1 (2024) by Princess Ethel')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "313cb528-22cf-4f85-868d-7cbb4a8a3165",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.checklist",
+      "targets": [
+        ["css=.checklist", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "95a0e3f9-c9ef-4c7b-872b-9930f4690c4b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.list:nth-child(1)",
+      "targets": [
+        ["css=.list:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "378059e1-7086-458b-a1b4-6f312d3cd35f",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.map-outline-icon",
+      "targets": [
+        ["css=.map-outline-icon", "css:finder"],
+        ["xpath=//div[@id='app']/div/div/span[2]", "xpath:idRelative"],
+        ["xpath=//span[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7027bd19-eaeb-44cb-8105-32a57fb1799e",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.chevron-left-icon",
+      "targets": [
+        ["css=.chevron-left-icon", "css:finder"],
+        ["xpath=//div[@id='app']/div/div/span", "xpath:idRelative"],
+        ["xpath=//div[5]/div/div/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d6f8d497-9d84-48d6-8ea7-bf56689dcbd9",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.content > img",
+      "targets": [
+        ["css=.content > img", "css:finder"],
+        ["xpath=//img[@alt='Sample 1']", "xpath:img"],
+        ["xpath=//div[@id='app']/div/div[2]/img", "xpath:idRelative"],
+        ["xpath=//div[2]/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bd8aec8d-cf62-425f-aaed-5f1de32a53b0",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.subtitle",
+      "targets": [
+        ["css=.subtitle", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0d9d774b-5afe-4512-a25f-f32f2100d4b6",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.details",
+      "targets": [
+        ["css=.details", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "479d6b11-0511-4862-a16c-bd2fdb18850c",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.description",
+      "targets": [
+        ["css=.description", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[3]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a20615eb-9c26-4efd-94c8-5f67c3b21866",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.scan-again",
+      "targets": [
+        ["css=.scan-again", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Scan Again')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e7bdcf5c-bc13-43f1-843e-9cfdd51dbcec",
+      "comment": "",
+      "command": "click",
+      "target": "css=.chevron-left-icon",
+      "targets": [
+        ["css=.chevron-left-icon", "css:finder"],
+        ["xpath=//div[@id='app']/div/div/span", "xpath:idRelative"],
+        ["xpath=//div[5]/div/div/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "84129c4a-e2e5-4be8-8ce9-2fd8e8a02145",
+      "comment": "",
+      "command": "waitForText",
+      "target": "xpath=//h1[contains(.,'Artwork Checklist')]",
+      "targets": [
+        ["css=h1:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Artwork Checklist')]", "xpath:innerText"]
+      ],
+      "value": "Artwork Checklist"
+    }, {
+      "id": "c549f197-869b-4153-8cb0-7b1fac2837b8",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=h1:nth-child(2)",
+      "targets": [],
+      "value": "60000"
+    }, {
+      "id": "2f794115-d732-472d-a49b-e29ab750b4c9",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.checklist",
+      "targets": [
+        ["css=.checklist", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "60cea923-9cba-4cfb-9601-666f46ed8dc4",
+    "name": "UC03",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["ad2eb95d-dfe5-48c5-a6fd-f3bb74664015", "2bd9655d-7eb2-42b6-a11d-608ecb2b3497", "0aac958b-1547-4f4e-889b-34204cf39eef", "e545cbca-11e0-4318-98f1-367abe76d8ea", "bcf87c90-3f19-4179-954a-9fecd2ecbe3f", "c29e2fde-290d-4e8a-b516-99e5254e7ae3", "c9c0ec74-f111-41a6-85e3-70e97a484a02"]
+  }],
+  "urls": ["https://guia.kbytes.live/hands-down/1"],
+  "plugins": []
+}

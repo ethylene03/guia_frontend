@@ -1,0 +1,91 @@
+{
+  "id": "eb9be83e-dc2a-48b5-94c7-0ff9b9c6d61f",
+  "version": "2.0",
+  "name": "guia-UA01",
+  "url": "https://guia.kbytes.live/hands-down/1",
+  "tests": [{
+    "id": "408ff9e9-de77-46b4-a2fb-259710be09a8",
+    "name": "UA01-01",
+    "commands": [{
+      "id": "b2afdc98-104f-47ff-96d4-0e374ec4a6a2",
+      "comment": "",
+      "command": "open",
+      "target": "https://guia.kbytes.live/hands-down/1",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8bf29d62-9dc7-48b0-b5ea-83e3440346e4",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "430x932",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "237bb4c2-4544-46cb-91c9-4b7388a4438b",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//img[@alt='Guia: Guiding you through history']",
+      "targets": [],
+      "value": "30000"
+    }, {
+      "id": "d94bd144-132f-4bf5-949e-96c73a3c5cd8",
+      "comment": "",
+      "command": "click",
+      "target": "css=button:nth-child(1)",
+      "targets": [
+        ["css=button:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Yes')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "c95603a0-b041-44f8-9aad-364c23cb5ac7",
+    "name": "UA01-02",
+    "commands": [{
+      "id": "01e17324-752e-46ec-91ec-08cae57c5163",
+      "comment": "",
+      "command": "open",
+      "target": "https://guia.kbytes.live/hands-down/1",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0f9b609e-8a9f-4b79-bced-408e9e1e99a7",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "430x932",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "759abcdf-05dd-4ac4-bddf-ccbdef9f6648",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//img[@alt='Guia: Guiding you through history']",
+      "targets": [],
+      "value": "30000"
+    }, {
+      "id": "c58c7a95-d78c-40b3-90cf-e867b2782c8d",
+      "comment": "",
+      "command": "click",
+      "target": "css=button:nth-child(2)",
+      "targets": [
+        ["css=button:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'No')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "5b6e8b5f-e7d6-46a0-9ad3-da07f1127d74",
+    "name": "UA01",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["408ff9e9-de77-46b4-a2fb-259710be09a8", "c95603a0-b041-44f8-9aad-364c23cb5ac7"]
+  }],
+  "urls": ["https://guia.kbytes.live/hands-down/1"],
+  "plugins": []
+}

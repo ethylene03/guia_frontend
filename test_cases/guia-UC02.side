@@ -1,0 +1,77 @@
+{
+  "id": "549c4ae2-12d3-40cc-9d29-e573b88deac5",
+  "version": "2.0",
+  "name": "guia-UC02",
+  "url": "https://guia.kbytes.live/scan",
+  "tests": [{
+    "id": "86d85713-ee99-40e7-b6ab-fdc1df6b0362",
+    "name": "UC02-01",
+    "commands": [{
+      "id": "aeaa920d-1957-48dc-b050-a09e71bc875a",
+      "comment": "",
+      "command": "open",
+      "target": "https://guia.kbytes.live/scan",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3564056f-b523-421e-8217-e3d7c3d0217f",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "430x932",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e00786a9-c614-4289-908f-726116e8cdd2",
+      "comment": "",
+      "command": "click",
+      "target": "css=.map-outline-icon > .material-design-icon__svg",
+      "targets": [
+        ["css=.map-outline-icon > .material-design-icon__svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "f4fb8a21-a429-4f03-b26c-b87a9ccc4db2",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.traffic-code",
+      "targets": [
+        ["css=.traffic-code", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]", "xpath:position"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "e24c5f87-1ece-4f31-ae41-ad18113b919c",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.yellow",
+      "targets": [
+        ["css=.yellow", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div", "xpath:position"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "bd0d9db9-38d9-4fe6-b608-d3df8c81bf92",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//div[@id='app']/div/div[2]/div[2]/div[3]",
+      "targets": [
+        ["css=.code:nth-child(4)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div[2]/div[3]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[3]", "xpath:position"]
+      ],
+      "value": "30000"
+    }]
+  }],
+  "suites": [{
+    "id": "54f83866-767f-40b7-8634-856b03c7ab6e",
+    "name": "UC02",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["86d85713-ee99-40e7-b6ab-fdc1df6b0362"]
+  }],
+  "urls": ["https://guia.kbytes.live/scan"],
+  "plugins": []
+}
