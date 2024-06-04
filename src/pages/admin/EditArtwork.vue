@@ -234,6 +234,7 @@ import UploadOutlineIcon from 'icons/UploadOutline.vue';
 
                     art.images = images;
                     art.updated_by = getAdminId();
+                    art.dimen_height_cm = art.dimen_height_cm === "" ? null : art.dimen_height_cm;
 
                     // create artwork
                     const create = await authPOST('/artwork/edit', art);

@@ -198,6 +198,7 @@
                     art.images = images;
                     art.thumbnail = thumb;
                     art.added_by = getAdminId();
+                    art.dimen_height_cm = art.dimen_height_cm === "" ? null : art.dimen_height_cm;
 
                     // console.log(art);
 
