@@ -1,0 +1,119 @@
+{
+  "id": "89a268c9-bf38-4195-98f2-8b197e1c923d",
+  "version": "2.0",
+  "name": "guia-UD10",
+  "url": "https://guia.kbytes.live/on-cloud-nine",
+  "tests": [{
+    "id": "3723965c-2d02-42a5-94f3-66e6ed99b125",
+    "name": "UD10-01",
+    "commands": [{
+      "id": "992f2d93-7e64-406b-86c1-ec39c5aabe48",
+      "comment": "",
+      "command": "open",
+      "target": "https://guia.kbytes.live/on-cloud-nine/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5a664403-1e6b-46be-959c-a879979c4040",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "697x720",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "11e35863-a0c3-42fa-87f1-d2e9bf3bb2a6",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(2)",
+      "targets": [
+        ["css=.primary-form:nth-child(2)", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "princess"
+    }, {
+      "id": "1e23c0a3-b2bc-417a-92fa-02afbcc81cbf",
+      "comment": "",
+      "command": "type",
+      "target": "css=input:nth-child(1)",
+      "targets": [
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": "Atillo123!"
+    }, {
+      "id": "392ce3b1-ec6a-46cf-be3a-f84800df7944",
+      "comment": "",
+      "command": "click",
+      "target": "css=.login-btn",
+      "targets": [
+        ["css=.login-btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "60cc5777-7576-480f-8320-5c7ed533f605",
+      "comment": "",
+      "command": "click",
+      "target": "css=.menu",
+      "targets": [
+        ["css=.menu", "css:finder"],
+        ["xpath=//div[@id='app']/div/div/span[2]", "xpath:idRelative"],
+        ["xpath=//span[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7ae06255-49dd-4e5a-970b-b5a0a9937240",
+      "comment": "",
+      "command": "click",
+      "target": "css=.logout-btn",
+      "targets": [
+        ["css=.logout-btn", "css:finder"],
+        ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
+        ["xpath=//div[4]/button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Logout')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c0296f0b-1a92-4907-bad9-84fdd65f9d36",
+      "comment": "",
+      "command": "type",
+      "target": "css=.primary-form:nth-child(2)",
+      "targets": [
+        ["css=.primary-form:nth-child(2)", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "princess"
+    }, {
+      "id": "c3be9494-2d39-4e32-8bfd-7a5f04d45cfe",
+      "comment": "",
+      "command": "type",
+      "target": "css=input:nth-child(1)",
+      "targets": [
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@type='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": "Atillo123!"
+    }]
+  }],
+  "suites": [{
+    "id": "cdcb96a3-2baf-479a-b07e-8ce1fabe7615",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["3723965c-2d02-42a5-94f3-66e6ed99b125"]
+  }],
+  "urls": ["https://guia.kbytes.live/on-cloud-nine"],
+  "plugins": []
+}
