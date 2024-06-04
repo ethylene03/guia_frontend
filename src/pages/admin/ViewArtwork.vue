@@ -85,13 +85,13 @@
                 <text>Assigned Section</text>
                 <text class="data">{{ artwork.section }}</text>
 
-                <text>Length (cm)</text>
+                <text>Height (cm)</text>
                 <text class="data">{{ artwork.dimen_length_cm }}</text>
 
                 <text>Width (cm)</text>
                 <text class="data">{{ artwork.dimen_width_cm }}</text>
 
-                <text>Height (cm)</text>
+                <text>Depth (cm)</text>
                 <text class="data">{{ artwork.dimen_height_cm ? artwork.dimen_height_cm : 'N/A' }}</text>
 
                 <text>Description</text>
