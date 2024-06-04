@@ -3,70 +3,50 @@
 <script>
     // component used
     import { fetchDashboard } from "@/assets/API calls/dashboardAPI";
-    import Welcome from "@/assets/components/common/Welcome.vue";
-    import { getMuseumId, redirect, redirectNewTab } from "@/assets/components/common/common";
-    import MenuIcon from 'icons/Menu.vue';
-    import LaunchIcon from 'icons/OpenInNew.vue';
-    import PlusIcon from 'icons/Plus.vue';
-    import Cards from "@/assets/components/dashboard/Cards.vue";
-    import Header from '@/assets/components/dashboard/Header.vue';
     import { getMuseum } from "@/assets/API calls/museumAPI";
+    import { getMuseumId, redirect, redirectNewTab } from "@/assets/components/common/common";
+    import Header from "@/assets/components/common/Header.vue";
+    import Welcome from "@/assets/components/common/Welcome.vue";
+    import Cards from "@/assets/components/dashboard/Cards.vue";
+    import Number from "@/assets/components/dashboard/Number.vue";
+    import Bar from "@/assets/components/dashboard/Bar.vue";
+import Footer from "@/assets/components/common/Footer.vue";
+import NoContent from "@/assets/components/common/NoContent.vue";
 
     export default {
         components: {
-            Cards,
-            LaunchIcon,
-            PlusIcon,
             Welcome,
-            Header
+            Header,
+            Number,
+            Cards,
+            Bar,
+            Footer,
+            NoContent
         },
 
         data() {
-            // screen width variable
             return {
-                screenWidth: window.innerWidth,
-              museum_data: {
-                popular_artworks: [{ art_id:0, image_thumbnail: '' }],
-                popular_sections: [{section_id:0, section_name:''}]
-                },
+                museum_data: {},
                 pageLoad: false,
                 museum_name: '',
             };
         },
 
-        computed: {
-            // determines if the screen is big or not
-            isBigScreen() {
-                return this.screenWidth > 650;
-            },
-        },
-
-        // window listener to fetch window screen size
         async mounted() {
-            window.addEventListener('resize', this.updateScreenSize);
             this.pageLoad = true;
 
             this.museum_data = await fetchDashboard();
             const museum = await getMuseum(getMuseumId('admin'));
-            // console.log(museum)
+            console.log(this.museum_data)
             this.museum_name = museum[0].museum_name;
 
             this.pageLoad = false;
         },
         
         methods: {
-            // updates screen width variable
-            updateScreenSize() {
-                this.screenWidth = window.innerWidth;
-            },
             redirect,
             redirectNewTab
-        },
-
-        // delete window listener after use
-        beforeDestroy() {
-            window.removeEventListener('resize', this.updateScreenSize);
-        },
+        }
     };
 </script>
 
@@ -74,48 +54,59 @@
     <Welcome v-if="pageLoad" :start="pageLoad" />
     <div v-else class="container">
         <!-- header -->
-        <Header />
+        <Header :isDashboard="true" />
     
         <!-- museum name -->
         <h1>{{ museum_name }}</h1>
-    
-        <div :class="{'dashboard-cont': isBigScreen, 'dashboard-cont-small': !isBigScreen}">
-            <!-- buttons -->
-            <div :class="{'btn-cont': isBigScreen, 'btn-cont-small': !isBigScreen}">
-                <!-- add artwork -->
-                <button type="button" class="dashboard-btn add-artwork" @click="redirect('./add')">
-                    <plus-icon fillColor="var(--color-primary)" :size="20" style="display: flex; margin-right: 10px;" />
-                    <h2>Add Artwork</h2>
-                </button>
 
-                <!-- visitor portal if big screen -->
-                <button v-if="isBigScreen" type="button" class="dashboard-btn visitor-portal" @click="redirectNewTab('/search-museum')">
-                    <launch-icon fillColor="var(--color-primary)" :size="20" style="display: flex; margin-right: 10px;" />
-                    <h2>Go to Visitor Portal</h2>
+        <div class="dashboard-stat">
+            <!-- artwork count -->
+            <div class="art-count">
+                <div class="counter">
+                    <Number :targetNumber="museum_data.artworks_count"  />
+                    <text>Total Artworks</text>
+                </div>
+                
+                <button class="prim-btn" @click="redirect('./view/all')">
+                    Go to Directory ->
+                </button>
+                <button class="secondary-btn" @click="redirect('./add')">
+                    Add New Artwork ->
                 </button>
             </div>
+            
+            <!-- popular artworks -->
+            <div class="pop-art">
+                <h1>Most Popular Artworks</h1>
+                <div class="cards-cont" :style="museum_data?.popular_artworks?.length === 0 ? 'justify-content: center;' : 'justify-content: space-between;'">
+                    <no-content v-if="museum_data?.popular_artworks?.length === 0" />
+                    <Cards v-else v-for="art in museum_data.popular_artworks" 
+                        :art="art" />
+                </div>
+            </div>
+            
+            <!-- user-count -->
+            <div class="user-count-cont">
+                <div class="user-count">
+                    <span class="user-loader">
+                        <Number :targetNumber="museum_data.visitors_count" />
+                        <text>Users in the<br/>last 24 hours</text>
+                    </span>
+                </div>
+            </div>
 
-            <!-- cards -->
-            <div class="cards" :style="{marginBottom: '30px'}">
-                <Cards :type="'number'" :number="museum_data.artworks_count" label="Artworks in the Directory >" @click="redirect('/on-cloud-nine/view/all')" :style="{cursor: 'pointer'}" />
-                <Cards :type="'images'" 
-                :artworks = "museum_data.popular_artworks.length > 0
-                  ? museum_data.popular_artworks : []"
-                label="Most Popular Artworks"/>
-                <Cards :type="'number'" :number="museum_data.visitors_count" label="Museum Guide Users in the Last 24h"/>
-                <Cards 
-                  :type="'sections'" 
-                  :sections="museum_data.popular_sections.length > 0
-                  ? museum_data.popular_sections : []"
-                  label="Most Crowded Sections" />
+            <!-- crowd -->
+            <div class="crowd-stat">
+                <h1>Most Crowded Sections</h1>
+                <div class="bar-graph">
+                    <Bar :sections="museum_data.popular_sections" />
+                </div>
+                <button class="secondary-btn" style="margin-top: 30px;" @click="redirect('/')">
+                    Go to Visitor Portal ->
+                </button>
             </div>
         </div>
-
-        <!-- visitor portal if small screen -->
-        <button v-if="!isBigScreen" type="button" class="dashboard-btn visitor-portal" @click="redirectNewTab('/search-museum')" :style="{marginTop: '0px', marginBottom: '10px'}">
-            <launch-icon fillColor="var(--color-primary)" :size="20" style="display: flex; margin-right: 10px;" />
-            <h2>Go to Visitor Portal</h2>
-        </button>
+        <Footer />
     </div>
 </template>
 
@@ -127,90 +118,187 @@
     h1 {
         color: var(--color-accent);
         padding-bottom: 10px;
+        text-align: center;
     }
 
-    .dashboard-cont {
-        width: 100%;
+    .dashboard-stat {
         display: flex;
         flex-direction: column;
+        gap: 50px;
+        width: 100%;
+        margin-top: 20px;
+        margin-bottom: 5rem;
+
+        @media (min-width: 768px) {
+            display: grid;
+            grid-template-areas:
+                "a d"
+                "b c";
+            gap: 50px;
+
+            .art-count {
+                grid-area: a;
+            }
+
+            .pop-art {
+                grid-area: b;
+            }
+
+            .user-count {
+                grid-area: c;
+            }
+
+            .crowd-stat {
+                grid-area: d;
+                width: 300px;
+            }
+        }
+    }
+
+    .art-count {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
     
-    .btn-cont {
-        display: flex;
-        justify-content: space-between;
+    text {
+        font-size: clamp(16px, 20px, 20px);
+        color: var(--color-surface);
+        font-weight: bold;
+        text-align: center;
+        line-height: 1.25;
+    }
+
+    button {
+        background-color: var(--color-accent);
+        color: white;
+        padding: 15px 0;
+        width: 100%;
+        margin: 15px 0 0 0;
+        font-size: clamp(13px, 16px, 16px);
+    }
+
+    button:hover {
+        background-color: var(--color-accent-darker);
+    }
+
+    .secondary-btn {
+        background-color: var(--color-primary);
+        border: 1px solid var(--color-surface);
+        color: var(--color-surface)
+    }
+
+    .secondary-btn:hover {
+        background-color: var(--color-primary-darker);
+    }
+
+    a {
+        text-decoration: underline;
+        color: var(--color-surface);
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .cards-cont {
+        position: relative;
+        display: grid;
+        grid-template-areas: "b a c";
         align-items: center;
+
+        margin: 30px 0;
     }
 
-    .visitor-portal {
-        margin-top: 20px;
+    .cards-cont .card-cont:nth-child(1) {
+        grid-area: a;
     }
 
-    .add-artwork {
-        margin-bottom: 10px;
+    .cards-cont .card-cont:nth-child(2) {
+        grid-area: b;
     }
 
-    .dashboard-cont-small, .btn-cont-small {
-        width: 100%;
+    .cards-cont .card-cont:nth-child(3) {
+        grid-area: c;
     }
 
-    .dashboard-btn {
-        width: 100%;
-        background-color: var(--color-secondary);
-
+    .user-count-cont {
         display: flex;
         justify-content: center;
         align-items: center;
-        color: var(--color-primary);
     }
 
-    .dashboard-btn:hover {
-        background-color: var(--color-secondary-darker);
-        cursor: pointer;
+    .user-count {
+        margin: 30px 0;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        position: relative;
+        transform:rotate(45deg);
+        box-sizing: border-box;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        align-self: center;
+
+        text {
+            font-size: 13px;
+            font-weight: bold;
+            text-align: center;
+        }
     }
 
-    .dashboard-btn img {
-        height: 1.1em;
+    .user-count::before {
+        content: "";
+        position: absolute;
+        box-sizing: border-box;
+        inset: -20px;
+        border-radius: 50%;
+        border: 20px solid var(--color-surface);
+        animation: prixClipFix 1s linear;
+        animation-iteration-count: 1;
     }
 
-    .dashboard-btn h2 {
-        margin-left: 10px;
+    .user-loader {
+        transform: rotate(-45deg);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        align-self: center;
+
+        text {
+        font-size: 13px;
+        font-weight: bold;
+        text-align: center;
+        }
     }
 
-    .cards {
-        width: 100%;
+    .bar-graph {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     /* CSS for bigger screens */
     @media screen and (min-width: 650px) {
         .container {
-            width: 60vw;
+            width: 60dvw;
         }
 
         h1 {
             font-size: 25px;
         }
+    }
 
-        .cards, .btn-cont {
-            width: 100%;
-            display: grid;
-            justify-items: center;  
-            grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: repeat(1, 1fr);
-            gap: 30px;
-        }
-
-        .dashboard-btn {
-            width: 90%;
-        }
-
-        .visitor-portal {
-            margin-top: 0;
-            margin-bottom: 20px;
-        }
-        
-        .add-artwork {
-            margin-bottom: 0;
-            margin-bottom: 20px;
-        }
+    @keyframes prixClipFix {
+        0%   {clip-path:polygon(50% 50%,0 0,0 0,0 0,0 0,0 0)}
+        25%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 0,100% 0,100% 0)}
+        50%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,100% 100%,100% 100%)}
+        75%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 100%)}
+        100% {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 0)}
     }
 </style>

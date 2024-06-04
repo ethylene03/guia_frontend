@@ -64,7 +64,7 @@
             <h1>Search Artwork</h1>
 
             <!-- searchbar -->
-            <div class="search-bar">
+            <div class="search-bar box-shadow">
                 <input type="text" v-model="searchedText" placeholder="Search an Artwork" />
                 <magnify-icon fillColor="var(--color-primary)" title="search artwork" :size="20" style="display: flex;" />
                 <!-- <img src="/icons/search-light.svg" alt="search artwork" /> -->
@@ -74,7 +74,10 @@
             <ul class="content">
                 <no-content v-if="filteredArts.length === 0" class="error-message" />
                 <li v-else class="art" v-for="art in filteredArts" :key="art.id" @click="redirect('/view/' + art.id)">
-                    {{ art.title }} ({{ art.year }}) by {{ art.artist }}
+                    <magnify-icon fillColor="var(--color-secondary)" title="search artwork" :size="20" style="display: flex;" />
+                    <div>
+                        {{ art.title }} ({{ art.year }}) by {{ art.artist }}
+                    </div>
                 </li>
             </ul>
         </div>
@@ -94,7 +97,7 @@
 
     .search-bar {
         background-color: var(--color-surface);
-        border: 2px solid var(--color-secondary);
+        /* border: 2px solid var(--color-secondary); */
         border-radius: 10px;
 
         width: 100%;
@@ -110,7 +113,7 @@
         height: 100%;
         border-radius: 10px;
 
-        padding: 5px 10px;
+        padding: 12px 10px;
         background-color: transparent;
         border: none;
         outline: none;
@@ -121,23 +124,34 @@
     .search-bar input::placeholder {
         color: var(--color-primary);
     }
+
     .content {
         list-style-type: none;
-        border: 1px solid black;
-        border-radius: 10px;
 
-        width: 100%;
-        height: 65vh;
+        width: 97%;
+        height: 65dvh;
         margin-top: 10px;
         padding: 0px;
 
         overflow-y: auto;
     }
 
+    .content li {
+        padding: 10px 0; 
+        
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
     .content:has(.error-message) {
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+
+    .content::-webkit-scrollbar {
+        display: none;
     }
 
     .art {
@@ -153,7 +167,7 @@
 
     @media screen and (min-width: 650px) {
         .container {
-            width: 60vw;
+            width: 60dvw;
         }
 
         .screen-body {

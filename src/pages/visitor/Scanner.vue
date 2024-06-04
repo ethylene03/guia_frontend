@@ -3,11 +3,14 @@
 -->
 
 <script>
+    import { predictArtwork } from '@/assets/API calls/predictAPI';
     import Header from '@/assets/components/common/Header.vue';
-    import { VueFinalModal } from 'vue-final-modal';
-    import OrbitVariantIcon from 'icons/OrbitVariant.vue'
-    import CameraOutlineIcon from 'icons/CameraOutline.vue'
-    import MagnifyIcon from 'icons/Magnify.vue'
+import Toast from '@/assets/components/common/Toast.vue';
+import { visitorExpired } from '@/assets/components/common/common';
+    import CameraOutlineIcon from 'icons/CameraOutline.vue';
+    import MagnifyIcon from 'icons/Magnify.vue';
+    import OrbitVariantIcon from 'icons/OrbitVariant.vue';
+    import { VueFinalModal, useModal } from 'vue-final-modal';
 
     export default {
         components: {
@@ -73,9 +76,22 @@
                 }
             },
 
+            imageCaptured() {
+                const {open, close} = useModal({
+                    component: Toast,
+                    attrs: {
+                        type: 'info',
+                        message: 'Image Captured!',
+                        subtext: 'Redirecting you to the artwork...'
+                    }
+                })
+
+                open();
+            },
+
             // captures the image (integration should be here)
-            capture() {
-                console.log("image captured!");
+            async capture() {
+                this.imageCaptured();                
                 const videoElement = this.$refs.videoFront;
                 const canvasElement = this.$refs.canvas;
                 const context = canvasElement.getContext('2d');
@@ -84,7 +100,9 @@
                 canvasElement.height = videoElement.videoHeight;
         
                 context.drawImage(videoElement, 0, 0, canvasElement.width, canvasElement.height);
-                this.capturedImage = canvasElement.toDataURL('image/png');
+                this.capturedImage = canvasElement.toDataURL('image/jpeg');
+
+                const data = await predictArtwork(this.capturedImage);
             },
 
             // redirects to another page/screens
@@ -110,7 +128,7 @@
         <!-- page elements -->
         <div class="foreground">
             <!-- user header -->
-            <Header type="user" :isMap="true" :isLight="true" isBack="/search-museum" />
+            <Header type="user" :isMap="true" :isLight="true" />
             
             <!-- main camera preview -->
             <div class="vid-cont">
@@ -120,17 +138,17 @@
     
             <!-- buttons -->
             <div class="btn-cont">
-                <button class="flip-camera" @click="toggleCamera">
+                <button class="flip-camera  box-shadow" @click="toggleCamera">
                     <orbit-variant-icon title="flip camera" fillColor="var(--color-secondary)" />
                     <!-- <img src="/icons/flip-camera.svg" alt="flip camera" /> -->
                 </button>
                 
-                <button class="shutter" @click="capture">
+                <button class="shutter box-shadow" @click="capture">
                     <camera-outline-icon title="capture image" fillColor="var(--color-secondary)" :size="38" />
                     <!-- <img src="/icons/camera-light.svg" alt="capture image" /> -->
                 </button>
                 
-                <button @click="redirect('/search')">
+                <button class="box-shadow" @click="redirect('/search')">
                     <magnify-icon title="search artwork" fillColor="var(--color-secondary)" />
                     <!-- <img src="/icons/search.svg" alt="search artwork" /> -->
                 </button>
@@ -231,7 +249,7 @@
         top: 0;
         left: 0;
         width: 100%;
-        height: 100vh;
+        height: 100dvh;
         z-index: -1;
     }
 
@@ -246,7 +264,7 @@
     }
 
     .vid-cont {
-        width: 100%;
+        width: 20rem;
         height: 30rem;
         margin-top: 20px;
 
@@ -270,7 +288,7 @@
         justify-content: space-between;
         align-items: center;
         
-        width: 70%;
+        width: 100%;
         margin: 70px 0 0 0;
     }
 
@@ -278,6 +296,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        padding: 10px 2.5em !important;
 
         padding: 15px;
         border-radius: 100px;
@@ -294,7 +313,7 @@
 
     @media screen and (min-width: 650px) {
         .vid-cont {
-            width: 70%;
+            width: 30rem;
             height: fit-content;
             padding: 25px 0;
             margin-top: 0;

@@ -6,6 +6,7 @@
     import Header from '../../assets/components/common/Header.vue';
     import Title from '../../assets/components/all-artworks/Title.vue';
     import Artworks from '../../assets/components/all-artworks/Artworks.vue';
+    import MagnifyIcon from 'icons/Magnify.vue';
 
     import { getAllArtworks } from '@/assets/API calls/artworkAPI';
     import { redirect } from '@/assets/components/common/common';
@@ -18,7 +19,8 @@
             Welcome,
             NoContent,
             Title,
-            Artworks
+            Artworks,
+            MagnifyIcon
         },
 
         data() {
@@ -31,6 +33,7 @@
 
                 // filter
                 filterType: "All",
+                searchedText: '',
             }
         },
 
@@ -48,21 +51,38 @@
 
         computed: {
             filteredArt() {
+                var filteredArtwork = this.artworks;
+
+                // filter
                 if(this.filterType === "All") {
-                    return this.artworks;
+                    filteredArtwork = this.artworks;
                 } else if(this.filterType === "Before 1900s") {
-                    return this.artworks.filter(art => art.year < 1900);
+                    filteredArtwork = this.artworks.filter(art => art.year < 1900);
                 } else if(this.filterType === "1900-1950") {
-                    return this.artworks.filter(art => art.year <= 1950 && art.year >= 1900);
+                    filteredArtwork = this.artworks.filter(art => art.year <= 1950 && art.year >= 1900);
                 } else if(this.filterType === "1950-2000") {
-                    return this.artworks.filter(art => art.year <= 2000 && art.year >= 1950);
+                    filteredArtwork = this.artworks.filter(art => art.year <= 2000 && art.year >= 1950);
                 } else if(this.filterType === "2000-2010") {
-                    return this.artworks.filter(art => art.year <= 2010 && art.year >= 2000);
+                    filteredArtwork = this.artworks.filter(art => art.year <= 2010 && art.year >= 2000);
                 } else if(this.filterType === "2010-2020") {
-                    return this.artworks.filter(art => art.year <= 2020 && art.year >= 2010);
+                    filteredArtwork = this.artworks.filter(art => art.year <= 2020 && art.year >= 2010);
                 } else if(this.filterType === "2020-Present") {
-                    return this.artworks.filter(art => art.year >= 2020);
+                    filteredArtwork = this.artworks.filter(art => art.year >= 2020);
+                } else if(this.filterType === "Unknown") {
+                    filteredArtwork = this.artworks.filter(art => art.year.toLowerCase() === "unknown");
                 }
+
+                // search
+                const searchArtworks = filteredArtwork.filter(art => {
+                    for (const key in art) { // gets the key in each art in artworks
+                        if (key === 'title' || key === 'artist' || key === 'year') // checks match in title, artist, or year
+                            if (art[key].toLowerCase().includes(this.searchedText.toLowerCase()))
+                                return true;
+                    }
+                    return false;
+                });
+
+                return searchArtworks;
             }
         }
     };
@@ -77,6 +97,12 @@
             <!-- Title and Filters -->
             <Title :filteredArt="filteredArt" @filterType="filterType = $event" />
     
+            <!-- searchbar -->
+            <div class="search-bar box-shadow">
+                <input type="text" v-model="searchedText" placeholder="Search an Artwork" />
+                <magnify-icon fillColor="var(--color-secondary)" title="search artwork" :size="20" style="display: flex;" />
+            </div>
+
             <!-- add artwork button -->
             <button class="add-artwork" @click="redirect('../add')" title="Add new artwork" >
                 <plus-icon fillColor="var(--color-primary)" :size="20" style="display: flex; margin-right: 10px;" />
@@ -102,6 +128,36 @@
         width: 100%;
     }
 
+    .search-bar {
+        background-color: var(--color-primary);
+        border-radius: 10px;
+
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-right: 10px;
+        margin: 10px 0 10px 0;
+        border: 1px solid var(--color-secondary)
+    }
+
+    .search-bar input {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+
+        padding: 12px 10px;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        color: var(--color-secondary);
+        font-family: Inter, sans-serif;
+    }
+
+    .search-bar input::placeholder {
+        color: var(--color-secondary);
+    }
+
     .add-artwork {
         background: var(--color-secondary);
         color: var(--color-primary);
@@ -111,7 +167,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-bottom: 10px;
+        margin-bottom: 30px;
     }
 
     .add-artwork:hover {
@@ -131,7 +187,7 @@
 
     @media screen and (min-width: 650px) {
         .container {
-            width: 60vw;
+            width: 60dvw;
         }
 
         .contents {

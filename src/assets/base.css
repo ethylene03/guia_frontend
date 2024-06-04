@@ -6,13 +6,14 @@
   --color-accent: #9C6C38;
   --color-accent-darker: #7b552c;
 
-  --color-surface: #9F735A;
-  --color-surface-darker: #845d46;
+  --color-surface: #725236;
+  --color-surface-darker: #604630;
   
   --color-error: #963A3A;
   --color-error-darker: #752d2d;
   
   --color-primary: #FFF0DA;
+  --color-primary-cont: #FFEBCC;
   --color-primary-darker: #e3d1b6;
   
   --color-secondary: #534137;
@@ -54,7 +55,7 @@
 }
 
 body {
-  min-height: 100vh;
+  min-height: 100dvh;
   color: var(--color-text-on-light);
   background: var(--color-background);
   transition: color 2s, background-color 2s;
@@ -94,10 +95,26 @@ button {
   display: flex;
   align-content: center;
   justify-content: center;
+  filter: drop-shadow(0px 4px 3px rgb(0, 0, 0, 0.25));
 }
 
 text {
   font-size: var(--text-desc);
+}
+
+.box-shadow {
+  filter: drop-shadow(0px 4px 3px rgb(0, 0, 0, 0.25));
+}
+    
+.placeholder {
+  background-color: var(--color-primary-cont); 
+  width: 100%;
+}
+
+.placeholder text,
+.placeholder p,
+.placeholder h3 {
+  opacity: 0;
 }
 
 /* Style for the scrollbar track */

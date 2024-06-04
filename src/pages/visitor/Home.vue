@@ -74,7 +74,7 @@ import Welcome from '@/assets/components/common/Welcome.vue';
             <img class="collab" v-if="isBigScreen" src="../../assets/images/collab.svg" alt="x" />
 
             <!-- musuem logo (change for integration) -->
-            <img class="museum" :src="'/logo/' + museum_name.toLowerCase() + '.png'" alt="museum" />
+            <img class="museum box-shadow" :src="'/logo/joya.png'" alt="museum" />
         </div>
 
         <text>Are you in<br/>{{ museum_name }}?</text>
@@ -127,11 +127,11 @@ import Welcome from '@/assets/components/common/Welcome.vue';
 
     .collab {
         height: 30px;
-        margin: 0 20vh;
+        margin: 0 20dvh;
     }
 
     .museum {
-        margin-top: 5vh;
+        margin-top: 5dvh;
         height: 20em;
     }
 

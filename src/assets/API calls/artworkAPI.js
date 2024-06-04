@@ -1,8 +1,10 @@
 import { useModal } from "vue-final-modal";
 import ToastVue from "../components/common/Toast.vue";
-import { errorToast, getAdminId, redirect } from "../components/common/common";
+import { errorToast, getAdminId, redirect, refreshPage } from "../components/common/common";
 import { format } from "../components/view-artwork/Functions";
-import { GET, authPOST } from "./api";
+import { GET, POST, authPOST } from "./api";
+import axios from "axios";
+import { editChecklist } from "./sectionAPI";
 
 // get all
 export const getAllArtworks = async (type) => {
@@ -74,17 +76,7 @@ export const getArtwork = async (id, type) => {
     });
 
     if(art.response?.status >= 400) {
-        const {open, close} = useModal({
-            component: ToastVue,
-            attrs: {
-                type: 'error',
-                message: art.response.data.detail,
-                subtext: 'Please try again later.'
-            }
-        })
-
-        open();
-        setTimeout(() => redirect('back'), 1000);
+        errorToast(art.response.data.detail);
     } else
         return art.data.artwork;
 }
@@ -99,16 +91,6 @@ export const getArtworkVisits = async (id, token) => {
     if(visits.status < 400)
         return visits.data;
     else {
-        const {open, close} = useModal({
-            component: ToastVue,
-            attrs: {
-                type: 'error',
-                message: visits.response.data.detail,
-                subtext: 'Please try again later.'
-            }
-        })
-
-        open();
-        setTimeout(() => redirect('back'), 1000);
+        errorToast(visits.response.data.detail);
     }
 } 

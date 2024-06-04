@@ -5,7 +5,8 @@ import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import { ModalsContainer } from 'vue-final-modal';
 import { createVfm } from 'vue-final-modal'
-import { isExpired, logout } from './assets/components/common/common';
+import { isExpired, logout, visitorExpired } from './assets/components/common/common';
+
 
 import App from './App.vue'
 
@@ -52,13 +53,16 @@ const router = createRouter({
         { name: 'EditArtwork', path: '/on-cloud-nine/edit/:id', component: EditArtwork, meta: { requiresAuth: true, role: 'admin' } },
         { name: 'ViewAll', path: '/on-cloud-nine/view/all', component: ViewAllArtworks, meta: { requiresAuth: true, role: 'admin' } },
         { name: 'AdminViewArtwork', path: '/on-cloud-nine/view/:id', component: AdminViewArtwork, meta: { requiresAuth: true, role: 'admin' } },
-        { name: 'Menu', path: '/on-cloud-nine/menu', component: Menu, meta: { requiresAuth: true, role: 'admin' } },
+        // { name: 'Menu', path: '/on-cloud-nine/menu', component: Menu, meta: { requiresAuth: true, role: 'admin' } },
     ]
 });
 
 
 // Navigation guard
 router.beforeEach((to, from, next) => {
+    // call visitor expired always
+    if(to.meta.role === 'visitor' && to.path !== '/search-museum')
+        visitorExpired();
 
     if(to.meta.role === 'admin' && to.path !== '/on-cloud-nine') {
         if(isExpired())

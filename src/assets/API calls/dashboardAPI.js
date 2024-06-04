@@ -5,7 +5,6 @@ import { authGET } from "./api";
 
 export const fetchDashboard = async () => {
     const data = await authGET('/dashboard/get', {admin_id: getAdminId()});
-    // console.log(data);
 
     if(data.status < 300) {
         return data.data;

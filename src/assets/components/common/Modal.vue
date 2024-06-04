@@ -138,7 +138,7 @@ const emit = defineEmits<{
   justify-content: space-between;
   align-items: center;
   height: fit-content;
-  margin-bottom: 2vh;
+  margin-bottom: 2dvh;
 }
 
 .modal-header img {
@@ -201,7 +201,7 @@ const emit = defineEmits<{
 /* style for web screen */
 @media screen and (min-width: 650px) {
   .header {
-    margin-bottom: 10vh;
+    margin-bottom: 10dvh;
   }
 }
 

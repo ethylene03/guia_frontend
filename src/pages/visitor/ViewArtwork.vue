@@ -44,29 +44,45 @@ import { format } from '@/assets/components/view-artwork/Functions';
 
         <div class="content">
             <!-- image -->
-            <img :src="this.artwork.image" :alt="this.artwork.title" />
+            <div class="img-cont">
+                <img v-if="artwork.image" class="box-shadow" :src="artwork.image" :alt="artwork.title" />
+            </div>
 
             <!-- art title -->
-            <div class="subtitle">
-                <h3 style="font-weight: bolder;">{{ this.artwork.title }} ({{ format(artwork.date_published, 'YYYY') }})</h3>
-                <text>by <b style="font-weight: bold;">{{ this.artwork.artist_name }}</b> </text>
+            <div :class="!artwork.title ? 'placeholder' : 'subtitle'">
+                <h3 style="font-weight: bolder;">
+                        {{ artwork.title }} ({{ format(artwork.date_published, 'YYYY') }})
+                </h3>
+                
+                <text>
+                    by 
+                    <b style="font-weight: bold;">
+                        {{ artwork.artist_name }}
+                    </b> 
+                </text>
             </div>
 
             <!-- art details -->
-            <div class="details">
+            <div :class="!artwork.medium ? 'details placeholder' : 'details'">
                 <text>Medium</text>
-                <text style="font-weight: bold;">{{ this.artwork.medium }}</text>
+                <text style="font-weight: bold;">
+                    {{ artwork.medium ? artwork.medium : 'loading' }}
+                </text>
 
                 <text>Dimensions</text>
-                <text style="font-weight: bold;">{{ this.artwork.dimen_length_cm }} x {{ this.artwork.dimen_width_cm }} {{ this.artwork.dimen_height_cm ? "x " + this.artwork.dimen_height_cm : null }} cm</text>
+                <text style="font-weight: bold;">
+                    {{ this.artwork.dimen_length_cm }} x 
+                    {{ this.artwork.dimen_width_cm }} 
+                    {{ this.artwork.dimen_height_cm ? "x " + this.artwork.dimen_height_cm : null }} cm
+                </text>
             </div>
 
             <!-- description -->
-            <div class="description">
+            <div :class="!artwork.description ? 'description placeholder' : 'description'">
                 <p>{{ this.artwork.description }}</p>
             </div>
 
-            <button class="scan-again" type="button" @click="redirect('/scan')">
+            <button class="scan-again box-shadow" type="button" @click="redirect('/scan')">
                 <camera-icon title="scan again" fillColor="var(--color-primary)" :size="20" style="display: flex; margin-right: 10px;" />
                 <!-- <img src="/icons/scan.svg" alt="scan again" /> -->
                 Scan Again
@@ -80,17 +96,31 @@ import { format } from '@/assets/components/view-artwork/Functions';
 <style scoped>
     .content {
         width: 100%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
     }
 
-    .content img {
-        width: 100%;
-        margin-bottom: 20px;
+    .content .img-cont {
+        width: 20rem;
+        height: 20rem;
         border-radius: 5px;
+
+        background-color: var(--color-primary-cont);
+    }
+
+    .img-cont img {
+        height: 100%;
+        width: 100%;
+
+        border-radius: 10px;
     }
 
     .subtitle {
         text-align: center;
-        margin-bottom: 20px;
     }
 
     .details {
@@ -98,14 +128,14 @@ import { format } from '@/assets/components/view-artwork/Functions';
         flex-direction: column;
         align-items: center;
 
-        margin-bottom: 20px;
+        /* margin-bottom: 20px; */
     }
 
     .description {
         text-align: justify;
         padding: 5px;
 
-        height: 12em;
+        height: 10em;
         overflow-y: auto;
     }
 
@@ -135,11 +165,16 @@ import { format } from '@/assets/components/view-artwork/Functions';
 
     @media screen and (min-width: 650px) {
         .container {
-            width: 60vw;
+            width: 60dvw;
         }
 
         .content {
             width: 70%;
+        }
+
+        .content .img-cont {
+            width: 28rem;
+            height: 28rem;
         }
     }
 </style>

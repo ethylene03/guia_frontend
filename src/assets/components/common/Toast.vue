@@ -42,16 +42,17 @@
                         }]"
     overlay-transition="vfm-fade"
     content-transition="vfm-fade"
+    aria-label="toaster"
     :esc-to-close="false"
     :click-to-close="false"
   >
 
     <!-- icon types -->
     <div class="toast-header">
-      <img v-if="type === 'error'" src="/icons/error.svg" />
-      <img v-if="type === 'success'" src="/icons/success.svg" />
-      <img v-if="type === 'info'" src="/icons/info.svg" />
-      <img v-if="type === 'warning'" src="/icons/warn.svg" />
+      <img v-if="type === 'error'" src="/icons/error.svg" alt="error-load" />
+      <img v-if="type === 'success'" src="/icons/success.svg" alt="success-load" />
+      <img v-if="type === 'info'" src="/icons/info.svg" alt="info-load" />
+      <img v-if="type === 'warning'" src="/icons/warn.svg" alt="warn-load" />
     </div>
 
     <!-- message sa toaster -->

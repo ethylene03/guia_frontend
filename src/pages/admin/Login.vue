@@ -42,7 +42,7 @@
     .label {
         color: var(--text-secondary);
         font-weight: normal;
-        margin-top: 7vh;
+        margin-top: 7dvh;
         margin-bottom: 7px;
     }
 

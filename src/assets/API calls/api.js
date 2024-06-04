@@ -29,9 +29,9 @@
  */
 
 import axios from 'axios';
-import { getToken, isExpired, logout } from '../components/common/common';
 import { useModal } from 'vue-final-modal';
 import ToastVue from '../components/common/Toast.vue';
+import { getToken, isExpired, logout } from '../components/common/common';
 
 /** Fetch URL and API Key **/ 
 const baseURL = import.meta.env.VITE_API_URL;
@@ -49,6 +49,19 @@ const noauthAPI = axios.create({
         'Content-Type': 'application/json',
     },
 });
+
+noauthAPI.interceptors.request.use(
+    (config) => {
+        if(baseURL.includes("ngrok")) {
+            config.headers['ngrok-skip-browser-warning'] = 60924;
+        }
+
+        return config
+    },
+    (error) => {
+        return Promise.reject(error);
+    }
+)
 
 noauthAPI.interceptors.response.use(
     response => response,
@@ -114,6 +127,10 @@ authAPI.interceptors.request.use(
         
             if(token)
                 config.headers.Authorization = token;
+
+            if(baseURL.includes("ngrok")) {
+                config.headers["ngrok-skip-browser-warning"] = 60924;
+            }
 
             return config
         } else {

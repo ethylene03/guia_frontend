@@ -35,9 +35,10 @@ export default {
 
 <style scoped>
 .password-cont {
-    padding: 0;
+    padding: 0 5px 0 0;
     display: flex;
     justify-content: flex-start;
+    align-items: center;
 }
 
 .password-cont span {
@@ -53,5 +54,6 @@ export default {
     outline: none;
     border: none;
     width: 100%;
+    padding: 10px 5px;
 }
 </style>

@@ -40,12 +40,33 @@
         methods: {
             redirect,
 
+            showConfetti(type) {
+                const confetti = document.getElementById("confetti");
+                
+                if(type)
+                    confetti.classList.remove("d-none");
+                else
+                    confetti.classList.add("d-none");
+            },
+
             async updateChecklist(id) {
                 const art = this.artworks.find(art => art.art_id === id);
-                const res = await editChecklist(art);
-
-                if(res) {
-                    this.artworks = await getChecklist(this.section_id, getToken('visitor'));
+                
+                if(art.visit_type !== 'scan') {
+                    art.visit_type = "manual";
+                    art.is_visited = art.is_visited === null ? true : !art.is_visited;
+    
+                    // confetti
+                    if(art.is_visited) {
+                        this.showConfetti(true);
+                        setTimeout(() => this.showConfetti(false), 1000);
+                    }
+    
+                    const res = await editChecklist(art);
+    
+                    if(res) {
+                        this.artworks = await getChecklist(this.section_id, getToken('visitor'));
+                    }
                 }
             }
         }
@@ -66,12 +87,15 @@
             <div class="checklist">
                 <no-content v-if="!artworks.length" class="no-art" />
                 <div class="list" v-else v-for="art in artworks" :key="art.art_id">
-                    <input :id="art.art_id" type="checkbox" v-model="art.is_visited" @change="updateChecklist(art.art_id)" />
+                    <div :class="'checkbox-cont ' + (art.visit_type === 'scan' ? 'disabled' : '')" @click="updateChecklist(art.art_id)">
+                        <input :id="art.art_id" type="checkbox" v-model="art.is_visited" :disabled="art.visit_type === 'scan'" />
+                    </div>
                     <text class="details"  @click="redirect('/view/' + art.art_id)">
                         {{ art.title }} ({{ art.date_published }}) by {{ art.artist_name }}
                     </text>
                 </div>
             </div>
+            <img id="confetti" class="conf d-none" src="../../assets/images/confetti.gif" alt="confetti" />
         </div>
 
         <Footer />
@@ -89,21 +113,30 @@
 
     .checklist {
         border-radius: 5px;
-        border: 2px solid var(--color-secondary);
+        /* border: 2px solid var(--color-secondary); */
         width: 100%;
-        height: 65vh;
+        /* height: 65dvh; */
         margin-top: 20px;
 
-        overflow-y: auto;
+        /* overflow-y: auto; */
     }
 
     .no-art {
-        margin-top: 10vh;
+        margin-top: 10dvh;
+    }
+
+    .conf {
+        z-index: 99;
+        position: absolute;
+    }
+
+    .d-none {
+        display: none;
     }
 
     .list {
         border-bottom: 1px solid rgba(0, 0, 0, 0.53);
-        padding: 10px 0 10px 20px;
+        padding: 5px 0;
 
         display: flex;
         align-items: center;
@@ -119,8 +152,17 @@
         background-color: var(--color-primary-darker);
     }
 
-    .list input {
-        margin-right: 10px;
+    .list .checkbox-cont {
+        cursor: pointer;
+        padding: 20px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .list .checkbox-cont.disabled {
+        cursor: default;
     }
     
     .list input:checked {
@@ -130,7 +172,7 @@
     /* CSS STYLING FOR RESPONSIVENESS */
     @media screen and (min-width: 650px) {
         .container {
-            width: 60vw;
+            width: 60dvw;
         }
 
         .content {

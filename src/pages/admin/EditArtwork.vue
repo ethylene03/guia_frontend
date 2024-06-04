@@ -1,15 +1,14 @@
 <script>
     // header component
     import Header from '@/assets/components/common/Header.vue';
-    import UploadOutlineIcon from 'icons/UploadOutline.vue';
+import UploadOutlineIcon from 'icons/UploadOutline.vue';
 
     // modal component
     import { uploadFile } from '@/assets/API calls/amazonAPI';
     import { authGET, authPOST } from '@/assets/API calls/api';
-    import { Error } from '@/assets/components/common/Error';
     import Loader from '@/assets/components/common/Loader.vue';
     import Welcome from '@/assets/components/common/Welcome.vue';
-    import { getAdminId, getMuseumId } from '@/assets/components/common/common';
+    import { errorToast, getAdminId, getMuseumId } from '@/assets/components/common/common';
     import { useModal } from 'vue-final-modal';
     import Modal from '../../assets/components/common/Modal.vue';
 
@@ -62,6 +61,7 @@
                 dateCheck: true,
                 numCheck: [true, true, true],
                 errorAPI: '',
+                hasError: false,
             };
         },
 
@@ -70,23 +70,26 @@
 
             // get artwork details
             const getArtwork = await authGET('/artwork/get', {art_id: this.$route.params.id});
-            // console.log(getArtwork);
+            console.log(getArtwork);
+            
             if(!getArtwork.data) {
-                Error(getArtwork.response.data.detail);
+                errorToast(getArtwork.response.data.detail);
                 return;
             }
 
             this.artwork = getArtwork.data.artwork;
             let imgs = getArtwork.data.artwork.images;
-            imgs.map(image => {
+            imgs = imgs.map(image => {
                 const name = image.image_link.substring(image.image_link.indexOf('artworks/') + 9, image.image_link.indexOf('jpg') + 3);
                 image['name'] = name;
                 image['file'] = image.image_link;
+
+                // thumbnail
+                if(image.is_thumbnail)
+                    this.artwork.thumbnail = name;
             })
 
             this.images = imgs;
-
-            this.artwork['thumbnail'] = imgs.find(image => image.is_thumbnail === true) ? imgs.find(image => image.is_thumbnail === true).name : null;
 
             // get sections
             const getSections = await authGET('/section/get', {museum_id: getMuseumId('admin')});
@@ -94,6 +97,7 @@
             this.sections = getSections.data.section;
 
             this.pageLoad = false;
+            console.log(this.artwork)
         },
 
         methods: {
@@ -178,7 +182,7 @@
                 const month = /^(0[1-9]|1[0-2])-((1[2-9]\d{2})|20[0-1][0-9]|202[0-4])$/;
                 const day = /^(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])-((1[2-9]\d{2})|20[0-1][0-9]|202[0-4])$/;
 
-                if(year.test(input.date_published) || month.test(input.date_published) || day.test(input.date_published) || input.date_published.toLowerCase() === "unknown")
+                if(year.test(input.date_published) || month.test(input.date_published) || day.test(input.date_published) || input.date_published?.toLowerCase() === "unknown")
                     this.dateCheck = true;
                 else {
                     this.dateCheck = false;
@@ -218,13 +222,17 @@
                 this.isSubmit = true;
 
                 if(this.validate()) {
-                    const art = this.artwork;
-
+                    this.hasError = false;
+                    var art = {...this.artwork};
                     const images = art.images.map(img => amazonUrl + img.name);
-                    const thumb = amazonUrl + art.thumbnail;
+                    
+                    const idx = art.thumbnail.indexOf('jpg') + 3;
+                    if(art.thumbnail.includes("https"))
+                        art.thumbnail = art.thumbnail.substring(0, idx).replace("https://guia-buckets.s3.amazonaws.com/", "");
+                    else
+                        art.thumbnail = 'artworks/' + art.thumbnail;
 
                     art.images = images;
-                    art.thumbnail = thumb;
                     art.updated_by = getAdminId();
 
                     // create artwork
@@ -240,7 +248,7 @@
                     }
                 } else {
                     this.isSubmit = false;
-                    console.log("error!");
+                    this.hasError = true;
                 }
             },
 
@@ -262,7 +270,6 @@
         <Header />
         <div class="input-form">
             <h1>Edit Artwork</h1>
-
             <!-- input for upload file -->
             <input id="fileUpload" type="file" accept="image/jpeg" @change="receiveFiles" multiple hidden /> 
             
@@ -298,7 +305,7 @@
             <text style="font-size: 13px;">Please tick the image that you want to be displayed.<br/></text>
             <text style="font-weight: bold;">Image Uploaded: {{ artwork.images.length }} / 10<br/></text>
             <text ref="errorMessage" v-if="hasExceeded" class="val-error">Oh no! Can't upload more than 10 images.</text>
-            <span ref="errorMessage" v-if="isSaved && !hasExceeded && 0 <= artwork.images.length && artwork.images.length < 10" class="val-error">Please upload {{ 10 - artwork.images.length }} more images.</span>
+            <span ref="errorMessage" v-if="isSaved && !hasExceeded && 0 <= artwork.images.length && artwork.images.length < 10" class="val-error">Please upload {{ 10 - artwork.images.length }} more images.<br/></span>
             <span ref="errorMessage" v-if="isSaved && !artwork.thumbnail" class="val-error">Please choose a thumbnail.</span>
 
             <!-- binded upload button -->
@@ -324,7 +331,6 @@
                 <h2>Date Published<span class="asterisk">*</span></h2>
                 <input type="text" v-model="artwork.date_published" class="primary-form" placeholder="YYYY or MM-YYYY or MM-DD-YYYY or unknown" required />
                 <span ref="errorMessage" v-if="!artwork.date_published && this.isSaved" class="val-error">Please input the artwork's correct date published.</span>
-                <span ref="errorMessage" v-if="!dateCheck && artwork.date_published" class="val-error">Please input the artwork's correct date published format.</span>
                 
                 <!-- medium -->
                 <h2>Medium<span class="asterisk">*</span></h2>
@@ -340,9 +346,9 @@
                 <span ref="errorMessage" v-if="!artwork.section_id && this.isSaved" class="val-error">Please input the artwork's section.</span>
                 
                 <!-- length -->
-                <h2>Length (cm)<span class="asterisk">*</span></h2>
+                <h2>Height (cm)<span class="asterisk">*</span></h2>
                 <input type="number" v-model="artwork.dimen_length_cm" min="0" class="primary-form" required />
-                <span ref="errorMessage" v-if="!artwork.dimen_length_cm && this.isSaved" class="val-error">Please input the artwork's correct length.</span>
+                <span ref="errorMessage" v-if="!artwork.dimen_length_cm && this.isSaved" class="val-error">Please input the artwork's correct height.</span>
                 <span ref="errorMessage" v-if="!numCheck[0] && this.isSaved" class="val-error">Please input positive number.</span>
                 
                 <!-- width -->
@@ -352,7 +358,7 @@
                 <span ref="errorMessage" v-if="!numCheck[1] && this.isSaved" class="val-error">Please input positive number.</span>
                 
                 <!-- height -->
-                <h2>Height (cm)</h2>
+                <h2>Depth (cm)</h2>
                 <input type="number" v-model="artwork.dimen_height_cm" min="0" class="primary-form" />
                 <span ref="errorMessage" v-if="!numCheck[2] && this.isSaved" class="val-error">Please input positive number.</span>
                 
@@ -369,6 +375,7 @@
             <span ref="errorMessage" class="val-error">{{ errorAPI }}</span>
             
             <!-- buttons -->
+            <span v-if="hasError" class="val-error">Error found. Please check the form again.</span>
             <div v-if="isSubmit" class="btn-cont load">
                 <Loader />
             </div>
@@ -540,7 +547,7 @@
     /* CSS for big screens */
     @media screen and (min-width: 650px) {
         .container {
-            width: 60vw;
+            width: 60dvw;
             margin: auto;
         }
 
@@ -549,4 +556,4 @@
             margin: auto;
         }
     }
-</style>@/assets/components/common/common/common../../assets/components/common/Modal.vue@/assets/components/common/Error
+</style>
