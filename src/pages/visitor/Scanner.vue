@@ -43,15 +43,11 @@ import { visitorExpired } from '@/assets/components/common/common';
         methods: {
             async setupCamera() {
                 try {
+                    // get the camera stream
                     const constraints = this.selectedCameraId
                         ? { video: { deviceId: { exact: this.selectedCameraId } } }
-                        : { video: true };
+                        : { video: { facingMode: 'environment' } };
                     const stream = await navigator.mediaDevices.getUserMedia(constraints);
-
-                    // get the camera stream
-                    // const stream = await navigator.mediaDevices.getUserMedia({
-                    //     video: { facingMode: this.facingMode },
-                    // });
 
                     // assign the stream to the variable stream
                     this.stream = stream;
@@ -83,6 +79,12 @@ import { visitorExpired } from '@/assets/components/common/common';
                     // Get a list of all video input devices
                     const devices = await navigator.mediaDevices.enumerateDevices();
                     this.cameras = devices.filter(device => device.kind === 'videoinput');
+
+                    // Filter the cameras based on the facingMode
+                    this.cameras = videoInputDevices.filter(device => {
+                        const label = device.label.toLowerCase();
+                        return this.facingMode === 'user' ? label.includes('front') : label.includes('back');
+                    });
                 } catch (error) {
                     console.error('Error getting cameras:', error);
                 }
@@ -92,6 +94,7 @@ import { visitorExpired } from '@/assets/components/common/common';
             async toggleCamera() {
                 // environment -> back camera | user -> front camera
                 this.facingMode = this.facingMode === 'user' ? 'environment' : 'user';
+                await this.getCameras();
                 await this.stopCamera();
                 this.setupCamera();
             },
