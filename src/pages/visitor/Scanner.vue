@@ -86,7 +86,7 @@ import { visitorExpired } from '@/assets/components/common/common';
                         return this.facingMode === 'user' ? label.includes('front') : label.includes('back');
                     });
 
-                    this.selectedCameraId = this.cameras[0];
+                    this.selectedCameraId = this.cameras[0].deviceId;
                 } catch (error) {
                     console.error('Error getting cameras:', error);
                 }
