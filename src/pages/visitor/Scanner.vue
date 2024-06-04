@@ -88,6 +88,8 @@ import { visitorExpired } from '@/assets/components/common/common';
 
                     if(availableCameras.length < 1) {
                         this.cameras = videoInputDevices;
+                    } else {
+                        this.cameras = availableCameras;
                     }
 
                     this.selectedCameraId = this.cameras[0].deviceId;
