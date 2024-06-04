@@ -166,7 +166,7 @@ import { visitorExpired } from '@/assets/components/common/common';
             </div>
             <h2 :style="{marginTop: '10px'}">Please point the camera to the artwork</h2>
     
-            <select v-model="selectedCameraId" @change="switchCamera">
+            <select class="box-shadow" v-model="selectedCameraId" @change="switchCamera" placeholder="Select a webcam to use">
                 <option v-for="camera in cameras" :key="camera.deviceId" :value="camera.deviceId">
                     {{ camera.label }}
                 </option>
@@ -301,7 +301,7 @@ import { visitorExpired } from '@/assets/components/common/common';
 
     .vid-cont {
         width: 20rem;
-        height: 30rem;
+        height: 20rem;
         margin-top: 20px;
 
         border-radius: 20px;
@@ -317,6 +317,16 @@ import { visitorExpired } from '@/assets/components/common/common';
 
     h2 {
         color: var(--color-white);
+    }
+
+    select {
+        outline: none;
+        border: none;
+        padding: 10px;
+        border-radius: 10px;
+
+        background-color: var(--color-primary);
+        color: var(--color-secondary);
     }
 
     .btn-cont {
