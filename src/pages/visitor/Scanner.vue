@@ -81,10 +81,14 @@ import { visitorExpired } from '@/assets/components/common/common';
                     const videoInputDevices = devices.filter(device => device.kind === 'videoinput');
 
                     // Filter the cameras based on the facingMode
-                    this.cameras = videoInputDevices.filter(device => {
+                    const availableCameras = videoInputDevices.filter(device => {
                         const label = device.label.toLowerCase();
                         return this.facingMode === 'user' ? label.includes('front') : label.includes('back');
                     });
+
+                    if(availableCameras.length < 1) {
+                        this.cameras = videoInputDevices;
+                    }
 
                     this.selectedCameraId = this.cameras[0].deviceId;
                 } catch (error) {
