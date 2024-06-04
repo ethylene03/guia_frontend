@@ -25,7 +25,7 @@ import { visitorExpired } from '@/assets/components/common/common';
             // for camera setup
             return {
                 stream: null,
-                facingMode: 'back',
+                facingMode: 'environment',
                 capturedImage: null, // holds the image captured
                 show: false, // cecks if the user allow camera permission
                 selectedCameraId: null,
@@ -78,12 +78,12 @@ import { visitorExpired } from '@/assets/components/common/common';
                 try {
                     // Get a list of all video input devices
                     const devices = await navigator.mediaDevices.enumerateDevices();
-                    const videoInputDevices = devices.filter(device => device.kind === 'videoinput');
+                    this.cameras = devices.filter(device => device.kind === 'videoinput');
 
                     // Filter the cameras based on the facingMode
                     this.cameras = videoInputDevices.filter(device => {
                         const label = device.label.toLowerCase();
-                        return this.facingMode === 'front' ? label.includes('front') : label.includes('back');
+                        return this.facingMode === 'user' ? label.includes('front') : label.includes('back');
                     });
                 } catch (error) {
                     console.error('Error getting cameras:', error);
@@ -92,11 +92,10 @@ import { visitorExpired } from '@/assets/components/common/common';
 
             // flips the camera (front or back camera)
             async toggleCamera() {
-                console.log(this.facingMode)
-                this.facingMode = this.facingMode === 'front' ? 'back' : 'front';
-                
-                await this.stopCamera();
+                // environment -> back camera | user -> front camera
+                this.facingMode = this.facingMode === 'user' ? 'environment' : 'user';
                 await this.getCameras();
+                await this.stopCamera();
                 this.setupCamera();
             },
 
