@@ -301,7 +301,7 @@ import { visitorExpired } from '@/assets/components/common/common';
 
     .vid-cont {
         width: 20rem;
-        height: 20rem;
+        height: 25rem;
         margin-top: 20px;
 
         border-radius: 20px;
@@ -360,8 +360,8 @@ import { visitorExpired } from '@/assets/components/common/common';
     @media screen and (min-width: 650px) {
         .vid-cont {
             width: 30rem;
-            height: fit-content;
-            padding: 25px 0;
+            height: 23rem;
+            padding: 20px 0;
             margin-top: 0;
         }
 
