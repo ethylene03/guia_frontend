@@ -66,9 +66,26 @@ import { visitorExpired } from '@/assets/components/common/common';
             // flips the camera (front or back camera)
             async toggleCamera() {
                 // environment -> back camera | user -> front camera
-                this.facingMode = this.facingMode === 'user' ? 'environment' : 'user';
-                await this.stopCamera();
-                this.setupCamera();
+                try {
+                    // Get a list of all video input devices
+                    const devices = await navigator.mediaDevices.enumerateDevices();
+                    const videoInputDevices = devices.filter(device => device.kind === 'videoinput');
+
+                    // If facingMode is null or 'user', switch to the first available back camera
+                    if (this.facingMode === null || this.facingMode === 'user') {
+                        const backCamera = videoInputDevices.find(device => device.label.toLowerCase().includes('back'));
+                        this.facingMode = backCamera ? { exact: backCamera.deviceId } : 'environment';
+                    } else if (this.facingMode === 'environment' || typeof this.facingMode === 'object') {
+                        // If facingMode is 'environment' or a deviceId, switch to the user (front) camera
+                        this.facingMode = 'user';
+                    }
+
+                    // After changing the facingMode, you need to setup the camera again
+                    await this.stopCamera();
+                    this.setupCamera();
+                } catch (error) {
+                    console.error('Error switching camera:', error);
+                }
             },
 
             // stops the camera feed
