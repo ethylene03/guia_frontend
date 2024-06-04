@@ -27,7 +27,7 @@ import { format } from '@/assets/components/view-artwork/Functions';
             this.artwork = await getArtwork(this.$route.params.id, 'visitor');
             
             this.artwork.image = this.artwork.images.find(art => art.is_thumbnail === true).image_link;
-            console.log(this.artwork);
+            // console.log(this.artwork);
         },
  
         methods: {

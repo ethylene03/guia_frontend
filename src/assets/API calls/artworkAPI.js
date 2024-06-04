@@ -34,7 +34,7 @@ export const getAllArtworks = async (type) => {
 
 export const deleteArtwork = async (id) => {
     const deletedArt = await authPOST('/artwork/delete', {art_id: id});
-    console.log(deletedArt);
+    // console.log(deletedArt);
 
     if(deletedArt.status < 300) {
         const {open, close} = useModal({

@@ -37,7 +37,7 @@ import NoContent from "@/assets/components/common/NoContent.vue";
 
             this.museum_data = await fetchDashboard();
             const museum = await getMuseum(getMuseumId('admin'));
-            console.log(this.museum_data)
+            // console.log(this.museum_data)
             this.museum_name = museum[0].museum_name;
 
             this.pageLoad = false;

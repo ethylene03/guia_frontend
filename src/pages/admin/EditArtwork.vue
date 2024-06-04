@@ -70,7 +70,7 @@ import UploadOutlineIcon from 'icons/UploadOutline.vue';
 
             // get artwork details
             const getArtwork = await authGET('/artwork/get', {art_id: this.$route.params.id});
-            console.log(getArtwork);
+            // console.log(getArtwork);
             
             if(!getArtwork.data) {
                 errorToast(getArtwork.response.data.detail);
@@ -97,7 +97,7 @@ import UploadOutlineIcon from 'icons/UploadOutline.vue';
             this.sections = getSections.data.section;
 
             this.pageLoad = false;
-            console.log(this.artwork)
+            // console.log(this.artwork)
         },
 
         methods: {
