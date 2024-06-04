@@ -53,6 +53,11 @@ import { visitorExpired } from '@/assets/components/common/common';
                     // assign the stream to both feeds
                     videoBack.srcObject = stream;
                     videoFront.srcObject = stream;
+
+                    this.$nextTick(() => {
+                        videoBack.play();
+                        videoFront.play();
+                    })
                 } catch (error) {
                     this.show = true;
                 }
