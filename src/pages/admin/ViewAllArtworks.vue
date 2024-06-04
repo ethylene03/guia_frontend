@@ -4,12 +4,14 @@
     import PlusIcon from 'icons/Plus.vue';
     import Footer from '../../assets/components/common/Footer.vue';
     import Header from '../../assets/components/common/Header.vue';
-    import Title from '../../assets/components/all-artworks/Title.vue';
     import Artworks from '../../assets/components/all-artworks/Artworks.vue';
     import MagnifyIcon from 'icons/Magnify.vue';
+    import SortIcon from 'icons/SortVariant.vue';
+    import FilterIcon from 'icons/FilterOutline.vue';
 
     import { getAllArtworks } from '@/assets/API calls/artworkAPI';
     import { redirect } from '@/assets/components/common/common';
+    import { sortArt } from '@/assets/components/all-artworks/Functions';
 
     export default {
         components: {
@@ -18,9 +20,10 @@
             PlusIcon,
             Welcome,
             NoContent,
-            Title,
             Artworks,
-            MagnifyIcon
+            MagnifyIcon,
+            SortIcon,
+            FilterIcon,
         },
 
         data() {
@@ -34,6 +37,12 @@
                 // filter
                 filterType: "All",
                 searchedText: '',
+
+                sort: false,
+                filter: false,
+    
+                sortOpt: ["title", "artist", "year"],
+                filterOpt: ["All", "Before 1900s", "1900-1950", "1950-2000", "2000-2010", "2010-2020", "2020-Present", "Unknown"],
             }
         },
 
@@ -47,6 +56,22 @@
 
         methods: {
             redirect,
+            
+            openDropdown(type) {
+                if(type === 'sort') {
+                    this.sort = !this.sort;
+                    if(this.sort)
+                        this.filter = false;
+                } else {
+                    this.filter = !this.filter;
+                    if(this.filter)
+                        this.sort = false;
+                }
+            },
+
+            sortFilteredArt(option) {
+                this.artworks = sortArt(this.filteredArt, option)
+            }
         },
 
         computed: {
@@ -95,7 +120,29 @@
         <Header />
         <div class="contents">
             <!-- Title and Filters -->
-            <Title :filteredArt="filteredArt" @filterType="filterType = $event" />
+            <!-- <Title :filteredArt="filteredArt" @filterType="filterType = $event" /> -->
+            <div class="title">
+                <h1>Artwork Directory</h1>
+                <div class="filters">
+                    <!-- sort -->
+                    <sort-icon class="sort-filter" title="sort artworks" fillColor="var(--color-secondary)" :size="30" @click="openDropdown('sort')" />
+                    <div v-if="sort" class="dropdown" v-on:mouseleave="sort = false">
+                        <text style="padding-left: 10px;">Sort by</text>
+                        <li v-for="option in sortOpt" @click="sortFilteredArt(option)">
+                            {{ option }}
+                        </li>
+                    </div>
+
+                    <!-- filter -->
+                    <filter-icon class="sort-filter" title="filter artworks" fillColor="var(--color-secondary)" :size="30" @click="openDropdown('filter')" />
+                    <div v-if="filter" class="dropdown" v-on:mouseleave="filter = false">
+                        <text style="padding-left: 10px;">Filter by</text>
+                        <li v-for="option in filterOpt" @click="filterType = option">
+                            {{ option }}
+                        </li>
+                    </div>
+                </div>
+            </div>
     
             <!-- searchbar -->
             <div class="search-bar box-shadow">
@@ -183,6 +230,44 @@
         width: 100%;
         margin-bottom: 3.2rem;
         text-transform: capitalize;
+    }
+
+    .sort-filter {
+        cursor: pointer;
+    }
+
+    .title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .dropdown {
+        z-index: 100;
+        position: absolute;
+        margin-right: 10px;
+        right: 0;
+
+        background-color: var(--color-primary);
+        padding: 10px 0;
+        border: 2px solid var(--color-secondary);
+        border-radius: 5px;
+    }
+
+    .dropdown li {
+        list-style-type: none;
+        padding-left: 20px;
+        width: 200px;
+
+        text-transform: capitalize;
+    }
+
+    .dropdown li:hover {
+        background-color: var(--color-primary-darker);
+        cursor: pointer;
     }
 
     @media screen and (min-width: 650px) {

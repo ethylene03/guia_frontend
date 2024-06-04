@@ -35,4 +35,7 @@ export const sortArt = (artworks, type) => {
             return 0;
         })
     }
+
+        console.log(artworks)
+        return artworks;
 }
