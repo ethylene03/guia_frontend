@@ -78,10 +78,10 @@ import { visitorExpired } from '@/assets/components/common/common';
                 try {
                     // Get a list of all video input devices
                     const devices = await navigator.mediaDevices.enumerateDevices();
-                    // const videoInputDevices = devices.filter(device => device.kind === 'videoinput');
+                    const videoInputDevices = devices.filter(device => device.kind === 'videoinput');
 
                     // Filter the cameras based on the facingMode
-                    this.cameras = devices.filter(device => {
+                    this.cameras = videoInputDevices.filter(device => {
                         const label = device.label.toLowerCase();
                         return this.facingMode === 'user' ? label.includes('front') : label.includes('back');
                     });
