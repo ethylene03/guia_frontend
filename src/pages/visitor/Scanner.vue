@@ -85,6 +85,8 @@ import { visitorExpired } from '@/assets/components/common/common';
                         const label = device.label.toLowerCase();
                         return this.facingMode === 'user' ? label.includes('front') : label.includes('back');
                     });
+
+                    this.selectedCameraId = this.cameras[0];
                 } catch (error) {
                     console.error('Error getting cameras:', error);
                 }
@@ -94,8 +96,8 @@ import { visitorExpired } from '@/assets/components/common/common';
             async toggleCamera() {
                 // environment -> back camera | user -> front camera
                 this.facingMode = this.facingMode === 'user' ? 'environment' : 'user';
-                await this.getCameras();
                 await this.stopCamera();
+                await this.getCameras();
                 this.setupCamera();
             },
 
