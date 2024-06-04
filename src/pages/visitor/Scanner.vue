@@ -28,20 +28,30 @@ import { visitorExpired } from '@/assets/components/common/common';
                 facingMode: 'environment',
                 capturedImage: null, // holds the image captured
                 show: false, // cecks if the user allow camera permission
+                selectedCameraId: null,
+                cameras: [],
             };
         },
 
         mounted() {
-            this.setupCamera(); // setup the camera after screen loads
+            this.getCameras().then(() => {
+                // Setup the camera after getting the list of cameras
+                this.setupCamera();
+            });
         },
 
         methods: {
             async setupCamera() {
                 try {
+                    const constraints = this.selectedCameraId
+                        ? { video: { deviceId: { exact: this.selectedCameraId } } }
+                        : { video: true };
+                    const stream = await navigator.mediaDevices.getUserMedia(constraints);
+
                     // get the camera stream
-                    const stream = await navigator.mediaDevices.getUserMedia({
-                        video: { facingMode: this.facingMode },
-                    });
+                    // const stream = await navigator.mediaDevices.getUserMedia({
+                    //     video: { facingMode: this.facingMode },
+                    // });
 
                     // assign the stream to the variable stream
                     this.stream = stream;
@@ -60,6 +70,21 @@ import { visitorExpired } from '@/assets/components/common/common';
                     })
                 } catch (error) {
                     this.show = true;
+                }
+            },
+
+            async switchCamera() {
+                await this.stopCamera();
+                this.setupCamera();
+            },
+
+            async getCameras() {
+                try {
+                    // Get a list of all video input devices
+                    const devices = await navigator.mediaDevices.enumerateDevices();
+                    this.cameras = devices.filter(device => device.kind === 'videoinput');
+                } catch (error) {
+                    console.error('Error getting cameras:', error);
                 }
             },
 
@@ -141,6 +166,12 @@ import { visitorExpired } from '@/assets/components/common/common';
             </div>
             <h2 :style="{marginTop: '10px'}">Please point the camera to the artwork</h2>
     
+            <select v-model="selectedCameraId" @change="switchCamera">
+                <option v-for="camera in cameras" :key="camera.deviceId" :value="camera.deviceId">
+                    {{ camera.label }}
+                </option>
+            </select>
+
             <!-- buttons -->
             <div class="btn-cont">
                 <button class="flip-camera  box-shadow" @click="toggleCamera">
